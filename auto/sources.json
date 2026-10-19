@@ -1,0 +1,3213 @@
+{
+    "version": 1,
+    "updated": "2026-10-19T17:00:07",
+    "sites": [
+        {
+            "key": "豆瓣",
+            "name": "🍎免费丨接口",
+            "type": 3,
+            "api": "csp_Douban",
+            "indexs": 1,
+            "searchable": 0,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:07"
+                }
+            }
+        },
+        {
+            "key": "配置中心",
+            "name": "📥配置丨中心",
+            "type": 3,
+            "api": "csp_Config",
+            "searchable": 0,
+            "changeable": 0,
+            "indexs": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 1.618
+            },
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:07"
+                }
+            }
+        },
+        {
+            "key": "玩偶",
+            "name": "🤪玩偶丨4K",
+            "type": 3,
+            "api": "csp_Wogg",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "https://www.wogg.net",
+                    "https://wogg.xxooo.cf",
+                    "https://woggpan.xxooo.cf"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://www.wogg.net",
+                    "https://wogg.xxooo.cf",
+                    "https://woggpan.xxooo.cf"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:27",
+                    "code": 200,
+                    "latency_ms": 2624,
+                    "url": "https://www.wogg.net",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 3,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 2624,
+                            "url": "https://www.wogg.net",
+                            "target": "https://www.wogg.net"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "木偶",
+            "name": "🤪木偶丨4K",
+            "type": 3,
+            "api": "csp_PanWebShare",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "https://123.666291.xyz",
+                    "https://666.666291.xyz",
+                    "https://www.muou.site",
+                    "https://www.muou.asia"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://123.666291.xyz",
+                    "https://666.666291.xyz",
+                    "https://www.muou.site",
+                    "https://www.muou.asia"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:08",
+                    "code": 200,
+                    "latency_ms": 1179,
+                    "url": "https://123.666291.xyz",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 4,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 1179,
+                            "url": "https://123.666291.xyz",
+                            "target": "https://123.666291.xyz"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "蜡笔",
+            "name": "🤪蜡笔丨4K",
+            "type": 3,
+            "api": "csp_PanWebShare",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "http://tvpanpan.site",
+                    "http://feimo.fun",
+                    "http://xiaocgege.shop",
+                    "http://www.xiaocgege.shop",
+                    "https://www.xiaocge.fun"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "http://tvpanpan.site",
+                    "http://feimo.fun",
+                    "http://xiaocgege.shop",
+                    "http://www.xiaocgege.shop",
+                    "https://www.xiaocge.fun"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:19",
+                    "code": 200,
+                    "latency_ms": 11465,
+                    "url": "http://tvpanpan.site",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 5,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 11465,
+                            "url": "http://tvpanpan.site",
+                            "target": "http://tvpanpan.site"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "至臻",
+            "name": "🤪至臻丨4K",
+            "type": 3,
+            "api": "csp_PanWebShare",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "https://mihdr.top",
+                    "https://www.miqk.cc",
+                    "https://www.mihdr.top"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://mihdr.top",
+                    "https://www.miqk.cc",
+                    "https://www.mihdr.top"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:31",
+                    "code": 200,
+                    "latency_ms": 897,
+                    "url": "https://www.mihdr.top",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 3,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 2,
+                            "url": "https://mihdr.top",
+                            "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                            "target": "https://mihdr.top"
+                        },
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 1,
+                            "url": "https://www.miqk.cc",
+                            "detail": "URLError: <urlopen error [Errno 11002] getaddrinfo failed>",
+                            "target": "https://www.miqk.cc"
+                        },
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 897,
+                            "url": "https://www.mihdr.top",
+                            "target": "https://www.mihdr.top"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "多多",
+            "name": "🤪多多丨4K",
+            "type": 3,
+            "api": "csp_PanWebShare",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "https://tv.yydsys.top",
+                    "https://tv.yydsys.cc",
+                    "https://tv.214521.xyz"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://tv.yydsys.top",
+                    "https://tv.yydsys.cc",
+                    "https://tv.214521.xyz"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:46",
+                    "code": 200,
+                    "latency_ms": 7502,
+                    "url": "https://tv.yydsys.cc",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 3,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 11066,
+                            "url": "https://tv.yydsys.top",
+                            "detail": "URLError: <urlopen error [Errno 11002] getaddrinfo failed>",
+                            "target": "https://tv.yydsys.top"
+                        },
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 7502,
+                            "url": "https://tv.yydsys.cc",
+                            "target": "https://tv.yydsys.cc"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "欧哥",
+            "name": "🤪欧哥丨4K",
+            "type": 3,
+            "api": "csp_PanWebShare",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "https://woog.nxog.eu.org",
+                    "https://woog.nxog.fun",
+                    "https://woog.nxog.eu.org",
+                    "https://woog.430520.xyz"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://woog.nxog.eu.org",
+                    "https://woog.nxog.fun",
+                    "https://woog.430520.xyz"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:51",
+                    "code": 200,
+                    "latency_ms": 8793,
+                    "url": "https://woog.430520.xyz",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 3,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8308,
+                            "url": "https://woog.nxog.eu.org",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                            "target": "https://woog.nxog.eu.org"
+                        },
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8464,
+                            "url": "https://woog.nxog.fun",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                            "target": "https://woog.nxog.fun"
+                        },
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 8793,
+                            "url": "https://woog.430520.xyz",
+                            "target": "https://woog.430520.xyz"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "二小",
+            "name": "🤪二小丨4K",
+            "type": 3,
+            "api": "csp_PanWebShare",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "https://www.2xiaopan.top",
+                    "https://2xiaopan.top",
+                    "https://www.erxiaozhan.top",
+                    "https://www.2xiaozhan.top",
+                    "https://wexwp.cc"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://www.2xiaopan.top",
+                    "https://2xiaopan.top",
+                    "https://www.erxiaozhan.top",
+                    "https://www.2xiaozhan.top",
+                    "https://wexwp.cc"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:00:32",
+                    "code": null,
+                    "latency_ms": 2,
+                    "url": "https://www.erxiaozhan.top",
+                    "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                    "target_source": "ext",
+                    "targets_total": 5,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 371,
+                            "url": "https://www.2xiaopan.top",
+                            "detail": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1082)>",
+                            "target": "https://www.2xiaopan.top"
+                        },
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 2,
+                            "url": "https://2xiaopan.top",
+                            "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                            "target": "https://2xiaopan.top"
+                        },
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 2,
+                            "url": "https://www.erxiaozhan.top",
+                            "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                            "target": "https://www.erxiaozhan.top"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "虎斑",
+            "name": "🤪虎斑丨4K",
+            "type": 3,
+            "api": "csp_PanWebShare",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "http://38.76.197.172:16969"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "http://38.76.197.172:16969"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:07",
+                    "code": 200,
+                    "latency_ms": 222,
+                    "url": "http://38.76.197.172:16969",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 222,
+                            "url": "http://38.76.197.172:16969",
+                            "target": "http://38.76.197.172:16969"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "快映",
+            "name": "🤪快映丨4K",
+            "type": 3,
+            "api": "csp_PanWebShare",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "http://38.76.197.172:12521"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "http://38.76.197.172:12521"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:07",
+                    "code": 200,
+                    "latency_ms": 267,
+                    "url": "http://38.76.197.172:12521",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 267,
+                            "url": "http://38.76.197.172:12521",
+                            "target": "http://38.76.197.172:12521"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "种子",
+            "name": "🍃SeedHub丨4K",
+            "type": 3,
+            "api": "csp_SeedHub",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "https://sidhub.cc",
+                    "https://seeduck.cc",
+                    "https://hubdog.cc",
+                    "http://104.243.25.80"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://sidhub.cc",
+                    "https://seeduck.cc",
+                    "https://hubdog.cc",
+                    "http://104.243.25.80"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:19",
+                    "code": 200,
+                    "latency_ms": 11492,
+                    "url": "https://sidhub.cc",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 4,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 11492,
+                            "url": "https://sidhub.cc",
+                            "target": "https://sidhub.cc"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "123",
+            "name": "🔰123丨4K",
+            "type": 3,
+            "api": "csp_PanWebShare123",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "style": {
+                "type": "list",
+                "ratio": 1.433
+            },
+            "ext": {
+                "site": [
+                    "https://123panfx.com",
+                    "https://pan1.me"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://123panfx.com",
+                    "https://pan1.me"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:00:42",
+                    "code": null,
+                    "latency_ms": 8529,
+                    "url": "https://pan1.me",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 2,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8325,
+                            "url": "https://123panfx.com",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                            "target": "https://123panfx.com"
+                        },
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8529,
+                            "url": "https://pan1.me",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                            "target": "https://pan1.me"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "指南",
+            "name": "🔰指南丨原盘",
+            "type": 3,
+            "api": "csp_4KZhinan",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:09",
+                    "code": 200,
+                    "latency_ms": 2107,
+                    "url": "https://4kzn.cc",
+                    "detail": null,
+                    "target_source": "jar",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 2107,
+                            "url": "https://4kzn.cc",
+                            "target": "https://4kzn.cc"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "人人",
+            "name": "🔰人人丨4K",
+            "type": 3,
+            "api": "csp_RenRen",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:00:25",
+                    "code": null,
+                    "latency_ms": 9301,
+                    "url": "https://www.rrdynb.com/plus/search.php?q=",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "jar",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 9301,
+                            "url": "https://www.rrdynb.com/plus/search.php?q=",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                            "target": "https://www.rrdynb.com/plus/search.php?q="
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "即刻",
+            "name": "🔰即刻丨4K",
+            "type": 3,
+            "api": "csp_Jike",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "style": {
+                "type": "list"
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:07"
+                }
+            }
+        },
+        {
+            "key": "双星",
+            "name": "🔰双星丨4K",
+            "type": 3,
+            "api": "csp_ShuangXing",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "style": {
+                "type": "list"
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:07"
+                }
+            }
+        },
+        {
+            "key": "聚合",
+            "name": "🔍聚合丨搜索",
+            "type": 3,
+            "api": "csp_JuheSo",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:07"
+                }
+            }
+        },
+        {
+            "key": "盘搜",
+            "name": "🔍盘搜丨搜索",
+            "type": 3,
+            "api": "csp_PanSou",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:07"
+                }
+            }
+        },
+        {
+            "key": "米搜",
+            "name": "Ⓜ️米搜丨搜索",
+            "type": 3,
+            "api": "csp_MiSou",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "ext": {
+                "site": [
+                    "https://misoso.shop",
+                    "http://www.misoso.shop"
+                ]
+            },
+            "timeout": 60,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://misoso.shop",
+                    "http://www.misoso.shop"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:00:42",
+                    "code": null,
+                    "latency_ms": 8541,
+                    "url": "http://www.misoso.shop",
+                    "detail": "TimeoutError: timed out",
+                    "target_source": "ext",
+                    "targets_total": 2,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8311,
+                            "url": "https://misoso.shop",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                            "target": "https://misoso.shop"
+                        },
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8541,
+                            "url": "http://www.misoso.shop",
+                            "detail": "TimeoutError: timed out",
+                            "target": "http://www.misoso.shop"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "热播影视",
+            "name": "🌞热播丨秒播",
+            "type": 3,
+            "api": "csp_AppRJ",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 0,
+            "ext": {
+                "url": "http://v.rbotv.cn"
+            },
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "http://v.rbotv.cn"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:08",
+                    "code": 200,
+                    "latency_ms": 102,
+                    "url": "http://v.rbotv.cn",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 102,
+                            "url": "http://v.rbotv.cn",
+                            "target": "http://v.rbotv.cn"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "韩圈",
+            "name": "⭕韩圈丨蓝光",
+            "type": 3,
+            "api": "csp_Hxq",
+            "ext": "http://www.小不点.com/api/2026/fishhxq.php",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "http://www.小不点.com/api/2026/fishhxq.php"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:00:20",
+                    "code": null,
+                    "latency_ms": 2,
+                    "url": "http://www.小不点.com/api/2026/fishhxq.php",
+                    "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 2,
+                            "url": "http://www.小不点.com/api/2026/fishhxq.php",
+                            "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                            "target": "http://www.小不点.com/api/2026/fishhxq.php"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "1905",
+            "name": "🕊️1905丨影视",
+            "type": 3,
+            "api": "csp_Web1905",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:09"
+                }
+            }
+        },
+        {
+            "key": "农民影视",
+            "name": "🌾农民丨影视",
+            "type": 3,
+            "api": "csp_Wwys",
+            "ext": "https://vip.wwgz.cn:5200",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://vip.wwgz.cn:5200"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:09",
+                    "code": 200,
+                    "latency_ms": 318,
+                    "url": "https://vip.wwgz.cn:5200",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 318,
+                            "url": "https://vip.wwgz.cn:5200",
+                            "target": "https://vip.wwgz.cn:5200"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "爱看机器人",
+            "name": "🤖爱看丨机器人",
+            "type": 3,
+            "api": "csp_Ikanbot",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:00:27",
+                    "code": null,
+                    "latency_ms": 8299,
+                    "url": "https://www1.ikanbot.com",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "jar",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8299,
+                            "url": "https://www1.ikanbot.com",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                            "target": "https://www1.ikanbot.com"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "独播影视",
+            "name": "🎦独播库丨影视",
+            "type": 3,
+            "api": "csp_Duboku",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:00:38",
+                    "code": null,
+                    "latency_ms": 2,
+                    "url": "https://w.duboku.io/",
+                    "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                    "target_source": "jar",
+                    "targets_total": 3,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": 400,
+                            "latency_ms": 7162,
+                            "url": "https://api.dbokutv.com",
+                            "detail": "HTTP 400",
+                            "target": "https://api.dbokutv.com"
+                        },
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 1,
+                            "url": "https://w.duboku.io",
+                            "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                            "target": "https://w.duboku.io"
+                        },
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 2,
+                            "url": "https://w.duboku.io/",
+                            "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                            "target": "https://w.duboku.io/"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "厂长影视",
+            "name": "🧢厂长丨影视",
+            "type": 3,
+            "api": "csp_Czsapp",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "https://cz01.vip",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://cz01.vip"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:28",
+                    "code": 200,
+                    "latency_ms": 9283,
+                    "url": "https://cz01.vip",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 9283,
+                            "url": "https://cz01.vip",
+                            "target": "https://cz01.vip"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "阿里云盘",
+            "name": "🔵阿里丨云盘",
+            "type": 3,
+            "api": "csp_PanAli",
+            "searchable": 0,
+            "filterable": 0,
+            "changeable": 0,
+            "style": {
+                "type": "list",
+                "ratio": 1.433
+            },
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:20"
+                }
+            }
+        },
+        {
+            "key": "夸克网盘",
+            "name": "🔵夸克丨网盘",
+            "type": 3,
+            "api": "csp_PanQuark",
+            "searchable": 0,
+            "filterable": 0,
+            "changeable": 0,
+            "style": {
+                "type": "list",
+                "ratio": 1.433
+            },
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:20"
+                }
+            }
+        },
+        {
+            "key": "UC网盘",
+            "name": "🔵UC丨网盘",
+            "type": 3,
+            "api": "csp_PanUC",
+            "searchable": 0,
+            "filterable": 0,
+            "changeable": 0,
+            "style": {
+                "type": "list",
+                "ratio": 1.433
+            },
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:20"
+                }
+            }
+        },
+        {
+            "key": "百度网盘",
+            "name": "🔵百度丨网盘",
+            "type": 3,
+            "api": "csp_PanBaidu",
+            "searchable": 0,
+            "filterable": 0,
+            "changeable": 0,
+            "style": {
+                "type": "list",
+                "ratio": 1.433
+            },
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:20"
+                }
+            }
+        },
+        {
+            "key": "本地",
+            "name": "🗂️我的｜本地",
+            "type": 3,
+            "api": "csp_LocalFile",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:20"
+                }
+            }
+        },
+        {
+            "key": "push_agent",
+            "name": "🔗云盘 | 推送",
+            "type": 3,
+            "api": "csp_Push",
+            "searchable": 0,
+            "filterable": 0,
+            "changeable": 0,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [],
+                "last_check": {
+                    "ok": null,
+                    "detail": "no_target",
+                    "checked_at": "2026-10-19T17:00:20"
+                }
+            }
+        }
+    ],
+    "repos": [
+        {
+            "url": "https://8815.kstore.vip/tvbox/wmz",
+            "name": "🤓网络🤓",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": true,
+                    "code": 200,
+                    "latency_ms": 269,
+                    "url": "https://8815.kstore.vip/tvbox/wmz",
+                    "checked_at": "2026-10-19T17:01:55"
+                }
+            }
+        },
+        {
+            "url": "https://www.饭太硬.cc/tv",
+            "name": "👽饭太硬👿",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": true,
+                    "code": 200,
+                    "latency_ms": 1942,
+                    "url": "https://www.饭太硬.cc/tv",
+                    "checked_at": "2026-10-19T17:01:57"
+                }
+            }
+        },
+        {
+            "url": "http://肥猫.net/tv",
+            "name": "🐼肥猫🐼",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": true,
+                    "code": 200,
+                    "latency_ms": 1529,
+                    "url": "http://肥猫.net/tv",
+                    "checked_at": "2026-10-19T17:02:05"
+                }
+            }
+        },
+        {
+            "url": "https://9280.kstore.vip/aiwex.json",
+            "name": "🐂王二小🐮",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": true,
+                    "code": 200,
+                    "latency_ms": 240,
+                    "url": "https://9280.kstore.vip/aiwex.json",
+                    "checked_at": "2026-10-19T17:01:55"
+                }
+            }
+        },
+        {
+            "url": "http://www.英格里希嗷呜.top/tv",
+            "name": "🐿️嗷呜🐿️",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": false,
+                    "code": null,
+                    "latency_ms": 9302,
+                    "url": "http://www.英格里希嗷呜.top/tv",
+                    "detail": "TimeoutError: timed out",
+                    "checked_at": "2026-10-19T17:02:14"
+                }
+            }
+        },
+        {
+            "url": "https://9877.kstore.space/one.json",
+            "name": "💫潇洒💫",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": false,
+                    "code": 404,
+                    "latency_ms": 322,
+                    "url": "https://9877.kstore.space/one.json",
+                    "detail": "HTTP 404",
+                    "checked_at": "2026-10-19T17:01:55"
+                }
+            }
+        },
+        {
+            "url": "http://www.小不点.com",
+            "name": "🐟摸鱼🐟",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": false,
+                    "code": null,
+                    "latency_ms": 2,
+                    "url": "http://www.小不点.com",
+                    "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                    "checked_at": "2026-10-19T17:02:07"
+                }
+            }
+        },
+        {
+            "url": "https://16151.kstore.space",
+            "name": "🤓东篱🤓",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": true,
+                    "code": 200,
+                    "latency_ms": 274,
+                    "url": "https://16151.kstore.space",
+                    "checked_at": "2026-10-19T17:01:55"
+                }
+            }
+        },
+        {
+            "url": "https://www.tangsan.fun/tv",
+            "name": "👿小米👿",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": false,
+                    "code": null,
+                    "latency_ms": 8007,
+                    "url": "https://www.tangsan.fun/tv",
+                    "detail": "URLError: <urlopen error timed out>",
+                    "checked_at": "2026-10-19T17:02:12"
+                }
+            }
+        },
+        {
+            "url": "http://cdn.qiaoji8.com/tvbox.json",
+            "name": "🔮巧记🔮",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": false,
+                    "code": null,
+                    "latency_ms": 83,
+                    "url": "http://cdn.qiaoji8.com/tvbox.json",
+                    "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                    "checked_at": "2026-10-19T17:01:56"
+                }
+            }
+        },
+        {
+            "url": "http://hb.小虎斑.site:25252/仅供测试",
+            "name": "🐯虎斑🐯",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": true,
+                    "code": 200,
+                    "latency_ms": 895,
+                    "url": "http://hb.小虎斑.site:25252/仅供测试",
+                    "checked_at": "2026-10-19T17:01:56"
+                }
+            }
+        },
+        {
+            "url": "https://欧歌.v.nxog.top/m/",
+            "name": "🌈欧歌🌈",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": false,
+                    "code": null,
+                    "latency_ms": 1931,
+                    "url": "https://欧歌.v.nxog.top/m/",
+                    "detail": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1082)>",
+                    "checked_at": "2026-10-19T17:01:58"
+                }
+            }
+        },
+        {
+            "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
+            "name": "🍎南风🍎",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": true,
+                    "code": 200,
+                    "latency_ms": 442,
+                    "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
+                    "checked_at": "2026-10-19T17:01:56"
+                }
+            }
+        },
+        {
+            "url": "https://www.252035.xyz/p/jsm.json",
+            "name": "⚪PG⚪",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": true,
+                    "code": 200,
+                    "latency_ms": 3620,
+                    "url": "https://www.252035.xyz/p/jsm.json",
+                    "checked_at": "2026-10-19T17:01:59"
+                }
+            }
+        },
+        {
+            "url": "https://www.252035.xyz/z/FongMi.json",
+            "name": "🌱真心🌱",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": true,
+                    "code": 200,
+                    "latency_ms": 2038,
+                    "url": "https://www.252035.xyz/z/FongMi.json",
+                    "checked_at": "2026-10-19T17:01:57"
+                }
+            }
+        },
+        {
+            "url": "https://gitlab.com/duomv/dzhipy/-/raw/main/index.json",
+            "name": "📚道长📚",
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "last_check": {
+                    "ok": false,
+                    "code": null,
+                    "latency_ms": 8334,
+                    "url": "https://gitlab.com/duomv/dzhipy/-/raw/main/index.json",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "checked_at": "2026-10-19T17:02:13"
+                }
+            }
+        }
+    ],
+    "caiji": [
+        {
+            "key": "采集影视",
+            "name": "采集影视",
+            "type": 1,
+            "api": "https://dy.7772888.xyz/api.php/tvbox",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://dy.7772888.xyz/api.php/tvbox"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:09",
+                    "code": null,
+                    "latency_ms": 8291,
+                    "url": "https://dy.7772888.xyz/api.php/tvbox?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8291,
+                            "url": "https://dy.7772888.xyz/api.php/tvbox?ac=list",
+                            "target": "https://dy.7772888.xyz/api.php/tvbox",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "dyttzy",
+            "name": "电影天堂",
+            "type": 1,
+            "api": "http://caiji.dyttzyapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "http://caiji.dyttzyapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:52",
+                    "code": 200,
+                    "latency_ms": 604,
+                    "url": "http://caiji.dyttzyapi.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 604,
+                            "url": "http://caiji.dyttzyapi.com/api.php/provide/vod?ac=list",
+                            "target": "http://caiji.dyttzyapi.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "量子资源",
+            "name": "量子资源",
+            "type": 1,
+            "api": "https://cj.lziapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://cj.lziapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:59",
+                    "code": 200,
+                    "latency_ms": 7562,
+                    "url": "https://cj.lziapi.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 7562,
+                            "url": "https://cj.lziapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://cj.lziapi.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "1080资源",
+            "name": "1080资源",
+            "type": 1,
+            "api": "https://api.1080zyku.com/inc/api_mac10.php",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.1080zyku.com/inc/api_mac10.php"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:08",
+                    "code": null,
+                    "latency_ms": 8243,
+                    "url": "https://api.1080zyku.com/inc/api_mac10.php?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8243,
+                            "url": "https://api.1080zyku.com/inc/api_mac10.php?ac=list",
+                            "target": "https://api.1080zyku.com/inc/api_mac10.php",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "360资源",
+            "name": "360资源",
+            "type": 1,
+            "api": "https://360zy.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://360zy.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:53",
+                    "code": 200,
+                    "latency_ms": 1589,
+                    "url": "https://360zy.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 1589,
+                            "url": "https://360zy.com/api.php/provide/vod?ac=list",
+                            "target": "https://360zy.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "天涯资源",
+            "name": "天涯资源",
+            "type": 1,
+            "api": "https://tyyszy.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://tyyszy.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:10",
+                    "code": null,
+                    "latency_ms": 8247,
+                    "url": "https://tyyszy.com/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8247,
+                            "url": "https://tyyszy.com/api.php/provide/vod?ac=list",
+                            "target": "https://tyyszy.com/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "暴风资源",
+            "name": "暴风资源",
+            "type": 1,
+            "api": "https://bfzyapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://bfzyapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:09",
+                    "code": null,
+                    "latency_ms": 8446,
+                    "url": "https://bfzyapi.com/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8446,
+                            "url": "https://bfzyapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://bfzyapi.com/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "索尼-闪电资源",
+            "name": "闪电资源",
+            "type": 1,
+            "api": "https://xsd.sdzyapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://xsd.sdzyapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:08",
+                    "code": null,
+                    "latency_ms": 8273,
+                    "url": "https://xsd.sdzyapi.com/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8273,
+                            "url": "https://xsd.sdzyapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://xsd.sdzyapi.com/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨索尼资源",
+            "name": "索尼资源",
+            "type": 1,
+            "api": "https://suoniapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://suoniapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:10",
+                    "code": null,
+                    "latency_ms": 8276,
+                    "url": "https://suoniapi.com/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8276,
+                            "url": "https://suoniapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://suoniapi.com/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨红牛资源",
+            "name": "红牛资源",
+            "type": 1,
+            "api": "https://www.hongniuzy2.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://www.hongniuzy2.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:10",
+                    "code": null,
+                    "latency_ms": 9290,
+                    "url": "https://www.hongniuzy2.com/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 9290,
+                            "url": "https://www.hongniuzy2.com/api.php/provide/vod?ac=list",
+                            "target": "https://www.hongniuzy2.com/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨茅台资源",
+            "name": "茅台资源",
+            "type": 1,
+            "api": "https://caiji.maotaizy.cc/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://caiji.maotaizy.cc/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:53",
+                    "code": 200,
+                    "latency_ms": 1563,
+                    "url": "https://caiji.maotaizy.cc/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 1563,
+                            "url": "https://caiji.maotaizy.cc/api.php/provide/vod?ac=list",
+                            "target": "https://caiji.maotaizy.cc/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨虎牙资源",
+            "name": "虎牙资源",
+            "type": 1,
+            "api": "https://www.huyaapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://www.huyaapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:09",
+                    "code": null,
+                    "latency_ms": 8370,
+                    "url": "https://www.huyaapi.com/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8370,
+                            "url": "https://www.huyaapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://www.huyaapi.com/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨豆瓣资源",
+            "name": "豆瓣资源",
+            "type": 1,
+            "api": "https://caiji.dbzy.tv/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://caiji.dbzy.tv/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:04",
+                    "code": null,
+                    "latency_ms": 2,
+                    "url": "https://caiji.dbzy.tv/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 2,
+                            "url": "https://caiji.dbzy.tv/api.php/provide/vod?ac=list",
+                            "target": "https://caiji.dbzy.tv/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨豆瓣资源2",
+            "name": "豆瓣资源2",
+            "type": 1,
+            "api": "https://dbzy.tv/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://dbzy.tv/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:54",
+                    "code": 200,
+                    "latency_ms": 1161,
+                    "url": "https://dbzy.tv/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 1161,
+                            "url": "https://dbzy.tv/api.php/provide/vod?ac=list",
+                            "target": "https://dbzy.tv/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨豆瓣资源3",
+            "name": "豆瓣资源3",
+            "type": 1,
+            "api": "https://caiji.dbzy5.com/api.php/provide/vod/from/dbm3u8/at/josn",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://caiji.dbzy5.com/api.php/provide/vod/from/dbm3u8/at/josn"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:00:54",
+                    "code": 200,
+                    "latency_ms": 1332,
+                    "url": "https://caiji.dbzy5.com/api.php/provide/vod/from/dbm3u8/at/josn?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 1332,
+                            "url": "https://caiji.dbzy5.com/api.php/provide/vod/from/dbm3u8/at/josn?ac=list",
+                            "target": "https://caiji.dbzy5.com/api.php/provide/vod/from/dbm3u8/at/josn"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨豪华资源",
+            "name": "豪华资源",
+            "type": 1,
+            "api": "https://hhzyapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://hhzyapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:11",
+                    "code": null,
+                    "latency_ms": 8297,
+                    "url": "https://hhzyapi.com/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8297,
+                            "url": "https://hhzyapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://hhzyapi.com/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨CK资源",
+            "name": "CK资源",
+            "type": 1,
+            "api": "https://ckzy.me/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://ckzy.me/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:19",
+                    "code": null,
+                    "latency_ms": 8304,
+                    "url": "https://ckzy.me/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8304,
+                            "url": "https://ckzy.me/api.php/provide/vod?ac=list",
+                            "target": "https://ckzy.me/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨U酷资源",
+            "name": "U酷资源",
+            "type": 1,
+            "api": "https://api.ukuapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.ukuapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:16",
+                    "code": null,
+                    "latency_ms": 8064,
+                    "url": "https://api.ukuapi.com/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8064,
+                            "url": "https://api.ukuapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://api.ukuapi.com/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨U酷资源2",
+            "name": "U酷资源2",
+            "type": 1,
+            "api": "https://api.ukuapi88.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.ukuapi88.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:22",
+                    "code": null,
+                    "latency_ms": 9319,
+                    "url": "https://api.ukuapi88.com/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 9319,
+                            "url": "https://api.ukuapi88.com/api.php/provide/vod?ac=list",
+                            "target": "https://api.ukuapi88.com/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨ikun资源",
+            "name": "ikun资源",
+            "type": 1,
+            "api": "https://ikunzyapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://ikunzyapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:26",
+                    "code": null,
+                    "latency_ms": 8241,
+                    "url": "https://ikunzyapi.com/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8241,
+                            "url": "https://ikunzyapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://ikunzyapi.com/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨wujinapi无尽",
+            "name": "wujinapi无尽",
+            "type": 1,
+            "api": "https://api.wujinapi.cc/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.wujinapi.cc/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:11",
+                    "code": 200,
+                    "latency_ms": 2611,
+                    "url": "https://api.wujinapi.cc/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 2611,
+                            "url": "https://api.wujinapi.cc/api.php/provide/vod?ac=list",
+                            "target": "https://api.wujinapi.cc/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨丫丫点播",
+            "name": "丫丫点播",
+            "type": 1,
+            "api": "https://cj.yayazy.net/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://cj.yayazy.net/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:24",
+                    "code": 200,
+                    "latency_ms": 6531,
+                    "url": "https://cj.yayazy.net/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 6531,
+                            "url": "https://cj.yayazy.net/api.php/provide/vod?ac=list",
+                            "target": "https://cj.yayazy.net/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨光速资源",
+            "name": "光速资源",
+            "type": 1,
+            "api": "https://api.guangsuapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.guangsuapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:33",
+                    "code": 200,
+                    "latency_ms": 6948,
+                    "url": "https://api.guangsuapi.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 6948,
+                            "url": "https://api.guangsuapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://api.guangsuapi.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨卧龙点播",
+            "name": "卧龙点播",
+            "type": 1,
+            "api": "https://collect.wolongzyw.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://collect.wolongzyw.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:10",
+                    "code": 200,
+                    "latency_ms": 877,
+                    "url": "https://collect.wolongzyw.com/api.php/provide/vod?ac=list",
+                    "detail": "reachable but no CMS markers (1588 bytes)",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 877,
+                            "url": "https://collect.wolongzyw.com/api.php/provide/vod?ac=list",
+                            "target": "https://collect.wolongzyw.com/api.php/provide/vod",
+                            "suspect": true,
+                            "detail": "reachable but no CMS markers (1588 bytes)"
+                        }
+                    ],
+                    "suspect": true
+                }
+            }
+        },
+        {
+            "key": "丨卧龙资源",
+            "name": "卧龙资源",
+            "type": 1,
+            "api": "https://collect.wolongzy.cc/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://collect.wolongzy.cc/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:21",
+                    "code": null,
+                    "latency_ms": 2,
+                    "url": "https://collect.wolongzy.cc/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 2,
+                            "url": "https://collect.wolongzy.cc/api.php/provide/vod?ac=list",
+                            "target": "https://collect.wolongzy.cc/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨卧龙资源2",
+            "name": "卧龙资源2",
+            "type": 1,
+            "api": "https://wolongzyw.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://wolongzyw.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:10",
+                    "code": 200,
+                    "latency_ms": 872,
+                    "url": "https://wolongzyw.com/api.php/provide/vod?ac=list",
+                    "detail": "reachable but no CMS markers (1588 bytes)",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 872,
+                            "url": "https://wolongzyw.com/api.php/provide/vod?ac=list",
+                            "target": "https://wolongzyw.com/api.php/provide/vod",
+                            "suspect": true,
+                            "detail": "reachable but no CMS markers (1588 bytes)"
+                        }
+                    ],
+                    "suspect": true
+                }
+            }
+        },
+        {
+            "key": "丨新浪点播",
+            "name": "新浪点播",
+            "type": 1,
+            "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.xinlangapi.com/xinlangapi.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:25",
+                    "code": 200,
+                    "latency_ms": 6276,
+                    "url": "https://api.xinlangapi.com/xinlangapi.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 6276,
+                            "url": "https://api.xinlangapi.com/xinlangapi.php/provide/vod?ac=list",
+                            "target": "https://api.xinlangapi.com/xinlangapi.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨无尽资源",
+            "name": "无尽资源",
+            "type": 1,
+            "api": "https://api.wujinapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.wujinapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:24",
+                    "code": 200,
+                    "latency_ms": 5507,
+                    "url": "https://api.wujinapi.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 5507,
+                            "url": "https://api.wujinapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://api.wujinapi.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨无尽资源2",
+            "name": "无尽资源2",
+            "type": 1,
+            "api": "https://api.wujinapi.me/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.wujinapi.me/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:27",
+                    "code": 200,
+                    "latency_ms": 7862,
+                    "url": "https://api.wujinapi.me/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 7862,
+                            "url": "https://api.wujinapi.me/api.php/provide/vod?ac=list",
+                            "target": "https://api.wujinapi.me/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨无尽资源3",
+            "name": "无尽资源3",
+            "type": 1,
+            "api": "https://api.wujinapi.net/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.wujinapi.net/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:21",
+                    "code": 200,
+                    "latency_ms": 974,
+                    "url": "https://api.wujinapi.net/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 974,
+                            "url": "https://api.wujinapi.net/api.php/provide/vod?ac=list",
+                            "target": "https://api.wujinapi.net/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨旺旺短剧",
+            "name": "旺旺短剧",
+            "type": 1,
+            "api": "https://wwzy.tv/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://wwzy.tv/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:28",
+                    "code": null,
+                    "latency_ms": 8006,
+                    "url": "https://wwzy.tv/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8006,
+                            "url": "https://wwzy.tv/api.php/provide/vod?ac=list",
+                            "target": "https://wwzy.tv/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨最大点播",
+            "name": "最大点播",
+            "type": 1,
+            "api": "http://zuidazy.me/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "http://zuidazy.me/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:33",
+                    "code": null,
+                    "latency_ms": 8218,
+                    "url": "http://zuidazy.me/api.php/provide/vod?ac=list",
+                    "detail": "TimeoutError: timed out",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8218,
+                            "url": "http://zuidazy.me/api.php/provide/vod?ac=list",
+                            "target": "http://zuidazy.me/api.php/provide/vod",
+                            "detail": "TimeoutError: timed out"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨最大资源",
+            "name": "最大资源",
+            "type": 1,
+            "api": "https://api.zuidapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.zuidapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:24",
+                    "code": 200,
+                    "latency_ms": 5541,
+                    "url": "https://api.zuidapi.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 5541,
+                            "url": "https://api.zuidapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://api.zuidapi.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨樱花资源",
+            "name": "樱花资源",
+            "type": 1,
+            "api": "https://m3u8.apiyhzy.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://m3u8.apiyhzy.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:28",
+                    "code": 200,
+                    "latency_ms": 7562,
+                    "url": "https://m3u8.apiyhzy.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 7562,
+                            "url": "https://m3u8.apiyhzy.com/api.php/provide/vod?ac=list",
+                            "target": "https://m3u8.apiyhzy.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨步步高资源",
+            "name": "步步高资源",
+            "type": 1,
+            "api": "https://api.yparse.com/api/json",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.yparse.com/api/json"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:33",
+                    "code": 200,
+                    "latency_ms": 1906,
+                    "url": "https://api.yparse.com/api/json?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 1906,
+                            "url": "https://api.yparse.com/api/json?ac=list",
+                            "target": "https://api.yparse.com/api/json"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨牛牛点播",
+            "name": "牛牛点播",
+            "type": 1,
+            "api": "https://api.niuniuzy.me/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.niuniuzy.me/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:29",
+                    "code": 200,
+                    "latency_ms": 6888,
+                    "url": "https://api.niuniuzy.me/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 6888,
+                            "url": "https://api.niuniuzy.me/api.php/provide/vod?ac=list",
+                            "target": "https://api.niuniuzy.me/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨百度云资源",
+            "name": "百度云资源",
+            "type": 1,
+            "api": "https://api.apibdzy.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.apibdzy.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:31",
+                    "code": 200,
+                    "latency_ms": 6718,
+                    "url": "https://api.apibdzy.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 6718,
+                            "url": "https://api.apibdzy.com/api.php/provide/vod?ac=list",
+                            "target": "https://api.apibdzy.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨神马云",
+            "name": "神马云",
+            "type": 1,
+            "api": "https://api.1080zyku.com/inc/apijson.php/",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://api.1080zyku.com/inc/apijson.php/"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:41",
+                    "code": null,
+                    "latency_ms": 8243,
+                    "url": "https://api.1080zyku.com/inc/apijson.php/?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8243,
+                            "url": "https://api.1080zyku.com/inc/apijson.php/?ac=list",
+                            "target": "https://api.1080zyku.com/inc/apijson.php/",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨速博资源",
+            "name": "速博资源",
+            "type": 1,
+            "api": "https://subocaiji.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://subocaiji.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:31",
+                    "code": 200,
+                    "latency_ms": 6911,
+                    "url": "https://subocaiji.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 6911,
+                            "url": "https://subocaiji.com/api.php/provide/vod?ac=list",
+                            "target": "https://subocaiji.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨金鹰点播",
+            "name": "金鹰点播",
+            "type": 1,
+            "api": "https://jinyingzy.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://jinyingzy.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:31",
+                    "code": 200,
+                    "latency_ms": 6297,
+                    "url": "https://jinyingzy.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 6297,
+                            "url": "https://jinyingzy.com/api.php/provide/vod?ac=list",
+                            "target": "https://jinyingzy.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨金鹰资源",
+            "name": "金鹰资源",
+            "type": 1,
+            "api": "https://jyzyapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://jyzyapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:49",
+                    "code": null,
+                    "latency_ms": 14246,
+                    "url": "https://jyzyapi.com/api.php/provide/vod?ac=list",
+                    "detail": "TimeoutError: The read operation timed out",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 14246,
+                            "url": "https://jyzyapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://jyzyapi.com/api.php/provide/vod",
+                            "detail": "TimeoutError: The read operation timed out"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨閃電资源",
+            "name": "閃電资源",
+            "type": 1,
+            "api": "https://sdzyapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://sdzyapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:35",
+                    "code": 200,
+                    "latency_ms": 7481,
+                    "url": "https://sdzyapi.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 7481,
+                            "url": "https://sdzyapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://sdzyapi.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨非凡资源",
+            "name": "非凡资源",
+            "type": 1,
+            "api": "https://cj.ffzyapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://cj.ffzyapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:29",
+                    "code": 200,
+                    "latency_ms": 962,
+                    "url": "https://cj.ffzyapi.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 962,
+                            "url": "https://cj.ffzyapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://cj.ffzyapi.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨飘零资源",
+            "name": "飘零资源",
+            "type": 1,
+            "api": "https://p2100.net/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://p2100.net/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:55",
+                    "code": 200,
+                    "latency_ms": 7065,
+                    "url": "https://p2100.net/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 7065,
+                            "url": "https://p2100.net/api.php/provide/vod?ac=list",
+                            "target": "https://p2100.net/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨魔爪资源",
+            "name": "魔爪资源",
+            "type": 1,
+            "api": "https://mozhuazy.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://mozhuazy.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:36",
+                    "code": null,
+                    "latency_ms": 3359,
+                    "url": "https://mozhuazy.com/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 3359,
+                            "url": "https://mozhuazy.com/api.php/provide/vod?ac=list",
+                            "target": "https://mozhuazy.com/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨魔都动漫",
+            "name": "魔都动漫",
+            "type": 1,
+            "api": "https://caiji.moduapi.cc/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://caiji.moduapi.cc/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": false,
+                    "checked_at": "2026-10-19T17:01:46",
+                    "code": null,
+                    "latency_ms": 8243,
+                    "url": "https://caiji.moduapi.cc/api.php/provide/vod?ac=list",
+                    "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8243,
+                            "url": "https://caiji.moduapi.cc/api.php/provide/vod?ac=list",
+                            "target": "https://caiji.moduapi.cc/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "key": "丨魔都资源",
+            "name": "魔都资源",
+            "type": 1,
+            "api": "https://www.mdzyapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10,
+            "_meta": {
+                "origin": "local",
+                "added_at": "2026-10-19T16:51:42",
+                "targets": [
+                    "https://www.mdzyapi.com/api.php/provide/vod"
+                ],
+                "last_check": {
+                    "ok": true,
+                    "checked_at": "2026-10-19T17:01:38",
+                    "code": 200,
+                    "latency_ms": 7065,
+                    "url": "https://www.mdzyapi.com/api.php/provide/vod?ac=list",
+                    "detail": null,
+                    "target_source": "ext",
+                    "targets_total": 1,
+                    "results": [
+                        {
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 7065,
+                            "url": "https://www.mdzyapi.com/api.php/provide/vod?ac=list",
+                            "target": "https://www.mdzyapi.com/api.php/provide/vod"
+                        }
+                    ]
+                }
+            }
+        }
+    ]
+}

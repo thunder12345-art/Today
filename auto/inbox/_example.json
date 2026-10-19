@@ -1,0 +1,24 @@
+{
+    "sites": [
+        {
+            "key": "示例源",
+            "name": "📺示例丨新发现的源",
+            "type": 3,
+            "api": "csp_Wogg",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": {
+                "site": [
+                    "https://example.com"
+                ]
+            }
+        }
+    ],
+    "urls": [
+        {
+            "url": "https://example.com/tvbox.json",
+            "name": "示例多仓"
+        }
+    ]
+}

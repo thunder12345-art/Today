@@ -1,0 +1,6 @@
+**/__pycache__
+**/*.pyc
+auto/out
+auto/inbox/done
+auto/report.txt
+auto/report.json

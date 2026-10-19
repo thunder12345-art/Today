@@ -1,0 +1,27 @@
+services:
+  tomorrow:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: tomorrow-auto:latest
+    container_name: tomorrow-auto
+    restart: unless-stopped
+    ports:
+      - "${SERVER_PORT:-8080}:8080"
+    volumes:
+      - ./:/app
+    environment:
+      PORT: "8080"
+      TZ: "Asia/Shanghai"
+      REFRESH_INTERVAL_HOURS: "12"
+      BUILD_SCOPE: "all"
+      DROP_DEAD: "0"
+      RUN_ON_START: "1"
+      CHECK_WORKERS: "12"
+      CHECK_TIMEOUT: "8"
+    mem_limit: 256m
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "3"

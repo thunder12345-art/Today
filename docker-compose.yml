@@ -7,7 +7,7 @@ services:
     container_name: tomorrow-auto
     restart: unless-stopped
     ports:
-      - "${SERVER_PORT:-8080}:8080"
+      - "${SERVER_PORT:-8899}:8080"
     volumes:
       - ./:/app
     environment:
@@ -19,6 +19,9 @@ services:
       RUN_ON_START: "1"
       CHECK_WORKERS: "12"
       CHECK_TIMEOUT: "8"
+      AUTO_BLOCK: "1"
+      AUTO_BLOCK_AFTER: "2"
+      PANEL_TOKEN: ""
     mem_limit: 256m
     logging:
       driver: json-file

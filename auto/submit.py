@@ -2,11 +2,12 @@ import argparse
 import json
 import os
 import time
+import types
 
 from common import (DB_PATH, INBOX_DIR, check_entry, check_repo, coerce_site,
                     derive_targets, extract_entries, find_duplicate, http_fetch,
-                    load_json, norm_key, norm_target, now_iso, save_json,
-                    setup_stdout)
+                    item_key, load_json, norm_key, norm_target, now_iso,
+                    save_json, setup_stdout)
 from jarscan import load_jarscan, short_name
 
 
@@ -30,7 +31,7 @@ def status_text(check):
     return "SKIP %s" % check.get("detail", "")
 
 
-def process(payloads, db, args):
+def process(payloads, db, caiji=False, allow_dup=False):
     db.setdefault("sites", [])
     db.setdefault("repos", [])
     db.setdefault("caiji", [])
@@ -72,7 +73,7 @@ def process(payloads, db, args):
                 continue
             key = norm_key(site)
             targets = derive_targets(site)
-            if not args.allow_dup:
+            if not allow_dup:
                 dup = find_duplicate(db, site)
                 if dup:
                     _, existing, reason = dup
@@ -82,7 +83,7 @@ def process(payloads, db, args):
                 if key in known_keys or (targets and any(norm_target(item) in known_targets for item in targets)):
                     duplicates.append((origin, site.get("name", "?"), "duplicate within this submission"))
                     continue
-            group = "caiji" if args.caiji else "sites"
+            group = "caiji" if caiji else "sites"
             meta = {"origin": origin, "added_at": now_iso(), "targets": targets}
             if warning:
                 meta["notes"] = warning
@@ -93,6 +94,53 @@ def process(payloads, db, args):
             added_sites.append((db[group][-1], group))
 
     return added_sites, added_repos, duplicates, errors
+
+
+def finalize_added(db, added_sites, added_repos, timeout=8, do_check=True):
+    if not (added_sites or added_repos):
+        return []
+    scan = load_jarscan()
+    jar_names = {short_name(descriptor).lower() for descriptor in scan.get("classes", [])}
+    results = []
+    for item, group in added_sites:
+        api = item.get("api")
+        missing = (isinstance(api, str) and api.startswith("csp_")
+                   and api[4:].lower() not in jar_names)
+        if missing:
+            item["_meta"]["class_missing"] = True
+        check = None
+        if do_check:
+            check = check_entry(item, timeout=timeout)
+            item["_meta"]["last_check"] = check
+        results.append({"group": group, "name": item.get("name", "?"),
+                        "key": item_key(item), "api": api or "",
+                        "check": check, "missing": missing,
+                        "notes": item["_meta"].get("notes")})
+    for repo in added_repos:
+        check = None
+        if do_check:
+            check = check_repo(repo, timeout=timeout)
+            repo["_meta"]["last_check"] = check
+        results.append({"group": "repos", "name": repo.get("name") or repo.get("url"),
+                        "key": item_key(repo), "api": repo.get("url") or "",
+                        "check": check, "missing": False, "notes": None})
+    return results
+
+
+def submit_payloads(payloads, caiji=False, allow_dup=False, timeout=8, do_check=True):
+    db = load_json(DB_PATH)
+    if db is None:
+        return {"error": "sources.json not found, run first: python auto/seed.py"}
+    added_sites, added_repos, duplicates, errors = process(payloads, db, caiji=caiji,
+                                                           allow_dup=allow_dup)
+    added = finalize_added(db, added_sites, added_repos, timeout=timeout, do_check=do_check)
+    db["updated"] = now_iso()
+    save_json(DB_PATH, db)
+    return {"added": added,
+            "duplicates": [{"origin": origin, "label": label, "reason": reason}
+                           for origin, label, reason in duplicates],
+            "errors": [{"origin": origin, "label": label, "reason": reason}
+                       for origin, label, reason in errors]}
 
 
 def main():
@@ -107,11 +155,6 @@ def main():
     parser.add_argument("--timeout", type=float, default=8)
     args = parser.parse_args()
     setup_stdout()
-
-    db = load_json(DB_PATH)
-    if db is None:
-        print("sources.json not found, run first: python auto/seed.py")
-        return
 
     payloads = []
     inbox_files = []
@@ -156,42 +199,32 @@ def main():
         print("nothing to submit: use --file / --json / --url / --inbox")
         return
 
-    added_sites, added_repos, duplicates, errors = process(payloads, db, args)
+    result = submit_payloads(payloads, caiji=args.caiji, allow_dup=args.allow_dup,
+                             timeout=args.timeout, do_check=not args.no_check)
+    if result.get("error"):
+        print(result["error"])
+        return
 
-    if added_sites or added_repos:
-        scan = load_jarscan()
-        jar_names = {short_name(descriptor).lower() for descriptor in scan.get("classes", [])}
-        for item, group in added_sites:
-            api = item.get("api")
-            missing = (isinstance(api, str) and api.startswith("csp_")
-                       and api[4:].lower() not in jar_names)
-            if missing:
-                item["_meta"]["class_missing"] = True
-            if not args.no_check:
-                check = check_entry(item, timeout=args.timeout)
-                item["_meta"]["last_check"] = check
-                print("[ADDED %s] %-28s %s" % (group, item.get("name", "?"), status_text(check)))
-            else:
-                print("[ADDED %s] %-28s" % (group, item.get("name", "?")))
-            if item["_meta"].get("notes"):
-                print("    note: %s" % item["_meta"]["notes"])
-            if missing:
-                print("    WARN: class %s not found in tvbox.jar" % api)
-        for repo in added_repos:
-            if not args.no_check:
-                check = check_repo(repo, timeout=args.timeout)
-                repo["_meta"]["last_check"] = check
-                print("[ADDED repo] %-28s %s" % (repo.get("name") or repo.get("url"), status_text(check)))
-            else:
-                print("[ADDED repo] %s" % (repo.get("name") or repo.get("url")))
+    added_sites = 0
+    added_repos = 0
+    for item in result["added"]:
+        if item["group"] == "repos":
+            added_repos += 1
+        else:
+            added_sites += 1
+        if item.get("check") is not None:
+            print("[ADDED %s] %-28s %s" % (item["group"], item["name"], status_text(item["check"])))
+        else:
+            print("[ADDED %s] %-28s" % (item["group"], item["name"]))
+        if item.get("notes"):
+            print("    note: %s" % item["notes"])
+        if item.get("missing"):
+            print("    WARN: class %s not found in tvbox.jar" % item.get("api"))
 
-    for origin, label, reason in duplicates:
-        print("[DUPLICATE] %-28s %s (%s)" % (label, reason, origin))
-    for origin, label, reason in errors:
-        print("[ERROR]     %-28s %s (%s)" % (label, reason, origin))
-
-    db["updated"] = now_iso()
-    save_json(DB_PATH, db)
+    for dup in result["duplicates"]:
+        print("[DUPLICATE] %-28s %s (%s)" % (dup["label"], dup["reason"], dup["origin"]))
+    for err in result["errors"]:
+        print("[ERROR]     %-28s %s (%s)" % (err["label"], err["reason"], err["origin"]))
 
     if inbox_files:
         done_dir = os.path.join(INBOX_DIR, "done")
@@ -202,7 +235,7 @@ def main():
 
     print("")
     print("added: sites=%d repos=%d | duplicates=%d | errors=%d | db: %s"
-          % (len(added_sites), len(added_repos), len(duplicates), len(errors), DB_PATH))
+          % (added_sites, added_repos, len(result["duplicates"]), len(result["errors"]), DB_PATH))
 
 
 if __name__ == "__main__":

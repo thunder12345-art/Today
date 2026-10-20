@@ -186,6 +186,16 @@ def main():
                      "referenced": len(referenced),
                      "missing": missing_classes}
 
+    config = load_json(os.path.join(ROOT, "tvbox.json"), {}) or {}
+    config_missing = [key for key in ("spider", "sites", "parses", "lives")
+                      if key not in config]
+    if config_missing:
+        text_lines.append("CONFIG WARN: tvbox.json missing top-level keys: %s"
+                          % ", ".join(config_missing))
+        print("[CONFIG WARN] tvbox.json missing top-level keys: %s"
+              % ", ".join(config_missing))
+    report["config"] = {"missing_keys": config_missing}
+
     groups = []
     if args.only in ("all", "sites"):
         groups.append(("sites", "sites", (by_name, urls_by_name)))

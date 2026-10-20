@@ -10,10 +10,13 @@ import urllib.request
 BASE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(BASE)
 DB_PATH = os.path.join(BASE, "sources.json")
+WHITELIST_PATH = os.path.join(BASE, "whitelist.json")
 INBOX_DIR = os.path.join(BASE, "inbox")
 OUT_DIR = os.path.join(BASE, "out")
 REPORT_TXT = os.path.join(BASE, "report.txt")
 REPORT_JSON = os.path.join(BASE, "report.json")
+
+GROUPS = ("sites", "caiji", "repos", "parses")
 
 UA = ("Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) "
       "AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36")
@@ -301,3 +304,42 @@ def check_repo(repo, timeout=8):
     result = http_check(repo.get("url", ""), timeout=timeout)
     result["checked_at"] = now_iso()
     return result
+
+
+def item_key(item):
+    for field in ("key", "name", "url"):
+        value = item.get(field)
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return ""
+
+
+def load_whitelist():
+    data = load_json(WHITELIST_PATH, {}) or {}
+    whitelist = {}
+    for group in GROUPS:
+        values = data.get(group) or []
+        if not isinstance(values, list):
+            values = []
+        whitelist[group] = [str(value).strip() for value in values if str(value).strip()]
+    return whitelist
+
+
+def save_whitelist(whitelist):
+    data = {}
+    for group in GROUPS:
+        values = whitelist.get(group) or []
+        data[group] = sorted({str(value).strip() for value in values if str(value).strip()})
+    save_json(WHITELIST_PATH, data)
+
+
+def is_whitelisted(whitelist, group, item):
+    values = whitelist.get(group) or []
+    if not values:
+        return False
+    fields = set()
+    for field in ("key", "name", "url"):
+        value = item.get(field)
+        if isinstance(value, str) and value.strip():
+            fields.add(value.strip())
+    return bool(fields & set(values))

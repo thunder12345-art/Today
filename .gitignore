@@ -6,3 +6,4 @@ auto/inbox/done/
 auto/report.txt
 auto/report.json
 auto/jarscan.json
+auto/.upd_*.json

@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tomorrow 控制面板</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+         background: #0f1115; color: #e8e8ea; font-size: 14px; }
+  a { color: #6ea8fe; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 20px 16px 60px; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  h2 { font-size: 15px; margin: 22px 0 10px; color: #cfd3dc; }
+  .sub { color: #8b93a3; font-size: 12px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0 4px; }
+  .chip { background: #1b1f27; border: 1px solid #2a2f3a; border-radius: 999px;
+          padding: 4px 12px; font-size: 12px; color: #c3c9d6; }
+  .chip b { color: #fff; font-weight: 600; }
+  .chip.ok b { color: #4ade80; }
+  .chip.bad b { color: #f87171; }
+  .chip.warn b { color: #fbbf24; }
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+           gap: 10px; margin-top: 10px; }
+  .card { background: #161a21; border: 1px solid #262b35; border-radius: 12px; padding: 12px 14px; }
+  .card .t { color: #9aa3b2; font-size: 12px; margin-bottom: 6px; }
+  .card .nums { display: flex; flex-wrap: wrap; gap: 10px; font-size: 12px; }
+  .card .nums span b { font-size: 15px; }
+  .num-ok b { color: #4ade80; } .num-fail b { color: #f87171; }
+  .num-skip b { color: #9aa3b2; } .num-blocked b { color: #fbbf24; }
+  .num-wl b { color: #6ea8fe; }
+  .toolbar { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 12px 0; }
+  button { background: #232936; color: #e8e8ea; border: 1px solid #303747;
+           border-radius: 8px; padding: 6px 12px; cursor: pointer; font-size: 13px; }
+  button:hover { background: #2b3342; }
+  button.primary { background: #2563eb; border-color: #2563eb; color: #fff; }
+  button.primary:hover { background: #1d4ed8; }
+  button.danger { color: #fca5a5; }
+  button.small { padding: 3px 9px; font-size: 12px; }
+  input[type=text], input[type=password], textarea, select {
+    background: #12151b; color: #e8e8ea; border: 1px solid #2a2f3a; border-radius: 8px;
+    padding: 7px 10px; font-size: 13px; font-family: inherit; }
+  textarea { width: 100%; min-height: 110px; font-family: ui-monospace, Consolas, monospace; }
+  select { padding: 6px 8px; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tabs button.active { background: #2563eb; border-color: #2563eb; color: #fff; }
+  .filters button.active { background: #334155; color: #fff; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+  th, td { text-align: left; padding: 7px 8px; border-bottom: 1px solid #22262f;
+           font-size: 13px; vertical-align: top; }
+  th { color: #8b93a3; font-weight: 500; font-size: 12px; position: sticky; top: 0;
+       background: #12151b; z-index: 1; }
+  td.detail { color: #9aa3b2; max-width: 320px; word-break: break-all; font-size: 12px; }
+  td.target { max-width: 260px; word-break: break-all; color: #8b93a3; font-size: 12px; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 11px;
+           border: 1px solid transparent; white-space: nowrap; }
+  .b-ok { background: rgba(74,222,128,.12); color: #4ade80; border-color: rgba(74,222,128,.3); }
+  .b-fail { background: rgba(248,113,113,.12); color: #f87171; border-color: rgba(248,113,113,.3); }
+  .b-skip { background: rgba(154,163,178,.12); color: #9aa3b2; border-color: rgba(154,163,178,.3); }
+  .b-blocked { background: rgba(251,191,36,.12); color: #fbbf24; border-color: rgba(251,191,36,.3); }
+  .b-wl { background: rgba(110,168,254,.12); color: #6ea8fe; border-color: rgba(110,168,254,.3); }
+  .row-actions { display: flex; gap: 4px; flex-wrap: wrap; }
+  .muted { color: #8b93a3; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 860px) { .grid2 { grid-template-columns: 1fr; } }
+  .box { background: #161a21; border: 1px solid #262b35; border-radius: 12px; padding: 14px; }
+  .toast { position: fixed; right: 18px; bottom: 18px; display: flex; flex-direction: column;
+           gap: 8px; z-index: 99; }
+  .toast div { background: #1f2635; border: 1px solid #33415c; padding: 9px 14px;
+               border-radius: 10px; font-size: 13px; max-width: 380px; }
+  .wl-list { margin-top: 8px; display: flex; flex-wrap: wrap; gap: 6px; }
+  .wl-item { background: #1b2130; border: 1px solid #2c3444; border-radius: 999px;
+             padding: 3px 10px; font-size: 12px; display: inline-flex; gap: 6px; align-items: center; }
+  .wl-item button { padding: 0 4px; border: 0; background: none; color: #f87171; font-size: 13px; }
+  pre.result { background: #12151b; border: 1px solid #2a2f3a; border-radius: 10px;
+               padding: 10px; font-size: 12px; white-space: pre-wrap; word-break: break-all; }
+  .events { font-size: 12px; color: #c3c9d6; }
+  .events .e-blocked { color: #fbbf24; }
+  .events .e-unblocked { color: #4ade80; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Tomorrow 控制面板</h1>
+  <div class="sub" id="sub">加载中…</div>
+  <div class="chips" id="chips"></div>
+
+  <div class="cards" id="cards"></div>
+
+  <div class="toolbar">
+    <button class="primary" onclick="runPipeline()">立即重跑流水线</button>
+    <button onclick="window.open('/api/report.txt','_blank')">查看完整报告</button>
+    <button onclick="loadAll(true)">刷新</button>
+    <span class="muted" id="refreshHint"></span>
+  </div>
+
+  <h2>源管理 · 人工复核</h2>
+  <div class="toolbar">
+    <div class="tabs" id="tabs"></div>
+    <div class="filters tabs" id="filters"></div>
+    <input type="text" id="search" placeholder="搜索 名称 / key / 目标" style="min-width:220px" oninput="renderTable()">
+  </div>
+  <div class="box" style="padding:0 12px">
+    <table>
+      <thead><tr>
+        <th>名称</th><th>状态</th><th>连续失败</th><th>最近检测</th>
+        <th>目标</th><th>检测详情</th><th>操作</th>
+      </tr></thead>
+      <tbody id="tbody"></tbody>
+    </table>
+    <div class="sub" id="tableHint" style="padding:8px 0"></div>
+  </div>
+
+  <div class="grid2">
+    <div>
+      <h2>提交新源</h2>
+      <div class="box">
+        <div class="toolbar">
+          <label class="muted">类型：</label>
+          <select id="subType">
+            <option value="sites">站点</option>
+            <option value="caiji">采集</option>
+          </select>
+          <label class="muted"><input type="checkbox" id="subNoCheck"> 跳过即时检测</label>
+        </div>
+        <textarea id="subText" placeholder='粘贴 JSON：单个站点对象、站点数组、或整个配置（含 sites/urls）&#10;例：{"name":"某某影视","type":3,"api":"csp_Xxx","key":"某某影视"}'></textarea>
+        <div class="toolbar">
+          <input type="text" id="subUrl" placeholder="或粘贴一个远程配置 URL" style="flex:1;min-width:220px">
+          <button class="primary" onclick="submitSource()">提交并入库</button>
+        </div>
+        <div id="subResult"></div>
+      </div>
+    </div>
+    <div>
+      <h2>白名单（不会被自动屏蔽）</h2>
+      <div class="box">
+        <div class="toolbar">
+          <select id="wlGroup">
+            <option value="sites">站点</option>
+            <option value="caiji">采集</option>
+            <option value="repos">仓库</option>
+          </select>
+          <input type="text" id="wlKey" placeholder="key / 名称 / 仓库URL" style="flex:1;min-width:180px">
+          <button onclick="addWhitelist()">加入白名单</button>
+        </div>
+        <div id="wlBox"></div>
+      </div>
+      <h2>最近事件</h2>
+      <div class="box events" id="events"></div>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const GROUPS = { sites: "站点", caiji: "采集", repos: "仓库", parses: "解析" };
+let STATUS = null, SOURCES = null;
+let curGroup = "sites", curFilter = "all";
+let timer = null;
+
+function esc(s) {
+  return String(s == null ? "" : s).replace(/[&<>"']/g,
+    c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+function toast(msg, bad) {
+  const box = document.getElementById("toast");
+  const el = document.createElement("div");
+  el.textContent = msg;
+  if (bad) el.style.borderColor = "#7f1d1d";
+  box.appendChild(el);
+  setTimeout(() => el.remove(), 4000);
+}
+
+function token() { return localStorage.getItem("panelToken") || ""; }
+
+async function api(path, opts) {
+  opts = opts || {};
+  opts.headers = Object.assign({ "X-Panel-Token": token() }, opts.headers || {});
+  const res = await fetch(path, opts);
+  if (res.status === 401) {
+    const value = prompt("请输入面板访问令牌（PANEL_TOKEN）：", token());
+    if (value) {
+      localStorage.setItem("panelToken", value.trim());
+      return api(path, opts);
+    }
+    throw new Error("unauthorized");
+  }
+  const data = await res.json().catch(() => ({ error: "invalid json" }));
+  if (!res.ok && data.error) throw new Error(data.error);
+  return data;
+}
+
+async function post(path, data) {
+  return api(path, { method: "POST", headers: { "Content-Type": "application/json" },
+                     body: JSON.stringify(data || {}) });
+}
+
+async function loadAll(showToast) {
+  try {
+    const [status, sources] = await Promise.all([api("/api/status"), api("/api/sources")]);
+    STATUS = status; SOURCES = sources;
+    renderStatus(); renderTabs(); renderTable(); renderWhitelist(); renderEvents();
+    if (showToast) toast("已刷新");
+  } catch (err) { toast("加载失败: " + err.message, true); }
+}
+
+function renderStatus() {
+  const st = STATUS.state, g = STATUS.groups, p = STATUS.parses;
+  document.getElementById("sub").textContent =
+    "数据更新时间 " + (STATUS.db_updated || "-") + " · 当前服务器时间 " + STATUS.server_time;
+  const chips = [];
+  if (st.running) chips.push('<span class="chip warn">流水线 <b>运行中…</b></span>');
+  else chips.push('<span class="chip ok">流水线 <b>空闲</b></span>');
+  chips.push('<span class="chip">上次运行 <b>' + esc(st.last_run || "从未") + "</b></span>");
+  chips.push('<span class="chip' + (String(st.last_result).startsWith("ok") ? " ok" : " bad") +
+    '">上次结果 <b>' + esc(st.last_result || "-") + "</b></span>");
+  if (st.last_duration) chips.push('<span class="chip">耗时 <b>' + st.last_duration + "s</b></span>");
+  chips.push('<span class="chip">自动屏蔽 <b>' + (st.auto_block ? "开" : "关") +
+    (st.auto_block ? "（连续失败 " + st.auto_block_after + " 次）" : "") + "</b></span>");
+  chips.push('<span class="chip">刷新间隔 <b>' + st.interval_hours + "h</b></span>");
+  if (st.panel_token_required) chips.push('<span class="chip ok">面板令牌 <b>已启用</b></span>');
+  document.getElementById("chips").innerHTML = chips.join("");
+
+  const card = (title, d, extra) =>
+    '<div class="card"><div class="t">' + title + "</div><div class=\"nums\">" +
+    '<span class="num-ok">正常 <b>' + d.ok + "</b></span>" +
+    '<span class="num-fail">失败 <b>' + d.fail + "</b></span>" +
+    '<span class="num-skip">跳过 <b>' + d.skip + "</b></span>" +
+    '<span class="num-blocked">屏蔽 <b>' + d.blocked + "</b></span>" +
+    (extra || "") + '<span class="muted">共 ' + d.total + "</span></div></div>";
+  document.getElementById("cards").innerHTML =
+    card("站点", g.sites, '<span class="num-wl">白名单 <b>' + g.sites.whitelisted + "</b></span>") +
+    card("采集", g.caiji, '<span class="num-wl">白名单 <b>' + g.caiji.whitelisted + "</b></span>") +
+    card("仓库", g.repos, '<span class="num-wl">白名单 <b>' + g.repos.whitelisted + "</b></span>") +
+    '<div class="card"><div class="t">解析</div><div class="nums">' +
+    '<span class="num-ok">正常 <b>' + p.ok + "</b></span>" +
+    '<span class="num-fail">失败 <b>' + p.fail + "</b></span>" +
+    '<span class="num-blocked">屏蔽 <b>' + p.blocked + "</b></span>" +
+    '<span class="muted">共 ' + p.total + "</span></div></div>";
+}
+
+function renderTabs() {
+  const counts = {
+    sites: STATUS.groups.sites.total, caiji: STATUS.groups.caiji.total,
+    repos: STATUS.groups.repos.total, parses: STATUS.parses.total
+  };
+  document.getElementById("tabs").innerHTML = Object.keys(GROUPS).map(k =>
+    '<button class="' + (curGroup === k ? "active" : "") + '" onclick="setGroup(\'' + k + '\')">' +
+    GROUPS[k] + "（" + counts[k] + "）</button>").join("");
+  const filters = [["all", "全部"], ["failed", "失败"], ["blocked", "已屏蔽"],
+                   ["whitelist", "白名单"], ["ok", "正常"]];
+  document.getElementById("filters").innerHTML = filters.map(f =>
+    '<button class="' + (curFilter === f[0] ? "active" : "") +
+    '" onclick="setFilter(\'' + f[0] + '\')">' + f[1] + "</button>").join("");
+}
+
+function setGroup(g) { curGroup = g; renderTabs(); renderTable(); }
+function setFilter(f) { curFilter = f; renderTabs(); renderTable(); }
+
+function rowMatches(item) {
+  const needle = (document.getElementById("search").value || "").trim().toLowerCase();
+  if (needle) {
+    const hay = [item.name, item.key, item.target].join(" ").toLowerCase();
+    if (!hay.includes(needle)) return false;
+  }
+  if (curFilter === "failed") return item.ok === false;
+  if (curFilter === "blocked") return !!item.blocked;
+  if (curFilter === "whitelist") return !!item.whitelisted;
+  if (curFilter === "ok") return item.ok === true;
+  return true;
+}
+
+function badge(item) {
+  let html = "";
+  if (item.blocked) html += '<span class="badge b-blocked">已屏蔽' +
+    (item.blocked_reason === "manual" ? "·手动" : "·自动") + "</span> ";
+  else if (item.ok === true) html += '<span class="badge b-ok">正常</span> ';
+  else if (item.ok === false) html += '<span class="badge b-fail">失败</span> ';
+  else html += '<span class="badge b-skip">跳过</span> ';
+  if (item.whitelisted) html += '<span class="badge b-wl">白名单</span>';
+  return html;
+}
+
+function renderTable() {
+  const list = (SOURCES && SOURCES[curGroup]) || [];
+  const rows = list.filter(rowMatches);
+  document.getElementById("tbody").innerHTML = rows.map(item => {
+    const g = curGroup, k = item.key;
+    const wlButtons = g === "parses" ? "" :
+      '<button class="small" onclick="act(\'' + g + '\',\'' + encodeURIComponent(k) + '\',\'' +
+      (item.whitelisted ? "unwhitelist" : "whitelist") + '\')">' +
+      (item.whitelisted ? "移出白名单" : "白名单") + "</button>";
+    return "<tr>" +
+      "<td><b>" + esc(item.name || item.key) + "</b>" +
+      (item.class_missing ? ' <span class="badge b-fail">类缺失</span>' : "") +
+      '<div class="muted" style="font-size:11px">' + esc(item.key) + "</div></td>" +
+      "<td>" + badge(item) + "</td>" +
+      "<td>" + (g === "parses" ? "-" : item.fail_streak) + "</td>" +
+      '<td class="muted" style="font-size:12px">' + esc(item.checked_at || "-") + "</td>" +
+      '<td class="target">' + esc(item.target) + "</td>" +
+      '<td class="detail">' + esc(item.detail || "-") + "</td>" +
+      '<td><div class="row-actions">' +
+      '<button class="small" onclick="act(\'' + g + "','" + encodeURIComponent(k) + "','recheck')\">重测</button>" +
+      (item.blocked
+        ? '<button class="small" onclick="act(\'' + g + "','" + encodeURIComponent(k) + "','unblock')\">解除屏蔽</button>"
+        : '<button class="small danger" onclick="act(\'' + g + "','" + encodeURIComponent(k) + "','block')\">屏蔽</button>") +
+      wlButtons +
+      "</div></td></tr>";
+  }).join("");
+  document.getElementById("tableHint").textContent =
+    "显示 " + rows.length + " / " + list.length + " 条";
+}
+
+async function act(group, key, action) {
+  key = decodeURIComponent(key);
+  if (action === "block" && !confirm("确定屏蔽 [" + key + "] ？将从生成的配置中移除。")) return;
+  try {
+    const res = await post("/api/action", { group, key, action });
+    toast("操作完成" + (res.event ? "：" + res.event : ""));
+    await loadAll(false);
+  } catch (err) { toast("操作失败: " + err.message, true); }
+}
+
+function renderWhitelist() {
+  const wl = STATUS.whitelist || {};
+  document.getElementById("wlBox").innerHTML = ["sites", "caiji", "repos"].map(g => {
+    const items = (wl[g] || []).map(k =>
+      '<span class="wl-item">' + esc(k) +
+      '<button title="移除" onclick="removeWhitelist(\'' + g + "','" + encodeURIComponent(k) + "')\">×</button></span>").join("");
+    return '<div class="sub" style="margin-top:8px">' + GROUPS[g] + "（" + (wl[g] || []).length + "）</div>" +
+      '<div class="wl-list">' + (items || '<span class="muted">空</span>') + "</div>";
+  }).join("");
+}
+
+async function addWhitelist() {
+  const group = document.getElementById("wlGroup").value;
+  const key = document.getElementById("wlKey").value.trim();
+  if (!key) { toast("请输入 key / 名称 / URL", true); return; }
+  try {
+    await post("/api/action", { group, key, action: "whitelist" });
+    document.getElementById("wlKey").value = "";
+    toast("已加入白名单");
+    await loadAll(false);
+  } catch (err) { toast("失败: " + err.message, true); }
+}
+
+async function removeWhitelist(group, key) {
+  key = decodeURIComponent(key);
+  try {
+    await post("/api/action", { group, key, action: "unwhitelist" });
+    toast("已移出白名单");
+    await loadAll(false);
+  } catch (err) { toast("失败: " + err.message, true); }
+}
+
+function renderEvents() {
+  const report = STATUS.report || {};
+  const events = report.events || [];
+  const lines = [];
+  if (report.checked_at) lines.push('<div class="muted">报告时间：' + esc(report.checked_at) + "</div>");
+  if (events.length) {
+    for (const e of events.slice(-15)) {
+      lines.push('<div class="e-' + esc(e.event) + '">' +
+        (e.event === "blocked" ? "已自动屏蔽" : "已自动解封") + " [" + esc(GROUPS[e.group] || e.group) +
+        "] " + esc(e.name) + "</div>");
+    }
+  } else {
+    lines.push('<div class="muted">最近一轮没有屏蔽/解封事件</div>');
+  }
+  const blockedTotal = (report.policy || {}).blocked_total;
+  if (blockedTotal) lines.push('<div class="muted">当前屏蔽总数：' + blockedTotal + "</div>");
+  document.getElementById("events").innerHTML = lines.join("");
+}
+
+async function runPipeline() {
+  if (!confirm("立即重跑一轮流水线（测活 + 重打包）？可能需要 1-3 分钟。")) return;
+  try {
+    await post("/api/run", {});
+    toast("流水线已启动，稍后自动刷新");
+    setTimeout(() => loadAll(false), 5000);
+  } catch (err) { toast("启动失败: " + err.message, true); }
+}
+
+async function submitSource() {
+  const text = document.getElementById("subText").value.trim();
+  const url = document.getElementById("subUrl").value.trim();
+  const box = document.getElementById("subResult");
+  if (!text && !url) { toast("请输入 JSON 或 URL", true); return; }
+  box.innerHTML = '<p class="muted">提交中…</p>';
+  try {
+    const res = await post("/api/submit", {
+      text, url,
+      caiji: document.getElementById("subType").value === "caiji",
+      no_check: document.getElementById("subNoCheck").checked
+    });
+    if (res.error) { box.innerHTML = '<pre class="result">' + esc(res.error) + "</pre>"; return; }
+    const lines = [];
+    for (const item of res.added || []) {
+      const c = item.check;
+      const state = !c ? "未检测" : (c.ok === true ? "OK " + (c.latency_ms || "") + "ms"
+        : c.ok === false ? "FAIL " + (c.detail || c.code || "") : "SKIP " + (c.detail || ""));
+      lines.push("已入库 [" + (GROUPS[item.group] || item.group) + "] " + item.name + " — " + state +
+        (item.missing ? " ⚠ tvbox.jar 中缺少类 " + item.api : ""));
+    }
+    for (const d of res.duplicates || []) lines.push("重复 [" + d.label + "] " + d.reason);
+    for (const e of res.errors || []) lines.push("错误 [" + e.label + "] " + e.reason);
+    box.innerHTML = '<pre class="result">' + esc(lines.join("\n") || "没有新增内容") + "</pre>";
+    if ((res.added || []).length) {
+      document.getElementById("subText").value = "";
+      document.getElementById("subUrl").value = "";
+      toast("提交成功，共新增 " + res.added.length + " 条");
+      await loadAll(false);
+    }
+  } catch (err) {
+    box.innerHTML = '<pre class="result">' + esc("提交失败: " + err.message) + "</pre>";
+  }
+}
+
+async function tick() {
+  try {
+    const status = await api("/api/status");
+    const changed = JSON.stringify(status.state) !== JSON.stringify(STATUS && STATUS.state);
+    STATUS = status;
+    renderStatus();
+    if (changed) { renderTabs(); renderWhitelist(); renderEvents(); }
+  } catch (err) { /* ignore */ }
+}
+
+loadAll(false);
+timer = setInterval(tick, 20000);
+</script>
+</body>
+</html>

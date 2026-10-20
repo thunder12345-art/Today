@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "updated": "2026-10-19T17:00:07",
+    "updated": "2026-10-20T11:20:30",
     "sites": [
         {
             "key": "豆瓣",
@@ -17,7 +17,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:07"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -40,7 +41,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:07"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -86,7 +88,8 @@
                             "target": "https://www.wogg.net"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -134,7 +137,8 @@
                             "target": "https://123.666291.xyz"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -184,7 +188,8 @@
                             "target": "http://tvpanpan.site"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -246,7 +251,8 @@
                             "target": "https://www.mihdr.top"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -300,7 +306,8 @@
                             "target": "https://tv.yydsys.cc"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -363,7 +370,8 @@
                             "target": "https://woog.430520.xyz"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -430,7 +438,8 @@
                             "target": "https://www.erxiaozhan.top"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -472,7 +481,8 @@
                             "target": "http://38.76.197.172:16969"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -514,7 +524,8 @@
                             "target": "http://38.76.197.172:12521"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -562,7 +573,8 @@
                             "target": "https://sidhub.cc"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -618,7 +630,8 @@
                             "target": "https://pan1.me"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -652,7 +665,8 @@
                             "target": "https://4kzn.cc"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -687,7 +701,8 @@
                             "target": "https://www.rrdynb.com/plus/search.php?q="
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -710,7 +725,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:07"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -733,7 +749,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:07"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -753,7 +770,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:07"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -773,7 +791,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:07"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -825,7 +844,8 @@
                             "target": "http://www.misoso.shop"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -863,7 +883,8 @@
                             "target": "http://v.rbotv.cn"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -897,7 +918,8 @@
                             "target": "http://www.小不点.com/api/2026/fishhxq.php"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -916,7 +938,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:09"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -949,7 +972,8 @@
                             "target": "https://vip.wwgz.cn:5200"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -983,7 +1007,8 @@
                             "target": "https://www1.ikanbot.com"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1030,7 +1055,8 @@
                             "target": "https://w.duboku.io/"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1066,7 +1092,8 @@
                             "target": "https://cz01.vip"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1089,7 +1116,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:20"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1112,7 +1140,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:20"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1135,7 +1164,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:20"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1158,7 +1188,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:20"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1174,7 +1205,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:20"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1193,7 +1225,8 @@
                     "ok": null,
                     "detail": "no_target",
                     "checked_at": "2026-10-19T17:00:20"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         }
     ],
@@ -1210,7 +1243,8 @@
                     "latency_ms": 269,
                     "url": "https://8815.kstore.vip/tvbox/wmz",
                     "checked_at": "2026-10-19T17:01:55"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1225,7 +1259,8 @@
                     "latency_ms": 1942,
                     "url": "https://www.饭太硬.cc/tv",
                     "checked_at": "2026-10-19T17:01:57"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1240,7 +1275,8 @@
                     "latency_ms": 1529,
                     "url": "http://肥猫.net/tv",
                     "checked_at": "2026-10-19T17:02:05"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1255,7 +1291,8 @@
                     "latency_ms": 240,
                     "url": "https://9280.kstore.vip/aiwex.json",
                     "checked_at": "2026-10-19T17:01:55"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1271,7 +1308,8 @@
                     "url": "http://www.英格里希嗷呜.top/tv",
                     "detail": "TimeoutError: timed out",
                     "checked_at": "2026-10-19T17:02:14"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1287,7 +1325,8 @@
                     "url": "https://9877.kstore.space/one.json",
                     "detail": "HTTP 404",
                     "checked_at": "2026-10-19T17:01:55"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1303,7 +1342,8 @@
                     "url": "http://www.小不点.com",
                     "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
                     "checked_at": "2026-10-19T17:02:07"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1318,7 +1358,8 @@
                     "latency_ms": 274,
                     "url": "https://16151.kstore.space",
                     "checked_at": "2026-10-19T17:01:55"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1334,7 +1375,8 @@
                     "url": "https://www.tangsan.fun/tv",
                     "detail": "URLError: <urlopen error timed out>",
                     "checked_at": "2026-10-19T17:02:12"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1350,7 +1392,8 @@
                     "url": "http://cdn.qiaoji8.com/tvbox.json",
                     "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>",
                     "checked_at": "2026-10-19T17:01:56"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1365,7 +1408,8 @@
                     "latency_ms": 895,
                     "url": "http://hb.小虎斑.site:25252/仅供测试",
                     "checked_at": "2026-10-19T17:01:56"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1381,7 +1425,8 @@
                     "url": "https://欧歌.v.nxog.top/m/",
                     "detail": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1082)>",
                     "checked_at": "2026-10-19T17:01:58"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1396,7 +1441,8 @@
                     "latency_ms": 442,
                     "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
                     "checked_at": "2026-10-19T17:01:56"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1411,7 +1457,8 @@
                     "latency_ms": 3620,
                     "url": "https://www.252035.xyz/p/jsm.json",
                     "checked_at": "2026-10-19T17:01:59"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1426,7 +1473,8 @@
                     "latency_ms": 2038,
                     "url": "https://www.252035.xyz/z/FongMi.json",
                     "checked_at": "2026-10-19T17:01:57"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1442,7 +1490,8 @@
                     "url": "https://gitlab.com/duomv/dzhipy/-/raw/main/index.json",
                     "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>",
                     "checked_at": "2026-10-19T17:02:13"
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         }
     ],
@@ -1480,7 +1529,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1515,7 +1565,8 @@
                             "target": "http://caiji.dyttzyapi.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1552,7 +1603,8 @@
                             "target": "https://cj.lziapi.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1590,7 +1642,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1627,7 +1680,8 @@
                             "target": "https://360zy.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1665,7 +1719,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1703,7 +1758,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1741,7 +1797,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1779,7 +1836,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1817,7 +1875,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1854,7 +1913,8 @@
                             "target": "https://caiji.maotaizy.cc/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1892,7 +1952,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1930,7 +1991,8 @@
                             "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -1967,7 +2029,8 @@
                             "target": "https://dbzy.tv/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2004,7 +2067,8 @@
                             "target": "https://caiji.dbzy5.com/api.php/provide/vod/from/dbm3u8/at/josn"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2042,7 +2106,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2080,7 +2145,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2118,7 +2184,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2156,7 +2223,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2194,7 +2262,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2231,7 +2300,8 @@
                             "target": "https://api.wujinapi.cc/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2268,7 +2338,8 @@
                             "target": "https://cj.yayazy.net/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2305,7 +2376,8 @@
                             "target": "https://api.guangsuapi.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2345,7 +2417,8 @@
                         }
                     ],
                     "suspect": true
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2383,7 +2456,8 @@
                             "detail": "URLError: <urlopen error [Errno 11001] getaddrinfo failed>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2423,7 +2497,8 @@
                         }
                     ],
                     "suspect": true
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2460,7 +2535,8 @@
                             "target": "https://api.xinlangapi.com/xinlangapi.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2497,7 +2573,8 @@
                             "target": "https://api.wujinapi.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2534,7 +2611,8 @@
                             "target": "https://api.wujinapi.me/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2571,7 +2649,8 @@
                             "target": "https://api.wujinapi.net/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2609,7 +2688,8 @@
                             "detail": "URLError: <urlopen error timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2647,7 +2727,8 @@
                             "detail": "TimeoutError: timed out"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2684,7 +2765,8 @@
                             "target": "https://api.zuidapi.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2721,7 +2803,8 @@
                             "target": "https://m3u8.apiyhzy.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2758,7 +2841,8 @@
                             "target": "https://api.yparse.com/api/json"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2795,7 +2879,8 @@
                             "target": "https://api.niuniuzy.me/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2832,7 +2917,8 @@
                             "target": "https://api.apibdzy.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2870,7 +2956,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2907,7 +2994,8 @@
                             "target": "https://subocaiji.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2944,7 +3032,8 @@
                             "target": "https://jinyingzy.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -2982,7 +3071,8 @@
                             "detail": "TimeoutError: The read operation timed out"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -3019,7 +3109,8 @@
                             "target": "https://sdzyapi.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -3056,7 +3147,8 @@
                             "target": "https://cj.ffzyapi.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -3093,7 +3185,8 @@
                             "target": "https://p2100.net/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -3131,7 +3224,8 @@
                             "detail": "URLError: <urlopen error [WinError 10061] 由于目标计算机积极拒绝，无法连接。>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -3169,7 +3263,8 @@
                             "detail": "URLError: <urlopen error _ssl.c:1064: The handshake operation timed out>"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         },
         {
@@ -3206,7 +3301,8 @@
                             "target": "https://www.mdzyapi.com/api.php/provide/vod"
                         }
                     ]
-                }
+                },
+                "synced_at": "2026-10-20T11:20:30"
             }
         }
     ]

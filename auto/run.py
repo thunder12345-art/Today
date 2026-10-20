@@ -33,6 +33,8 @@ def main():
     parser.add_argument("--skip-submit", action="store_true")
     parser.add_argument("--skip-check", action="store_true")
     parser.add_argument("--skip-build", action="store_true")
+    parser.add_argument("--auto-block-after", type=int, default=None)
+    parser.add_argument("--no-auto-block", action="store_true")
     args = parser.parse_args()
     setup_stdout()
 
@@ -43,8 +45,12 @@ def main():
         print("== submit inbox: nothing pending ==")
 
     if not args.skip_check:
-        run_step("health check", "check.py",
-                 ["--workers", str(args.workers), "--timeout", str(args.timeout)])
+        check_args = ["--workers", str(args.workers), "--timeout", str(args.timeout)]
+        if args.no_auto_block:
+            check_args.append("--no-auto-block")
+        if args.auto_block_after is not None:
+            check_args.extend(["--auto-block-after", str(args.auto_block_after)])
+        run_step("health check", "check.py", check_args)
 
     if not args.skip_build:
         build_args = ["--scope", args.scope]

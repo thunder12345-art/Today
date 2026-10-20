@@ -5,7 +5,19 @@ cd "$(dirname "$0")/.."
 
 BUNDLE="${1:-/mnt/sata1-2/docker/update.bundle}"
 PY="${PYTHON:-python3}"
+IMAGE="${IMAGE:-tomorrow-auto:latest}"
 TS="$(date +%Y%m%d-%H%M%S)"
+
+run_py() {
+    script="$1"
+    shift
+    if command -v "$PY" >/dev/null 2>&1; then
+        "$PY" "$script" "$@"
+    else
+        echo "   (host $PY not found, using container image: $IMAGE)"
+        docker run --rm -v "$PWD:/app" -w /app "$IMAGE" python "$script" "$@"
+    fi
+}
 
 echo "== [0/7] ensure git identity =="
 git config user.email >/dev/null 2>&1 || git config user.email "nas@local"
@@ -45,10 +57,10 @@ if git ls-files -u | grep -q .; then
 fi
 
 echo "== [4/7] patch tvbox.jar (idempotent) =="
-$PY auto/patch_jar.py --jar tvbox.jar || true
+run_py auto/patch_jar.py --jar tvbox.jar || true
 
 echo "== [5/7] merge runtime metadata into sources.json =="
-$PY auto/merge_runtime.py --runtime auto/.upd_runtime.json \
+run_py auto/merge_runtime.py --runtime auto/.upd_runtime.json \
     --whitelist auto/.upd_whitelist.json
 
 echo "== [6/7] commit + push =="

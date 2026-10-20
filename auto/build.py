@@ -41,8 +41,13 @@ def main():
 
     whitelist = load_whitelist()
 
-    tvbox = load_json(os.path.join(ROOT, "tvbox.json"), {})
+    tvbox_file = load_json(os.path.join(ROOT, "tvbox.json"), {})
     caiji = load_json(os.path.join(ROOT, "caiji.json"), {})
+    template = db.get("template")
+    if isinstance(template, dict) and template:
+        tvbox = dict(template)
+    else:
+        tvbox = dict(tvbox_file)
 
     sites, blocked_sites = collect_entries(db, "sites", args.scope, args.drop_dead, whitelist)
     caiji_sites, blocked_caiji = collect_entries(db, "caiji", args.scope, args.drop_dead, whitelist)
@@ -50,11 +55,15 @@ def main():
     caiji["sites"] = caiji_sites
 
     blocked_parses = set(db.get("blocked_parses") or [])
-    parses = tvbox.get("parses") or []
+    parses = db.get("parses")
+    if parses is None:
+        parses = tvbox_file.get("parses") or []
+    parses = [strip_meta(item) for item in parses if isinstance(item, dict)]
+    parses_total = len(parses)
     if blocked_parses:
-        tvbox["parses"] = [item for item in parses
-                           if not (isinstance(item, dict) and item.get("url") in blocked_parses)]
-    parses_excluded = len(parses) - len(tvbox.get("parses") or [])
+        parses = [item for item in parses if item.get("url") not in blocked_parses]
+    tvbox["parses"] = parses
+    parses_excluded = parses_total - len(parses)
 
     repos = []
     blocked_repos = 0

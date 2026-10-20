@@ -123,9 +123,12 @@ def parse_items(db):
     results = db.get("_parses") or []
     if results:
         return results
-    tvbox = load_json(os.path.join(ROOT, "tvbox.json"), {}) or {}
+    parses = db.get("parses")
+    if parses is None:
+        tvbox = load_json(os.path.join(ROOT, "tvbox.json"), {}) or {}
+        parses = tvbox.get("parses", [])
     return [{"url": item.get("url"), "name": item.get("name", ""), "ok": None}
-            for item in tvbox.get("parses", [])
+            for item in parses
             if isinstance(item, dict) and is_http(item.get("url"))]
 
 

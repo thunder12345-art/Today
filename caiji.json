@@ -1,7 +1,7 @@
 {
     "logo": "https://img.meituan.net/portalweb/2d4b59b4fe3ab8c5fbe1150a68f52448586638.gif",
     "sites": [
-     {
+        {
             "key": "采集影视",
             "name": "采集影视",
             "type": 1,
@@ -19,7 +19,6 @@
             "quickSearch": 1,
             "filterable": 1
         },
-       
         {
             "key": "量子资源",
             "name": "量子资源",

@@ -31,10 +31,17 @@ STATE = {
     "timeout": 8,
     "workers": 12,
     "panel_token_required": False,
+    "upstream_running": False,
+    "upstream_last_at": None,
+    "upstream_last_result": None,
 }
 LOCK = threading.Lock()
 
 PANEL_FILE = os.path.join(BASE, "panel.html")
+UPSTREAMS_PATH = os.path.join(BASE, "upstreams.json")
+UPSTREAM_SCRIPT = os.path.join(BASE, "upstream_sync.py")
+UPSTREAM_LOG = os.path.join(BASE, "upstream_sync.log")
+UPSTREAM_STATE = os.path.join(BASE, ".upstream_state.json")
 TOKEN = os.environ.get("PANEL_TOKEN", "").strip()
 
 
@@ -98,6 +105,70 @@ def pipeline_loop(scope, drop_dead, timeout, workers, interval_hours, run_on_sta
     while True:
         time.sleep(max(300.0, interval_hours * 3600.0))
         run_pipeline(scope, drop_dead, timeout, workers)
+
+
+def load_upstreams():
+    data = load_json(UPSTREAMS_PATH)
+    if not isinstance(data, dict):
+        data = {}
+    if not isinstance(data.get("items"), list):
+        data["items"] = []
+    return data
+
+
+def upstream_state():
+    state = load_json(UPSTREAM_STATE, {})
+    return state if isinstance(state, dict) else {}
+
+
+def build_upstreams():
+    data = load_upstreams()
+    state = upstream_state()
+    items = []
+    for index, item in enumerate(data.get("items", [])):
+        if not isinstance(item, dict):
+            continue
+        info = state.get((item.get("url") or "").strip()) or {}
+        entry = dict(item)
+        entry["index"] = index
+        entry["last_sync_at"] = info.get("last_sync_at") or ""
+        entry["last_result"] = info.get("last_result") or ""
+        items.append(entry)
+    log_tail = ""
+    if os.path.exists(UPSTREAM_LOG):
+        try:
+            with open(UPSTREAM_LOG, "r", encoding="utf-8", errors="replace") as handle:
+                log_tail = handle.read()[-4000:]
+        except OSError:
+            pass
+    return {"items": items, "running": bool(STATE.get("upstream_running")),
+            "last_result": STATE.get("upstream_last_result"),
+            "last_at": STATE.get("upstream_last_at"), "log": log_tail}
+
+
+def run_upstream_sync(only):
+    if not os.path.exists(UPSTREAM_SCRIPT):
+        print("[upstream] script not found: %s" % UPSTREAM_SCRIPT)
+        return
+    if not LOCK.acquire(blocking=False):
+        print("[upstream] pipeline running, skip")
+        return
+    try:
+        STATE["upstream_running"] = True
+        STATE["upstream_last_at"] = now_iso()
+        command = [sys.executable, UPSTREAM_SCRIPT]
+        if only:
+            command.extend(["--only", only])
+        print("[upstream] started: %s" % " ".join(command))
+        with open(UPSTREAM_LOG, "w", encoding="utf-8") as log:
+            result = subprocess.run(command, stdout=log, stderr=subprocess.STDOUT)
+        STATE["upstream_last_result"] = "ok" if result.returncode == 0 else "failed (%d)" % result.returncode
+        print("[upstream] finished: %s" % STATE["upstream_last_result"])
+    finally:
+        STATE["upstream_running"] = False
+        LOCK.release()
+    if STATE.get("upstream_last_result") == "ok":
+        run_pipeline(STATE["scope"], STATE["drop_dead"], STATE["timeout"], STATE["workers"])
 
 
 def find_item(db, group, key):
@@ -238,6 +309,8 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_json(build_status())
             elif path == "/api/sources":
                 self.send_json(build_sources())
+            elif path == "/api/upstreams":
+                self.send_json(build_upstreams())
             elif path == "/api/report.txt":
                 self.send_file(REPORT_TXT, "text/plain; charset=utf-8")
             else:
@@ -267,6 +340,8 @@ class Handler(SimpleHTTPRequestHandler):
             self.handle_action(data)
         elif parts.path == "/api/submit":
             self.handle_submit(data)
+        elif parts.path == "/api/upstreams":
+            self.handle_upstreams(data)
         elif parts.path == "/api/run":
             self.handle_run()
         else:
@@ -419,6 +494,60 @@ class Handler(SimpleHTTPRequestHandler):
         finally:
             LOCK.release()
         self.send_json(result)
+
+    def handle_upstreams(self, data):
+        action = str(data.get("action") or "")
+        if action == "sync":
+            if STATE["upstream_running"]:
+                self.send_json({"error": "上游同步已在运行"}, status=409)
+                return
+            thread = threading.Thread(target=run_upstream_sync,
+                                      args=(str(data.get("name") or "").strip(),),
+                                      daemon=True)
+            thread.start()
+            self.send_json({"ok": True, "started": True})
+            return
+        if action not in ("add", "remove", "toggle"):
+            self.send_json({"error": "unknown action"}, status=400)
+            return
+        if not LOCK.acquire(blocking=False):
+            self.send_json({"error": "pipeline running, try later"}, status=409)
+            return
+        try:
+            store = load_upstreams()
+            items = store["items"]
+            if action == "add":
+                url = str(data.get("url") or "").strip()
+                if "://" not in url:
+                    self.send_json({"error": "请输入完整的仓库 URL（https://github.com/owner/repo）"}, status=400)
+                    return
+                if any(isinstance(item, dict) and item.get("url") == url for item in items):
+                    self.send_json({"error": "该仓库已在列表中"}, status=400)
+                    return
+                name = str(data.get("name") or "").strip() or url.rstrip("/").rsplit("/", 1)[-1]
+                items.append({"name": name, "url": url,
+                              "branch": str(data.get("branch") or "").strip() or "master",
+                              "ghproxy": bool(data.get("ghproxy", True)), "enabled": True})
+            else:
+                try:
+                    index = int(data.get("index", -1))
+                except (TypeError, ValueError):
+                    index = -1
+                if index < 0 or index >= len(items):
+                    self.send_json({"error": "无效序号"}, status=400)
+                    return
+                if action == "remove":
+                    items.pop(index)
+                else:
+                    item = items[index]
+                    if not isinstance(item, dict):
+                        self.send_json({"error": "无效条目"}, status=400)
+                        return
+                    item["enabled"] = not item.get("enabled", True)
+            save_json(UPSTREAMS_PATH, store)
+            self.send_json({"ok": True})
+        finally:
+            LOCK.release()
 
     def handle_run(self):
         if STATE["running"]:

@@ -31,17 +31,6 @@
             "timeout": 10
         },
         {
-            "key": "1080资源",
-            "name": "1080资源",
-            "type": 1,
-            "api": "https://api.1080zyku.com/inc/api_mac10.php",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 10
-        },
-        {
             "key": "360资源",
             "name": "360资源",
             "type": 1,
@@ -130,17 +119,6 @@
             "timeout": 10
         },
         {
-            "key": "丨豆瓣资源",
-            "name": "豆瓣资源",
-            "type": 1,
-            "api": "https://caiji.dbzy.tv/api.php/provide/vod",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 10
-        },
-        {
             "key": "丨豆瓣资源2",
             "name": "豆瓣资源2",
             "type": 1,
@@ -185,32 +163,10 @@
             "timeout": 10
         },
         {
-            "key": "丨U酷资源",
-            "name": "U酷资源",
-            "type": 1,
-            "api": "https://api.ukuapi.com/api.php/provide/vod",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 10
-        },
-        {
             "key": "丨U酷资源2",
             "name": "U酷资源2",
             "type": 1,
             "api": "https://api.ukuapi88.com/api.php/provide/vod",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 10
-        },
-        {
-            "key": "丨ikun资源",
-            "name": "ikun资源",
-            "type": 1,
-            "api": "https://ikunzyapi.com/api.php/provide/vod",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
@@ -255,17 +211,6 @@
             "name": "卧龙点播",
             "type": 1,
             "api": "https://collect.wolongzyw.com/api.php/provide/vod",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 10
-        },
-        {
-            "key": "丨卧龙资源",
-            "name": "卧龙资源",
-            "type": 1,
-            "api": "https://collect.wolongzy.cc/api.php/provide/vod",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
@@ -328,32 +273,10 @@
             "timeout": 10
         },
         {
-            "key": "丨旺旺短剧",
-            "name": "旺旺短剧",
-            "type": 1,
-            "api": "https://wwzy.tv/api.php/provide/vod",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 10
-        },
-        {
             "key": "丨最大点播",
             "name": "最大点播",
             "type": 1,
             "api": "http://zuidazy.me/api.php/provide/vod",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 10
-        },
-        {
-            "key": "丨最大资源",
-            "name": "最大资源",
-            "type": 1,
-            "api": "https://api.zuidapi.com/api.php/provide/vod",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
@@ -398,17 +321,6 @@
             "name": "百度云资源",
             "type": 1,
             "api": "https://api.apibdzy.com/api.php/provide/vod",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 10
-        },
-        {
-            "key": "丨神马云",
-            "name": "神马云",
-            "type": 1,
-            "api": "https://api.1080zyku.com/inc/apijson.php/",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,
@@ -475,17 +387,6 @@
             "name": "飘零资源",
             "type": 1,
             "api": "https://p2100.net/api.php/provide/vod",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 10
-        },
-        {
-            "key": "丨魔爪资源",
-            "name": "魔爪资源",
-            "type": 1,
-            "api": "https://mozhuazy.com/api.php/provide/vod",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,

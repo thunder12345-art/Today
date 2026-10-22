@@ -7,6 +7,7 @@ BUNDLE="${1:-/mnt/sata1-2/docker/update.bundle}"
 PY="${PYTHON:-python3}"
 IMAGE="${IMAGE:-tomorrow-auto:latest}"
 TS="$(date +%Y%m%d-%H%M%S)"
+export GIT_TERMINAL_PROMPT=0
 
 run_py() {
     script="$1"

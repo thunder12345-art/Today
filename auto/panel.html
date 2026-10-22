@@ -150,12 +150,33 @@
       <div class="box events" id="events"></div>
     </div>
   </div>
+
+  <h2>上游同步库（GitHub）</h2>
+  <div class="box">
+    <div class="toolbar">
+      <input type="text" id="upName" placeholder="名称（可空）" style="min-width:120px">
+      <input type="text" id="upUrl" placeholder="https://github.com/owner/repo" style="flex:1;min-width:240px">
+      <input type="text" id="upBranch" placeholder="分支（默认 master）" style="width:150px">
+      <label class="muted"><input type="checkbox" id="upGhproxy" checked> gh-proxy 加速</label>
+      <button onclick="addUpstream()">添加</button>
+      <button class="primary" onclick="syncUpstream('')">立即同步全部</button>
+    </div>
+    <table>
+      <thead><tr>
+        <th>名称</th><th>地址</th><th>分支</th><th>加速</th><th>启用</th>
+        <th>最近同步</th><th>结果</th><th>操作</th>
+      </tr></thead>
+      <tbody id="upTbody"></tbody>
+    </table>
+    <div class="sub" id="upHint" style="padding:8px 0"></div>
+    <pre class="result" id="upLog" style="max-height:240px;overflow:auto;display:none"></pre>
+  </div>
 </div>
 <div class="toast" id="toast"></div>
 
 <script>
 const GROUPS = { sites: "站点", caiji: "采集", repos: "仓库", parses: "解析" };
-let STATUS = null, SOURCES = null;
+let STATUS = null, SOURCES = null, UPSTREAMS = null;
 let curGroup = "sites", curFilter = "all";
 let timer = null;
 
@@ -199,9 +220,10 @@ async function post(path, data) {
 
 async function loadAll(showToast) {
   try {
-    const [status, sources] = await Promise.all([api("/api/status"), api("/api/sources")]);
-    STATUS = status; SOURCES = sources;
-    renderStatus(); renderTabs(); renderTable(); renderWhitelist(); renderEvents();
+    const [status, sources, upstreams] = await Promise.all([
+      api("/api/status"), api("/api/sources"), api("/api/upstreams")]);
+    STATUS = status; SOURCES = sources; UPSTREAMS = upstreams;
+    renderStatus(); renderTabs(); renderTable(); renderWhitelist(); renderEvents(); renderUpstreams();
     if (showToast) toast("已刷新");
   } catch (err) { toast("加载失败: " + err.message, true); }
 }
@@ -220,6 +242,7 @@ function renderStatus() {
   chips.push('<span class="chip">自动屏蔽 <b>' + (st.auto_block ? "开" : "关") +
     (st.auto_block ? "（连续失败 " + st.auto_block_after + " 次）" : "") + "</b></span>");
   chips.push('<span class="chip">刷新间隔 <b>' + st.interval_hours + "h</b></span>");
+  if (st.upstream_running) chips.push('<span class="chip warn">上游同步 <b>进行中…</b></span>');
   if (st.panel_token_required) chips.push('<span class="chip ok">面板令牌 <b>已启用</b></span>');
   document.getElementById("chips").innerHTML = chips.join("");
 
@@ -426,6 +449,78 @@ async function tick() {
     renderStatus();
     if (changed) { renderTabs(); renderWhitelist(); renderEvents(); }
   } catch (err) { /* ignore */ }
+  try {
+    UPSTREAMS = await api("/api/upstreams");
+    renderUpstreams();
+  } catch (err) { /* ignore */ }
+}
+
+function renderUpstreams() {
+  const data = UPSTREAMS || { items: [] };
+  const items = data.items || [];
+  document.getElementById("upTbody").innerHTML = items.map(item => {
+    const res = item.last_result || "";
+    const cls = res.startsWith("failed") ? "b-fail" : res === "ok" ? "b-ok" : "b-skip";
+    return "<tr>" +
+      "<td><b>" + esc(item.name || "-") + "</b></td>" +
+      '<td class="target">' + esc(item.url) + "</td>" +
+      "<td>" + esc(item.branch || "master") + "</td>" +
+      "<td>" + (item.ghproxy ? "是" : "否") + "</td>" +
+      "<td>" + (item.enabled ? '<span class="badge b-ok">已启用</span>'
+                             : '<span class="badge b-skip">已停用</span>') + "</td>" +
+      '<td class="muted" style="font-size:12px">' + esc(item.last_sync_at || "-") + "</td>" +
+      "<td>" + (res ? '<span class="badge ' + cls + '">' + esc(res) + "</span>" : "-") + "</td>" +
+      '<td><div class="row-actions">' +
+      '<button class="small" onclick="syncUpstream(\'' + encodeURIComponent(item.name || "") + '\')">立即同步</button>' +
+      '<button class="small" onclick="upstreamAct(\'toggle\',' + item.index + ')">' + (item.enabled ? "停用" : "启用") + "</button>" +
+      '<button class="small danger" onclick="upstreamAct(\'remove\',' + item.index + ')">删除</button>' +
+      "</div></td></tr>";
+  }).join("") || '<tr><td colspan="8" class="muted">（空）</td></tr>';
+  const enabled = items.filter(i => i.enabled).length;
+  document.getElementById("upHint").textContent =
+    "启用 " + enabled + " / " + items.length + " 个库 · 每天凌晨自动检查一次（crontab）· " +
+    "多个库同时启用时按列表顺序叠加，同名文件以后面的库为准";
+  const logBox = document.getElementById("upLog");
+  if (data.log) { logBox.style.display = "block"; logBox.textContent = data.log; }
+  else { logBox.style.display = "none"; logBox.textContent = ""; }
+}
+
+async function upstreamAct(action, index) {
+  if (action === "remove" && !confirm("确定从同步列表移除该库？（已同步的文件不受影响）")) return;
+  try {
+    await post("/api/upstreams", { action, index });
+    toast("操作完成");
+    UPSTREAMS = await api("/api/upstreams");
+    renderUpstreams();
+  } catch (err) { toast("失败: " + err.message, true); }
+}
+
+async function addUpstream() {
+  const name = document.getElementById("upName").value.trim();
+  const url = document.getElementById("upUrl").value.trim();
+  const branch = document.getElementById("upBranch").value.trim();
+  const ghproxy = document.getElementById("upGhproxy").checked;
+  if (!url) { toast("请输入仓库 URL", true); return; }
+  try {
+    await post("/api/upstreams", { action: "add", name, url, branch, ghproxy });
+    document.getElementById("upName").value = "";
+    document.getElementById("upUrl").value = "";
+    document.getElementById("upBranch").value = "";
+    toast("已添加");
+    UPSTREAMS = await api("/api/upstreams");
+    renderUpstreams();
+  } catch (err) { toast("添加失败: " + err.message, true); }
+}
+
+async function syncUpstream(nameEncoded) {
+  const name = nameEncoded ? decodeURIComponent(nameEncoded) : "";
+  const what = name ? "[" + name + "]" : "全部启用的库";
+  if (!confirm("立即同步 " + what + " 并重建配置？约 1-3 分钟。")) return;
+  try {
+    await post("/api/upstreams", { action: "sync", name });
+    toast("同步已启动，日志稍后自动刷新");
+    setTimeout(() => { tick(); loadAll(false); }, 4000);
+  } catch (err) { toast("启动失败: " + err.message, true); }
 }
 
 loadAll(false);

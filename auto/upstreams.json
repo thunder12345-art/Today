@@ -1,0 +1,11 @@
+{
+    "items": [
+        {
+            "name": "tushen6/Tomorrow",
+            "url": "https://github.com/tushen6/Tomorrow",
+            "branch": "master",
+            "ghproxy": true,
+            "enabled": true
+        }
+    ]
+}

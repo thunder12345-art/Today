@@ -159,6 +159,14 @@ def run(dry_run, prune, db_path, root):
             upstream_repos.append({"url": item, "name": ""})
 
     stats = {"updated": 0, "added": 0, "removed": 0, "removed_names": []}
+    template = {key: value for key, value in tvbox.items() if key not in ("sites", "parses")}
+    if template and not dry_run:
+        db["template"] = template
+    print("== template keys: %s ==" % ", ".join(sorted(template)))
+    up_parses = [strip_meta(item) for item in tvbox.get("parses", []) if isinstance(item, dict)]
+    if not dry_run:
+        db["parses"] = up_parses
+    print("== parses (stored in db): %d ==" % len(up_parses))
     print("== sync sites (upstream=%d, db=%d) ==" % (len(upstream_sites), len(db.get("sites", []))))
     sync_group(db, "sites", upstream_sites, dry_run, stats)
     print("   updated=%d added=%d removed=%d total=%d" % (stats["updated"], stats["added"],

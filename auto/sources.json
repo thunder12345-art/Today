@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "updated": "2026-10-22T20:47:10",
+    "updated": "2026-10-22T20:52:28",
     "sites": [
         {
             "key": "豆瓣",
@@ -18,8 +18,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:10"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:45",
@@ -71,7 +70,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -95,8 +95,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:10"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:45",
@@ -143,7 +142,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -190,8 +190,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 8,
                 "recent": [
@@ -240,7 +239,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -289,8 +289,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -339,7 +338,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -390,8 +390,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -440,7 +439,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -503,8 +503,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 7,
                 "recent": [
@@ -553,7 +552,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -608,8 +608,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -658,7 +657,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -706,8 +706,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -756,7 +755,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -824,8 +824,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 10,
                 "ok_streak": 0,
                 "recent": [
@@ -882,7 +881,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:03"
+                "blocked_at": "2026-10-20T13:59:03",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -925,8 +925,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -975,7 +974,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1018,8 +1018,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -1068,7 +1067,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1117,8 +1117,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -1167,7 +1166,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1215,8 +1215,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -1265,7 +1264,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1300,8 +1300,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -1350,7 +1349,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1386,8 +1386,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -1437,7 +1436,8 @@
                         "detail": "HTTP 403"
                     }
                 ],
-                "blocked": false
+                "blocked": false,
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1461,8 +1461,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:11"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:46",
@@ -1509,7 +1508,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1533,8 +1533,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:11"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:46",
@@ -1581,7 +1580,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1602,8 +1602,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:11"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:46",
@@ -1650,7 +1649,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1671,8 +1671,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:11"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:46",
@@ -1719,7 +1718,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1772,8 +1772,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -1825,7 +1824,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:03"
+                "blocked_at": "2026-10-20T13:59:03",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1864,8 +1864,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -1914,7 +1913,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -1949,8 +1949,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -2002,7 +2001,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:03"
+                "blocked_at": "2026-10-20T13:59:03",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2022,8 +2022,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:12"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:46",
@@ -2070,7 +2069,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2104,8 +2104,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -2154,7 +2153,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2189,8 +2189,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -2239,7 +2238,8 @@
                         "ok": false,
                         "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2287,8 +2287,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -2340,7 +2339,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:03"
+                "blocked_at": "2026-10-20T13:59:03",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2377,8 +2377,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -2427,7 +2426,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2451,8 +2451,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:13"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:48",
@@ -2499,7 +2498,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2523,8 +2523,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:13"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:48",
@@ -2571,7 +2570,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2595,8 +2595,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:13"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:48",
@@ -2643,7 +2642,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2667,8 +2667,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:13"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:48",
@@ -2715,7 +2714,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2732,8 +2732,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:13"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:48",
@@ -2780,7 +2779,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2800,8 +2800,7 @@
                     "detail": "no_target",
                     "checked_at": "2026-10-22T20:47:13"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "recent": [
                     {
                         "at": "2026-10-20T13:18:48",
@@ -2848,7 +2847,8 @@
                         "ok": null,
                         "detail": "no_target"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         }
     ],
@@ -2866,9 +2866,7 @@
                     "url": "https://8815.kstore.vip/tvbox/wmz",
                     "checked_at": "2026-10-22T20:48:58"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 3,
                 "recent": [
@@ -2917,7 +2915,9 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -2933,9 +2933,7 @@
                     "url": "https://www.饭太硬.cc/tv",
                     "checked_at": "2026-10-22T20:49:05"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -2984,7 +2982,9 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3000,9 +3000,7 @@
                     "url": "http://肥猫.net/tv",
                     "checked_at": "2026-10-22T20:48:54"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -3051,7 +3049,9 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3067,9 +3067,7 @@
                     "url": "https://9280.kstore.vip/aiwex.json",
                     "checked_at": "2026-10-22T20:49:09"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 2,
                 "recent": [
@@ -3119,7 +3117,9 @@
                         "detail": "200"
                     }
                 ],
-                "blocked": false
+                "blocked": false,
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3135,9 +3135,7 @@
                     "url": "http://www.英格里希嗷呜.top/tv",
                     "checked_at": "2026-10-22T20:49:01"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -3186,7 +3184,9 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3203,9 +3203,7 @@
                     "detail": "HTTP 404",
                     "checked_at": "2026-10-22T20:48:58"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -3257,7 +3255,9 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T14:00:05"
+                "blocked_at": "2026-10-20T14:00:05",
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3274,9 +3274,7 @@
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "checked_at": "2026-10-22T20:49:04"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -3328,7 +3326,9 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T14:00:05"
+                "blocked_at": "2026-10-20T14:00:05",
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3344,9 +3344,7 @@
                     "url": "https://16151.kstore.space",
                     "checked_at": "2026-10-22T20:48:53"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 6,
                 "recent": [
@@ -3395,7 +3393,9 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3412,9 +3412,7 @@
                     "detail": "URLError: <urlopen error timed out>",
                     "checked_at": "2026-10-22T20:49:09"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -3466,7 +3464,9 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T14:00:05"
+                "blocked_at": "2026-10-20T14:00:05",
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3483,9 +3483,7 @@
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "checked_at": "2026-10-22T20:49:00"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -3537,7 +3535,9 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T14:00:05"
+                "blocked_at": "2026-10-20T14:00:05",
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3553,9 +3553,7 @@
                     "url": "http://hb.小虎斑.site:25252/仅供测试",
                     "checked_at": "2026-10-22T20:48:53"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -3604,7 +3602,9 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3621,9 +3621,7 @@
                     "detail": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)>",
                     "checked_at": "2026-10-22T20:49:01"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -3675,7 +3673,9 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T14:00:05"
+                "blocked_at": "2026-10-20T14:00:05",
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3691,9 +3691,7 @@
                     "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
                     "checked_at": "2026-10-22T20:48:59"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -3742,7 +3740,9 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3758,9 +3758,7 @@
                     "url": "https://www.252035.xyz/p/jsm.json",
                     "checked_at": "2026-10-22T20:48:54"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -3809,7 +3807,9 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3825,9 +3825,7 @@
                     "url": "https://www.252035.xyz/z/FongMi.json",
                     "checked_at": "2026-10-22T20:48:55"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -3876,7 +3874,9 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -3893,9 +3893,7 @@
                     "detail": "HTTP 404",
                     "checked_at": "2026-10-22T20:48:56"
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "targets": [],
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -3947,7 +3945,9 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T14:00:05"
+                "blocked_at": "2026-10-20T14:00:05",
+                "targets": [],
+                "merged_at": "2026-10-22T20:52:28"
             }
         }
     ],
@@ -3985,8 +3985,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -4035,7 +4034,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -4071,8 +4071,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -4121,7 +4120,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -4159,8 +4159,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -4209,7 +4208,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -4248,8 +4248,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -4301,7 +4300,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:48"
+                "blocked_at": "2026-10-20T13:59:48",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -4339,8 +4339,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -4389,7 +4388,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -4427,8 +4427,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 6,
                 "recent": [
@@ -4477,7 +4476,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -4516,8 +4516,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -4566,7 +4565,8 @@
                         "ok": false,
                         "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -4604,8 +4604,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 5,
                 "recent": [
@@ -4655,7 +4654,8 @@
                         "detail": "200"
                     }
                 ],
-                "blocked": false
+                "blocked": false,
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -4693,8 +4693,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 6,
                 "recent": [
@@ -4744,7 +4743,8 @@
                         "detail": "200"
                     }
                 ],
-                "blocked": false
+                "blocked": false,
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -4782,8 +4782,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -4832,7 +4831,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -4870,8 +4870,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -4920,7 +4919,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -4958,8 +4958,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 5,
                 "recent": [
@@ -5008,7 +5007,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -5047,8 +5047,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -5100,7 +5099,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:48"
+                "blocked_at": "2026-10-20T13:59:48",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -5138,8 +5138,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -5188,7 +5187,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -5226,8 +5226,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 6,
                 "recent": [
@@ -5276,7 +5275,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -5314,8 +5314,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -5364,7 +5363,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -5402,8 +5402,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 8,
                 "recent": [
@@ -5452,7 +5451,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -5491,8 +5491,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -5544,7 +5543,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:48"
+                "blocked_at": "2026-10-20T13:59:48",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -5583,8 +5583,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -5633,7 +5632,8 @@
                         "ok": false,
                         "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -5672,8 +5672,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -5725,7 +5724,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:48"
+                "blocked_at": "2026-10-20T13:59:48",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -5763,8 +5763,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 3,
                 "recent": [
@@ -5813,7 +5812,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -5852,8 +5852,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -5902,7 +5901,8 @@
                         "ok": false,
                         "detail": "TimeoutError: The read operation timed out"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -5940,8 +5940,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 7,
                 "recent": [
@@ -5991,7 +5990,8 @@
                         "detail": "200"
                     }
                 ],
-                "blocked": false
+                "blocked": false,
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -6032,8 +6032,7 @@
                     ],
                     "suspect": true
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -6082,7 +6081,8 @@
                         "ok": true,
                         "detail": "reachable but no CMS markers (1588 bytes)"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -6121,8 +6121,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -6174,7 +6173,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:48"
+                "blocked_at": "2026-10-20T13:59:48",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -6215,8 +6215,7 @@
                     ],
                     "suspect": true
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -6265,7 +6264,8 @@
                         "ok": true,
                         "detail": "reachable but no CMS markers (1588 bytes)"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -6303,8 +6303,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 3,
                 "recent": [
@@ -6354,7 +6353,8 @@
                         "detail": "200"
                     }
                 ],
-                "blocked": false
+                "blocked": false,
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -6393,8 +6393,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -6444,7 +6443,8 @@
                         "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
                 ],
-                "blocked": false
+                "blocked": false,
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -6483,8 +6483,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -6533,7 +6532,8 @@
                         "ok": false,
                         "detail": "TimeoutError: The read operation timed out"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -6571,8 +6571,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 5,
                 "recent": [
@@ -6621,7 +6620,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -6660,8 +6660,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -6713,7 +6712,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:48"
+                "blocked_at": "2026-10-20T13:59:48",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -6751,8 +6751,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -6801,7 +6800,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -6840,8 +6840,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 2,
                 "ok_streak": 0,
                 "recent": [
@@ -6893,7 +6892,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-22T20:48:52"
+                "blocked_at": "2026-10-22T20:48:52",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -6931,8 +6931,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 8,
                 "recent": [
@@ -6981,7 +6980,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7019,8 +7019,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 7,
                 "recent": [
@@ -7069,7 +7068,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7107,8 +7107,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 7,
                 "recent": [
@@ -7157,7 +7156,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7195,8 +7195,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 3,
                 "recent": [
@@ -7245,7 +7244,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7284,8 +7284,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -7337,7 +7336,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:48"
+                "blocked_at": "2026-10-20T13:59:48",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7376,8 +7376,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -7426,7 +7425,8 @@
                         "ok": false,
                         "detail": "TimeoutError: The read operation timed out"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7465,8 +7465,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -7516,7 +7515,8 @@
                         "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
                 ],
-                "blocked": false
+                "blocked": false,
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7554,8 +7554,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 5,
                 "recent": [
@@ -7604,7 +7603,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7642,8 +7642,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 6,
                 "recent": [
@@ -7693,7 +7692,8 @@
                         "detail": "200"
                     }
                 ],
-                "blocked": false
+                "blocked": false,
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7731,8 +7731,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 9,
                 "recent": [
@@ -7781,7 +7780,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7819,8 +7819,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 6,
                 "recent": [
@@ -7869,7 +7868,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7908,8 +7908,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 9,
                 "ok_streak": 0,
                 "recent": [
@@ -7961,7 +7960,8 @@
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
-                "blocked_at": "2026-10-20T13:59:48"
+                "blocked_at": "2026-10-20T13:59:48",
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -7999,8 +7999,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 8,
                 "recent": [
@@ -8049,7 +8048,8 @@
                         "ok": true,
                         "detail": "200"
                     }
-                ]
+                ],
+                "merged_at": "2026-10-22T20:52:28"
             }
         },
         {
@@ -8087,8 +8087,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-20T11:20:30",
-                "merged_at": "2026-10-20T13:15:41",
+                "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
                 "ok_streak": 1,
                 "recent": [
@@ -8137,14 +8136,405 @@
                         "ok": true,
                         "detail": "200"
                     }
+                ],
+                "merged_at": "2026-10-22T20:52:28"
+            }
+        }
+    ],
+    "template": {
+        "spider": "./tvbox.jar",
+        "logo": "https://img.meituan.net/portalweb/2d4b59b4fe3ab8c5fbe1150a68f52448586638.gif",
+        "notice": "资源来自网络，无任何盈利纯学习技术！[所有内容仅供学习使用，请勿用于违法及商业用途，请勿付费购买]",
+        "warningText": "资源来自网络，无任何盈利纯学习技术！[所有内容仅供学习使用，请勿用于违法及商业用途，请勿付费购买]",
+        "wallpaper": "https://t.alcy.cc/pc",
+        "lives": [
+            {}
+        ],
+        "rules": [
+            {
+                "name": "农民",
+                "hosts": [
+                    "toutiaovod.com"
+                ],
+                "regex": [
+                    "video/tos/cn"
                 ]
+            },
+            {
+                "name": "火山",
+                "hosts": [
+                    "huoshan.com"
+                ],
+                "regex": [
+                    "item_id="
+                ]
+            },
+            {
+                "name": "抖音",
+                "hosts": [
+                    "douyin.com"
+                ],
+                "regex": [
+                    "is_play_url="
+                ]
+            },
+            {
+                "name": "饭团点击",
+                "hosts": [
+                    "dadagui",
+                    "freeok",
+                    "dadagui"
+                ],
+                "script": [
+                    "document.querySelector(\"#playleftiframe\").contentWindow.document.querySelector(\"#start\").click();"
+                ]
+            },
+            {
+                "name": "毛驴点击",
+                "hosts": [
+                    "www.maolvys.com"
+                ],
+                "script": [
+                    "document.getElementsByClassName('swal-buttonswal-button--confirm')[0].click()"
+                ]
+            }
+        ],
+        "doh": [
+            {
+                "name": "Google",
+                "url": "https://dns.google/dns-query",
+                "ips": [
+                    "8.8.4.4",
+                    "8.8.8.8"
+                ]
+            },
+            {
+                "name": "Cloudflare",
+                "url": "https://cloudflare-dns.com/dns-query",
+                "ips": [
+                    "1.1.1.1",
+                    "1.0.0.1",
+                    "2606:4700:4700::1111",
+                    "2606:4700:4700::1001"
+                ]
+            },
+            {
+                "name": "AdGuard",
+                "url": "https://dns.adguard.com/dns-query",
+                "ips": [
+                    "94.140.14.140",
+                    "94.140.14.141"
+                ]
+            },
+            {
+                "name": "DNSWatch",
+                "url": "https://resolver2.dns.watch/dns-query",
+                "ips": [
+                    "84.200.69.80",
+                    "84.200.70.40"
+                ]
+            },
+            {
+                "name": "Quad9",
+                "url": "https://dns.quad9.net/dns-quer",
+                "ips": [
+                    "9.9.9.9",
+                    "149.112.112.112"
+                ]
+            }
+        ],
+        "flags": [
+            "youku",
+            "优酷",
+            "优 酷",
+            "优酷视频",
+            "qq",
+            "腾讯",
+            "腾 讯",
+            "腾讯视频",
+            "iqiyi",
+            "qiyi",
+            "奇艺",
+            "爱奇艺",
+            "爱 奇 艺",
+            "m1905",
+            "xigua",
+            "letv",
+            "leshi",
+            "乐视",
+            "乐 视",
+            "sohu",
+            "搜狐",
+            "搜 狐",
+            "搜狐视频",
+            "tudou",
+            "pptv",
+            "mgtv",
+            "芒果",
+            "imgo",
+            "芒果TV",
+            "芒 果 T V",
+            "bilibili",
+            "哔 哩",
+            "哔 哩 哔 哩"
+        ],
+        "ijk": [
+            {
+                "group": "软解码",
+                "options": [
+                    {
+                        "category": 4,
+                        "name": "opensles",
+                        "value": "0"
+                    },
+                    {
+                        "category": 4,
+                        "name": "overlay-format",
+                        "value": "842225234"
+                    },
+                    {
+                        "category": 4,
+                        "name": "framedrop",
+                        "value": "1"
+                    },
+                    {
+                        "category": 4,
+                        "name": "soundtouch",
+                        "value": "1"
+                    },
+                    {
+                        "category": 4,
+                        "name": "start-on-prepared",
+                        "value": "1"
+                    },
+                    {
+                        "category": 1,
+                        "name": "http-detect-range-support",
+                        "value": "0"
+                    },
+                    {
+                        "category": 1,
+                        "name": "fflags",
+                        "value": "fastseek"
+                    },
+                    {
+                        "category": 2,
+                        "name": "skip_loop_filter",
+                        "value": "48"
+                    },
+                    {
+                        "category": 4,
+                        "name": "reconnect",
+                        "value": "1"
+                    },
+                    {
+                        "category": 4,
+                        "name": "enable-accurate-seek",
+                        "value": "0"
+                    },
+                    {
+                        "category": 4,
+                        "name": "mediacodec",
+                        "value": "0"
+                    },
+                    {
+                        "category": 4,
+                        "name": "mediacodec-auto-rotate",
+                        "value": "0"
+                    },
+                    {
+                        "category": 4,
+                        "name": "mediacodec-handle-resolution-change",
+                        "value": "0"
+                    },
+                    {
+                        "category": 4,
+                        "name": "mediacodec-hevc",
+                        "value": "0"
+                    },
+                    {
+                        "category": 1,
+                        "name": "dns_cache_timeout",
+                        "value": "600000000"
+                    }
+                ]
+            },
+            {
+                "group": "硬解码",
+                "options": [
+                    {
+                        "category": 4,
+                        "name": "opensles",
+                        "value": "0"
+                    },
+                    {
+                        "category": 4,
+                        "name": "overlay-format",
+                        "value": "842225234"
+                    },
+                    {
+                        "category": 4,
+                        "name": "framedrop",
+                        "value": "1"
+                    },
+                    {
+                        "category": 4,
+                        "name": "soundtouch",
+                        "value": "1"
+                    },
+                    {
+                        "category": 4,
+                        "name": "start-on-prepared",
+                        "value": "1"
+                    },
+                    {
+                        "category": 1,
+                        "name": "http-detect-range-support",
+                        "value": "0"
+                    },
+                    {
+                        "category": 1,
+                        "name": "fflags",
+                        "value": "fastseek"
+                    },
+                    {
+                        "category": 2,
+                        "name": "skip_loop_filter",
+                        "value": "48"
+                    },
+                    {
+                        "category": 4,
+                        "name": "reconnect",
+                        "value": "1"
+                    },
+                    {
+                        "category": 4,
+                        "name": "enable-accurate-seek",
+                        "value": "0"
+                    },
+                    {
+                        "category": 4,
+                        "name": "mediacodec",
+                        "value": "1"
+                    },
+                    {
+                        "category": 4,
+                        "name": "mediacodec-auto-rotate",
+                        "value": "1"
+                    },
+                    {
+                        "category": 4,
+                        "name": "mediacodec-handle-resolution-change",
+                        "value": "1"
+                    },
+                    {
+                        "category": 4,
+                        "name": "mediacodec-hevc",
+                        "value": "1"
+                    },
+                    {
+                        "category": 1,
+                        "name": "dns_cache_timeout",
+                        "value": "600000000"
+                    }
+                ]
+            }
+        ],
+        "ads": [
+            "static-mozai.4gtv.tv"
+        ]
+    },
+    "parses": [
+        {
+            "name": "聚合",
+            "type": 3,
+            "url": "Web"
+        },
+        {
+            "name": "虾米",
+            "type": 0,
+            "url": "https://jx.xmflv.com/?url=",
+            "ext": {
+                "header": {
+                    "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+                }
+            }
+        },
+        {
+            "name": "云解",
+            "type": 0,
+            "url": "https://yparse.ik9.cc/index.php?url=",
+            "ext": {
+                "header": {
+                    "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+                }
+            }
+        },
+        {
+            "name": "咸鱼",
+            "type": 0,
+            "url": "https://jx.xymp4.cc/?url=",
+            "ext": {
+                "header": {
+                    "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+                }
+            }
+        },
+        {
+            "name": "淘片",
+            "type": 0,
+            "url": "https://jx.yparse.com/index.php?url=",
+            "ext": {
+                "header": {
+                    "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+                }
+            }
+        },
+        {
+            "name": "冰豆",
+            "type": 0,
+            "url": "https://bd.jx.cn/?url=",
+            "ext": {
+                "header": {
+                    "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+                }
+            }
+        },
+        {
+            "name": "七七",
+            "type": 0,
+            "url": "https://jx.77flv.cc/?url=",
+            "ext": {
+                "header": {
+                    "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+                }
+            }
+        },
+        {
+            "name": "盘古",
+            "type": 0,
+            "url": "https://www.playm3u8.cn/jiexi.php?url=",
+            "ext": {
+                "header": {
+                    "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+                }
+            }
+        },
+        {
+            "name": "夜幕",
+            "type": 0,
+            "url": "https://yemu.xyz/?url=",
+            "ext": {
+                "header": {
+                    "user-agent": "Mozilla/5.0 (Linux; Android 13; V2049A Build/TP1A.220624.014; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/116.0.0.0 Mobile Safari/537.36"
+                }
             }
         }
     ],
     "blocked_parses": [
         "https://bd.jx.cn/?url="
     ],
-    "merged_from_runtime_at": "2026-10-20T13:15:41",
+    "merged_from_runtime_at": "2026-10-22T20:52:28",
     "_parses": [
         {
             "ok": true,

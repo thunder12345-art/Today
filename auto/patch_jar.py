@@ -10,12 +10,14 @@ import zlib
 
 from common import OUT_DIR, ROOT, setup_stdout
 
-OLD_TEXT = '"proxyMode":"Go多线程"'
-NEW_TEXT = '"proxyMode":"Java多线程"'
-OLD_BYTES = OLD_TEXT.encode("utf-8")
-NEW_BYTES = NEW_TEXT.encode("utf-8")
+OLD_MARK = '"proxyMode":"Go多线程"'
+NEW_MARK = '"proxyMode":"Java多线程"'
 
-MAP_TYPE_STRING_DATA = 0x2002
+SIZE_BALANCED_REPLACEMENTS = [
+    ('"proxyMode":"Go多线程"', '"proxyMode":"Java多线程"'),
+    ('"pansouUrl":"https://so.252035.xyz"', '"pansouUrl":"http://so.252035.xyz"'),
+    ('"baiduThread":"10"', '"baiduThread":"9"'),
+]
 
 
 def uleb_decode(data, offset):
@@ -28,18 +30,6 @@ def uleb_decode(data, offset):
         if not byte & 0x80:
             return result, offset
         shift += 7
-
-
-def uleb_encode(value):
-    out = bytearray()
-    while True:
-        byte = value & 0x7F
-        value >>= 7
-        if value:
-            out.append(byte | 0x80)
-        else:
-            out.append(byte)
-            return bytes(out)
 
 
 def string_bounds(data, offset):
@@ -63,73 +53,56 @@ def string_bounds(data, offset):
     return units, start, pos
 
 
-def find_string_ids(data):
+def find_string_matches(data, marker):
+    marker_bytes = marker.encode("utf-8")
     count, offset = struct.unpack_from("<II", data, 0x38)
-    found = []
+    matches = []
     for index in range(count):
         str_off = struct.unpack_from("<I", data, offset + 4 * index)[0]
         if str_off >= len(data):
             continue
         units, start, end = string_bounds(data, str_off)
         payload = data[start:end]
-        if OLD_BYTES in payload or NEW_BYTES in payload:
-            found.append({"index": index, "str_off": str_off, "units": units,
-                          "start": start, "end": end, "payload": payload})
-    return found, count, offset
+        if marker_bytes in payload:
+            matches.append({"index": index, "start": start, "end": end, "payload": payload})
+    return matches
 
 
-def bump_map_list(data, extra_items):
-    map_off = struct.unpack_from("<I", data, 0x34)[0]
-    if not map_off:
-        return False
-    size = struct.unpack_from("<I", data, map_off)[0]
-    pos = map_off + 4
-    for _ in range(size):
-        kind, unused, count, offset = struct.unpack_from("<HHII", data, pos)
-        if kind == MAP_TYPE_STRING_DATA:
-            struct.pack_into("<I", data, pos + 4, count + extra_items)
-            return True
-        pos += 12
-    return False
+def verify_dex(data):
+    return len(find_string_matches(data, OLD_MARK)), len(find_string_matches(data, NEW_MARK))
 
 
 def patch_dex(data):
-    matches, _, _ = find_string_ids(data)
-    old_matches = [item for item in matches if OLD_BYTES in item["payload"]]
-    if not old_matches:
-        already = [item for item in matches if NEW_BYTES in item["payload"]]
-        return None, len(already)
+    old_items = find_string_matches(data, OLD_MARK)
+    if not old_items:
+        return None, len(find_string_matches(data, NEW_MARK)), None
+    if len(old_items) != 1:
+        raise ValueError("expected exactly 1 template string, found %d" % len(old_items))
+    item = old_items[0]
+    payload = bytes(item["payload"])
+    for old_text, new_text in SIZE_BALANCED_REPLACEMENTS:
+        old_bytes = old_text.encode("utf-8")
+        new_bytes = new_text.encode("utf-8")
+        occurrences = payload.count(old_bytes)
+        if occurrences != 1:
+            raise ValueError("expected 1 occurrence of %r, found %d" % (old_text, occurrences))
+        payload = payload.replace(old_bytes, new_bytes)
+    if len(payload) != item["end"] - item["start"]:
+        raise ValueError("size-balanced replacement changed length: %d -> %d"
+                         % (item["end"] - item["start"], len(payload)))
     new_dex = bytearray(data)
-    appended = 0
-    for item in old_matches:
-        payload = item["payload"]
-        occurrences = payload.count(OLD_BYTES)
-        new_payload = payload.replace(OLD_BYTES, NEW_BYTES)
-        new_units = item["units"] + 2 * occurrences
-        new_item = uleb_encode(new_units) + new_payload + b"\x00"
-        new_offset = len(new_dex)
-        new_dex += new_item
-        count, ids_off = struct.unpack_from("<II", new_dex, 0x38)
-        struct.pack_into("<I", new_dex, ids_off + 4 * item["index"], new_offset)
-        appended += 1
-    file_size = struct.unpack_from("<I", new_dex, 0x20)[0]
-    data_size = struct.unpack_from("<I", new_dex, 0x68)[0]
-    extra = len(new_dex) - len(data)
-    struct.pack_into("<I", new_dex, 0x20, file_size + extra)
-    struct.pack_into("<I", new_dex, 0x68, data_size + extra)
-    bump_map_list(new_dex, appended)
+    new_dex[item["start"]:item["end"]] = payload
+    outside = 0
+    for i in range(len(data)):
+        if data[i] != new_dex[i] and not (8 <= i < 32 or item["start"] <= i < item["end"]):
+            outside += 1
+    if outside:
+        raise ValueError("unexpected changes outside payload/header: %d bytes" % outside)
     signature = hashlib.sha1(bytes(new_dex[32:])).digest()
     new_dex[12:32] = signature
     checksum = zlib.adler32(bytes(new_dex[12:])) & 0xFFFFFFFF
     struct.pack_into("<I", new_dex, 8, checksum)
-    return bytes(new_dex), len(old_matches)
-
-
-def verify_dex(data):
-    matches, _, _ = find_string_ids(data)
-    old_count = sum(item["payload"].count(OLD_BYTES) for item in matches)
-    new_count = sum(item["payload"].count(NEW_BYTES) for item in matches)
-    return old_count, new_count
+    return bytes(new_dex), 1, (item["start"], item["end"])
 
 
 def backup_path(backup_dir, jar_path):
@@ -149,7 +122,11 @@ def run(jar_path, backup_dir, check_only):
         already_total = 0
         for name in dex_names:
             data = archive.read(name)
-            new_data, state = patch_dex(data)
+            try:
+                new_data, state, bounds = patch_dex(data)
+            except ValueError as error:
+                print("[patch] failed for %s: %s" % (name, error))
+                return 1
             if new_data is None:
                 already_total += state
                 continue
@@ -164,7 +141,7 @@ def run(jar_path, backup_dir, check_only):
         if already_total:
             print("[patch] already patched: default proxyMode is Java多线程 (%d string(s))" % already_total)
             return 0
-        print("[patch] pattern %s not found: nothing to do" % OLD_TEXT)
+        print("[patch] pattern %s not found: nothing to do" % OLD_MARK)
         return 1
 
     if check_only:
@@ -192,12 +169,12 @@ def run(jar_path, backup_dir, check_only):
             return 1
     os.replace(temp_path, jar_path)
     print("[patch] patched %s: %s" % (jar_path, ", ".join(sorted(changed))))
-    print("[patch] default proxyMode -> Java多线程")
+    print("[patch] default proxyMode -> Java多线程 (size-preserving in-place edit)")
     return 0
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Patch tvbox.jar default proxyMode Go -> Java (idempotent)")
+    parser = argparse.ArgumentParser(description="Patch tvbox.jar default proxyMode Go -> Java (in-place, idempotent)")
     parser.add_argument("--jar", default=os.path.join(ROOT, "tvbox.jar"))
     parser.add_argument("--backup-dir", default=os.path.join(OUT_DIR, "jar_backup"))
     parser.add_argument("--no-backup", action="store_true")

@@ -284,6 +284,17 @@
             "timeout": 10
         },
         {
+            "key": "丨最大资源",
+            "name": "最大资源",
+            "type": 1,
+            "api": "https://api.zuidapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10
+        },
+        {
             "key": "丨樱花资源",
             "name": "樱花资源",
             "type": 1,

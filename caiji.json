@@ -42,17 +42,6 @@
             "timeout": 10
         },
         {
-            "key": "天涯资源",
-            "name": "天涯资源",
-            "type": 1,
-            "api": "https://tyyszy.com/api.php/provide/vod",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 1,
-            "filterable": 1,
-            "timeout": 10
-        },
-        {
             "key": "暴风资源",
             "name": "暴风资源",
             "type": 1,

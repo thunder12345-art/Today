@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "updated": "2026-10-23T09:51:14",
+    "updated": "2026-10-23T09:57:30",
     "sites": [
         {
             "key": "豆瓣",
@@ -16,15 +16,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:31"
+                    "checked_at": "2026-10-23T09:57:30"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T20:39:27",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T21:51:53",
                         "ok": null,
@@ -69,6 +64,11 @@
                         "at": "2026-10-23T08:58:31",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:30",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -93,15 +93,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:31"
+                    "checked_at": "2026-10-23T09:57:30"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:22",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:27",
                         "ok": null,
@@ -146,6 +141,11 @@
                         "at": "2026-10-23T08:58:31",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:30",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -178,9 +178,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:32",
+                    "checked_at": "2026-10-23T09:57:33",
                     "code": 200,
-                    "latency_ms": 1592,
+                    "latency_ms": 2385,
                     "url": "https://www.wogg.net",
                     "detail": null,
                     "target_source": "ext",
@@ -189,7 +189,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1592,
+                            "latency_ms": 2385,
                             "url": "https://www.wogg.net",
                             "target": "https://www.wogg.net"
                         }
@@ -197,13 +197,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 11,
+                "ok_streak": 12,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:24",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:33",
                         "ok": true,
@@ -248,6 +243,11 @@
                         "at": "2026-10-23T08:58:32",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:33",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -282,9 +282,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:32",
+                    "checked_at": "2026-10-23T09:57:31",
                     "code": 200,
-                    "latency_ms": 644,
+                    "latency_ms": 781,
                     "url": "https://123.666291.xyz",
                     "detail": null,
                     "target_source": "ext",
@@ -293,7 +293,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 644,
+                            "latency_ms": 781,
                             "url": "https://123.666291.xyz",
                             "target": "https://123.666291.xyz"
                         }
@@ -301,13 +301,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:23",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:28",
                         "ok": true,
@@ -352,6 +347,11 @@
                         "at": "2026-10-23T08:58:32",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:31",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -388,9 +388,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:32",
+                    "checked_at": "2026-10-23T09:57:31",
                     "code": 200,
-                    "latency_ms": 1388,
+                    "latency_ms": 882,
                     "url": "http://tvpanpan.site",
                     "detail": null,
                     "target_source": "ext",
@@ -399,7 +399,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1388,
+                            "latency_ms": 882,
                             "url": "http://tvpanpan.site",
                             "target": "http://tvpanpan.site"
                         }
@@ -407,13 +407,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:23",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:28",
                         "ok": true,
@@ -458,6 +453,11 @@
                         "at": "2026-10-23T08:58:32",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:31",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -490,9 +490,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:37",
+                    "checked_at": "2026-10-23T09:57:36",
                     "code": 200,
-                    "latency_ms": 1184,
+                    "latency_ms": 967,
                     "url": "https://www.mihdr.top",
                     "detail": null,
                     "target_source": "ext",
@@ -501,7 +501,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 403,
+                            "latency_ms": 494,
                             "url": "https://mihdr.top",
                             "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
                             "target": "https://mihdr.top"
@@ -509,7 +509,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 1642,
+                            "latency_ms": 1454,
                             "url": "https://www.miqk.cc",
                             "detail": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
                             "target": "https://www.miqk.cc"
@@ -517,7 +517,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1184,
+                            "latency_ms": 967,
                             "url": "https://www.mihdr.top",
                             "target": "https://www.mihdr.top"
                         }
@@ -525,13 +525,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 10,
+                "ok_streak": 11,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:28",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:43",
                         "ok": true,
@@ -576,6 +571,11 @@
                         "at": "2026-10-23T08:58:37",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:36",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -608,9 +608,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:14",
+                    "checked_at": "2026-10-23T09:58:15",
                     "code": 200,
-                    "latency_ms": 1747,
+                    "latency_ms": 3054,
                     "url": "https://tv.yydsys.cc",
                     "detail": null,
                     "target_source": "ext",
@@ -619,7 +619,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 14917,
+                            "latency_ms": 15958,
                             "url": "https://tv.yydsys.top",
                             "detail": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
                             "target": "https://tv.yydsys.top"
@@ -627,7 +627,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1747,
+                            "latency_ms": 3054,
                             "url": "https://tv.yydsys.cc",
                             "target": "https://tv.yydsys.cc"
                         }
@@ -635,13 +635,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:58",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:11",
                         "ok": true,
@@ -686,6 +681,11 @@
                         "at": "2026-10-23T08:59:14",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:15",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -719,9 +719,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:33",
+                    "checked_at": "2026-10-23T09:57:33",
                     "code": 200,
-                    "latency_ms": 1708,
+                    "latency_ms": 3191,
                     "url": "https://woog.nxog.eu.org",
                     "detail": null,
                     "target_source": "ext",
@@ -730,7 +730,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1708,
+                            "latency_ms": 3191,
                             "url": "https://woog.nxog.eu.org",
                             "target": "https://woog.nxog.eu.org"
                         }
@@ -738,13 +738,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:25",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:32",
                         "ok": true,
@@ -789,6 +784,11 @@
                         "at": "2026-10-23T08:58:33",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:33",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -825,9 +825,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:58:36",
+                    "checked_at": "2026-10-23T09:57:42",
                     "code": null,
-                    "latency_ms": 398,
+                    "latency_ms": 870,
                     "url": "https://www.erxiaozhan.top",
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "target_source": "ext",
@@ -836,7 +836,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 779,
+                            "latency_ms": 804,
                             "url": "https://www.2xiaopan.top",
                             "detail": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)>",
                             "target": "https://www.2xiaopan.top"
@@ -844,7 +844,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 474,
+                            "latency_ms": 922,
                             "url": "https://2xiaopan.top",
                             "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
                             "target": "https://2xiaopan.top"
@@ -852,7 +852,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 398,
+                            "latency_ms": 870,
                             "url": "https://www.erxiaozhan.top",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "https://www.erxiaozhan.top"
@@ -860,14 +860,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 13,
+                "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T20:39:32",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
                     {
                         "at": "2026-10-20T21:53:02",
                         "ok": false,
@@ -912,6 +907,11 @@
                         "at": "2026-10-23T08:58:36",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:42",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
                     }
                 ],
                 "blocked": true,
@@ -943,9 +943,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:31",
+                    "checked_at": "2026-10-23T09:57:30",
                     "code": 200,
-                    "latency_ms": 198,
+                    "latency_ms": 191,
                     "url": "http://38.76.197.172:16969",
                     "detail": null,
                     "target_source": "ext",
@@ -954,7 +954,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 198,
+                            "latency_ms": 191,
                             "url": "http://38.76.197.172:16969",
                             "target": "http://38.76.197.172:16969"
                         }
@@ -962,13 +962,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:23",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:29",
                         "ok": true,
@@ -1013,6 +1008,11 @@
                         "at": "2026-10-23T08:58:31",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:30",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -1041,9 +1041,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:31",
+                    "checked_at": "2026-10-23T09:57:30",
                     "code": 200,
-                    "latency_ms": 199,
+                    "latency_ms": 212,
                     "url": "http://38.76.197.172:12521",
                     "detail": null,
                     "target_source": "ext",
@@ -1052,7 +1052,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 199,
+                            "latency_ms": 212,
                             "url": "http://38.76.197.172:12521",
                             "target": "http://38.76.197.172:12521"
                         }
@@ -1060,13 +1060,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:23",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:38",
                         "ok": true,
@@ -1111,6 +1106,11 @@
                         "at": "2026-10-23T08:58:31",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:30",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -1145,9 +1145,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:36",
+                    "checked_at": "2026-10-23T09:57:33",
                     "code": 200,
-                    "latency_ms": 5003,
+                    "latency_ms": 2372,
                     "url": "https://sidhub.cc",
                     "detail": null,
                     "target_source": "ext",
@@ -1156,7 +1156,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 5003,
+                            "latency_ms": 2372,
                             "url": "https://sidhub.cc",
                             "target": "https://sidhub.cc"
                         }
@@ -1164,13 +1164,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:25",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:34",
                         "ok": true,
@@ -1215,6 +1210,11 @@
                         "at": "2026-10-23T08:58:36",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:33",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -1248,9 +1248,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:33",
+                    "checked_at": "2026-10-23T09:57:36",
                     "code": 200,
-                    "latency_ms": 2412,
+                    "latency_ms": 5632,
                     "url": "https://123panfx.com",
                     "detail": null,
                     "target_source": "ext",
@@ -1259,7 +1259,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 2412,
+                            "latency_ms": 5632,
                             "url": "https://123panfx.com",
                             "target": "https://123panfx.com"
                         }
@@ -1267,13 +1267,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:37",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:37",
                         "ok": true,
@@ -1318,6 +1313,11 @@
                         "at": "2026-10-23T08:58:33",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:36",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -1338,9 +1338,9 @@
                 "targets": [],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:32",
+                    "checked_at": "2026-10-23T09:57:32",
                     "code": 200,
-                    "latency_ms": 1452,
+                    "latency_ms": 1951,
                     "url": "https://4kzn.cc",
                     "detail": null,
                     "target_source": "jar",
@@ -1349,7 +1349,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1452,
+                            "latency_ms": 1951,
                             "url": "https://4kzn.cc",
                             "target": "https://4kzn.cc"
                         }
@@ -1357,13 +1357,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:24",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:29",
                         "ok": true,
@@ -1408,6 +1403,11 @@
                         "at": "2026-10-23T08:58:32",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:32",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -1427,34 +1427,28 @@
                 "added_at": "2026-10-19T16:51:42",
                 "targets": [],
                 "last_check": {
-                    "ok": false,
-                    "checked_at": "2026-10-23T08:58:52",
-                    "code": null,
-                    "latency_ms": 11586,
+                    "ok": true,
+                    "checked_at": "2026-10-23T09:57:45",
+                    "code": 200,
+                    "latency_ms": 5620,
                     "url": "https://www.rrdynb.com/plus/search.php?q=",
-                    "detail": "TimeoutError: The read operation timed out",
+                    "detail": null,
                     "target_source": "jar",
                     "targets_total": 1,
                     "results": [
                         {
-                            "ok": false,
-                            "code": null,
-                            "latency_ms": 11586,
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 5620,
                             "url": "https://www.rrdynb.com/plus/search.php?q=",
-                            "detail": "TimeoutError: The read operation timed out",
                             "target": "https://www.rrdynb.com/plus/search.php?q="
                         }
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 1,
-                "ok_streak": 0,
+                "fail_streak": 0,
+                "ok_streak": 1,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:28",
-                        "ok": false,
-                        "detail": "HTTP 403"
-                    },
                     {
                         "at": "2026-10-20T20:39:43",
                         "ok": false,
@@ -1499,6 +1493,11 @@
                         "at": "2026-10-23T08:58:52",
                         "ok": false,
                         "detail": "TimeoutError: The read operation timed out"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:45",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "blocked": false,
@@ -1524,15 +1523,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:31"
+                    "checked_at": "2026-10-23T09:57:30"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:23",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:28",
                         "ok": null,
@@ -1575,6 +1569,11 @@
                     },
                     {
                         "at": "2026-10-23T08:58:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:30",
                         "ok": null,
                         "detail": "no_target"
                     }
@@ -1601,15 +1600,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:31"
+                    "checked_at": "2026-10-23T09:57:30"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:23",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:28",
                         "ok": null,
@@ -1652,6 +1646,11 @@
                     },
                     {
                         "at": "2026-10-23T08:58:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:30",
                         "ok": null,
                         "detail": "no_target"
                     }
@@ -1675,15 +1674,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:31"
+                    "checked_at": "2026-10-23T09:57:30"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:23",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:28",
                         "ok": null,
@@ -1726,6 +1720,11 @@
                     },
                     {
                         "at": "2026-10-23T08:58:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:30",
                         "ok": null,
                         "detail": "no_target"
                     }
@@ -1749,15 +1748,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:31"
+                    "checked_at": "2026-10-23T09:57:30"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:23",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:28",
                         "ok": null,
@@ -1800,6 +1794,11 @@
                     },
                     {
                         "at": "2026-10-23T08:58:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:30",
                         "ok": null,
                         "detail": "no_target"
                     }
@@ -1831,9 +1830,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:59:14",
+                    "checked_at": "2026-10-23T09:58:07",
                     "code": null,
-                    "latency_ms": 8439,
+                    "latency_ms": 8506,
                     "url": "http://www.misoso.shop",
                     "detail": "TimeoutError: timed out",
                     "target_source": "ext",
@@ -1842,7 +1841,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 16416,
+                            "latency_ms": 9123,
                             "url": "https://misoso.shop",
                             "detail": "TimeoutError: The read operation timed out",
                             "target": "https://misoso.shop"
@@ -1850,7 +1849,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 8439,
+                            "latency_ms": 8506,
                             "url": "http://www.misoso.shop",
                             "detail": "TimeoutError: timed out",
                             "target": "http://www.misoso.shop"
@@ -1858,14 +1857,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:04",
-                        "ok": false,
-                        "detail": "TimeoutError: timed out"
-                    },
                     {
                         "at": "2026-10-20T20:40:06",
                         "ok": false,
@@ -1910,6 +1904,11 @@
                         "at": "2026-10-23T08:59:14",
                         "ok": false,
                         "detail": "TimeoutError: timed out"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:07",
+                        "ok": false,
+                        "detail": "TimeoutError: timed out"
                     }
                 ],
                 "blocked": true,
@@ -1937,9 +1936,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:32",
+                    "checked_at": "2026-10-23T09:57:31",
                     "code": 200,
-                    "latency_ms": 898,
+                    "latency_ms": 455,
                     "url": "http://v.rbotv.cn",
                     "detail": null,
                     "target_source": "ext",
@@ -1948,7 +1947,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 898,
+                            "latency_ms": 455,
                             "url": "http://v.rbotv.cn",
                             "target": "http://v.rbotv.cn"
                         }
@@ -1956,13 +1955,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:23",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:29",
                         "ok": true,
@@ -2007,6 +2001,11 @@
                         "at": "2026-10-23T08:58:32",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:31",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -2026,9 +2025,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:58:34",
+                    "checked_at": "2026-10-23T09:57:33",
                     "code": null,
-                    "latency_ms": 411,
+                    "latency_ms": 491,
                     "url": "http://www.小不点.com/api/2026/fishhxq.php",
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "target_source": "ext",
@@ -2037,7 +2036,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 411,
+                            "latency_ms": 491,
                             "url": "http://www.小不点.com/api/2026/fishhxq.php",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "http://www.小不点.com/api/2026/fishhxq.php"
@@ -2045,14 +2044,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:24",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
                     {
                         "at": "2026-10-20T20:39:31",
                         "ok": false,
@@ -2097,6 +2091,11 @@
                         "at": "2026-10-23T08:58:34",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:33",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
                     }
                 ],
                 "blocked": true,
@@ -2120,15 +2119,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:32"
+                    "checked_at": "2026-10-23T09:57:31"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:23",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:29",
                         "ok": null,
@@ -2173,6 +2167,11 @@
                         "at": "2026-10-23T08:58:32",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:31",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -2192,9 +2191,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:33",
+                    "checked_at": "2026-10-23T09:57:32",
                     "code": 200,
-                    "latency_ms": 539,
+                    "latency_ms": 540,
                     "url": "https://vip.wwgz.cn:5200",
                     "detail": null,
                     "target_source": "ext",
@@ -2203,7 +2202,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 539,
+                            "latency_ms": 540,
                             "url": "https://vip.wwgz.cn:5200",
                             "target": "https://vip.wwgz.cn:5200"
                         }
@@ -2211,13 +2210,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:24",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:30",
                         "ok": true,
@@ -2262,6 +2256,11 @@
                         "at": "2026-10-23T08:58:33",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:32",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -2281,9 +2280,9 @@
                 "targets": [],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:34",
+                    "checked_at": "2026-10-23T09:57:47",
                     "code": 200,
-                    "latency_ms": 1454,
+                    "latency_ms": 2685,
                     "url": "https://www1.ikanbot.com",
                     "detail": null,
                     "target_source": "jar",
@@ -2292,7 +2291,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1454,
+                            "latency_ms": 2685,
                             "url": "https://www1.ikanbot.com",
                             "target": "https://www1.ikanbot.com"
                         }
@@ -2300,13 +2299,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 2,
+                "ok_streak": 3,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:45",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:37",
                         "ok": true,
@@ -2351,6 +2345,11 @@
                         "at": "2026-10-23T08:58:34",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:47",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14",
@@ -2368,9 +2367,9 @@
                 "targets": [],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:58:36",
+                    "checked_at": "2026-10-23T09:57:36",
                     "code": null,
-                    "latency_ms": 433,
+                    "latency_ms": 439,
                     "url": "https://w.duboku.io/",
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "target_source": "jar",
@@ -2379,7 +2378,7 @@
                         {
                             "ok": false,
                             "code": 400,
-                            "latency_ms": 633,
+                            "latency_ms": 688,
                             "url": "https://api.dbokutv.com",
                             "detail": "HTTP 400",
                             "target": "https://api.dbokutv.com"
@@ -2387,7 +2386,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 425,
+                            "latency_ms": 520,
                             "url": "https://w.duboku.io",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "https://w.duboku.io"
@@ -2395,7 +2394,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 433,
+                            "latency_ms": 439,
                             "url": "https://w.duboku.io/",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "https://w.duboku.io/"
@@ -2403,14 +2402,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:31",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
                     {
                         "at": "2026-10-20T20:39:34",
                         "ok": false,
@@ -2455,6 +2449,11 @@
                         "at": "2026-10-23T08:58:36",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:36",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
                     }
                 ],
                 "blocked": true,
@@ -2480,9 +2479,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:58:33",
+                    "checked_at": "2026-10-23T09:57:33",
                     "code": 200,
-                    "latency_ms": 850,
+                    "latency_ms": 912,
                     "url": "https://cz01.vip",
                     "detail": null,
                     "target_source": "ext",
@@ -2491,7 +2490,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 850,
+                            "latency_ms": 912,
                             "url": "https://cz01.vip",
                             "target": "https://cz01.vip"
                         }
@@ -2499,13 +2498,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:25",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:39:33",
                         "ok": true,
@@ -2550,6 +2544,11 @@
                         "at": "2026-10-23T08:58:33",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:33",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -2574,15 +2573,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:33"
+                    "checked_at": "2026-10-23T09:57:33"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:24",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:32",
                         "ok": null,
@@ -2625,6 +2619,11 @@
                     },
                     {
                         "at": "2026-10-23T08:58:33",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:33",
                         "ok": null,
                         "detail": "no_target"
                     }
@@ -2651,15 +2650,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:33"
+                    "checked_at": "2026-10-23T09:57:33"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:24",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:32",
                         "ok": null,
@@ -2702,6 +2696,11 @@
                     },
                     {
                         "at": "2026-10-23T08:58:33",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:33",
                         "ok": null,
                         "detail": "no_target"
                     }
@@ -2728,15 +2727,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:33"
+                    "checked_at": "2026-10-23T09:57:33"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:24",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:32",
                         "ok": null,
@@ -2779,6 +2773,11 @@
                     },
                     {
                         "at": "2026-10-23T08:58:33",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:33",
                         "ok": null,
                         "detail": "no_target"
                     }
@@ -2805,15 +2804,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:33"
+                    "checked_at": "2026-10-23T09:57:33"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:24",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:32",
                         "ok": null,
@@ -2856,6 +2850,11 @@
                     },
                     {
                         "at": "2026-10-23T08:58:33",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:33",
                         "ok": null,
                         "detail": "no_target"
                     }
@@ -2875,15 +2874,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:33"
+                    "checked_at": "2026-10-23T09:57:33"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:24",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:32",
                         "ok": null,
@@ -2926,6 +2920,11 @@
                     },
                     {
                         "at": "2026-10-23T08:58:33",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:33",
                         "ok": null,
                         "detail": "no_target"
                     }
@@ -2948,15 +2947,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-23T08:58:33"
+                    "checked_at": "2026-10-23T09:57:33"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:01:24",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-20T20:39:32",
                         "ok": null,
@@ -3001,6 +2995,11 @@
                         "at": "2026-10-23T08:58:33",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-23T09:57:33",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -3017,19 +3016,14 @@
                 "last_check": {
                     "ok": true,
                     "code": 200,
-                    "latency_ms": 303,
+                    "latency_ms": 266,
                     "url": "https://8815.kstore.vip/tvbox/wmz",
-                    "checked_at": "2026-10-23T08:59:49"
+                    "checked_at": "2026-10-23T09:58:51"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 6,
+                "ok_streak": 7,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:47",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:58",
                         "ok": true,
@@ -3074,6 +3068,11 @@
                         "at": "2026-10-23T08:59:49",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:51",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "targets": [],
@@ -3089,19 +3088,14 @@
                 "last_check": {
                     "ok": true,
                     "code": 200,
-                    "latency_ms": 1676,
+                    "latency_ms": 1748,
                     "url": "https://www.饭太硬.cc/tv",
-                    "checked_at": "2026-10-23T08:59:50"
+                    "checked_at": "2026-10-23T09:58:53"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:49",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:41:00",
                         "ok": true,
@@ -3146,6 +3140,11 @@
                         "at": "2026-10-23T08:59:50",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:53",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "targets": [],
@@ -3161,19 +3160,14 @@
                 "last_check": {
                     "ok": true,
                     "code": 200,
-                    "latency_ms": 1207,
+                    "latency_ms": 992,
                     "url": "http://肥猫.net/tv",
-                    "checked_at": "2026-10-23T08:59:50"
+                    "checked_at": "2026-10-23T09:58:52"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:48",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:59",
                         "ok": true,
@@ -3218,6 +3212,11 @@
                         "at": "2026-10-23T08:59:50",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:52",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "targets": [],
@@ -3233,19 +3232,14 @@
                 "last_check": {
                     "ok": true,
                     "code": 200,
-                    "latency_ms": 314,
+                    "latency_ms": 290,
                     "url": "https://9280.kstore.vip/aiwex.json",
-                    "checked_at": "2026-10-23T08:59:49"
+                    "checked_at": "2026-10-23T09:58:51"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 5,
+                "ok_streak": 6,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:48",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>"
-                    },
                     {
                         "at": "2026-10-20T20:40:58",
                         "ok": true,
@@ -3290,6 +3284,11 @@
                         "at": "2026-10-23T08:59:49",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:51",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "blocked": false,
@@ -3306,19 +3305,14 @@
                 "last_check": {
                     "ok": true,
                     "code": 200,
-                    "latency_ms": 3553,
+                    "latency_ms": 2539,
                     "url": "http://www.英格里希嗷呜.top/tv",
-                    "checked_at": "2026-10-23T08:59:52"
+                    "checked_at": "2026-10-23T09:58:53"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:49",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:41:01",
                         "ok": true,
@@ -3363,6 +3357,11 @@
                         "at": "2026-10-23T08:59:52",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:53",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "targets": [],
@@ -3378,20 +3377,15 @@
                 "last_check": {
                     "ok": false,
                     "code": 404,
-                    "latency_ms": 785,
+                    "latency_ms": 324,
                     "url": "https://9877.kstore.space/one.json",
                     "detail": "HTTP 404",
-                    "checked_at": "2026-10-23T08:59:50"
+                    "checked_at": "2026-10-23T09:58:51"
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:48",
-                        "ok": false,
-                        "detail": "HTTP 404"
-                    },
                     {
                         "at": "2026-10-20T20:40:59",
                         "ok": false,
@@ -3436,6 +3430,11 @@
                         "at": "2026-10-23T08:59:50",
                         "ok": false,
                         "detail": "HTTP 404"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:51",
+                        "ok": false,
+                        "detail": "HTTP 404"
                     }
                 ],
                 "blocked": true,
@@ -3454,20 +3453,15 @@
                 "last_check": {
                     "ok": false,
                     "code": null,
-                    "latency_ms": 798,
+                    "latency_ms": 523,
                     "url": "http://www.小不点.com",
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
-                    "checked_at": "2026-10-23T08:59:51"
+                    "checked_at": "2026-10-23T09:58:52"
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:48",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
                     {
                         "at": "2026-10-20T20:41:00",
                         "ok": false,
@@ -3512,6 +3506,11 @@
                         "at": "2026-10-23T08:59:51",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:52",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
                     }
                 ],
                 "blocked": true,
@@ -3530,19 +3529,14 @@
                 "last_check": {
                     "ok": true,
                     "code": 200,
-                    "latency_ms": 374,
+                    "latency_ms": 356,
                     "url": "https://16151.kstore.space",
-                    "checked_at": "2026-10-23T08:59:49"
+                    "checked_at": "2026-10-23T09:58:51"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 9,
+                "ok_streak": 10,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:48",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>"
-                    },
                     {
                         "at": "2026-10-20T20:40:58",
                         "ok": true,
@@ -3587,6 +3581,11 @@
                         "at": "2026-10-23T08:59:49",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:51",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "targets": [],
@@ -3602,20 +3601,15 @@
                 "last_check": {
                     "ok": false,
                     "code": null,
-                    "latency_ms": 8243,
+                    "latency_ms": 8357,
                     "url": "https://www.tangsan.fun/tv",
                     "detail": "URLError: <urlopen error timed out>",
-                    "checked_at": "2026-10-23T09:00:06"
+                    "checked_at": "2026-10-23T09:59:08"
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:03:04",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error timed out>"
-                    },
                     {
                         "at": "2026-10-20T20:41:15",
                         "ok": false,
@@ -3660,6 +3654,11 @@
                         "at": "2026-10-23T09:00:06",
                         "ok": false,
                         "detail": "URLError: <urlopen error timed out>"
+                    },
+                    {
+                        "at": "2026-10-23T09:59:08",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error timed out>"
                     }
                 ],
                 "blocked": true,
@@ -3678,20 +3677,15 @@
                 "last_check": {
                     "ok": false,
                     "code": null,
-                    "latency_ms": 576,
+                    "latency_ms": 471,
                     "url": "http://cdn.qiaoji8.com/tvbox.json",
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
-                    "checked_at": "2026-10-23T08:59:50"
+                    "checked_at": "2026-10-23T09:58:52"
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:48",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
                     {
                         "at": "2026-10-20T20:40:59",
                         "ok": false,
@@ -3736,6 +3730,11 @@
                         "at": "2026-10-23T08:59:50",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:52",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
                     }
                 ],
                 "blocked": true,
@@ -3754,19 +3753,14 @@
                 "last_check": {
                     "ok": true,
                     "code": 200,
-                    "latency_ms": 887,
+                    "latency_ms": 854,
                     "url": "http://hb.小虎斑.site:25252/仅供测试",
-                    "checked_at": "2026-10-23T08:59:50"
+                    "checked_at": "2026-10-23T09:58:52"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:48",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:59",
                         "ok": true,
@@ -3811,6 +3805,11 @@
                         "at": "2026-10-23T08:59:50",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:52",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "targets": [],
@@ -3826,20 +3825,15 @@
                 "last_check": {
                     "ok": false,
                     "code": null,
-                    "latency_ms": 3502,
+                    "latency_ms": 684,
                     "url": "https://欧歌.v.nxog.top/m/",
                     "detail": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)>",
-                    "checked_at": "2026-10-23T08:59:54"
+                    "checked_at": "2026-10-23T09:58:56"
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:47",
-                        "ok": false,
-                        "detail": "HTTP 403"
-                    },
                     {
                         "at": "2026-10-20T20:40:58",
                         "ok": false,
@@ -3884,6 +3878,11 @@
                         "at": "2026-10-23T08:59:54",
                         "ok": false,
                         "detail": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)>"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:56",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)>"
                     }
                 ],
                 "blocked": true,
@@ -3902,19 +3901,14 @@
                 "last_check": {
                     "ok": true,
                     "code": 200,
-                    "latency_ms": 1054,
+                    "latency_ms": 1004,
                     "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
-                    "checked_at": "2026-10-23T08:59:50"
+                    "checked_at": "2026-10-23T09:58:52"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:48",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:59",
                         "ok": true,
@@ -3959,6 +3953,11 @@
                         "at": "2026-10-23T08:59:50",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:52",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "targets": [],
@@ -3974,19 +3973,14 @@
                 "last_check": {
                     "ok": true,
                     "code": 200,
-                    "latency_ms": 470,
+                    "latency_ms": 419,
                     "url": "https://www.252035.xyz/p/jsm.json",
-                    "checked_at": "2026-10-23T08:59:50"
+                    "checked_at": "2026-10-23T09:58:52"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:48",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:41:01",
                         "ok": true,
@@ -4031,6 +4025,11 @@
                         "at": "2026-10-23T08:59:50",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:52",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "targets": [],
@@ -4046,19 +4045,14 @@
                 "last_check": {
                     "ok": true,
                     "code": 200,
-                    "latency_ms": 468,
+                    "latency_ms": 428,
                     "url": "https://www.252035.xyz/z/FongMi.json",
-                    "checked_at": "2026-10-23T08:59:50"
+                    "checked_at": "2026-10-23T09:58:52"
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:48",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:41:01",
                         "ok": true,
@@ -4103,6 +4097,11 @@
                         "at": "2026-10-23T08:59:50",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:52",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "targets": [],
@@ -4118,20 +4117,15 @@
                 "last_check": {
                     "ok": false,
                     "code": 404,
-                    "latency_ms": 2856,
+                    "latency_ms": 1285,
                     "url": "https://gitlab.com/duomv/dzhipy/-/raw/main/index.json",
                     "detail": "HTTP 404",
-                    "checked_at": "2026-10-23T08:59:52"
+                    "checked_at": "2026-10-23T09:58:53"
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:49",
-                        "ok": false,
-                        "detail": "HTTP 404"
-                    },
                     {
                         "at": "2026-10-20T20:41:00",
                         "ok": false,
@@ -4176,6 +4170,11 @@
                         "at": "2026-10-23T08:59:52",
                         "ok": false,
                         "detail": "HTTP 404"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:53",
+                        "ok": false,
+                        "detail": "HTTP 404"
                     }
                 ],
                 "blocked": true,
@@ -4203,9 +4202,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:16",
+                    "checked_at": "2026-10-23T09:58:17",
                     "code": 200,
-                    "latency_ms": 1646,
+                    "latency_ms": 1752,
                     "url": "https://dy.7772888.xyz/api.php/tvbox?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -4214,7 +4213,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1646,
+                            "latency_ms": 1752,
                             "url": "https://dy.7772888.xyz/api.php/tvbox?ac=list",
                             "target": "https://dy.7772888.xyz/api.php/tvbox"
                         }
@@ -4222,13 +4221,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:05",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:14",
                         "ok": true,
@@ -4273,6 +4267,11 @@
                         "at": "2026-10-23T08:59:16",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:17",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -4294,9 +4293,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:15",
+                    "checked_at": "2026-10-23T09:58:16",
                     "code": 200,
-                    "latency_ms": 565,
+                    "latency_ms": 553,
                     "url": "http://caiji.dyttzyapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -4305,7 +4304,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 565,
+                            "latency_ms": 553,
                             "url": "http://caiji.dyttzyapi.com/api.php/provide/vod?ac=list",
                             "target": "http://caiji.dyttzyapi.com/api.php/provide/vod"
                         }
@@ -4313,13 +4312,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:04",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:12",
                         "ok": true,
@@ -4364,6 +4358,11 @@
                         "at": "2026-10-23T08:59:15",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:16",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -4387,9 +4386,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:17",
+                    "checked_at": "2026-10-23T09:58:18",
                     "code": 200,
-                    "latency_ms": 2227,
+                    "latency_ms": 2631,
                     "url": "https://cj.lziapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -4398,7 +4397,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 2227,
+                            "latency_ms": 2631,
                             "url": "https://cj.lziapi.com/api.php/provide/vod?ac=list",
                             "target": "https://cj.lziapi.com/api.php/provide/vod"
                         }
@@ -4406,13 +4405,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:06",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:15",
                         "ok": true,
@@ -4457,6 +4451,11 @@
                         "at": "2026-10-23T08:59:17",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:18",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -4480,9 +4479,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:59:16",
+                    "checked_at": "2026-10-23T09:58:16",
                     "code": null,
-                    "latency_ms": 387,
+                    "latency_ms": 395,
                     "url": "https://api.1080zyku.com/inc/api_mac10.php?ac=list",
                     "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
                     "target_source": "ext",
@@ -4491,7 +4490,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 387,
+                            "latency_ms": 395,
                             "url": "https://api.1080zyku.com/inc/api_mac10.php?ac=list",
                             "target": "https://api.1080zyku.com/inc/api_mac10.php",
                             "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
@@ -4499,14 +4498,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:05",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
-                    },
                     {
                         "at": "2026-10-20T20:40:12",
                         "ok": false,
@@ -4551,6 +4545,11 @@
                         "at": "2026-10-23T08:59:16",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:16",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
                     }
                 ],
                 "blocked": true,
@@ -4577,9 +4576,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:16",
+                    "checked_at": "2026-10-23T09:58:16",
                     "code": 200,
-                    "latency_ms": 1368,
+                    "latency_ms": 1351,
                     "url": "https://360zy.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -4588,7 +4587,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1368,
+                            "latency_ms": 1351,
                             "url": "https://360zy.com/api.php/provide/vod?ac=list",
                             "target": "https://360zy.com/api.php/provide/vod"
                         }
@@ -4596,13 +4595,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:05",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:12",
                         "ok": true,
@@ -4647,6 +4641,11 @@
                         "at": "2026-10-23T08:59:16",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:16",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -4670,9 +4669,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:59:38",
+                    "checked_at": "2026-10-23T09:58:51",
                     "code": null,
-                    "latency_ms": 10784,
+                    "latency_ms": 17109,
                     "url": "https://tyyszy.com/api.php/provide/vod?ac=list",
                     "detail": "TimeoutError: The read operation timed out",
                     "target_source": "ext",
@@ -4681,7 +4680,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 10784,
+                            "latency_ms": 17109,
                             "url": "https://tyyszy.com/api.php/provide/vod?ac=list",
                             "target": "https://tyyszy.com/api.php/provide/vod",
                             "detail": "TimeoutError: The read operation timed out"
@@ -4689,14 +4688,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 1,
+                "fail_streak": 2,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:22",
-                        "ok": false,
-                        "detail": "TimeoutError: The read operation timed out"
-                    },
                     {
                         "at": "2026-10-20T20:40:16",
                         "ok": true,
@@ -4741,9 +4735,17 @@
                         "at": "2026-10-23T08:59:38",
                         "ok": false,
                         "detail": "TimeoutError: The read operation timed out"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:51",
+                        "ok": false,
+                        "detail": "TimeoutError: The read operation timed out"
                     }
                 ],
-                "merged_at": "2026-10-23T09:51:14"
+                "merged_at": "2026-10-23T09:51:14",
+                "blocked": true,
+                "blocked_reason": "auto",
+                "blocked_at": "2026-10-23T09:58:51"
             }
         },
         {
@@ -4764,9 +4766,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:19",
+                    "checked_at": "2026-10-23T09:58:21",
                     "code": 200,
-                    "latency_ms": 4930,
+                    "latency_ms": 6180,
                     "url": "https://bfzyapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -4775,7 +4777,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 4930,
+                            "latency_ms": 6180,
                             "url": "https://bfzyapi.com/api.php/provide/vod?ac=list",
                             "target": "https://bfzyapi.com/api.php/provide/vod"
                         }
@@ -4783,13 +4785,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 3,
+                "ok_streak": 4,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:10",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:29",
                         "ok": false,
@@ -4834,6 +4831,11 @@
                         "at": "2026-10-23T08:59:19",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:21",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -4857,9 +4859,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:23",
+                    "checked_at": "2026-10-23T09:58:22",
                     "code": 200,
-                    "latency_ms": 8822,
+                    "latency_ms": 6946,
                     "url": "https://xsd.sdzyapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -4868,7 +4870,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 8822,
+                            "latency_ms": 6946,
                             "url": "https://xsd.sdzyapi.com/api.php/provide/vod?ac=list",
                             "target": "https://xsd.sdzyapi.com/api.php/provide/vod"
                         }
@@ -4876,13 +4878,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 2,
+                "ok_streak": 3,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:21",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-                    },
                     {
                         "at": "2026-10-20T20:40:29",
                         "ok": false,
@@ -4927,6 +4924,11 @@
                         "at": "2026-10-23T08:59:23",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:22",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "blocked": false,
@@ -4951,9 +4953,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:21",
+                    "checked_at": "2026-10-23T09:58:18",
                     "code": 200,
-                    "latency_ms": 6396,
+                    "latency_ms": 2578,
                     "url": "https://suoniapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -4962,7 +4964,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 6396,
+                            "latency_ms": 2578,
                             "url": "https://suoniapi.com/api.php/provide/vod?ac=list",
                             "target": "https://suoniapi.com/api.php/provide/vod"
                         }
@@ -4970,13 +4972,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 2,
+                "ok_streak": 3,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:23",
-                        "ok": false,
-                        "detail": "TimeoutError: The read operation timed out"
-                    },
                     {
                         "at": "2026-10-20T20:40:18",
                         "ok": true,
@@ -5021,6 +5018,11 @@
                         "at": "2026-10-23T08:59:21",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:18",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "blocked": false,
@@ -5045,9 +5047,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:15",
+                    "checked_at": "2026-10-23T09:58:31",
                     "code": 200,
-                    "latency_ms": 1058,
+                    "latency_ms": 5648,
                     "url": "https://www.hongniuzy2.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -5056,7 +5058,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1058,
+                            "latency_ms": 5648,
                             "url": "https://www.hongniuzy2.com/api.php/provide/vod?ac=list",
                             "target": "https://www.hongniuzy2.com/api.php/provide/vod"
                         }
@@ -5064,13 +5066,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:19",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:21",
                         "ok": true,
@@ -5115,6 +5112,11 @@
                         "at": "2026-10-23T08:59:15",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:31",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -5138,9 +5140,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:16",
+                    "checked_at": "2026-10-23T09:58:17",
                     "code": 200,
-                    "latency_ms": 1582,
+                    "latency_ms": 1541,
                     "url": "https://caiji.maotaizy.cc/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -5149,7 +5151,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1582,
+                            "latency_ms": 1541,
                             "url": "https://caiji.maotaizy.cc/api.php/provide/vod?ac=list",
                             "target": "https://caiji.maotaizy.cc/api.php/provide/vod"
                         }
@@ -5157,13 +5159,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:05",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:14",
                         "ok": true,
@@ -5208,6 +5205,11 @@
                         "at": "2026-10-23T08:59:16",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:17",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -5231,9 +5233,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:22",
+                    "checked_at": "2026-10-23T09:58:20",
                     "code": 200,
-                    "latency_ms": 7460,
+                    "latency_ms": 5068,
                     "url": "https://www.huyaapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -5242,7 +5244,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 7460,
+                            "latency_ms": 5068,
                             "url": "https://www.huyaapi.com/api.php/provide/vod?ac=list",
                             "target": "https://www.huyaapi.com/api.php/provide/vod"
                         }
@@ -5250,13 +5252,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 2,
+                "ok_streak": 3,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:06",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:32",
                         "ok": false,
@@ -5301,6 +5298,11 @@
                         "at": "2026-10-23T08:59:22",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:20",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -5324,9 +5326,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:59:17",
+                    "checked_at": "2026-10-23T09:58:17",
                     "code": null,
-                    "latency_ms": 486,
+                    "latency_ms": 491,
                     "url": "https://caiji.dbzy.tv/api.php/provide/vod?ac=list",
                     "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
                     "target_source": "ext",
@@ -5335,7 +5337,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 486,
+                            "latency_ms": 491,
                             "url": "https://caiji.dbzy.tv/api.php/provide/vod?ac=list",
                             "target": "https://caiji.dbzy.tv/api.php/provide/vod",
                             "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>"
@@ -5343,14 +5345,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:06",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>"
-                    },
                     {
                         "at": "2026-10-20T20:40:13",
                         "ok": false,
@@ -5395,6 +5392,11 @@
                         "at": "2026-10-23T08:59:17",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:17",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>"
                     }
                 ],
                 "blocked": true,
@@ -5421,9 +5423,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:17",
+                    "checked_at": "2026-10-23T09:58:18",
                     "code": 200,
-                    "latency_ms": 1417,
+                    "latency_ms": 1391,
                     "url": "https://dbzy.tv/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -5432,7 +5434,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1417,
+                            "latency_ms": 1391,
                             "url": "https://dbzy.tv/api.php/provide/vod?ac=list",
                             "target": "https://dbzy.tv/api.php/provide/vod"
                         }
@@ -5440,13 +5442,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:16",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:14",
                         "ok": true,
@@ -5491,6 +5488,11 @@
                         "at": "2026-10-23T08:59:17",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:18",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -5514,9 +5516,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:17",
+                    "checked_at": "2026-10-23T09:58:18",
                     "code": 200,
-                    "latency_ms": 1566,
+                    "latency_ms": 1719,
                     "url": "https://caiji.dbzy5.com/api.php/provide/vod/from/dbm3u8/at/josn?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -5525,7 +5527,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1566,
+                            "latency_ms": 1719,
                             "url": "https://caiji.dbzy5.com/api.php/provide/vod/from/dbm3u8/at/josn?ac=list",
                             "target": "https://caiji.dbzy5.com/api.php/provide/vod/from/dbm3u8/at/josn"
                         }
@@ -5533,13 +5535,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 9,
+                "ok_streak": 10,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:28",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-                    },
                     {
                         "at": "2026-10-20T20:40:14",
                         "ok": true,
@@ -5584,6 +5581,11 @@
                         "at": "2026-10-23T08:59:17",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:18",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -5607,9 +5609,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:28",
+                    "checked_at": "2026-10-23T09:58:20",
                     "code": 200,
-                    "latency_ms": 2475,
+                    "latency_ms": 3439,
                     "url": "https://hhzyapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -5618,7 +5620,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 2475,
+                            "latency_ms": 3439,
                             "url": "https://hhzyapi.com/api.php/provide/vod?ac=list",
                             "target": "https://hhzyapi.com/api.php/provide/vod"
                         }
@@ -5626,13 +5628,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:19",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:17",
                         "ok": true,
@@ -5677,6 +5674,11 @@
                         "at": "2026-10-23T08:59:28",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:20",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -5700,9 +5702,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:37",
+                    "checked_at": "2026-10-23T09:58:22",
                     "code": 200,
-                    "latency_ms": 7180,
+                    "latency_ms": 5084,
                     "url": "https://ckzy.me/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -5711,7 +5713,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 7180,
+                            "latency_ms": 5084,
                             "url": "https://ckzy.me/api.php/provide/vod?ac=list",
                             "target": "https://ckzy.me/api.php/provide/vod"
                         }
@@ -5719,13 +5721,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 11,
+                "ok_streak": 12,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:08",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:17",
                         "ok": true,
@@ -5770,6 +5767,11 @@
                         "at": "2026-10-23T08:59:37",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:22",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -5793,9 +5795,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:59:18",
+                    "checked_at": "2026-10-23T09:58:19",
                     "code": null,
-                    "latency_ms": 462,
+                    "latency_ms": 306,
                     "url": "https://api.ukuapi.com/api.php/provide/vod?ac=list",
                     "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
                     "target_source": "ext",
@@ -5804,7 +5806,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 462,
+                            "latency_ms": 306,
                             "url": "https://api.ukuapi.com/api.php/provide/vod?ac=list",
                             "target": "https://api.ukuapi.com/api.php/provide/vod",
                             "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
@@ -5812,14 +5814,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:07",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
-                    },
                     {
                         "at": "2026-10-20T20:40:15",
                         "ok": false,
@@ -5864,6 +5861,11 @@
                         "at": "2026-10-23T08:59:18",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:19",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
                     }
                 ],
                 "blocked": true,
@@ -5890,9 +5892,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:25",
+                    "checked_at": "2026-10-23T09:58:22",
                     "code": 200,
-                    "latency_ms": 7943,
+                    "latency_ms": 4508,
                     "url": "https://api.ukuapi88.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -5901,7 +5903,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 7943,
+                            "latency_ms": 4508,
                             "url": "https://api.ukuapi88.com/api.php/provide/vod?ac=list",
                             "target": "https://api.ukuapi88.com/api.php/provide/vod"
                         }
@@ -5909,13 +5911,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 3,
+                "ok_streak": 4,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:23",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:35",
                         "ok": true,
@@ -5960,6 +5957,11 @@
                         "at": "2026-10-23T08:59:25",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:22",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -5983,9 +5985,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:59:18",
+                    "checked_at": "2026-10-23T09:58:19",
                     "code": null,
-                    "latency_ms": 436,
+                    "latency_ms": 542,
                     "url": "https://ikunzyapi.com/api.php/provide/vod?ac=list",
                     "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
                     "target_source": "ext",
@@ -5994,7 +5996,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 436,
+                            "latency_ms": 542,
                             "url": "https://ikunzyapi.com/api.php/provide/vod?ac=list",
                             "target": "https://ikunzyapi.com/api.php/provide/vod",
                             "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
@@ -6002,14 +6004,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:07",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
-                    },
                     {
                         "at": "2026-10-20T20:40:16",
                         "ok": false,
@@ -6054,6 +6051,11 @@
                         "at": "2026-10-23T08:59:18",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:19",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
                     }
                 ],
                 "blocked": true,
@@ -6079,34 +6081,28 @@
                     "https://api.wujinapi.cc/api.php/provide/vod"
                 ],
                 "last_check": {
-                    "ok": false,
-                    "checked_at": "2026-10-23T08:59:38",
-                    "code": null,
-                    "latency_ms": 8759,
+                    "ok": true,
+                    "checked_at": "2026-10-23T09:58:21",
+                    "code": 200,
+                    "latency_ms": 3604,
                     "url": "https://api.wujinapi.cc/api.php/provide/vod?ac=list",
-                    "detail": "TimeoutError: The read operation timed out",
+                    "detail": null,
                     "target_source": "ext",
                     "targets_total": 1,
                     "results": [
                         {
-                            "ok": false,
-                            "code": null,
-                            "latency_ms": 8759,
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 3604,
                             "url": "https://api.wujinapi.cc/api.php/provide/vod?ac=list",
-                            "target": "https://api.wujinapi.cc/api.php/provide/vod",
-                            "detail": "TimeoutError: The read operation timed out"
+                            "target": "https://api.wujinapi.cc/api.php/provide/vod"
                         }
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 1,
-                "ok_streak": 0,
+                "fail_streak": 0,
+                "ok_streak": 1,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:28",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-                    },
                     {
                         "at": "2026-10-20T20:40:17",
                         "ok": true,
@@ -6151,6 +6147,11 @@
                         "at": "2026-10-23T08:59:38",
                         "ok": false,
                         "detail": "TimeoutError: The read operation timed out"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:21",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -6174,9 +6175,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:21",
+                    "checked_at": "2026-10-23T09:58:32",
                     "code": 200,
-                    "latency_ms": 3746,
+                    "latency_ms": 4352,
                     "url": "https://cj.yayazy.net/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -6185,7 +6186,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 3746,
+                            "latency_ms": 4352,
                             "url": "https://cj.yayazy.net/api.php/provide/vod?ac=list",
                             "target": "https://cj.yayazy.net/api.php/provide/vod"
                         }
@@ -6193,13 +6194,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 3,
+                "ok_streak": 4,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:12",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:41",
                         "ok": false,
@@ -6244,6 +6240,11 @@
                         "at": "2026-10-23T08:59:21",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:32",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -6267,9 +6268,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:31",
+                    "checked_at": "2026-10-23T09:58:25",
                     "code": 200,
-                    "latency_ms": 4576,
+                    "latency_ms": 6819,
                     "url": "https://api.guangsuapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -6278,7 +6279,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 4576,
+                            "latency_ms": 6819,
                             "url": "https://api.guangsuapi.com/api.php/provide/vod?ac=list",
                             "target": "https://api.guangsuapi.com/api.php/provide/vod"
                         }
@@ -6286,13 +6287,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 10,
+                "ok_streak": 11,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:11",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:20",
                         "ok": true,
@@ -6337,6 +6333,11 @@
                         "at": "2026-10-23T08:59:31",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:25",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "blocked": false,
@@ -6361,35 +6362,30 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:20",
+                    "checked_at": "2026-10-23T09:58:20",
                     "code": 200,
-                    "latency_ms": 1570,
+                    "latency_ms": 1057,
                     "url": "https://collect.wolongzyw.com/api.php/provide/vod?ac=list",
-                    "detail": "reachable but no CMS markers (1588 bytes)",
+                    "detail": "reachable but no CMS markers (1587 bytes)",
                     "target_source": "ext",
                     "targets_total": 1,
                     "results": [
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1570,
+                            "latency_ms": 1057,
                             "url": "https://collect.wolongzyw.com/api.php/provide/vod?ac=list",
                             "target": "https://collect.wolongzyw.com/api.php/provide/vod",
                             "suspect": true,
-                            "detail": "reachable but no CMS markers (1588 bytes)"
+                            "detail": "reachable but no CMS markers (1587 bytes)"
                         }
                     ],
                     "suspect": true
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:11",
-                        "ok": true,
-                        "detail": "reachable but no CMS markers (1588 bytes)"
-                    },
                     {
                         "at": "2026-10-20T20:40:17",
                         "ok": true,
@@ -6434,6 +6430,11 @@
                         "at": "2026-10-23T08:59:20",
                         "ok": true,
                         "detail": "reachable but no CMS markers (1588 bytes)"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:20",
+                        "ok": true,
+                        "detail": "reachable but no CMS markers (1587 bytes)"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -6457,9 +6458,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:59:22",
+                    "checked_at": "2026-10-23T09:58:22",
                     "code": null,
-                    "latency_ms": 462,
+                    "latency_ms": 422,
                     "url": "https://collect.wolongzy.cc/api.php/provide/vod?ac=list",
                     "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
                     "target_source": "ext",
@@ -6468,7 +6469,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 462,
+                            "latency_ms": 422,
                             "url": "https://collect.wolongzy.cc/api.php/provide/vod?ac=list",
                             "target": "https://collect.wolongzy.cc/api.php/provide/vod",
                             "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>"
@@ -6476,14 +6477,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:12",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>"
-                    },
                     {
                         "at": "2026-10-20T20:40:18",
                         "ok": false,
@@ -6528,6 +6524,11 @@
                         "at": "2026-10-23T08:59:22",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:22",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>"
                     }
                 ],
                 "blocked": true,
@@ -6554,9 +6555,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:21",
+                    "checked_at": "2026-10-23T09:58:21",
                     "code": 200,
-                    "latency_ms": 866,
+                    "latency_ms": 1188,
                     "url": "https://wolongzyw.com/api.php/provide/vod?ac=list",
                     "detail": "reachable but no CMS markers (1588 bytes)",
                     "target_source": "ext",
@@ -6565,7 +6566,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 866,
+                            "latency_ms": 1188,
                             "url": "https://wolongzyw.com/api.php/provide/vod?ac=list",
                             "target": "https://wolongzyw.com/api.php/provide/vod",
                             "suspect": true,
@@ -6576,13 +6577,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:12",
-                        "ok": true,
-                        "detail": "reachable but no CMS markers (1588 bytes)"
-                    },
                     {
                         "at": "2026-10-20T20:40:18",
                         "ok": true,
@@ -6627,6 +6623,11 @@
                         "at": "2026-10-23T08:59:21",
                         "ok": true,
                         "detail": "reachable but no CMS markers (1588 bytes)"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:21",
+                        "ok": true,
+                        "detail": "reachable but no CMS markers (1588 bytes)"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -6650,9 +6651,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:25",
+                    "checked_at": "2026-10-23T09:58:26",
                     "code": 200,
-                    "latency_ms": 4944,
+                    "latency_ms": 5313,
                     "url": "https://api.xinlangapi.com/xinlangapi.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -6661,7 +6662,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 4944,
+                            "latency_ms": 5313,
                             "url": "https://api.xinlangapi.com/xinlangapi.php/provide/vod?ac=list",
                             "target": "https://api.xinlangapi.com/xinlangapi.php/provide/vod"
                         }
@@ -6669,13 +6670,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 2,
+                "ok_streak": 3,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:24",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:39",
                         "ok": false,
@@ -6720,6 +6716,11 @@
                         "at": "2026-10-23T08:59:25",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:26",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "blocked": false,
@@ -6744,9 +6745,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:27",
+                    "checked_at": "2026-10-23T09:58:25",
                     "code": 200,
-                    "latency_ms": 6446,
+                    "latency_ms": 3251,
                     "url": "https://api.wujinapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -6755,7 +6756,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 6446,
+                            "latency_ms": 3251,
                             "url": "https://api.wujinapi.com/api.php/provide/vod?ac=list",
                             "target": "https://api.wujinapi.com/api.php/provide/vod"
                         }
@@ -6763,13 +6764,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 2,
+                "ok_streak": 3,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:20",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:20",
                         "ok": true,
@@ -6814,6 +6810,11 @@
                         "at": "2026-10-23T08:59:27",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:25",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "blocked": false,
@@ -6837,33 +6838,29 @@
                     "https://api.wujinapi.me/api.php/provide/vod"
                 ],
                 "last_check": {
-                    "ok": true,
-                    "checked_at": "2026-10-23T08:59:23",
-                    "code": 200,
-                    "latency_ms": 2430,
+                    "ok": false,
+                    "checked_at": "2026-10-23T09:58:42",
+                    "code": null,
+                    "latency_ms": 9294,
                     "url": "https://api.wujinapi.me/api.php/provide/vod?ac=list",
-                    "detail": null,
+                    "detail": "TimeoutError: The read operation timed out",
                     "target_source": "ext",
                     "targets_total": 1,
                     "results": [
                         {
-                            "ok": true,
-                            "code": 200,
-                            "latency_ms": 2430,
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 9294,
                             "url": "https://api.wujinapi.me/api.php/provide/vod?ac=list",
-                            "target": "https://api.wujinapi.me/api.php/provide/vod"
+                            "target": "https://api.wujinapi.me/api.php/provide/vod",
+                            "detail": "TimeoutError: The read operation timed out"
                         }
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 0,
-                "ok_streak": 3,
+                "fail_streak": 1,
+                "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:28",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:21",
                         "ok": true,
@@ -6908,6 +6905,11 @@
                         "at": "2026-10-23T08:59:23",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:42",
+                        "ok": false,
+                        "detail": "TimeoutError: The read operation timed out"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -6931,9 +6933,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:23",
+                    "checked_at": "2026-10-23T09:58:26",
                     "code": 200,
-                    "latency_ms": 1183,
+                    "latency_ms": 4349,
                     "url": "https://api.wujinapi.net/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -6942,7 +6944,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1183,
+                            "latency_ms": 4349,
                             "url": "https://api.wujinapi.net/api.php/provide/vod?ac=list",
                             "target": "https://api.wujinapi.net/api.php/provide/vod"
                         }
@@ -6950,13 +6952,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 2,
+                "ok_streak": 3,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:21",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:43",
                         "ok": false,
@@ -7001,6 +6998,11 @@
                         "at": "2026-10-23T08:59:23",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:26",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -7024,9 +7026,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:59:31",
+                    "checked_at": "2026-10-23T09:58:38",
                     "code": null,
-                    "latency_ms": 8051,
+                    "latency_ms": 8048,
                     "url": "https://wwzy.tv/api.php/provide/vod?ac=list",
                     "detail": "URLError: <urlopen error [Errno 101] Network is unreachable>",
                     "target_source": "ext",
@@ -7035,7 +7037,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 8051,
+                            "latency_ms": 8048,
                             "url": "https://wwzy.tv/api.php/provide/vod?ac=list",
                             "target": "https://wwzy.tv/api.php/provide/vod",
                             "detail": "URLError: <urlopen error [Errno 101] Network is unreachable>"
@@ -7043,14 +7045,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:36",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno 101] Network is unreachable>"
-                    },
                     {
                         "at": "2026-10-20T20:40:35",
                         "ok": false,
@@ -7095,6 +7092,11 @@
                         "at": "2026-10-23T08:59:31",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno 101] Network is unreachable>"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:38",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno 101] Network is unreachable>"
                     }
                 ],
                 "blocked": true,
@@ -7120,33 +7122,29 @@
                     "http://zuidazy.me/api.php/provide/vod"
                 ],
                 "last_check": {
-                    "ok": true,
-                    "checked_at": "2026-10-23T08:59:25",
-                    "code": 200,
-                    "latency_ms": 1524,
+                    "ok": false,
+                    "checked_at": "2026-10-23T09:58:41",
+                    "code": null,
+                    "latency_ms": 10105,
                     "url": "http://zuidazy.me/api.php/provide/vod?ac=list",
-                    "detail": null,
+                    "detail": "TimeoutError: timed out",
                     "target_source": "ext",
                     "targets_total": 1,
                     "results": [
                         {
-                            "ok": true,
-                            "code": 200,
-                            "latency_ms": 1524,
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 10105,
                             "url": "http://zuidazy.me/api.php/provide/vod?ac=list",
-                            "target": "http://zuidazy.me/api.php/provide/vod"
+                            "target": "http://zuidazy.me/api.php/provide/vod",
+                            "detail": "TimeoutError: timed out"
                         }
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 0,
-                "ok_streak": 12,
+                "fail_streak": 1,
+                "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:20",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:21",
                         "ok": true,
@@ -7191,6 +7189,11 @@
                         "at": "2026-10-23T08:59:25",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:41",
+                        "ok": false,
+                        "detail": "TimeoutError: timed out"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -7214,9 +7217,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:24",
+                    "checked_at": "2026-10-23T09:58:27",
                     "code": 200,
-                    "latency_ms": 1137,
+                    "latency_ms": 5293,
                     "url": "https://api.zuidapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -7225,7 +7228,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1137,
+                            "latency_ms": 5293,
                             "url": "https://api.zuidapi.com/api.php/provide/vod?ac=list",
                             "target": "https://api.zuidapi.com/api.php/provide/vod"
                         }
@@ -7233,13 +7236,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 2,
+                "ok_streak": 3,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:43",
-                        "ok": false,
-                        "detail": "TimeoutError: The read operation timed out"
-                    },
                     {
                         "at": "2026-10-20T20:40:41",
                         "ok": true,
@@ -7284,6 +7282,11 @@
                         "at": "2026-10-23T08:59:24",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:27",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "blocked": false,
@@ -7308,9 +7311,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:44",
+                    "checked_at": "2026-10-23T09:58:27",
                     "code": 200,
-                    "latency_ms": 8665,
+                    "latency_ms": 4540,
                     "url": "https://m3u8.apiyhzy.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -7319,7 +7322,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 8665,
+                            "latency_ms": 4540,
                             "url": "https://m3u8.apiyhzy.com/api.php/provide/vod?ac=list",
                             "target": "https://m3u8.apiyhzy.com/api.php/provide/vod"
                         }
@@ -7327,13 +7330,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 11,
+                "ok_streak": 12,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:30",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:41",
                         "ok": true,
@@ -7378,6 +7376,11 @@
                         "at": "2026-10-23T08:59:44",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:27",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -7401,9 +7404,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:48",
+                    "checked_at": "2026-10-23T09:58:27",
                     "code": 200,
-                    "latency_ms": 12073,
+                    "latency_ms": 2146,
                     "url": "https://api.yparse.com/api/json?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -7412,7 +7415,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 12073,
+                            "latency_ms": 2146,
                             "url": "https://api.yparse.com/api/json?ac=list",
                             "target": "https://api.yparse.com/api/json"
                         }
@@ -7420,13 +7423,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 2,
+                "ok_streak": 3,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:23",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:31",
                         "ok": true,
@@ -7471,6 +7469,11 @@
                         "at": "2026-10-23T08:59:48",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:27",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -7493,33 +7496,29 @@
                     "https://api.niuniuzy.me/api.php/provide/vod"
                 ],
                 "last_check": {
-                    "ok": true,
-                    "checked_at": "2026-10-23T08:59:35",
-                    "code": 200,
-                    "latency_ms": 1611,
+                    "ok": false,
+                    "checked_at": "2026-10-23T09:58:47",
+                    "code": null,
+                    "latency_ms": 8434,
                     "url": "https://api.niuniuzy.me/api.php/provide/vod?ac=list",
-                    "detail": null,
+                    "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
                     "target_source": "ext",
                     "targets_total": 1,
                     "results": [
                         {
-                            "ok": true,
-                            "code": 200,
-                            "latency_ms": 1611,
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8434,
                             "url": "https://api.niuniuzy.me/api.php/provide/vod?ac=list",
-                            "target": "https://api.niuniuzy.me/api.php/provide/vod"
+                            "target": "https://api.niuniuzy.me/api.php/provide/vod",
+                            "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                         }
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 0,
-                "ok_streak": 10,
+                "fail_streak": 1,
+                "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:27",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:24",
                         "ok": true,
@@ -7564,6 +7563,11 @@
                         "at": "2026-10-23T08:59:35",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:47",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -7586,34 +7590,28 @@
                     "https://api.apibdzy.com/api.php/provide/vod"
                 ],
                 "last_check": {
-                    "ok": false,
-                    "checked_at": "2026-10-23T08:59:46",
-                    "code": null,
-                    "latency_ms": 12641,
+                    "ok": true,
+                    "checked_at": "2026-10-23T09:58:42",
+                    "code": 200,
+                    "latency_ms": 1891,
                     "url": "https://api.apibdzy.com/api.php/provide/vod?ac=list",
-                    "detail": "TimeoutError: The read operation timed out",
+                    "detail": null,
                     "target_source": "ext",
                     "targets_total": 1,
                     "results": [
                         {
-                            "ok": false,
-                            "code": null,
-                            "latency_ms": 12641,
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 1891,
                             "url": "https://api.apibdzy.com/api.php/provide/vod?ac=list",
-                            "target": "https://api.apibdzy.com/api.php/provide/vod",
-                            "detail": "TimeoutError: The read operation timed out"
+                            "target": "https://api.apibdzy.com/api.php/provide/vod"
                         }
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 1,
-                "ok_streak": 0,
+                "fail_streak": 0,
+                "ok_streak": 1,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:28",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:27",
                         "ok": true,
@@ -7658,6 +7656,11 @@
                         "at": "2026-10-23T08:59:46",
                         "ok": false,
                         "detail": "TimeoutError: The read operation timed out"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:42",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -7681,9 +7684,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:59:27",
+                    "checked_at": "2026-10-23T09:58:27",
                     "code": null,
-                    "latency_ms": 246,
+                    "latency_ms": 385,
                     "url": "https://api.1080zyku.com/inc/apijson.php/?ac=list",
                     "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>",
                     "target_source": "ext",
@@ -7692,7 +7695,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 246,
+                            "latency_ms": 385,
                             "url": "https://api.1080zyku.com/inc/apijson.php/?ac=list",
                             "target": "https://api.1080zyku.com/inc/apijson.php/",
                             "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
@@ -7700,14 +7703,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:24",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
-                    },
                     {
                         "at": "2026-10-20T20:40:28",
                         "ok": false,
@@ -7752,6 +7750,11 @@
                         "at": "2026-10-23T08:59:27",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:27",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno 104] Connection reset by peer>"
                     }
                 ],
                 "blocked": true,
@@ -7778,9 +7781,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:39",
+                    "checked_at": "2026-10-23T09:58:35",
                     "code": 200,
-                    "latency_ms": 3729,
+                    "latency_ms": 8513,
                     "url": "https://subocaiji.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -7789,7 +7792,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 3729,
+                            "latency_ms": 8513,
                             "url": "https://subocaiji.com/api.php/provide/vod?ac=list",
                             "target": "https://subocaiji.com/api.php/provide/vod"
                         }
@@ -7797,13 +7800,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 3,
+                "ok_streak": 4,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:34",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:32",
                         "ok": true,
@@ -7848,6 +7846,11 @@
                         "at": "2026-10-23T08:59:39",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:35",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -7871,9 +7874,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:39",
+                    "checked_at": "2026-10-23T09:58:31",
                     "code": 200,
-                    "latency_ms": 2798,
+                    "latency_ms": 4516,
                     "url": "https://jinyingzy.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -7882,7 +7885,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 2798,
+                            "latency_ms": 4516,
                             "url": "https://jinyingzy.com/api.php/provide/vod?ac=list",
                             "target": "https://jinyingzy.com/api.php/provide/vod"
                         }
@@ -7890,13 +7893,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 3,
+                "ok_streak": 4,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:45",
-                        "ok": false,
-                        "detail": "TimeoutError: The read operation timed out"
-                    },
                     {
                         "at": "2026-10-20T20:40:31",
                         "ok": true,
@@ -7941,6 +7939,11 @@
                         "at": "2026-10-23T08:59:39",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:31",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "blocked": false,
@@ -7965,9 +7968,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:49",
+                    "checked_at": "2026-10-23T09:58:37",
                     "code": 200,
-                    "latency_ms": 8722,
+                    "latency_ms": 9495,
                     "url": "https://jyzyapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -7976,7 +7979,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 8722,
+                            "latency_ms": 9495,
                             "url": "https://jyzyapi.com/api.php/provide/vod?ac=list",
                             "target": "https://jyzyapi.com/api.php/provide/vod"
                         }
@@ -7984,13 +7987,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 8,
+                "ok_streak": 9,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:38",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:47",
                         "ok": false,
@@ -8035,6 +8033,11 @@
                         "at": "2026-10-23T08:59:49",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:37",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -8058,9 +8061,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:37",
+                    "checked_at": "2026-10-23T09:58:32",
                     "code": 200,
-                    "latency_ms": 6212,
+                    "latency_ms": 4772,
                     "url": "https://sdzyapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -8069,7 +8072,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 6212,
+                            "latency_ms": 4772,
                             "url": "https://sdzyapi.com/api.php/provide/vod?ac=list",
                             "target": "https://sdzyapi.com/api.php/provide/vod"
                         }
@@ -8077,13 +8080,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 9,
+                "ok_streak": 10,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:42",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-                    },
                     {
                         "at": "2026-10-20T20:40:44",
                         "ok": true,
@@ -8128,6 +8126,11 @@
                         "at": "2026-10-23T08:59:37",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:32",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "blocked": false,
@@ -8152,9 +8155,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:32",
+                    "checked_at": "2026-10-23T09:58:32",
                     "code": 200,
-                    "latency_ms": 877,
+                    "latency_ms": 835,
                     "url": "https://cj.ffzyapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -8163,7 +8166,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 877,
+                            "latency_ms": 835,
                             "url": "https://cj.ffzyapi.com/api.php/provide/vod?ac=list",
                             "target": "https://cj.ffzyapi.com/api.php/provide/vod"
                         }
@@ -8171,13 +8174,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 12,
+                "ok_streak": 13,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:28",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:32",
                         "ok": true,
@@ -8222,6 +8220,11 @@
                         "at": "2026-10-23T08:59:32",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:32",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -8245,9 +8248,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:35",
+                    "checked_at": "2026-10-23T09:58:36",
                     "code": 200,
-                    "latency_ms": 3268,
+                    "latency_ms": 4216,
                     "url": "https://p2100.net/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -8256,7 +8259,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 3268,
+                            "latency_ms": 4216,
                             "url": "https://p2100.net/api.php/provide/vod?ac=list",
                             "target": "https://p2100.net/api.php/provide/vod"
                         }
@@ -8264,13 +8267,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 2,
+                "ok_streak": 3,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:47",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-                    },
                     {
                         "at": "2026-10-20T20:40:37",
                         "ok": true,
@@ -8315,6 +8313,11 @@
                         "at": "2026-10-23T08:59:35",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:36",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -8338,9 +8341,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-23T08:59:37",
+                    "checked_at": "2026-10-23T09:58:34",
                     "code": null,
-                    "latency_ms": 683,
+                    "latency_ms": 735,
                     "url": "https://mozhuazy.com/api.php/provide/vod?ac=list",
                     "detail": "URLError: <urlopen error [Errno 111] Connection refused>",
                     "target_source": "ext",
@@ -8349,7 +8352,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 683,
+                            "latency_ms": 735,
                             "url": "https://mozhuazy.com/api.php/provide/vod?ac=list",
                             "target": "https://mozhuazy.com/api.php/provide/vod",
                             "detail": "URLError: <urlopen error [Errno 111] Connection refused>"
@@ -8357,14 +8360,9 @@
                     ]
                 },
                 "synced_at": "2026-10-20T14:26:39",
-                "fail_streak": 12,
+                "fail_streak": 13,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:30",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno 111] Connection refused>"
-                    },
                     {
                         "at": "2026-10-20T20:40:34",
                         "ok": false,
@@ -8409,6 +8407,11 @@
                         "at": "2026-10-23T08:59:37",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno 111] Connection refused>"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:34",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno 111] Connection refused>"
                     }
                 ],
                 "blocked": true,
@@ -8435,9 +8438,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:38",
+                    "checked_at": "2026-10-23T09:58:42",
                     "code": 200,
-                    "latency_ms": 2994,
+                    "latency_ms": 9568,
                     "url": "https://caiji.moduapi.cc/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -8446,7 +8449,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 2994,
+                            "latency_ms": 9568,
                             "url": "https://caiji.moduapi.cc/api.php/provide/vod?ac=list",
                             "target": "https://caiji.moduapi.cc/api.php/provide/vod"
                         }
@@ -8454,13 +8457,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 2,
+                "ok_streak": 3,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:46",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:35",
                         "ok": true,
@@ -8505,6 +8503,11 @@
                         "at": "2026-10-23T08:59:38",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:42",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
                 "merged_at": "2026-10-23T09:51:14"
@@ -8528,9 +8531,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-23T08:59:42",
+                    "checked_at": "2026-10-23T09:58:35",
                     "code": 200,
-                    "latency_ms": 5044,
+                    "latency_ms": 2729,
                     "url": "https://www.mdzyapi.com/api.php/provide/vod?ac=list",
                     "detail": null,
                     "target_source": "ext",
@@ -8539,7 +8542,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 5044,
+                            "latency_ms": 2729,
                             "url": "https://www.mdzyapi.com/api.php/provide/vod?ac=list",
                             "target": "https://www.mdzyapi.com/api.php/provide/vod"
                         }
@@ -8547,13 +8550,8 @@
                 },
                 "synced_at": "2026-10-20T14:26:39",
                 "fail_streak": 0,
-                "ok_streak": 4,
+                "ok_streak": 5,
                 "recent": [
-                    {
-                        "at": "2026-10-20T14:02:43",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-20T20:40:58",
                         "ok": false,
@@ -8596,6 +8594,11 @@
                     },
                     {
                         "at": "2026-10-23T08:59:42",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-23T09:58:35",
                         "ok": true,
                         "detail": "200"
                     }
@@ -9000,58 +9003,59 @@
         {
             "ok": true,
             "code": 200,
-            "latency_ms": 529,
+            "latency_ms": 504,
             "url": "https://yemu.xyz/?url=",
             "name": "夜幕"
         },
         {
             "ok": true,
             "code": 200,
-            "latency_ms": 738,
+            "latency_ms": 735,
             "url": "https://jx.xmflv.com/?url=",
             "name": "虾米"
         },
         {
             "ok": true,
             "code": 200,
-            "latency_ms": 775,
+            "latency_ms": 763,
             "url": "https://www.playm3u8.cn/jiexi.php?url=",
             "name": "盘古"
         },
         {
             "ok": true,
             "code": 200,
-            "latency_ms": 1068,
-            "url": "https://jx.xymp4.cc/?url=",
-            "name": "咸鱼"
-        },
-        {
-            "ok": true,
-            "code": 200,
-            "latency_ms": 1185,
+            "latency_ms": 1195,
             "url": "https://jx.77flv.cc/?url=",
             "name": "七七"
         },
         {
             "ok": true,
             "code": 200,
-            "latency_ms": 2165,
+            "latency_ms": 1387,
+            "url": "https://yparse.ik9.cc/index.php?url=",
+            "name": "云解"
+        },
+        {
+            "ok": true,
+            "code": 200,
+            "latency_ms": 2420,
             "url": "https://jx.yparse.com/index.php?url=",
             "name": "淘片"
         },
         {
             "ok": true,
             "code": 200,
-            "latency_ms": 5397,
-            "url": "https://bd.jx.cn/?url=",
-            "name": "冰豆"
+            "latency_ms": 6398,
+            "url": "https://jx.xymp4.cc/?url=",
+            "name": "咸鱼"
         },
         {
-            "ok": true,
-            "code": 200,
-            "latency_ms": 6549,
-            "url": "https://yparse.ik9.cc/index.php?url=",
-            "name": "云解"
+            "ok": false,
+            "code": null,
+            "latency_ms": 8453,
+            "url": "https://bd.jx.cn/?url=",
+            "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+            "name": "冰豆"
         }
     ]
 }

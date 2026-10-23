@@ -35,6 +35,9 @@ def main():
     parser.add_argument("--skip-build", action="store_true")
     parser.add_argument("--auto-block-after", type=int, default=None)
     parser.add_argument("--no-auto-block", action="store_true")
+    parser.add_argument("--only-groups", default="all",
+                        help="groups to health-check: all or comma list (sites,caiji,repos)")
+    parser.add_argument("--skip-parses", action="store_true", help="skip parses probing")
     args = parser.parse_args()
     setup_stdout()
 
@@ -45,11 +48,14 @@ def main():
         print("== submit inbox: nothing pending ==")
 
     if not args.skip_check:
-        check_args = ["--workers", str(args.workers), "--timeout", str(args.timeout)]
+        check_args = ["--workers", str(args.workers), "--timeout", str(args.timeout),
+                      "--only", args.only_groups]
         if args.no_auto_block:
             check_args.append("--no-auto-block")
         if args.auto_block_after is not None:
             check_args.extend(["--auto-block-after", str(args.auto_block_after)])
+        if args.skip_parses:
+            check_args.append("--skip-parses")
         run_step("health check", "check.py", check_args)
 
     if not args.skip_build:

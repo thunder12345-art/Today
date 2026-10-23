@@ -34,6 +34,8 @@ STATE = {
     "upstream_running": False,
     "upstream_last_at": None,
     "upstream_last_result": None,
+    "last_run_ts": None,
+    "last_cycle_ts": None,
 }
 LOCK = threading.Lock()
 
@@ -42,7 +44,14 @@ UPSTREAMS_PATH = os.path.join(BASE, "upstreams.json")
 UPSTREAM_SCRIPT = os.path.join(BASE, "upstream_sync.py")
 UPSTREAM_LOG = os.path.join(BASE, "upstream_sync.log")
 UPSTREAM_STATE = os.path.join(BASE, ".upstream_state.json")
+SETTINGS_PATH = os.path.join(BASE, "settings.json")
 TOKEN = os.environ.get("PANEL_TOKEN", "").strip()
+
+SETTINGS_DEFAULTS = {
+    "interval_hours": 12.0,
+    "auto_sync": True,
+    "check_groups": {"sites": True, "caiji": True, "repos": True, "parses": True},
+}
 
 
 def env_float(name, default):
@@ -66,6 +75,30 @@ def env_bool(name, default):
     return value.strip().lower() in ("1", "true", "yes", "on")
 
 
+def load_settings():
+    data = load_json(SETTINGS_PATH, {})
+    if not isinstance(data, dict):
+        data = {}
+    settings = {"interval_hours": SETTINGS_DEFAULTS["interval_hours"],
+                "auto_sync": SETTINGS_DEFAULTS["auto_sync"],
+                "check_groups": dict(SETTINGS_DEFAULTS["check_groups"])}
+    try:
+        settings["interval_hours"] = float(data.get("interval_hours", settings["interval_hours"]))
+    except (TypeError, ValueError):
+        pass
+    settings["interval_hours"] = min(max(settings["interval_hours"], 0.0), 168.0)
+    if "auto_sync" in data:
+        settings["auto_sync"] = bool(data.get("auto_sync"))
+    raw_groups = data.get("check_groups")
+    if isinstance(raw_groups, dict):
+        for key in settings["check_groups"]:
+            if key in raw_groups:
+                settings["check_groups"][key] = bool(raw_groups.get(key))
+    if not any(settings["check_groups"][name] for name in ("sites", "caiji", "repos")):
+        settings["check_groups"] = dict(SETTINGS_DEFAULTS["check_groups"])
+    return settings
+
+
 def ensure_seed():
     if not os.path.exists(DB_PATH):
         print("[init] sources.json missing, running seed.py")
@@ -75,36 +108,69 @@ def ensure_seed():
 def run_pipeline(scope, drop_dead, timeout, workers):
     if not LOCK.acquire(blocking=False):
         print("[pipeline] previous run still active, skip")
-        return
+        return False
     try:
         STATE["running"] = True
         started = time.time()
-        command = [sys.executable, os.path.join(BASE, "run.py"),
-                   "--scope", scope, "--timeout", str(timeout),
-                   "--workers", str(workers), "--inplace"]
-        if drop_dead:
-            command.append("--drop-dead")
-        if not STATE["auto_block"]:
-            command.append("--no-auto-block")
-        else:
-            command.extend(["--auto-block-after", str(STATE["auto_block_after"])])
+        command = build_pipeline_command(scope, drop_dead, timeout, workers, load_settings())
         print("[pipeline] started: %s" % " ".join(command))
         result = subprocess.run(command)
         STATE["last_run"] = now_iso()
+        STATE["last_run_ts"] = time.time()
         STATE["last_duration"] = round(time.time() - started, 1)
         STATE["last_result"] = "ok" if result.returncode == 0 else "failed (%d)" % result.returncode
         print("[pipeline] finished: %s in %.1fs" % (STATE["last_result"], STATE["last_duration"]))
     finally:
         STATE["running"] = False
         LOCK.release()
+    return True
 
 
-def pipeline_loop(scope, drop_dead, timeout, workers, interval_hours, run_on_start):
+def build_pipeline_command(scope, drop_dead, timeout, workers, settings):
+    command = [sys.executable, os.path.join(BASE, "run.py"),
+               "--scope", scope, "--timeout", str(timeout),
+               "--workers", str(workers), "--inplace"]
+    if drop_dead:
+        command.append("--drop-dead")
+    if not STATE["auto_block"]:
+        command.append("--no-auto-block")
+    else:
+        command.extend(["--auto-block-after", str(STATE["auto_block_after"])])
+    groups = settings.get("check_groups") or {}
+    enabled = [name for name in ("sites", "caiji", "repos") if groups.get(name, True)]
+    if len(enabled) != 3 and enabled:
+        command.extend(["--only-groups", ",".join(enabled)])
+    if not groups.get("parses", True):
+        command.append("--skip-parses")
+    return command
+
+
+def schedule_loop(scope, drop_dead, timeout, workers, run_on_start):
     if run_on_start:
         run_pipeline(scope, drop_dead, timeout, workers)
+        STATE["last_cycle_ts"] = time.time()
     while True:
-        time.sleep(max(300.0, interval_hours * 3600.0))
-        run_pipeline(scope, drop_dead, timeout, workers)
+        time.sleep(30)
+        try:
+            settings = load_settings()
+            interval = float(settings.get("interval_hours") or 0)
+            if interval <= 0:
+                continue
+            last = STATE.get("last_cycle_ts") or STATE.get("last_run_ts")
+            if last is None:
+                STATE["last_cycle_ts"] = time.time()
+                continue
+            if time.time() - last < interval * 3600:
+                continue
+            if STATE["running"] or STATE["upstream_running"]:
+                continue
+            print("[schedule] cycle due (interval=%sh, auto_sync=%s)" % (interval, settings.get("auto_sync")))
+            if settings.get("auto_sync", True):
+                run_upstream_sync("", then_pipeline=False)
+            if run_pipeline(scope, drop_dead, timeout, workers):
+                STATE["last_cycle_ts"] = time.time()
+        except Exception as error:
+            print("[schedule] error: %s" % error)
 
 
 def load_upstreams():
@@ -146,7 +212,7 @@ def build_upstreams():
             "last_at": STATE.get("upstream_last_at"), "log": log_tail}
 
 
-def run_upstream_sync(only):
+def run_upstream_sync(only, then_pipeline=True):
     if not os.path.exists(UPSTREAM_SCRIPT):
         print("[upstream] script not found: %s" % UPSTREAM_SCRIPT)
         return
@@ -167,7 +233,7 @@ def run_upstream_sync(only):
     finally:
         STATE["upstream_running"] = False
         LOCK.release()
-    if STATE.get("upstream_last_result") == "ok":
+    if then_pipeline and STATE.get("upstream_last_result") == "ok":
         run_pipeline(STATE["scope"], STATE["drop_dead"], STATE["timeout"], STATE["workers"])
 
 
@@ -235,6 +301,7 @@ def build_status():
     return {"state": STATE, "server_time": now_iso(), "groups": groups,
             "parses": parses_info, "whitelist": whitelist,
             "db_updated": db.get("updated") or "",
+            "settings": load_settings(),
             "report": load_json(REPORT_JSON, {})}
 
 
@@ -342,6 +409,8 @@ class Handler(SimpleHTTPRequestHandler):
             self.handle_submit(data)
         elif parts.path == "/api/upstreams":
             self.handle_upstreams(data)
+        elif parts.path == "/api/settings":
+            self.handle_settings(data)
         elif parts.path == "/api/run":
             self.handle_run()
         else:
@@ -549,6 +618,39 @@ class Handler(SimpleHTTPRequestHandler):
         finally:
             LOCK.release()
 
+    def handle_settings(self, data):
+        if not isinstance(data, dict):
+            self.send_json({"error": "bad payload"}, status=400)
+            return
+        if not LOCK.acquire(blocking=False):
+            self.send_json({"error": "pipeline running, try later"}, status=409)
+            return
+        try:
+            settings = load_settings()
+            if "interval_hours" in data:
+                try:
+                    value = float(data.get("interval_hours"))
+                except (TypeError, ValueError):
+                    self.send_json({"error": "周期必须是数字（小时）"}, status=400)
+                    return
+                settings["interval_hours"] = min(max(value, 0.0), 168.0)
+            if "auto_sync" in data:
+                settings["auto_sync"] = bool(data.get("auto_sync"))
+            incoming_groups = data.get("check_groups")
+            if isinstance(incoming_groups, dict):
+                groups = dict(settings["check_groups"])
+                for key in groups:
+                    if key in incoming_groups:
+                        groups[key] = bool(incoming_groups.get(key))
+                if not any(groups.get(name) for name in ("sites", "caiji", "repos")):
+                    self.send_json({"error": "站点 / 采集 / 仓库 至少保留一个"}, status=400)
+                    return
+                settings["check_groups"] = groups
+            save_json(SETTINGS_PATH, settings)
+            self.send_json({"ok": True, "settings": settings})
+        finally:
+            LOCK.release()
+
     def handle_run(self):
         if STATE["running"]:
             self.send_json({"error": "pipeline already running"}, status=409)
@@ -636,9 +738,8 @@ def main():
 
     run_on_start = env_bool("RUN_ON_START", True) and not args.no_run_on_start
     worker = threading.Thread(
-        target=pipeline_loop,
-        args=(args.scope, args.drop_dead, args.timeout, args.workers,
-              max(0.1, args.interval_hours), run_on_start),
+        target=schedule_loop,
+        args=(args.scope, args.drop_dead, args.timeout, args.workers, run_on_start),
         daemon=True)
     worker.start()
 
@@ -648,8 +749,9 @@ def main():
     print("[server] lmw.json:    http://<host>:%d/lmw.json" % args.port)
     print("[server] status:      http://<host>:%d/status" % args.port)
     print("[server] panel:       http://<host>:%d/panel%s" % (args.port, " (token required)" if TOKEN else ""))
-    print("[server] refresh: every %.1fh | scope=%s | drop_dead=%s | auto_block=%s after=%d | run_on_start=%s"
-          % (args.interval_hours, args.scope, args.drop_dead,
+    settings = load_settings()
+    print("[server] schedule: interval=%sh auto_sync=%s (auto/settings.json, panel editable) | scope=%s | drop_dead=%s | auto_block=%s after=%d | run_on_start=%s"
+          % (settings["interval_hours"], settings["auto_sync"], args.scope, args.drop_dead,
              STATE["auto_block"], STATE["auto_block_after"], run_on_start))
     try:
         server.serve_forever()

@@ -144,7 +144,8 @@ def label(item):
 
 def main():
     parser = argparse.ArgumentParser(description="Health check all sources in auto/sources.json")
-    parser.add_argument("--only", choices=["all", "sites", "caiji", "repos"], default="all")
+    parser.add_argument("--only", default="all",
+                        help="all or comma list: sites,caiji,repos")
     parser.add_argument("--limit", type=int, default=0, help="max items per group")
     parser.add_argument("--workers", type=int, default=16)
     parser.add_argument("--timeout", type=float, default=8)
@@ -196,12 +197,18 @@ def main():
               % ", ".join(config_missing))
     report["config"] = {"missing_keys": config_missing}
 
+    selected = [part.strip() for part in str(args.only).split(",") if part.strip()]
+    if "all" in selected or not selected:
+        selected = ["sites", "caiji", "repos"]
+    invalid = [name for name in selected if name not in ("sites", "caiji", "repos")]
+    if invalid:
+        parser.error("--only: unknown group(s): %s" % ", ".join(invalid))
     groups = []
-    if args.only in ("all", "sites"):
+    if "sites" in selected:
         groups.append(("sites", "sites", (by_name, urls_by_name)))
-    if args.only in ("all", "caiji"):
+    if "caiji" in selected:
         groups.append(("caiji", "caiji", None))
-    if args.only in ("all", "repos"):
+    if "repos" in selected:
         groups.append(("repos", "repos", None))
 
     total_ok = total_fail = total_skip = 0

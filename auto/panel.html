@@ -95,6 +95,26 @@
     <span class="muted" id="refreshHint"></span>
   </div>
 
+  <h2>调度与范围</h2>
+  <div class="box">
+    <div class="toolbar">
+      <label class="muted">运行周期（小时，0=仅手动）</label>
+      <input type="text" id="setInterval" style="width:70px">
+      <label class="muted"><input type="checkbox" id="setAutoSync"> 每轮先自动同步上游</label>
+      <button onclick="saveSettings()">保存周期</button>
+      <span class="muted" id="setHint"></span>
+    </div>
+    <div class="toolbar" style="margin-bottom:0">
+      <label class="muted">测活范围：</label>
+      <label class="muted"><input type="checkbox" id="setSites"> 站点</label>
+      <label class="muted"><input type="checkbox" id="setCaiji"> 采集</label>
+      <label class="muted"><input type="checkbox" id="setRepos"> 仓库</label>
+      <label class="muted"><input type="checkbox" id="setParses"> 解析</label>
+      <button onclick="saveGroups()">保存范围</button>
+      <span class="muted">（未勾选的分组不参与测活/自动屏蔽，输出文件仍会重建）</span>
+    </div>
+  </div>
+
   <h2>源管理 · 人工复核</h2>
   <div class="toolbar">
     <div class="tabs" id="tabs"></div>
@@ -223,7 +243,8 @@ async function loadAll(showToast) {
     const [status, sources, upstreams] = await Promise.all([
       api("/api/status"), api("/api/sources"), api("/api/upstreams")]);
     STATUS = status; SOURCES = sources; UPSTREAMS = upstreams;
-    renderStatus(); renderTabs(); renderTable(); renderWhitelist(); renderEvents(); renderUpstreams();
+    renderStatus(); renderTabs(); renderTable(); renderWhitelist(); renderEvents();
+    renderSettings(); renderUpstreams();
     if (showToast) toast("已刷新");
   } catch (err) { toast("加载失败: " + err.message, true); }
 }
@@ -241,7 +262,9 @@ function renderStatus() {
   if (st.last_duration) chips.push('<span class="chip">耗时 <b>' + st.last_duration + "s</b></span>");
   chips.push('<span class="chip">自动屏蔽 <b>' + (st.auto_block ? "开" : "关") +
     (st.auto_block ? "（连续失败 " + st.auto_block_after + " 次）" : "") + "</b></span>");
-  chips.push('<span class="chip">刷新间隔 <b>' + st.interval_hours + "h</b></span>");
+  const cfg = STATUS.settings || { interval_hours: 12 };
+  chips.push('<span class="chip">运行周期 <b>' + cfg.interval_hours + "h" +
+    (cfg.interval_hours > 0 ? "" : "（仅手动）") + "</b></span>");
   if (st.upstream_running) chips.push('<span class="chip warn">上游同步 <b>进行中…</b></span>');
   if (st.panel_token_required) chips.push('<span class="chip ok">面板令牌 <b>已启用</b></span>');
   document.getElementById("chips").innerHTML = chips.join("");
@@ -447,7 +470,7 @@ async function tick() {
     const changed = JSON.stringify(status.state) !== JSON.stringify(STATUS && STATUS.state);
     STATUS = status;
     renderStatus();
-    if (changed) { renderTabs(); renderWhitelist(); renderEvents(); }
+    if (changed) { renderTabs(); renderWhitelist(); renderEvents(); renderSettings(); }
   } catch (err) { /* ignore */ }
   try {
     UPSTREAMS = await api("/api/upstreams");
@@ -521,6 +544,57 @@ async function syncUpstream(nameEncoded) {
     toast("同步已启动，日志稍后自动刷新");
     setTimeout(() => { tick(); loadAll(false); }, 4000);
   } catch (err) { toast("启动失败: " + err.message, true); }
+}
+
+function renderSettings() {
+  const cfg = (STATUS && STATUS.settings) || { interval_hours: 12, auto_sync: true,
+    check_groups: { sites: true, caiji: true, repos: true, parses: true } };
+  document.getElementById("setInterval").value = cfg.interval_hours;
+  document.getElementById("setAutoSync").checked = !!cfg.auto_sync;
+  const g = cfg.check_groups || {};
+  document.getElementById("setSites").checked = g.sites !== false;
+  document.getElementById("setCaiji").checked = g.caiji !== false;
+  document.getElementById("setRepos").checked = g.repos !== false;
+  document.getElementById("setParses").checked = g.parses !== false;
+  const st = (STATUS && STATUS.state) || {};
+  let hint;
+  if (cfg.interval_hours > 0) {
+    const last = st.last_cycle_ts || st.last_run_ts;
+    if (last) {
+      hint = "上次周期 " + new Date(last * 1000).toLocaleString() +
+             " · 下次约 " + new Date((last + cfg.interval_hours * 3600) * 1000).toLocaleString();
+    } else {
+      hint = "保存后开始计时";
+    }
+  } else {
+    hint = "0 = 仅手动（可用下方按钮或 crontab）";
+  }
+  document.getElementById("setHint").textContent = hint;
+}
+
+async function saveSettings() {
+  const interval_hours = parseFloat(document.getElementById("setInterval").value);
+  if (isNaN(interval_hours) || interval_hours < 0) { toast("周期必须是 ≥0 的数字", true); return; }
+  try {
+    await post("/api/settings", { interval_hours,
+      auto_sync: document.getElementById("setAutoSync").checked });
+    toast("已保存");
+    await loadAll(false);
+  } catch (err) { toast("保存失败: " + err.message, true); }
+}
+
+async function saveGroups() {
+  const check_groups = {
+    sites: document.getElementById("setSites").checked,
+    caiji: document.getElementById("setCaiji").checked,
+    repos: document.getElementById("setRepos").checked,
+    parses: document.getElementById("setParses").checked
+  };
+  try {
+    await post("/api/settings", { check_groups });
+    toast("已保存");
+    await loadAll(false);
+  } catch (err) { toast("保存失败: " + err.message, true); }
 }
 
 loadAll(false);

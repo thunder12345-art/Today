@@ -10,3 +10,4 @@ auto/.upd_*.json
 auto/.sync_tmp/
 auto/.upstream_state.json
 auto/upstream_sync.log
+auto/settings.json

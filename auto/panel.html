@@ -98,8 +98,10 @@
   <h2>调度与范围</h2>
   <div class="box">
     <div class="toolbar">
-      <label class="muted">运行周期（小时，0=仅手动）</label>
-      <input type="text" id="setInterval" style="width:70px">
+      <label class="muted">运行间隔（天，0=仅手动）</label>
+      <input type="text" id="setIntervalDays" style="width:60px">
+      <label class="muted">执行时间（点，0-23）</label>
+      <input type="text" id="setRunHour" style="width:50px">
       <label class="muted"><input type="checkbox" id="setAutoSync"> 每轮先自动同步上游</label>
       <button onclick="saveSettings()">保存周期</button>
       <span class="muted" id="setHint"></span>
@@ -205,6 +207,8 @@ function esc(s) {
     c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 
+function pad2(v) { return String(v == null ? 0 : v).padStart(2, "0"); }
+
 function toast(msg, bad) {
   const box = document.getElementById("toast");
   const el = document.createElement("div");
@@ -262,9 +266,10 @@ function renderStatus() {
   if (st.last_duration) chips.push('<span class="chip">耗时 <b>' + st.last_duration + "s</b></span>");
   chips.push('<span class="chip">自动屏蔽 <b>' + (st.auto_block ? "开" : "关") +
     (st.auto_block ? "（连续失败 " + st.auto_block_after + " 次）" : "") + "</b></span>");
-  const cfg = STATUS.settings || { interval_hours: 12 };
-  chips.push('<span class="chip">运行周期 <b>' + cfg.interval_hours + "h" +
-    (cfg.interval_hours > 0 ? "" : "（仅手动）") + "</b></span>");
+  const cfg = STATUS.settings || { interval_days: 1, run_hour: 5 };
+  chips.push('<span class="chip">运行周期 <b>' +
+    (cfg.interval_days > 0 ? "每 " + cfg.interval_days + " 天 " + pad2(cfg.run_hour) + ":00" : "仅手动") +
+    "</b></span>");
   if (st.upstream_running) chips.push('<span class="chip warn">上游同步 <b>进行中…</b></span>');
   if (st.panel_token_required) chips.push('<span class="chip ok">面板令牌 <b>已启用</b></span>');
   document.getElementById("chips").innerHTML = chips.join("");
@@ -547,9 +552,10 @@ async function syncUpstream(nameEncoded) {
 }
 
 function renderSettings() {
-  const cfg = (STATUS && STATUS.settings) || { interval_hours: 12, auto_sync: true,
+  const cfg = (STATUS && STATUS.settings) || { interval_days: 1, run_hour: 5, auto_sync: true,
     check_groups: { sites: true, caiji: true, repos: true, parses: true } };
-  document.getElementById("setInterval").value = cfg.interval_hours;
+  document.getElementById("setIntervalDays").value = cfg.interval_days;
+  document.getElementById("setRunHour").value = cfg.run_hour;
   document.getElementById("setAutoSync").checked = !!cfg.auto_sync;
   const g = cfg.check_groups || {};
   document.getElementById("setSites").checked = g.sites !== false;
@@ -558,25 +564,30 @@ function renderSettings() {
   document.getElementById("setParses").checked = g.parses !== false;
   const st = (STATUS && STATUS.state) || {};
   let hint;
-  if (cfg.interval_hours > 0) {
+  if (cfg.interval_days > 0) {
     const last = st.last_cycle_ts || st.last_run_ts;
     if (last) {
-      hint = "上次周期 " + new Date(last * 1000).toLocaleString() +
-             " · 下次约 " + new Date((last + cfg.interval_hours * 3600) * 1000).toLocaleString();
+      const next = new Date((last + cfg.interval_days * 86400) * 1000);
+      next.setHours(cfg.run_hour, 0, 0, 0);
+      hint = "上次 " + new Date(last * 1000).toLocaleString() +
+             " · 下次约 " + next.toLocaleString() +
+             (next.getTime() <= Date.now() ? "（已到期，即将执行）" : "");
     } else {
-      hint = "保存后开始计时";
+      hint = "每 " + cfg.interval_days + " 天 " + pad2(cfg.run_hour) + ":00 · 首次到点后执行";
     }
   } else {
-    hint = "0 = 仅手动（可用下方按钮或 crontab）";
+    hint = "0 = 仅手动（可用上方按钮或面板同步）";
   }
   document.getElementById("setHint").textContent = hint;
 }
 
 async function saveSettings() {
-  const interval_hours = parseFloat(document.getElementById("setInterval").value);
-  if (isNaN(interval_hours) || interval_hours < 0) { toast("周期必须是 ≥0 的数字", true); return; }
+  const interval_days = parseFloat(document.getElementById("setIntervalDays").value);
+  const run_hour = parseInt(document.getElementById("setRunHour").value, 10);
+  if (isNaN(interval_days) || interval_days < 0) { toast("运行间隔必须是 ≥0 的数字（天）", true); return; }
+  if (isNaN(run_hour) || run_hour < 0 || run_hour > 23) { toast("执行时间必须是 0-23 的整数（点）", true); return; }
   try {
-    await post("/api/settings", { interval_hours,
+    await post("/api/settings", { interval_days, run_hour,
       auto_sync: document.getElementById("setAutoSync").checked });
     toast("已保存");
     await loadAll(false);

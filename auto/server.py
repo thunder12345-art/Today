@@ -1,4 +1,5 @@
 import argparse
+import datetime
 import json
 import os
 import subprocess
@@ -48,7 +49,8 @@ SETTINGS_PATH = os.path.join(BASE, "settings.json")
 TOKEN = os.environ.get("PANEL_TOKEN", "").strip()
 
 SETTINGS_DEFAULTS = {
-    "interval_hours": 12.0,
+    "interval_days": 1.0,
+    "run_hour": 5,
     "auto_sync": True,
     "check_groups": {"sites": True, "caiji": True, "repos": True, "parses": True},
 }
@@ -79,14 +81,27 @@ def load_settings():
     data = load_json(SETTINGS_PATH, {})
     if not isinstance(data, dict):
         data = {}
-    settings = {"interval_hours": SETTINGS_DEFAULTS["interval_hours"],
+    settings = {"interval_days": SETTINGS_DEFAULTS["interval_days"],
+                "run_hour": SETTINGS_DEFAULTS["run_hour"],
                 "auto_sync": SETTINGS_DEFAULTS["auto_sync"],
                 "check_groups": dict(SETTINGS_DEFAULTS["check_groups"])}
+    raw_days = data.get("interval_days")
+    if raw_days is None and "interval_hours" in data:
+        try:
+            raw_days = float(data.get("interval_hours")) / 24.0
+        except (TypeError, ValueError):
+            raw_days = None
     try:
-        settings["interval_hours"] = float(data.get("interval_hours", settings["interval_hours"]))
+        settings["interval_days"] = float(raw_days if raw_days is not None
+                                          else settings["interval_days"])
     except (TypeError, ValueError):
         pass
-    settings["interval_hours"] = min(max(settings["interval_hours"], 0.0), 168.0)
+    settings["interval_days"] = min(max(settings["interval_days"], 0.0), 30.0)
+    try:
+        settings["run_hour"] = int(data.get("run_hour", settings["run_hour"]))
+    except (TypeError, ValueError):
+        pass
+    settings["run_hour"] = min(max(settings["run_hour"], 0), 23)
     if "auto_sync" in data:
         settings["auto_sync"] = bool(data.get("auto_sync"))
     raw_groups = data.get("check_groups")
@@ -97,6 +112,16 @@ def load_settings():
     if not any(settings["check_groups"][name] for name in ("sites", "caiji", "repos")):
         settings["check_groups"] = dict(SETTINGS_DEFAULTS["check_groups"])
     return settings
+
+
+def cycle_due(settings, last_ts, now=None):
+    days = float(settings.get("interval_days") or 0)
+    if days <= 0:
+        return False
+    current = now or datetime.datetime.now()
+    if last_ts is not None and (current.timestamp() - last_ts) < days * 86400:
+        return False
+    return current.hour >= int(settings.get("run_hour") or 0)
 
 
 def ensure_seed():
@@ -153,18 +178,15 @@ def schedule_loop(scope, drop_dead, timeout, workers, run_on_start):
         time.sleep(30)
         try:
             settings = load_settings()
-            interval = float(settings.get("interval_hours") or 0)
-            if interval <= 0:
+            if float(settings.get("interval_days") or 0) <= 0:
                 continue
             last = STATE.get("last_cycle_ts") or STATE.get("last_run_ts")
-            if last is None:
-                STATE["last_cycle_ts"] = time.time()
-                continue
-            if time.time() - last < interval * 3600:
+            if not cycle_due(settings, last):
                 continue
             if STATE["running"] or STATE["upstream_running"]:
                 continue
-            print("[schedule] cycle due (interval=%sh, auto_sync=%s)" % (interval, settings.get("auto_sync")))
+            print("[schedule] cycle due (every %sd at %s:00, auto_sync=%s)"
+                  % (settings.get("interval_days"), settings.get("run_hour"), settings.get("auto_sync")))
             if settings.get("auto_sync", True):
                 run_upstream_sync("", then_pipeline=False)
             if run_pipeline(scope, drop_dead, timeout, workers):
@@ -627,13 +649,30 @@ class Handler(SimpleHTTPRequestHandler):
             return
         try:
             settings = load_settings()
-            if "interval_hours" in data:
+            if "interval_days" in data:
+                try:
+                    value = float(data.get("interval_days"))
+                except (TypeError, ValueError):
+                    self.send_json({"error": "间隔天数必须是数字"}, status=400)
+                    return
+                settings["interval_days"] = min(max(value, 0.0), 30.0)
+            elif "interval_hours" in data:
                 try:
                     value = float(data.get("interval_hours"))
                 except (TypeError, ValueError):
-                    self.send_json({"error": "周期必须是数字（小时）"}, status=400)
+                    self.send_json({"error": "间隔必须是数字"}, status=400)
                     return
-                settings["interval_hours"] = min(max(value, 0.0), 168.0)
+                settings["interval_days"] = min(max(value / 24.0, 0.0), 30.0)
+            if "run_hour" in data:
+                try:
+                    hour = int(data.get("run_hour"))
+                except (TypeError, ValueError):
+                    self.send_json({"error": "执行时间必须是 0-23 的整数（点）"}, status=400)
+                    return
+                if hour < 0 or hour > 23:
+                    self.send_json({"error": "执行时间必须在 0-23 之间"}, status=400)
+                    return
+                settings["run_hour"] = hour
             if "auto_sync" in data:
                 settings["auto_sync"] = bool(data.get("auto_sync"))
             incoming_groups = data.get("check_groups")
@@ -750,8 +789,10 @@ def main():
     print("[server] status:      http://<host>:%d/status" % args.port)
     print("[server] panel:       http://<host>:%d/panel%s" % (args.port, " (token required)" if TOKEN else ""))
     settings = load_settings()
-    print("[server] schedule: interval=%sh auto_sync=%s (auto/settings.json, panel editable) | scope=%s | drop_dead=%s | auto_block=%s after=%d | run_on_start=%s"
-          % (settings["interval_hours"], settings["auto_sync"], args.scope, args.drop_dead,
+    print("[server] schedule: every %sd at %s:00 auto_sync=%s (auto/settings.json, panel editable)"
+          " | scope=%s | drop_dead=%s | auto_block=%s after=%d | run_on_start=%s"
+          % (settings["interval_days"], settings["run_hour"], settings["auto_sync"],
+             args.scope, args.drop_dead,
              STATE["auto_block"], STATE["auto_block_after"], run_on_start))
     try:
         server.serve_forever()

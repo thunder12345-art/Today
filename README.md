@@ -52,6 +52,7 @@ sh /path/to/Tomorrow/auto/nas_update.sh /tmp/update.bundle
 | `README.md` | 本文档（同时作为 Release 说明正文） |
 
 镜像仅在 Dockerfile / 基础镜像变化时才会上传，日常更新只需 `update.bundle`。
+内容未变（同一更新包且镜像未变化）时自动跳过发布，不会重复发 Release。
 
 ## 🖥 面板说明
 

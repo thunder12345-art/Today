@@ -90,6 +90,7 @@ if [ "${RELEASE_PUBLISH:-1}" = "1" ]; then
     IMAGE_TAR="$REL_DIR/tomorrow-auto-image.tar.gz"
     CREDS="/root/.git-credentials"
     IMAGE_ARGS=""
+    IMAGE_CHANGED=0
     CUR_ID=$(docker inspect -f '{{.Id}}' tomorrow-auto:latest 2>/dev/null || true)
     LAST_ID=$(sed -n 's/.*"image_id": *"\([^"]*\)".*/\1/p' "$RSTATE" 2>/dev/null | head -n 1)
     if [ -n "$CUR_ID" ]; then
@@ -97,6 +98,7 @@ if [ "${RELEASE_PUBLISH:-1}" = "1" ]; then
             echo "   image changed -> saving to $IMAGE_TAR"
             if docker save tomorrow-auto:latest | gzip > "$IMAGE_TAR"; then
                 IMAGE_ARGS="--image $IMAGE_TAR --image-id $CUR_ID"
+                IMAGE_CHANGED=1
             else
                 echo "   !! docker save failed, image asset skipped"
                 rm -f "$IMAGE_TAR"
@@ -105,17 +107,26 @@ if [ "${RELEASE_PUBLISH:-1}" = "1" ]; then
             echo "   image unchanged, skip image asset"
         fi
     fi
-    if command -v "$PY" >/dev/null 2>&1; then
-        "$PY" auto/publish_release.py --tag "v$TS" --bundle "$BUNDLE" --readme README.md \
-            --state "$RSTATE" --github "$ORIGIN_SLUG" --gitee "$GITEE_SLUG" --cred-file "$CREDS" \
-            $IMAGE_ARGS || echo "   !! release publish had errors (deploy continues)"
+    CUR_CONTENT_REV=$(git rev-parse -q --verify refs/heads/incoming 2>/dev/null || sha256sum "$BUNDLE" 2>/dev/null | cut -d' ' -f1)
+    LAST_CONTENT_REV=$(sed -n 's/.*"content_rev": *"\([^"]*\)".*/\1/p' "$RSTATE" 2>/dev/null | head -n 1)
+    if [ -n "$CUR_CONTENT_REV" ] && [ "$CUR_CONTENT_REV" = "$LAST_CONTENT_REV" ] && [ "$IMAGE_CHANGED" = "0" ]; then
+        echo "   content unchanged since last release, release skipped"
+        rm -f "$IMAGE_TAR"
     else
-        docker run --rm -v "$PWD:/app" -v "/root:/hostroot:ro" -w /app "$IMAGE" python auto/publish_release.py \
-            --tag "v$TS" --bundle "$BUNDLE" --readme README.md --state "$RSTATE" \
-            --github "$ORIGIN_SLUG" --gitee "$GITEE_SLUG" --cred-file /hostroot/.git-credentials \
-            $IMAGE_ARGS || echo "   !! release publish had errors (deploy continues)"
+        if command -v "$PY" >/dev/null 2>&1; then
+            "$PY" auto/publish_release.py --tag "v$TS" --bundle "$BUNDLE" --readme README.md \
+                --content-rev "$CUR_CONTENT_REV" --state "$RSTATE" \
+                --github "$ORIGIN_SLUG" --gitee "$GITEE_SLUG" --cred-file "$CREDS" \
+                $IMAGE_ARGS || echo "   !! release publish had errors (deploy continues)"
+        else
+            docker run --rm -v "$PWD:/app" -v "/root:/hostroot:ro" -w /app "$IMAGE" python auto/publish_release.py \
+                --tag "v$TS" --bundle "$BUNDLE" --readme README.md --content-rev "$CUR_CONTENT_REV" \
+                --state "$RSTATE" --github "$ORIGIN_SLUG" --gitee "$GITEE_SLUG" \
+                --cred-file /hostroot/.git-credentials \
+                $IMAGE_ARGS || echo "   !! release publish had errors (deploy continues)"
+        fi
+        rm -f "$IMAGE_TAR"
     fi
-    rm -f "$IMAGE_TAR"
 else
     echo "   (skipped: RELEASE_PUBLISH != 1)"
 fi

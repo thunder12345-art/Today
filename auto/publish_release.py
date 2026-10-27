@@ -156,6 +156,7 @@ def main():
     parser.add_argument("--bundle", default="", help="path to update.bundle")
     parser.add_argument("--image", default="", help="path to docker image tar.gz")
     parser.add_argument("--image-id", default="", help="docker image id (saved to state on success)")
+    parser.add_argument("--content-rev", default="", help="bundle content id (incoming ref commit or file sha), saved to state")
     parser.add_argument("--readme", default="", help="path to README.md (used as release body + asset)")
     parser.add_argument("--github", default="", help="owner/repo on github.com")
     parser.add_argument("--gitee", default="", help="owner/repo on gitee.com")
@@ -176,7 +177,13 @@ def main():
     gt_token = args.gitee_token or os.environ.get("GITEE_TOKEN") or (creds.get("gitee.com") or ("", ""))[1]
 
     assets = []
-    for path in (args.bundle, args.readme, args.image):
+    if args.bundle:
+        if os.path.exists(args.bundle):
+            assets.append(os.path.abspath(args.bundle))
+        else:
+            print("bundle asset missing: %s (aborting publish)" % args.bundle)
+            return 1
+    for path in (args.readme, args.image):
         if not path:
             continue
         if not os.path.exists(path):
@@ -225,6 +232,8 @@ def main():
         state = load_state(args.state)
         state["last_release"] = args.tag
         state["last_release_at"] = now_iso()
+        if args.content_rev:
+            state["content_rev"] = args.content_rev
         if args.image and args.image_id:
             state["image_id"] = args.image_id
         save_state(args.state, state)

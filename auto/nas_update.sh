@@ -71,9 +71,9 @@ if git diff --cached --quiet; then
 else
     git commit -m "sync upstream $TS"
 fi
-git push origin main || echo "   !! push failed (check credentials), local commit is safe"
+git push origin main || echo "   !! github push FAILED (stops here; commits auto-sync on next update), local commit is safe"
 if git remote get-url gitee >/dev/null 2>&1; then
-    git push gitee main || echo "   !! gitee push failed (check credentials/remote), local commit is safe"
+    git push gitee main || echo "   !! gitee push FAILED (stops here; commits auto-sync on next update), local commit is safe"
 else
     echo "   (gitee remote not set; enable once: git remote add gitee https://gitee.com/<user>/<repo>.git)"
 fi
@@ -90,6 +90,7 @@ if [ "${RELEASE_PUBLISH:-1}" = "1" ]; then
     IMAGE_TAR="$REL_DIR/tomorrow-auto-image.tar.gz"
     CREDS="/root/.git-credentials"
     IMAGE_ARGS=""
+    IMAGE_CHANGED=0
     CUR_ID=$(docker inspect -f '{{.Id}}' tomorrow-auto:latest 2>/dev/null || true)
     LAST_ID=$(sed -n 's/.*"image_id": *"\([^"]*\)".*/\1/p' "$RSTATE" 2>/dev/null | head -n 1)
     if [ -n "$CUR_ID" ]; then
@@ -97,6 +98,7 @@ if [ "${RELEASE_PUBLISH:-1}" = "1" ]; then
             echo "   image changed -> saving to $IMAGE_TAR"
             if docker save tomorrow-auto:latest | gzip > "$IMAGE_TAR"; then
                 IMAGE_ARGS="--image $IMAGE_TAR --image-id $CUR_ID"
+                IMAGE_CHANGED=1
             else
                 echo "   !! docker save failed, image asset skipped"
                 rm -f "$IMAGE_TAR"
@@ -105,17 +107,32 @@ if [ "${RELEASE_PUBLISH:-1}" = "1" ]; then
             echo "   image unchanged, skip image asset"
         fi
     fi
-    if command -v "$PY" >/dev/null 2>&1; then
-        "$PY" auto/publish_release.py --tag "v$TS" --bundle "$BUNDLE" --readme README.md \
-            --state "$RSTATE" --github "$ORIGIN_SLUG" --gitee "$GITEE_SLUG" --cred-file "$CREDS" \
-            $IMAGE_ARGS || echo "   !! release publish had errors (deploy continues)"
+    CUR_CONTENT_REV=$(git rev-parse -q --verify refs/heads/incoming 2>/dev/null || sha256sum "$BUNDLE" 2>/dev/null | cut -d' ' -f1)
+    LAST_CONTENT_REV=$(sed -n 's/.*"content_rev": *"\([^"]*\)".*/\1/p' "$RSTATE" 2>/dev/null | head -n 1)
+    if [ -n "$CUR_CONTENT_REV" ] && [ "$CUR_CONTENT_REV" = "$LAST_CONTENT_REV" ] && [ "$IMAGE_CHANGED" = "0" ]; then
+        echo "   content unchanged since last release, release skipped"
+        rm -f "$IMAGE_TAR"
     else
-        docker run --rm -v "$PWD:/app" -v "/root:/hostroot:ro" -w /app "$IMAGE" python auto/publish_release.py \
-            --tag "v$TS" --bundle "$BUNDLE" --readme README.md --state "$RSTATE" \
-            --github "$ORIGIN_SLUG" --gitee "$GITEE_SLUG" --cred-file /hostroot/.git-credentials \
-            $IMAGE_ARGS || echo "   !! release publish had errors (deploy continues)"
+        BUNDLE_NAME=$(basename "$BUNDLE")
+        if command -v "$PY" >/dev/null 2>&1; then
+            "$PY" auto/publish_release.py --tag "v$TS" --bundle "$BUNDLE" --readme README.md \
+                --content-rev "$CUR_CONTENT_REV" --state "$RSTATE" \
+                --github "$ORIGIN_SLUG" --gitee "$GITEE_SLUG" --cred-file "$CREDS" \
+                $IMAGE_ARGS || echo "   !! release publish had errors (deploy continues)"
+        else
+            RP_IMAGE_ARGS=""
+            if [ "$IMAGE_CHANGED" = "1" ]; then
+                RP_IMAGE_ARGS="--image /release/tomorrow-auto-image.tar.gz --image-id $CUR_ID"
+            fi
+            docker run --rm -v "$PWD:/app" -v "$REL_DIR:/release" -v "/root:/hostroot:ro" -w /app "$IMAGE" \
+                python auto/publish_release.py --tag "v$TS" \
+                --bundle "/release/$BUNDLE_NAME" --readme README.md \
+                --content-rev "$CUR_CONTENT_REV" --state /release/.release_state.json \
+                --github "$ORIGIN_SLUG" --gitee "$GITEE_SLUG" --cred-file /hostroot/.git-credentials \
+                $RP_IMAGE_ARGS || echo "   !! release publish had errors (deploy continues)"
+        fi
+        rm -f "$IMAGE_TAR"
     fi
-    rm -f "$IMAGE_TAR"
 else
     echo "   (skipped: RELEASE_PUBLISH != 1)"
 fi

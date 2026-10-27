@@ -72,6 +72,11 @@ else
     git commit -m "sync upstream $TS"
 fi
 git push origin main || echo "   !! push failed (check credentials), local commit is safe"
+if git remote get-url gitee >/dev/null 2>&1; then
+    git push gitee main || echo "   !! gitee push failed (check credentials/remote), local commit is safe"
+else
+    echo "   (gitee remote not set; enable once: git remote add gitee https://gitee.com/<user>/<repo>.git)"
+fi
 
 echo "== [7/7] start container =="
 docker start tomorrow-auto

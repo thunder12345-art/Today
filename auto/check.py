@@ -263,6 +263,16 @@ def main():
                 "target_source": source,
                 "blocked": bool(meta.get("blocked")),
             })
+        skipped_items = [item for item in items
+                         if ((item.get("_meta") or {}).get("last_check") or {}).get("ok") is None]
+        if skipped_items:
+            report[title]["skip_items"] = []
+            for item in skipped_items:
+                check = (item.get("_meta") or {}).get("last_check") or {}
+                reason = check.get("detail") or "not_checked"
+                text_lines.append("  SKIP [%s] %s | %s" % (title, label(item), reason))
+                report[title]["skip_items"].append({
+                    "name": label(item), "key": item.get("key", ""), "reason": reason})
 
     if not args.skip_parses:
         parse_results = probe_parses(db, args.timeout, args.workers)

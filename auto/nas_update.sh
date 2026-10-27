@@ -71,9 +71,9 @@ if git diff --cached --quiet; then
 else
     git commit -m "sync upstream $TS"
 fi
-git push origin main || echo "   !! push failed (check credentials), local commit is safe"
+git push origin main || { echo "   retrying github push in 5s..."; sleep 5; git push origin main; } || echo "   !! github push failed (network/credentials), local commit is safe"
 if git remote get-url gitee >/dev/null 2>&1; then
-    git push gitee main || echo "   !! gitee push failed (check credentials/remote), local commit is safe"
+    git push gitee main || { echo "   retrying gitee push in 5s..."; sleep 5; git push gitee main; } || echo "   !! gitee push failed (network/credentials), local commit is safe"
 else
     echo "   (gitee remote not set; enable once: git remote add gitee https://gitee.com/<user>/<repo>.git)"
 fi
@@ -113,17 +113,23 @@ if [ "${RELEASE_PUBLISH:-1}" = "1" ]; then
         echo "   content unchanged since last release, release skipped"
         rm -f "$IMAGE_TAR"
     else
+        BUNDLE_NAME=$(basename "$BUNDLE")
         if command -v "$PY" >/dev/null 2>&1; then
             "$PY" auto/publish_release.py --tag "v$TS" --bundle "$BUNDLE" --readme README.md \
                 --content-rev "$CUR_CONTENT_REV" --state "$RSTATE" \
                 --github "$ORIGIN_SLUG" --gitee "$GITEE_SLUG" --cred-file "$CREDS" \
                 $IMAGE_ARGS || echo "   !! release publish had errors (deploy continues)"
         else
-            docker run --rm -v "$PWD:/app" -v "/root:/hostroot:ro" -w /app "$IMAGE" python auto/publish_release.py \
-                --tag "v$TS" --bundle "$BUNDLE" --readme README.md --content-rev "$CUR_CONTENT_REV" \
-                --state "$RSTATE" --github "$ORIGIN_SLUG" --gitee "$GITEE_SLUG" \
-                --cred-file /hostroot/.git-credentials \
-                $IMAGE_ARGS || echo "   !! release publish had errors (deploy continues)"
+            RP_IMAGE_ARGS=""
+            if [ "$IMAGE_CHANGED" = "1" ]; then
+                RP_IMAGE_ARGS="--image /release/tomorrow-auto-image.tar.gz --image-id $CUR_ID"
+            fi
+            docker run --rm -v "$PWD:/app" -v "$REL_DIR:/release" -v "/root:/hostroot:ro" -w /app "$IMAGE" \
+                python auto/publish_release.py --tag "v$TS" \
+                --bundle "/release/$BUNDLE_NAME" --readme README.md \
+                --content-rev "$CUR_CONTENT_REV" --state /release/.release_state.json \
+                --github "$ORIGIN_SLUG" --gitee "$GITEE_SLUG" --cred-file /hostroot/.git-credentials \
+                $RP_IMAGE_ARGS || echo "   !! release publish had errors (deploy continues)"
         fi
         rm -f "$IMAGE_TAR"
     fi

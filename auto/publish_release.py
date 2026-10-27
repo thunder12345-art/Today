@@ -177,7 +177,13 @@ def main():
     gt_token = args.gitee_token or os.environ.get("GITEE_TOKEN") or (creds.get("gitee.com") or ("", ""))[1]
 
     assets = []
-    for path in (args.bundle, args.readme, args.image):
+    if args.bundle:
+        if os.path.exists(args.bundle):
+            assets.append(os.path.abspath(args.bundle))
+        else:
+            print("bundle asset missing: %s (aborting publish)" % args.bundle)
+            return 1
+    for path in (args.readme, args.image):
         if not path:
             continue
         if not os.path.exists(path):

@@ -35,6 +35,8 @@ STATE = {
     "upstream_running": False,
     "upstream_last_at": None,
     "upstream_last_result": None,
+    "feeds_running": False,
+    "feeds_last_result": None,
     "last_run_ts": None,
     "last_cycle_ts": None,
 }
@@ -45,6 +47,8 @@ UPSTREAMS_PATH = os.path.join(BASE, "upstreams.json")
 UPSTREAM_SCRIPT = os.path.join(BASE, "upstream_sync.py")
 UPSTREAM_LOG = os.path.join(BASE, "upstream_sync.log")
 UPSTREAM_STATE = os.path.join(BASE, ".upstream_state.json")
+FEEDS_PATH = os.path.join(BASE, "feeds.json")
+FEED_SCRIPT = os.path.join(BASE, "feed_sync.py")
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
 TOKEN = os.environ.get("PANEL_TOKEN", "").strip()
 
@@ -54,6 +58,19 @@ SETTINGS_DEFAULTS = {
     "auto_sync": True,
     "check_groups": {"sites": True, "caiji": True, "repos": True, "parses": True},
 }
+SCHEDULE_STATE_PATH = os.path.join(BASE, "schedule_state.json")
+
+
+def load_schedule_state():
+    data = load_json(SCHEDULE_STATE_PATH, {})
+    return data if isinstance(data, dict) else {}
+
+
+def save_schedule_state():
+    save_json(SCHEDULE_STATE_PATH, {"last_cycle_ts": STATE.get("last_cycle_ts")})
+
+
+STATE["last_cycle_ts"] = load_schedule_state().get("last_cycle_ts")
 
 
 def env_float(name, default):
@@ -119,9 +136,17 @@ def cycle_due(settings, last_ts, now=None):
     if days <= 0:
         return False
     current = now or datetime.datetime.now()
-    if last_ts is not None and (current.timestamp() - last_ts) < days * 86400:
+    run_hour = int(settings.get("run_hour") or 0)
+    if current.hour < run_hour:
         return False
-    return current.hour >= int(settings.get("run_hour") or 0)
+    if last_ts is None:
+        return True
+    if days == int(days):
+        last_date = datetime.datetime.fromtimestamp(last_ts).date()
+        return (current.date() - last_date).days >= int(days)
+    if (current.timestamp() - last_ts) < days * 86400:
+        return False
+    return True
 
 
 def ensure_seed():
@@ -174,14 +199,14 @@ def schedule_loop(scope, drop_dead, timeout, workers, run_on_start):
     if run_on_start:
         run_pipeline(scope, drop_dead, timeout, workers)
         STATE["last_cycle_ts"] = time.time()
+        save_schedule_state()
     while True:
         time.sleep(30)
         try:
             settings = load_settings()
             if float(settings.get("interval_days") or 0) <= 0:
                 continue
-            last = STATE.get("last_cycle_ts") or STATE.get("last_run_ts")
-            if not cycle_due(settings, last):
+            if not cycle_due(settings, STATE.get("last_cycle_ts")):
                 continue
             if STATE["running"] or STATE["upstream_running"]:
                 continue
@@ -191,6 +216,7 @@ def schedule_loop(scope, drop_dead, timeout, workers, run_on_start):
                 run_upstream_sync("", then_pipeline=False)
             if run_pipeline(scope, drop_dead, timeout, workers):
                 STATE["last_cycle_ts"] = time.time()
+                save_schedule_state()
         except Exception as error:
             print("[schedule] error: %s" % error)
 
@@ -232,6 +258,47 @@ def build_upstreams():
     return {"items": items, "running": bool(STATE.get("upstream_running")),
             "last_result": STATE.get("upstream_last_result"),
             "last_at": STATE.get("upstream_last_at"), "log": log_tail}
+
+
+def load_feeds():
+    data = load_json(FEEDS_PATH)
+    if not isinstance(data, dict) or not isinstance(data.get("items"), list):
+        data = {"items": []}
+    return data
+
+
+def build_feeds():
+    data = load_feeds()
+    items = []
+    for index, item in enumerate(data.get("items") or []):
+        if not isinstance(item, dict):
+            continue
+        items.append({"index": index, "name": item.get("name") or "",
+                      "url": item.get("url") or "",
+                      "ghproxy": bool(item.get("ghproxy", True)),
+                      "enabled": bool(item.get("enabled", True))})
+    return {"items": items, "running": bool(STATE.get("feeds_running")),
+            "last_result": STATE.get("feeds_last_result")}
+
+
+def run_feed_sync(then_pipeline=True):
+    if not os.path.exists(FEED_SCRIPT):
+        print("[feeds] script not found: %s" % FEED_SCRIPT)
+        return
+    if not LOCK.acquire(blocking=False):
+        print("[feeds] pipeline running, skip")
+        return
+    try:
+        STATE["feeds_running"] = True
+        print("[feeds] started")
+        result = subprocess.run([sys.executable, FEED_SCRIPT])
+        STATE["feeds_last_result"] = "ok" if result.returncode == 0 else "failed (%d)" % result.returncode
+        print("[feeds] finished: %s" % STATE["feeds_last_result"])
+    finally:
+        STATE["feeds_running"] = False
+        LOCK.release()
+    if then_pipeline and STATE.get("feeds_last_result") == "ok":
+        run_pipeline(STATE["scope"], STATE["drop_dead"], STATE["timeout"], STATE["workers"])
 
 
 def run_upstream_sync(only, then_pipeline=True):
@@ -384,11 +451,19 @@ class Handler(SimpleHTTPRequestHandler):
         if path in ("/status", "/__status"):
             self.send_json({"state": STATE, "report": load_json(REPORT_JSON, {})})
             return
-        if path == "/panel" or path.startswith("/panel/"):
+        if path in ("/", "/index.html", "/panel", "/panel.html") or path.startswith("/panel/"):
             if not self.authorized(parts):
                 self.send_login()
                 return
             self.send_file(PANEL_FILE, "text/html; charset=utf-8")
+            return
+        if path in ("/tvbox", "/lmw", "/caiji"):
+            target = os.path.join(ROOT, {"tvbox": "tvbox.json", "lmw": "lmw.json",
+                                         "caiji": "caiji.json"}[path[1:]])
+            if not os.path.exists(target):
+                self.send_error(404)
+                return
+            self.send_file(target, "application/json; charset=utf-8")
             return
         if path.startswith("/api/"):
             if not self.authorized(parts):
@@ -400,6 +475,8 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_json(build_sources())
             elif path == "/api/upstreams":
                 self.send_json(build_upstreams())
+            elif path == "/api/feeds":
+                self.send_json(build_feeds())
             elif path == "/api/report.txt":
                 self.send_file(REPORT_TXT, "text/plain; charset=utf-8")
             else:
@@ -431,6 +508,8 @@ class Handler(SimpleHTTPRequestHandler):
             self.handle_submit(data)
         elif parts.path == "/api/upstreams":
             self.handle_upstreams(data)
+        elif parts.path == "/api/feeds":
+            self.handle_feeds(data)
         elif parts.path == "/api/settings":
             self.handle_settings(data)
         elif parts.path == "/api/run":
@@ -640,6 +719,57 @@ class Handler(SimpleHTTPRequestHandler):
         finally:
             LOCK.release()
 
+    def handle_feeds(self, data):
+        action = str(data.get("action") or "")
+        if action == "sync":
+            if STATE["feeds_running"] or STATE["running"]:
+                self.send_json({"error": "抓取或流水线正在运行"}, status=409)
+                return
+            thread = threading.Thread(target=run_feed_sync, args=(), daemon=True)
+            thread.start()
+            self.send_json({"ok": True, "started": True})
+            return
+        if action not in ("add", "remove", "toggle"):
+            self.send_json({"error": "unknown action"}, status=400)
+            return
+        if not LOCK.acquire(blocking=False):
+            self.send_json({"error": "pipeline running, try later"}, status=409)
+            return
+        try:
+            store = load_feeds()
+            items = store["items"]
+            if action == "add":
+                url = str(data.get("url") or "").strip()
+                if "://" not in url:
+                    self.send_json({"error": "请输入完整的配置 URL（http/https）"}, status=400)
+                    return
+                if any(isinstance(item, dict) and item.get("url") == url for item in items):
+                    self.send_json({"error": "该配置源已在列表中"}, status=400)
+                    return
+                name = str(data.get("name") or "").strip() or url.rstrip("/").rsplit("/", 1)[-1]
+                items.append({"name": name, "url": url,
+                              "ghproxy": bool(data.get("ghproxy", True)), "enabled": True})
+            else:
+                try:
+                    index = int(data.get("index", -1))
+                except (TypeError, ValueError):
+                    index = -1
+                if index < 0 or index >= len(items):
+                    self.send_json({"error": "无效序号"}, status=400)
+                    return
+                if action == "remove":
+                    items.pop(index)
+                else:
+                    item = items[index]
+                    if not isinstance(item, dict):
+                        self.send_json({"error": "无效条目"}, status=400)
+                        return
+                    item["enabled"] = not item.get("enabled", True)
+            save_json(FEEDS_PATH, store)
+            self.send_json({"ok": True})
+        finally:
+            LOCK.release()
+
     def handle_settings(self, data):
         if not isinstance(data, dict):
             self.send_json({"error": "bad payload"}, status=400)
@@ -735,7 +865,7 @@ class Handler(SimpleHTTPRequestHandler):
                 "button{width:100%;padding:10px;border-radius:8px;border:0;background:#3b82f6;"
                 "color:#fff;font-size:15px;cursor:pointer}"
                 "p{margin:0 0 4px;color:#aaa;font-size:13px}</style>"
-                "<form method=\"get\" action=\"/panel\">"
+                "<form method=\"get\" action=\"/\">"
                 "<p>需要访问令牌（PANEL_TOKEN）</p>"
                 "<input name=\"token\" type=\"password\" placeholder=\"输入令牌\" autofocus>"
                 "<button type=\"submit\">进入控制面板</button></form>").encode("utf-8")
@@ -784,10 +914,11 @@ def main():
 
     server = ThreadingHTTPServer(("0.0.0.0", args.port), partial(Handler, directory=ROOT))
     print("[server] serving %s at http://0.0.0.0:%d" % (ROOT, args.port))
-    print("[server] tvbox.json:  http://<host>:%d/tvbox.json" % args.port)
-    print("[server] lmw.json:    http://<host>:%d/lmw.json" % args.port)
-    print("[server] status:      http://<host>:%d/status" % args.port)
-    print("[server] panel:       http://<host>:%d/panel%s" % (args.port, " (token required)" if TOKEN else ""))
+    print("[server] panel:  http://<host>:%d/%s" % (args.port, " (token required)" if TOKEN else ""))
+    print("[server] tvbox:  http://<host>:%d/tvbox" % args.port)
+    print("[server] lmw:    http://<host>:%d/lmw" % args.port)
+    print("[server] caiji:  http://<host>:%d/caiji" % args.port)
+    print("[server] status: http://<host>:%d/status" % args.port)
     settings = load_settings()
     print("[server] schedule: every %sd at %s:00 auto_sync=%s (auto/settings.json, panel editable)"
           " | scope=%s | drop_dead=%s | auto_block=%s after=%d | run_on_start=%s"

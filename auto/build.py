@@ -5,13 +5,19 @@ from common import (DB_PATH, OUT_DIR, ROOT, is_whitelisted, load_json,
                     load_whitelist, save_json, setup_stdout, strip_meta)
 
 
+def is_local_origin(origin):
+    if origin in (None, "local", "own"):
+        return True
+    return isinstance(origin, str) and origin.startswith("feed")
+
+
 def collect_entries(db, group, scope, drop_dead, whitelist):
     result = []
     excluded = 0
     for item in db.get(group, []):
         meta = item.get("_meta") or {}
         origin = meta.get("origin")
-        if scope == "local" and origin not in (None, "local"):
+        if scope == "local" and not is_local_origin(origin):
             continue
         if meta.get("blocked"):
             excluded += 1
@@ -70,7 +76,7 @@ def main():
     for item in db.get("repos", []):
         meta = item.get("_meta") or {}
         origin = meta.get("origin")
-        if args.scope == "local" and origin not in (None, "local"):
+        if args.scope == "local" and not is_local_origin(origin):
             continue
         if meta.get("blocked"):
             blocked_repos += 1

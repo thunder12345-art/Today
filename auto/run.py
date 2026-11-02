@@ -47,6 +47,8 @@ def main():
     else:
         print("== submit inbox: nothing pending ==")
 
+    run_step("apply feeds / own sources", "feed_sync.py", [])
+
     if not args.skip_check:
         check_args = ["--workers", str(args.workers), "--timeout", str(args.timeout),
                       "--only", args.only_groups]

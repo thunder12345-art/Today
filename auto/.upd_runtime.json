@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "updated": "2026-10-27T14:35:17",
+    "updated": "2026-11-01T14:43:22",
     "sites": [
         {
             "key": "豆瓣",
@@ -16,45 +16,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:45"
+                    "checked_at": "2026-11-01T14:43:22"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:51",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:31",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:30",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:50",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:17",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:44",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:32",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:07",
                         "ok": null,
@@ -69,9 +34,44 @@
                         "at": "2026-10-27T14:15:45",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:05",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:39",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:03",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:29",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:21",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:30",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:22",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -93,45 +93,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:45"
+                    "checked_at": "2026-11-01T14:43:22"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:51",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:31",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:30",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:50",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:17",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:44",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:32",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:07",
                         "ok": null,
@@ -146,9 +111,44 @@
                         "at": "2026-10-27T14:15:45",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:05",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:39",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:03",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:29",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:21",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:30",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:22",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -178,9 +178,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:51",
+                    "checked_at": "2026-11-01T14:43:23",
                     "code": 200,
-                    "latency_ms": 5956,
+                    "latency_ms": 971,
                     "url": "https://www.wogg.net",
                     "detail": null,
                     "target_source": "ext",
@@ -189,51 +189,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 5956,
+                            "latency_ms": 971,
                             "url": "https://www.wogg.net",
                             "target": "https://www.wogg.net"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 19,
+                "ok_streak": 6,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:54",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:32",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:11:04",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:28",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:55",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:34",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:13",
                         "ok": true,
@@ -248,9 +213,44 @@
                         "at": "2026-10-27T14:15:51",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:27",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:21",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:30",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:22",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:31",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:23",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -282,9 +282,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:46",
+                    "checked_at": "2026-11-01T14:43:23",
                     "code": 200,
-                    "latency_ms": 1027,
+                    "latency_ms": 667,
                     "url": "https://123.666291.xyz",
                     "detail": null,
                     "target_source": "ext",
@@ -293,51 +293,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1027,
+                            "latency_ms": 667,
                             "url": "https://123.666291.xyz",
                             "target": "https://123.666291.xyz"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 20,
+                "ok_streak": 27,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:51",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:32",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:31",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:50",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:17",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:45",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:08",
                         "ok": true,
@@ -352,9 +317,44 @@
                         "at": "2026-10-27T14:15:46",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:06",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:04",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:30",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:22",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:32",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:23",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -388,9 +388,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:45",
+                    "checked_at": "2026-11-01T14:43:23",
                     "code": 200,
-                    "latency_ms": 608,
+                    "latency_ms": 647,
                     "url": "http://tvpanpan.site",
                     "detail": null,
                     "target_source": "ext",
@@ -399,51 +399,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 608,
+                            "latency_ms": 647,
                             "url": "http://tvpanpan.site",
                             "target": "http://tvpanpan.site"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 20,
+                "ok_streak": 27,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:51",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:32",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:31",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:51",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:18",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:45",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:08",
                         "ok": true,
@@ -458,9 +423,44 @@
                         "at": "2026-10-27T14:15:45",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:06",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:04",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:30",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:27",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:31",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:23",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -490,9 +490,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:51",
+                    "checked_at": "2026-11-01T14:43:28",
                     "code": 200,
-                    "latency_ms": 1116,
+                    "latency_ms": 909,
                     "url": "https://www.mihdr.top",
                     "detail": null,
                     "target_source": "ext",
@@ -501,7 +501,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 519,
+                            "latency_ms": 437,
                             "url": "https://mihdr.top",
                             "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
                             "target": "https://mihdr.top"
@@ -509,7 +509,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 1631,
+                            "latency_ms": 1371,
                             "url": "https://www.miqk.cc",
                             "detail": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
                             "target": "https://www.miqk.cc"
@@ -517,51 +517,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1116,
+                            "latency_ms": 909,
                             "url": "https://www.mihdr.top",
                             "target": "https://www.mihdr.top"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 18,
+                "ok_streak": 25,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:56",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:37",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:36",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:59",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:23",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:50",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:38",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:13",
                         "ok": true,
@@ -576,9 +541,44 @@
                         "at": "2026-10-27T14:15:51",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:12",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:46",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:11",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:36",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:55",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:37",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:28",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -608,70 +608,27 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:16:30",
+                    "checked_at": "2026-11-01T14:43:28",
                     "code": 200,
-                    "latency_ms": 3423,
-                    "url": "https://tv.yydsys.cc",
+                    "latency_ms": 5421,
+                    "url": "https://tv.yydsys.top",
                     "detail": null,
                     "target_source": "ext",
                     "targets_total": 3,
                     "results": [
                         {
-                            "ok": false,
-                            "code": null,
-                            "latency_ms": 16139,
-                            "url": "https://tv.yydsys.top",
-                            "detail": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
-                            "target": "https://tv.yydsys.top"
-                        },
-                        {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 3423,
-                            "url": "https://tv.yydsys.cc",
-                            "target": "https://tv.yydsys.cc"
+                            "latency_ms": 5421,
+                            "url": "https://tv.yydsys.top",
+                            "target": "https://tv.yydsys.top"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 4,
+                "ok_streak": 11,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:05:25",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:59:14",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:58:15",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:11:22",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:51",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:16:01",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-                    },
-                    {
-                        "at": "2026-10-26T02:17:03",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:37",
                         "ok": true,
@@ -686,9 +643,44 @@
                         "at": "2026-10-27T14:16:30",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:48",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:32:11",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:56",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:41:03",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:42:16",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:43:05",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:28",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -719,9 +711,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:49",
+                    "checked_at": "2026-11-01T14:43:30",
                     "code": 200,
-                    "latency_ms": 4363,
+                    "latency_ms": 8347,
                     "url": "https://woog.nxog.eu.org",
                     "detail": null,
                     "target_source": "ext",
@@ -730,51 +722,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 4363,
+                            "latency_ms": 8347,
                             "url": "https://woog.nxog.eu.org",
                             "target": "https://woog.nxog.eu.org"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 20,
+                "ok_streak": 27,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:52",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:14:02",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:51",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:35",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:09",
                         "ok": true,
@@ -789,9 +746,44 @@
                         "at": "2026-10-27T14:15:49",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:26",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:09",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:38",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:24",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:43:01",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:30",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -825,9 +817,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-27T14:15:50",
+                    "checked_at": "2026-11-01T14:43:28",
                     "code": null,
-                    "latency_ms": 479,
+                    "latency_ms": 455,
                     "url": "https://www.erxiaozhan.top",
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "target_source": "ext",
@@ -836,7 +828,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 835,
+                            "latency_ms": 707,
                             "url": "https://www.2xiaopan.top",
                             "detail": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)>",
                             "target": "https://www.2xiaopan.top"
@@ -844,7 +836,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 461,
+                            "latency_ms": 1473,
                             "url": "https://2xiaopan.top",
                             "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
                             "target": "https://2xiaopan.top"
@@ -852,52 +844,17 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 479,
+                            "latency_ms": 455,
                             "url": "https://www.erxiaozhan.top",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "https://www.erxiaozhan.top"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
-                "fail_streak": 21,
+                "synced_at": "2026-10-29T14:40:21",
+                "fail_streak": 28,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:55",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:36",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:42",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:55",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:27",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:49",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:37",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
                     {
                         "at": "2026-10-26T11:22:12",
                         "ok": false,
@@ -912,12 +869,47 @@
                         "at": "2026-10-27T14:15:50",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:11",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:44",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:30",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:34",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:43",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:35",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:28",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
                     }
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:03",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -943,9 +935,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:45",
+                    "checked_at": "2026-11-01T14:43:22",
                     "code": 200,
-                    "latency_ms": 197,
+                    "latency_ms": 216,
                     "url": "http://38.76.197.172:16969",
                     "detail": null,
                     "target_source": "ext",
@@ -954,51 +946,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 197,
+                            "latency_ms": 216,
                             "url": "http://38.76.197.172:16969",
                             "target": "http://38.76.197.172:16969"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 20,
+                "ok_streak": 27,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:51",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:31",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:30",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:50",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:17",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:44",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:07",
                         "ok": true,
@@ -1013,9 +970,44 @@
                         "at": "2026-10-27T14:15:45",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:05",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:03",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:29",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:21",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:33",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:22",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -1041,9 +1033,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:45",
+                    "checked_at": "2026-11-01T14:43:22",
                     "code": 200,
-                    "latency_ms": 196,
+                    "latency_ms": 185,
                     "url": "http://38.76.197.172:12521",
                     "detail": null,
                     "target_source": "ext",
@@ -1052,51 +1044,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 196,
+                            "latency_ms": 185,
                             "url": "http://38.76.197.172:12521",
                             "target": "http://38.76.197.172:12521"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 20,
+                "ok_streak": 27,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:51",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:31",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:30",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:50",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:17",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:44",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:07",
                         "ok": true,
@@ -1111,9 +1068,44 @@
                         "at": "2026-10-27T14:15:45",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:05",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:03",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:29",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:21",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:32",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:22",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -1145,9 +1137,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:53",
+                    "checked_at": "2026-11-01T14:43:27",
                     "code": 200,
-                    "latency_ms": 8750,
+                    "latency_ms": 5198,
                     "url": "https://sidhub.cc",
                     "detail": null,
                     "target_source": "ext",
@@ -1156,51 +1148,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 8750,
+                            "latency_ms": 5198,
                             "url": "https://sidhub.cc",
                             "target": "https://sidhub.cc"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 20,
+                "ok_streak": 27,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:57",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:36",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:52",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:30",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:46",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:37",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:13",
                         "ok": true,
@@ -1215,9 +1172,44 @@
                         "at": "2026-10-27T14:15:53",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:07",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:10",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:36",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:30",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:37",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:27",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -1247,63 +1239,37 @@
                     "https://pan1.me"
                 ],
                 "last_check": {
-                    "ok": true,
-                    "checked_at": "2026-10-27T14:15:49",
-                    "code": 200,
-                    "latency_ms": 4100,
-                    "url": "https://123panfx.com",
-                    "detail": null,
+                    "ok": false,
+                    "checked_at": "2026-11-01T14:43:58",
+                    "code": null,
+                    "latency_ms": 8513,
+                    "url": "https://pan1.me",
+                    "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
                     "target_source": "ext",
                     "targets_total": 2,
                     "results": [
                         {
-                            "ok": true,
-                            "code": 200,
-                            "latency_ms": 4100,
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8472,
                             "url": "https://123panfx.com",
+                            "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
                             "target": "https://123panfx.com"
+                        },
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8513,
+                            "url": "https://pan1.me",
+                            "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+                            "target": "https://pan1.me"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
-                "fail_streak": 0,
-                "ok_streak": 20,
+                "synced_at": "2026-10-29T14:40:21",
+                "fail_streak": 1,
+                "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:36",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:57",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:21",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:58",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:35",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:10",
                         "ok": true,
@@ -1318,9 +1284,44 @@
                         "at": "2026-10-27T14:15:49",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:20",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:08",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:35",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:24",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:38",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:58",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -1338,9 +1339,9 @@
                 "targets": [],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:46",
+                    "checked_at": "2026-11-01T14:43:24",
                     "code": 200,
-                    "latency_ms": 1343,
+                    "latency_ms": 1848,
                     "url": "https://4kzn.cc",
                     "detail": null,
                     "target_source": "jar",
@@ -1349,51 +1350,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1343,
+                            "latency_ms": 1848,
                             "url": "https://4kzn.cc",
                             "target": "https://4kzn.cc"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 20,
+                "ok_streak": 27,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:32",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:32",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:51",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:19",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:46",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:34",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:09",
                         "ok": true,
@@ -1408,9 +1374,44 @@
                         "at": "2026-10-27T14:15:46",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:07",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:10",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:31",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:23",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:32",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:24",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -1427,63 +1428,29 @@
                 "added_at": "2026-10-19T16:51:42",
                 "targets": [],
                 "last_check": {
-                    "ok": true,
-                    "checked_at": "2026-10-27T14:16:02",
-                    "code": 200,
-                    "latency_ms": 8327,
+                    "ok": false,
+                    "checked_at": "2026-11-01T14:43:41",
+                    "code": null,
+                    "latency_ms": 8493,
                     "url": "https://www.rrdynb.com/plus/search.php?q=",
-                    "detail": null,
+                    "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
                     "target_source": "jar",
                     "targets_total": 1,
                     "results": [
                         {
-                            "ok": true,
-                            "code": 200,
-                            "latency_ms": 8327,
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8493,
                             "url": "https://www.rrdynb.com/plus/search.php?q=",
+                            "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
                             "target": "https://www.rrdynb.com/plus/search.php?q="
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
-                "fail_streak": 0,
-                "ok_streak": 1,
+                "synced_at": "2026-10-29T14:40:21",
+                "fail_streak": 3,
+                "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:55",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:52",
-                        "ok": false,
-                        "detail": "TimeoutError: The read operation timed out"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:45",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:51",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:35",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
-                    },
-                    {
-                        "at": "2026-10-25T02:15:18",
-                        "ok": false,
-                        "detail": "TimeoutError: The read operation timed out"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:35",
-                        "ok": false,
-                        "detail": "HTTP 403"
-                    },
                     {
                         "at": "2026-10-26T11:22:12",
                         "ok": true,
@@ -1498,10 +1465,47 @@
                         "at": "2026-10-27T14:16:02",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:12",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:08",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:48",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:44",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:50",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:41",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
                 ],
-                "blocked": false,
-                "merged_at": "2026-10-27T14:35:17"
+                "blocked": true,
+                "merged_at": "2026-10-27T14:36:42",
+                "blocked_reason": "auto",
+                "blocked_at": "2026-10-31T14:43:08"
             }
         },
         {
@@ -1523,45 +1527,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:45"
+                    "checked_at": "2026-11-01T14:43:22"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:51",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:31",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:30",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:50",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:17",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:44",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:07",
                         "ok": null,
@@ -1576,9 +1545,44 @@
                         "at": "2026-10-27T14:15:45",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:05",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:03",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:29",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:21",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:22",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -1600,45 +1604,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:45"
+                    "checked_at": "2026-11-01T14:43:22"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:51",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:31",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:30",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:50",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:17",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:44",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:07",
                         "ok": null,
@@ -1653,9 +1622,44 @@
                         "at": "2026-10-27T14:15:45",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:05",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:03",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:29",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:21",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:22",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -1674,45 +1678,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:45"
+                    "checked_at": "2026-11-01T14:43:22"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:51",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:31",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:30",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:50",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:17",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:44",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:07",
                         "ok": null,
@@ -1727,9 +1696,44 @@
                         "at": "2026-10-27T14:15:45",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:05",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:03",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:29",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:21",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:22",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -1748,45 +1752,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:45"
+                    "checked_at": "2026-11-01T14:43:22"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:51",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:31",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:30",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:50",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:17",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:44",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:07",
                         "ok": null,
@@ -1801,9 +1770,44 @@
                         "at": "2026-10-27T14:15:45",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:05",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:03",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:29",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:21",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:22",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -1830,9 +1834,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-27T14:16:25",
+                    "checked_at": "2026-11-01T14:43:58",
                     "code": null,
-                    "latency_ms": 8492,
+                    "latency_ms": 8424,
                     "url": "http://www.misoso.shop",
                     "detail": "TimeoutError: timed out",
                     "target_source": "ext",
@@ -1841,7 +1845,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 13139,
+                            "latency_ms": 8900,
                             "url": "https://misoso.shop",
                             "detail": "TimeoutError: The read operation timed out",
                             "target": "https://misoso.shop"
@@ -1849,52 +1853,17 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 8492,
+                            "latency_ms": 8424,
                             "url": "http://www.misoso.shop",
                             "detail": "TimeoutError: timed out",
                             "target": "http://www.misoso.shop"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
-                "fail_streak": 20,
+                "synced_at": "2026-10-29T14:40:21",
+                "fail_streak": 27,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:05:26",
-                        "ok": false,
-                        "detail": "TimeoutError: timed out"
-                    },
-                    {
-                        "at": "2026-10-23T08:59:14",
-                        "ok": false,
-                        "detail": "TimeoutError: timed out"
-                    },
-                    {
-                        "at": "2026-10-23T09:58:07",
-                        "ok": false,
-                        "detail": "TimeoutError: timed out"
-                    },
-                    {
-                        "at": "2026-10-23T10:11:34",
-                        "ok": false,
-                        "detail": "TimeoutError: timed out"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:56",
-                        "ok": false,
-                        "detail": "TimeoutError: timed out"
-                    },
-                    {
-                        "at": "2026-10-25T02:15:25",
-                        "ok": false,
-                        "detail": "TimeoutError: timed out"
-                    },
-                    {
-                        "at": "2026-10-26T02:17:08",
-                        "ok": false,
-                        "detail": "TimeoutError: timed out"
-                    },
                     {
                         "at": "2026-10-26T11:22:44",
                         "ok": false,
@@ -1909,12 +1878,47 @@
                         "at": "2026-10-27T14:16:25",
                         "ok": false,
                         "detail": "TimeoutError: timed out"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:42",
+                        "ok": false,
+                        "detail": "TimeoutError: timed out"
+                    },
+                    {
+                        "at": "2026-10-28T04:32:16",
+                        "ok": false,
+                        "detail": "TimeoutError: timed out"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:39",
+                        "ok": false,
+                        "detail": "TimeoutError: timed out"
+                    },
+                    {
+                        "at": "2026-10-29T14:41:06",
+                        "ok": false,
+                        "detail": "TimeoutError: timed out"
+                    },
+                    {
+                        "at": "2026-10-30T14:42:01",
+                        "ok": false,
+                        "detail": "TimeoutError: timed out"
+                    },
+                    {
+                        "at": "2026-10-31T14:43:08",
+                        "ok": false,
+                        "detail": "TimeoutError: timed out"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:58",
+                        "ok": false,
+                        "detail": "TimeoutError: timed out"
                     }
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:03",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -1936,9 +1940,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:45",
+                    "checked_at": "2026-11-01T14:43:23",
                     "code": 200,
-                    "latency_ms": 316,
+                    "latency_ms": 303,
                     "url": "http://v.rbotv.cn",
                     "detail": null,
                     "target_source": "ext",
@@ -1947,51 +1951,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 316,
+                            "latency_ms": 303,
                             "url": "http://v.rbotv.cn",
                             "target": "http://v.rbotv.cn"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 20,
+                "ok_streak": 27,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:32",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:31",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:51",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:18",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:45",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:34",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:08",
                         "ok": true,
@@ -2006,9 +1975,44 @@
                         "at": "2026-10-27T14:15:45",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:06",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:04",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:30",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:23",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:32",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:23",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -2025,9 +2029,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-27T14:15:47",
+                    "checked_at": "2026-11-01T14:43:24",
                     "code": null,
-                    "latency_ms": 504,
+                    "latency_ms": 454,
                     "url": "http://www.小不点.com/api/2026/fishhxq.php",
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "target_source": "ext",
@@ -2036,52 +2040,17 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 504,
+                            "latency_ms": 454,
                             "url": "http://www.小不点.com/api/2026/fishhxq.php",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "http://www.小不点.com/api/2026/fishhxq.php"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
-                "fail_streak": 20,
+                "synced_at": "2026-10-29T14:40:21",
+                "fail_streak": 27,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:53",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:34",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:33",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:52",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:19",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:46",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:35",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
                     {
                         "at": "2026-10-26T11:22:10",
                         "ok": false,
@@ -2096,12 +2065,47 @@
                         "at": "2026-10-27T14:15:47",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:07",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:21",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:32",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:24",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:34",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:24",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
                     }
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:03",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -2119,45 +2123,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:46"
+                    "checked_at": "2026-11-01T14:43:23"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:32",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:31",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:51",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:18",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:45",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:34",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:08",
                         "ok": null,
@@ -2172,9 +2141,44 @@
                         "at": "2026-10-27T14:15:46",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:06",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:40",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:04",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:30",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:23",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:32",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:23",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -2191,9 +2195,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:46",
+                    "checked_at": "2026-11-01T14:43:24",
                     "code": 200,
-                    "latency_ms": 756,
+                    "latency_ms": 645,
                     "url": "https://vip.wwgz.cn:5200",
                     "detail": null,
                     "target_source": "ext",
@@ -2202,51 +2206,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 756,
+                            "latency_ms": 645,
                             "url": "https://vip.wwgz.cn:5200",
                             "target": "https://vip.wwgz.cn:5200"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 20,
+                "ok_streak": 27,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:32",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:52",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:19",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:46",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:34",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:09",
                         "ok": true,
@@ -2261,9 +2230,44 @@
                         "at": "2026-10-27T14:15:46",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:07",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:05",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:31",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:23",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:33",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:24",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -2280,9 +2284,9 @@
                 "targets": [],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:16:01",
+                    "checked_at": "2026-11-01T14:43:26",
                     "code": 200,
-                    "latency_ms": 5590,
+                    "latency_ms": 2501,
                     "url": "https://www1.ikanbot.com",
                     "detail": null,
                     "target_source": "jar",
@@ -2291,51 +2295,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 5590,
+                            "latency_ms": 2501,
                             "url": "https://www1.ikanbot.com",
                             "target": "https://www1.ikanbot.com"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 4,
+                "ok_streak": 2,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:53",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:34",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:47",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:57",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:21",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:15:05",
-                        "ok": false,
-                        "detail": "TimeoutError: The read operation timed out"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:36",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:25",
                         "ok": true,
@@ -2350,9 +2319,44 @@
                         "at": "2026-10-27T14:16:01",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:30",
+                        "ok": false,
+                        "detail": "TimeoutError: The read operation timed out"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:21",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:33",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:54",
+                        "ok": false,
+                        "detail": "TimeoutError: The read operation timed out"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:35",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:26",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17",
+                "merged_at": "2026-10-27T14:36:42",
                 "blocked": false
             }
         },
@@ -2367,9 +2371,9 @@
                 "targets": [],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-10-27T14:15:51",
+                    "checked_at": "2026-11-01T14:43:35",
                     "code": null,
-                    "latency_ms": 391,
+                    "latency_ms": 409,
                     "url": "https://w.duboku.io/",
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "target_source": "jar",
@@ -2378,7 +2382,7 @@
                         {
                             "ok": false,
                             "code": 400,
-                            "latency_ms": 1397,
+                            "latency_ms": 8839,
                             "url": "https://api.dbokutv.com",
                             "detail": "HTTP 400",
                             "target": "https://api.dbokutv.com"
@@ -2386,7 +2390,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 442,
+                            "latency_ms": 463,
                             "url": "https://w.duboku.io",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "https://w.duboku.io"
@@ -2394,52 +2398,17 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 391,
+                            "latency_ms": 409,
                             "url": "https://w.duboku.io/",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "https://w.duboku.io/"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
-                "fail_streak": 20,
+                "synced_at": "2026-10-29T14:40:21",
+                "fail_streak": 27,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:57",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:36",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:36",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-23T10:11:03",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:24",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:49",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:37",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
                     {
                         "at": "2026-10-26T11:22:13",
                         "ok": false,
@@ -2454,12 +2423,47 @@
                         "at": "2026-10-27T14:15:51",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:11",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:44",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:54",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:36",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:41",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:38",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:35",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
                     }
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:03",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -2479,9 +2483,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-10-27T14:15:48",
+                    "checked_at": "2026-11-01T14:43:25",
                     "code": 200,
-                    "latency_ms": 1133,
+                    "latency_ms": 836,
                     "url": "https://cz01.vip",
                     "detail": null,
                     "target_source": "ext",
@@ -2490,51 +2494,16 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1133,
+                            "latency_ms": 836,
                             "url": "https://cz01.vip",
                             "target": "https://cz01.vip"
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 20,
+                "ok_streak": 27,
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:53",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:33",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:54",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:20",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:47",
-                        "ok": true,
-                        "detail": "200"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:35",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-26T11:22:10",
                         "ok": true,
@@ -2549,9 +2518,44 @@
                         "at": "2026-10-27T14:15:48",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:08",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:09",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:31",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:40",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:34",
+                        "ok": true,
+                        "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:25",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -2573,45 +2577,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:48"
+                    "checked_at": "2026-11-01T14:43:24"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:20",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:46",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:35",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:10",
                         "ok": null,
@@ -2626,9 +2595,44 @@
                         "at": "2026-10-27T14:15:48",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:07",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:09",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:24",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:34",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:24",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -2650,45 +2654,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:48"
+                    "checked_at": "2026-11-01T14:43:24"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:20",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:46",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:35",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:10",
                         "ok": null,
@@ -2703,9 +2672,44 @@
                         "at": "2026-10-27T14:15:48",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:07",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:09",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:24",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:34",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:24",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -2727,45 +2731,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:48"
+                    "checked_at": "2026-11-01T14:43:24"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:20",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:46",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:35",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:10",
                         "ok": null,
@@ -2780,9 +2749,44 @@
                         "at": "2026-10-27T14:15:48",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:07",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:09",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:24",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:34",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:24",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -2804,45 +2808,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:48"
+                    "checked_at": "2026-11-01T14:43:24"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:20",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:46",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:35",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:10",
                         "ok": null,
@@ -2857,9 +2826,44 @@
                         "at": "2026-10-27T14:15:48",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:07",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:09",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:24",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:34",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:24",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -2874,45 +2878,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:48"
+                    "checked_at": "2026-11-01T14:43:24"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:20",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:46",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:35",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:10",
                         "ok": null,
@@ -2927,9 +2896,44 @@
                         "at": "2026-10-27T14:15:48",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:07",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:09",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:24",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:34",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:24",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -2947,45 +2951,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-10-27T14:15:48"
+                    "checked_at": "2026-11-01T14:43:24"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-23T08:04:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T08:58:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T09:57:33",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-23T10:10:52",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-24T02:13:20",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-25T02:14:46",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
-                    {
-                        "at": "2026-10-26T02:16:35",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-26T11:22:10",
                         "ok": null,
@@ -3000,9 +2969,44 @@
                         "at": "2026-10-27T14:15:48",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-27T14:38:07",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T04:31:41",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-28T14:39:09",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-29T14:40:31",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-30T14:41:24",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-10-31T14:42:34",
+                        "ok": null,
+                        "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-01T14:43:24",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         }
     ],
@@ -3020,7 +3024,7 @@
                     "url": "https://8815.kstore.vip/tvbox/wmz",
                     "checked_at": "2026-10-23T10:12:09"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 8,
                 "recent": [
@@ -3076,7 +3080,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3092,7 +3096,7 @@
                     "url": "https://www.饭太硬.cc/tv",
                     "checked_at": "2026-10-23T10:12:10"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -3148,7 +3152,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3164,7 +3168,7 @@
                     "url": "http://肥猫.net/tv",
                     "checked_at": "2026-10-23T10:12:10"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -3220,7 +3224,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3236,7 +3240,7 @@
                     "url": "https://9280.kstore.vip/aiwex.json",
                     "checked_at": "2026-10-23T10:12:09"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 7,
                 "recent": [
@@ -3293,7 +3297,7 @@
                 ],
                 "blocked": false,
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3309,7 +3313,7 @@
                     "url": "http://www.英格里希嗷呜.top/tv",
                     "checked_at": "2026-10-23T10:12:17"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -3365,7 +3369,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3382,7 +3386,7 @@
                     "detail": "HTTP 404",
                     "checked_at": "2026-10-23T10:12:09"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -3441,7 +3445,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3458,7 +3462,7 @@
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "checked_at": "2026-10-23T10:12:10"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -3517,7 +3521,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3533,7 +3537,7 @@
                     "url": "https://16151.kstore.space",
                     "checked_at": "2026-10-23T10:12:09"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 11,
                 "recent": [
@@ -3589,7 +3593,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3606,7 +3610,7 @@
                     "detail": "URLError: <urlopen error timed out>",
                     "checked_at": "2026-10-23T10:12:31"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -3665,7 +3669,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3682,7 +3686,7 @@
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "checked_at": "2026-10-23T10:12:10"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -3741,7 +3745,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3757,7 +3761,7 @@
                     "url": "http://hb.小虎斑.site:25252/仅供测试",
                     "checked_at": "2026-10-23T10:12:10"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -3813,7 +3817,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3830,7 +3834,7 @@
                     "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
                     "checked_at": "2026-10-23T10:12:27"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -3889,7 +3893,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3905,7 +3909,7 @@
                     "url": "https://gh-proxy.com/https://raw.githubusercontent.com/yoursmile66/TVBox/main/XC.json",
                     "checked_at": "2026-10-23T10:12:10"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -3961,7 +3965,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -3977,7 +3981,7 @@
                     "url": "https://www.252035.xyz/p/jsm.json",
                     "checked_at": "2026-10-23T10:12:10"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -4033,7 +4037,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -4049,7 +4053,7 @@
                     "url": "https://www.252035.xyz/z/FongMi.json",
                     "checked_at": "2026-10-23T10:12:09"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -4105,7 +4109,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -4122,7 +4126,7 @@
                     "detail": "HTTP 404",
                     "checked_at": "2026-10-23T10:12:10"
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -4181,7 +4185,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         }
     ],
@@ -4219,7 +4223,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -4274,7 +4278,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -4310,7 +4314,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -4365,7 +4369,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -4403,7 +4407,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -4458,7 +4462,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -4497,7 +4501,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -4555,7 +4559,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -4593,7 +4597,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -4648,7 +4652,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -4687,7 +4691,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 3,
                 "ok_streak": 0,
                 "recent": [
@@ -4742,7 +4746,7 @@
                         "detail": "TimeoutError: The read operation timed out"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17",
+                "merged_at": "2026-10-27T14:36:42",
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-23T09:58:51"
@@ -4783,7 +4787,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 5,
                 "recent": [
@@ -4838,7 +4842,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -4876,7 +4880,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 4,
                 "recent": [
@@ -4932,7 +4936,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -4970,7 +4974,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 4,
                 "recent": [
@@ -5026,7 +5030,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -5064,7 +5068,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -5119,7 +5123,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -5157,7 +5161,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -5212,7 +5216,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -5251,7 +5255,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -5306,7 +5310,7 @@
                         "detail": "TimeoutError: The read operation timed out"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -5345,7 +5349,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -5403,7 +5407,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -5441,7 +5445,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -5496,7 +5500,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -5534,7 +5538,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 11,
                 "recent": [
@@ -5589,7 +5593,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -5628,7 +5632,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -5683,7 +5687,7 @@
                         "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -5721,7 +5725,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 13,
                 "recent": [
@@ -5776,7 +5780,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -5815,7 +5819,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -5873,7 +5877,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -5912,7 +5916,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 1,
                 "ok_streak": 0,
                 "recent": [
@@ -5967,7 +5971,7 @@
                         "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -6006,7 +6010,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -6064,7 +6068,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -6102,7 +6106,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 2,
                 "recent": [
@@ -6157,7 +6161,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -6195,7 +6199,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 5,
                 "recent": [
@@ -6250,7 +6254,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -6288,7 +6292,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 12,
                 "recent": [
@@ -6344,7 +6348,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -6385,7 +6389,7 @@
                     ],
                     "suspect": true
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -6440,7 +6444,7 @@
                         "detail": "reachable but no CMS markers (1588 bytes)"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -6479,7 +6483,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -6537,7 +6541,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -6578,7 +6582,7 @@
                     ],
                     "suspect": true
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -6633,7 +6637,7 @@
                         "detail": "reachable but no CMS markers (1588 bytes)"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -6671,7 +6675,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 4,
                 "recent": [
@@ -6727,7 +6731,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -6765,7 +6769,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 4,
                 "recent": [
@@ -6821,7 +6825,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -6859,7 +6863,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 1,
                 "recent": [
@@ -6914,7 +6918,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -6952,7 +6956,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 4,
                 "recent": [
@@ -7007,7 +7011,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -7046,7 +7050,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -7104,7 +7108,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -7143,7 +7147,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 2,
                 "ok_streak": 0,
                 "recent": [
@@ -7198,7 +7202,7 @@
                         "detail": "TimeoutError: timed out"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17",
+                "merged_at": "2026-10-27T14:36:42",
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-23T10:12:08"
@@ -7239,7 +7243,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 4,
                 "recent": [
@@ -7295,7 +7299,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -7333,7 +7337,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 13,
                 "recent": [
@@ -7388,7 +7392,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -7426,7 +7430,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 4,
                 "recent": [
@@ -7481,7 +7485,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -7519,7 +7523,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 1,
                 "recent": [
@@ -7574,7 +7578,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -7612,7 +7616,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 2,
                 "recent": [
@@ -7667,7 +7671,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -7706,7 +7710,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -7764,7 +7768,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -7802,7 +7806,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 5,
                 "recent": [
@@ -7857,7 +7861,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -7895,7 +7899,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 5,
                 "recent": [
@@ -7951,7 +7955,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -7989,7 +7993,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 10,
                 "recent": [
@@ -8044,7 +8048,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -8082,7 +8086,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 11,
                 "recent": [
@@ -8138,7 +8142,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -8176,7 +8180,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 14,
                 "recent": [
@@ -8231,7 +8235,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -8269,7 +8273,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 4,
                 "recent": [
@@ -8324,7 +8328,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -8363,7 +8367,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 14,
                 "ok_streak": 0,
                 "recent": [
@@ -8421,7 +8425,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -8459,7 +8463,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 4,
                 "recent": [
@@ -8514,7 +8518,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         },
         {
@@ -8552,7 +8556,7 @@
                         }
                     ]
                 },
-                "synced_at": "2026-10-25T02:14:36",
+                "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
                 "ok_streak": 6,
                 "recent": [
@@ -8607,7 +8611,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:35:17"
+                "merged_at": "2026-10-27T14:36:42"
             }
         }
     ],
@@ -9002,7 +9006,7 @@
         }
     ],
     "blocked_parses": [],
-    "merged_from_runtime_at": "2026-10-27T14:35:17",
+    "merged_from_runtime_at": "2026-10-27T14:36:42",
     "_parses": [
         {
             "ok": true,

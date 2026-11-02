@@ -193,12 +193,30 @@
     <div class="sub" id="upHint" style="padding:8px 0"></div>
     <pre class="result" id="upLog" style="max-height:240px;overflow:auto;display:none"></pre>
   </div>
+
+  <h2>外部配置源（feeds）</h2>
+  <div class="box">
+    <div class="toolbar">
+      <input type="text" id="feedName" placeholder="名称（可空）" style="min-width:120px">
+      <input type="text" id="feedUrl" placeholder="https://raw.githubusercontent.com/owner/repo/master/tvbox.json" style="flex:1;min-width:300px">
+      <label class="muted"><input type="checkbox" id="feedGhproxy" checked> gh-proxy 加速</label>
+      <button onclick="addFeed()">添加</button>
+      <button class="primary" onclick="syncFeeds()">立即抓取</button>
+    </div>
+    <table>
+      <thead><tr>
+        <th>名称</th><th>地址</th><th>加速</th><th>启用</th><th>操作</th>
+      </tr></thead>
+      <tbody id="feedTbody"></tbody>
+    </table>
+    <div class="sub" id="feedHint" style="padding:8px 0"></div>
+  </div>
 </div>
 <div class="toast" id="toast"></div>
 
 <script>
 const GROUPS = { sites: "站点", caiji: "采集", repos: "仓库", parses: "解析" };
-let STATUS = null, SOURCES = null, UPSTREAMS = null;
+let STATUS = null, SOURCES = null, UPSTREAMS = null, FEEDS = null;
 let curGroup = "sites", curFilter = "all";
 let timer = null;
 
@@ -244,11 +262,11 @@ async function post(path, data) {
 
 async function loadAll(showToast) {
   try {
-    const [status, sources, upstreams] = await Promise.all([
-      api("/api/status"), api("/api/sources"), api("/api/upstreams")]);
-    STATUS = status; SOURCES = sources; UPSTREAMS = upstreams;
+    const [status, sources, upstreams, feeds] = await Promise.all([
+      api("/api/status"), api("/api/sources"), api("/api/upstreams"), api("/api/feeds")]);
+    STATUS = status; SOURCES = sources; UPSTREAMS = upstreams; FEEDS = feeds;
     renderStatus(); renderTabs(); renderTable(); renderWhitelist(); renderEvents();
-    renderSettings(); renderUpstreams();
+    renderSettings(); renderUpstreams(); renderFeeds();
     if (showToast) toast("已刷新");
   } catch (err) { toast("加载失败: " + err.message, true); }
 }
@@ -271,6 +289,7 @@ function renderStatus() {
     (cfg.interval_days > 0 ? "每 " + cfg.interval_days + " 天 " + pad2(cfg.run_hour) + ":00" : "仅手动") +
     "</b></span>");
   if (st.upstream_running) chips.push('<span class="chip warn">上游同步 <b>进行中…</b></span>');
+  if (st.feeds_running) chips.push('<span class="chip warn">外部源抓取 <b>进行中…</b></span>');
   if (st.panel_token_required) chips.push('<span class="chip ok">面板令牌 <b>已启用</b></span>');
   document.getElementById("chips").innerHTML = chips.join("");
 
@@ -481,6 +500,10 @@ async function tick() {
     UPSTREAMS = await api("/api/upstreams");
     renderUpstreams();
   } catch (err) { /* ignore */ }
+  try {
+    FEEDS = await api("/api/feeds");
+    renderFeeds();
+  } catch (err) { /* ignore */ }
 }
 
 function renderUpstreams() {
@@ -506,7 +529,7 @@ function renderUpstreams() {
   }).join("") || '<tr><td colspan="8" class="muted">（空）</td></tr>';
   const enabled = items.filter(i => i.enabled).length;
   document.getElementById("upHint").textContent =
-    "启用 " + enabled + " / " + items.length + " 个库 · 每天凌晨自动检查一次（crontab）· " +
+    "启用 " + enabled + " / " + items.length + " 个库 · 由面板调度周期自动检查 · " +
     "多个库同时启用时按列表顺序叠加，同名文件以后面的库为准";
   const logBox = document.getElementById("upLog");
   if (data.log) { logBox.style.display = "block"; logBox.textContent = data.log; }
@@ -551,6 +574,61 @@ async function syncUpstream(nameEncoded) {
   } catch (err) { toast("启动失败: " + err.message, true); }
 }
 
+function renderFeeds() {
+  const data = FEEDS || { items: [] };
+  const items = data.items || [];
+  document.getElementById("feedTbody").innerHTML = items.map(item => {
+    return "<tr>" +
+      "<td><b>" + esc(item.name || "-") + "</b></td>" +
+      '<td class="target">' + esc(item.url) + "</td>" +
+      "<td>" + (item.ghproxy ? "是" : "否") + "</td>" +
+      "<td>" + (item.enabled ? '<span class="badge b-ok">已启用</span>'
+                             : '<span class="badge b-skip">已停用</span>') + "</td>" +
+      '<td><div class="row-actions">' +
+      '<button class="small" onclick="feedAct(\'toggle\',' + item.index + ')">' + (item.enabled ? "停用" : "启用") + "</button>" +
+      '<button class="small danger" onclick="feedAct(\'remove\',' + item.index + ')">删除</button>' +
+      "</div></td></tr>";
+  }).join("") || '<tr><td colspan="5" class="muted">（空）</td></tr>';
+  const enabled = items.filter(i => i.enabled).length;
+  document.getElementById("feedHint").textContent =
+    "启用 " + enabled + " / " + items.length + " 个配置源 · 每轮流水线自动抓取并合并（参与测活/自动屏蔽）· " +
+    "外部源的相对路径资源（如 ./json/xx.json）本仓库没有时对应条目会被测活淘汰";
+}
+
+async function feedAct(action, index) {
+  if (action === "remove" && !confirm("确定移除该配置源？（已合并的条目不会删除）")) return;
+  try {
+    await post("/api/feeds", { action, index });
+    toast("操作完成");
+    FEEDS = await api("/api/feeds");
+    renderFeeds();
+  } catch (err) { toast("失败: " + err.message, true); }
+}
+
+async function addFeed() {
+  const name = document.getElementById("feedName").value.trim();
+  const url = document.getElementById("feedUrl").value.trim();
+  const ghproxy = document.getElementById("feedGhproxy").checked;
+  if (!url) { toast("请输入配置 URL", true); return; }
+  try {
+    await post("/api/feeds", { action: "add", name, url, ghproxy });
+    document.getElementById("feedName").value = "";
+    document.getElementById("feedUrl").value = "";
+    toast("已添加");
+    FEEDS = await api("/api/feeds");
+    renderFeeds();
+  } catch (err) { toast("添加失败: " + err.message, true); }
+}
+
+async function syncFeeds() {
+  if (!confirm("立即抓取全部启用的配置源并重建配置？约 1-3 分钟。")) return;
+  try {
+    await post("/api/feeds", { action: "sync" });
+    toast("抓取已启动，稍后自动刷新");
+    setTimeout(() => { tick(); loadAll(false); }, 4000);
+  } catch (err) { toast("启动失败: " + err.message, true); }
+}
+
 function renderSettings() {
   const cfg = (STATUS && STATUS.settings) || { interval_days: 1, run_hour: 5, auto_sync: true,
     check_groups: { sites: true, caiji: true, repos: true, parses: true } };
@@ -565,11 +643,13 @@ function renderSettings() {
   const st = (STATUS && STATUS.state) || {};
   let hint;
   if (cfg.interval_days > 0) {
-    const last = st.last_cycle_ts || st.last_run_ts;
+    const last = st.last_cycle_ts;
     if (last) {
-      const next = new Date((last + cfg.interval_days * 86400) * 1000);
+      const lastDate = new Date(last * 1000);
+      const next = new Date(lastDate);
+      next.setDate(next.getDate() + Math.ceil(cfg.interval_days));
       next.setHours(cfg.run_hour, 0, 0, 0);
-      hint = "上次 " + new Date(last * 1000).toLocaleString() +
+      hint = "上次自动 " + lastDate.toLocaleString() +
              " · 下次约 " + next.toLocaleString() +
              (next.getTime() <= Date.now() ? "（已到期，即将执行）" : "");
     } else {

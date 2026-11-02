@@ -39,6 +39,10 @@ def git_run(input_data, *args):
     return result.stdout
 
 
+def jar_allowed(args):
+    return bool(getattr(args, "jar", not getattr(args, "no_jar", False)))
+
+
 def parse_ls_tree(text):
     tree = {}
     for line in text.splitlines():
@@ -135,13 +139,19 @@ def run_tree(tree_dir, args):
         if own_data != up_data:
             changed.append(own_path)
 
-    jar_changed = False
     jar_entry = mapping.get("tvbox.jar")
+    jar_on = jar_allowed(args)
+    jar_changed = False
+    jar_skipped = False
     if jar_entry:
         up_data = read_file_bytes(os.path.join(tree_dir, jar_entry.replace("/", os.sep)))
         jar_target = os.path.join(ROOT, "tvbox.jar")
         own_data = read_file_bytes(jar_target) if os.path.exists(jar_target) else None
-        jar_changed = own_data != up_data
+        if own_data != up_data:
+            if jar_on:
+                jar_changed = True
+            else:
+                jar_skipped = True
 
     print("")
     print("== preview (tree mode) ==")
@@ -159,6 +169,8 @@ def run_tree(tree_dir, args):
         print("   ~ %s" % path)
     if jar_changed:
         print("   ~ tvbox.jar (will re-patch)")
+    if jar_skipped:
+        print("   tvbox.jar differs but jar=false for this upstream (keeping ours)")
 
     if not args.apply:
         print("")
@@ -214,6 +226,8 @@ def main():
     parser.add_argument("--no-fetch", action="store_true")
     parser.add_argument("--skip-patch", action="store_true")
     parser.add_argument("--skip-sync", action="store_true")
+    parser.add_argument("--no-jar", action="store_true",
+                        help="keep our tvbox.jar (do not adopt upstream jar)")
     parser.add_argument("--tree", default=None, metavar="DIR",
                         help="sync from a materialized upstream tree (no git needed; for container use on NAS)")
     args = parser.parse_args()
@@ -322,7 +336,7 @@ def main():
         index_lines.append("%s %s\t%s" % (up_mode, new_blob, own_path))
         written += 1
     jar_entry = mapping.get("tvbox.jar")
-    if jar_entry:
+    if jar_entry and jar_allowed(args):
         up_blob = up_tree[jar_entry][1]
         head_blob = (head_tree.get("tvbox.jar") or (None, None))[1]
         if up_blob != head_blob:

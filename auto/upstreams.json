@@ -5,6 +5,7 @@
             "url": "https://github.com/tushen6/Tomorrow",
             "branch": "master",
             "ghproxy": true,
+            "jar": true,
             "enabled": true
         }
     ]

@@ -303,24 +303,26 @@
     "sites": [
         {
             "key": "豆瓣",
-            "name": "🍎免费丨接口",
+            "name": "豆瓣",
             "type": 3,
             "api": "csp_Douban",
             "indexs": 1,
-            "searchable": 0
+            "searchable": 0,
+            "changeable": 1,
+            "ext": "./json/douban.json"
         },
         {
             "key": "配置中心",
-            "name": "📥配置丨中心",
+            "name": "配置中心",
             "type": 3,
             "api": "csp_Config",
             "searchable": 0,
             "changeable": 0,
-            "indexs": 0,
             "style": {
                 "type": "rect",
-                "ratio": 1.618
-            }
+                "ratio": 1.5
+            },
+            "ext": "./lib/token.json"
         },
         {
             "key": "玩偶",
@@ -355,26 +357,6 @@
                     "https://666.666291.xyz",
                     "https://www.muou.site",
                     "https://www.muou.asia"
-                ]
-            },
-            "timeout": 60
-        },
-        {
-            "key": "蜡笔",
-            "name": "🤪蜡笔丨4K",
-            "type": 3,
-            "api": "csp_PanWebShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 1,
-            "ext": {
-                "site": [
-                    "http://tvpanpan.site",
-                    "http://feimo.fun",
-                    "http://xiaocgege.shop",
-                    "http://www.xiaocgege.shop",
-                    "https://www.xiaocge.fun"
                 ]
             },
             "timeout": 60
@@ -516,6 +498,16 @@
             "timeout": 60
         },
         {
+            "key": "人人",
+            "name": "🔰人人丨4K",
+            "type": 3,
+            "api": "csp_RenRen",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "timeout": 60
+        },
+        {
             "key": "即刻",
             "name": "🔰即刻丨4K",
             "type": 3,
@@ -553,13 +545,11 @@
         },
         {
             "key": "盘搜",
-            "name": "🔍盘搜丨搜索",
+            "name": "盘搜",
             "type": 3,
             "api": "csp_PanSou",
-            "searchable": 1,
-            "quickSearch": 0,
-            "filterable": 0,
-            "timeout": 60
+            "ext": "./lib/token.json",
+            "timeout": 30
         },
         {
             "key": "热播影视",
@@ -668,12 +658,549 @@
         },
         {
             "key": "push_agent",
-            "name": "🔗云盘 | 推送",
+            "name": "推送",
             "type": 3,
             "api": "csp_Push",
             "searchable": 0,
-            "filterable": 0,
+            "quickSearch": 0,
+            "changeable": 0,
+            "ext": "./lib/token.json",
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_磁力熊搜索",
+            "name": "熊搜",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "indexs": 1,
+            "ext": "./js/cilixiong.js",
+            "searchable": 0,
+            "quickSearch": 0,
+            "changeable": 1
+        },
+        {
+            "key": "csp_YGP",
+            "name": "预告片",
+            "type": 3,
+            "api": "csp_YGP",
+            "searchable": 1,
+            "quickSearch": 1,
             "changeable": 0
+        },
+        {
+            "key": "csp_Bili",
+            "name": "哔哩",
+            "type": 3,
+            "api": "csp_Bili",
+            "searchable": 1,
+            "quickSearch": 1,
+            "style": {
+                "type": "rect",
+                "ratio": 1.755
+            },
+            "filterable": 1,
+            "changeable": 0,
+            "ext": {
+                "json": "./json/bili.json",
+                "cookie": ""
+            }
+        },
+        {
+            "key": "FirstAid",
+            "name": "急救 ",
+            "type": 3,
+            "api": "csp_FirstAid",
+            "searchable": 0,
+            "quickSearch": 0,
+            "changeable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 3.8
+            }
+        },
+        {
+            "key": "lf_js_lf_live",
+            "name": "直播",
+            "type": 3,
+            "api": "./lib/lf_live_min.js",
+            "style": {
+                "type": "oval"
+            },
+            "searchable": 1,
+            "changeable": 0,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./js/lf_live.txt"
+        },
+        {
+            "key": "88js",
+            "name": "88看球",
+            "type": 3,
+            "api": "./lib/drpy.min.js",
+            "ext": "./js/88看球.js",
+            "style": {
+                "type": "list"
+            },
+            "searchable": 0,
+            "quickSearch": 0,
+            "changeable": 0
+        },
+        {
+            "key": "drpy_js_310直播",
+            "name": "310直播",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "changeable": 0,
+            "style": {
+                "type": "list"
+            },
+            "ext": "./js/310直播.js"
+        },
+        {
+            "key": "酷狗",
+            "name": "酷狗",
+            "type": 3,
+            "api": "csp_Kugou",
+            "searchable": 1,
+            "changeable": 0
+        },
+        {
+            "key": "SeedHub",
+            "name": "SeedHub",
+            "type": 3,
+            "api": "csp_SeedHub",
+            "playerType": "1",
+            "changeable": 0,
+            "timeout": 60
+        },
+        {
+            "key": "Wogg",
+            "name": "玩偶",
+            "type": 3,
+            "api": "csp_Wogg",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "ext": "./lib/token.json$$$https://wogg.888484.xyz/$$$noproxy$$$1$$$./json/wogg.json$$$WOGG"
+        },
+        {
+            "key": "美剧迷",
+            "name": "美剧迷",
+            "type": 3,
+            "api": "csp_Meijumi",
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 30,
+            "ext": "./lib/token.json$$$https://www.meijumi.xyz/$$$null$$$1"
+        },
+        {
+            "key": "小白",
+            "name": "小白",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "playerType": 1,
+            "timeout": 60,
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389",
+            "ext": "./XBPQ/小白.json"
+        },
+        {
+            "key": "BT天堂",
+            "name": "BT天堂",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "searchable": 1,
+            "timeout": 60,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./XBPQ/bttt.json",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389"
+        },
+        {
+            "key": "布谷tv",
+            "name": "布谷4K",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "timeout": 60,
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389",
+            "ext": "./XBPQ/布谷4K.json"
+        },
+        {
+            "key": "haokongbu",
+            "name": "好恐怖",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "timeout": 60,
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./XBPQ/好恐怖.json",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389"
+        },
+        {
+            "key": "圣城1080",
+            "name": "圣城1080",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "timeout": 60,
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./XBPQ/圣城1080.json",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389"
+        },
+        {
+            "key": "秋霞",
+            "name": "秋霞",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "timeout": 60,
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./XBPQ/秋霞.json",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389"
+        },
+        {
+            "key": "VidHub",
+            "name": "VidHub",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "timeout": 60,
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "ext": "./XBPQ/VidHub.json",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389"
+        },
+        {
+            "key": "rarbt",
+            "name": "rarbt",
+            "type": 3,
+            "changeable": 1,
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "api": "csp_XBPQ",
+            "ext": "./XBPQ/rarbt.json",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389"
+        },
+        {
+            "key": "XBPQ_文才",
+            "name": "文才",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389",
+            "ext": "./XBPQ/文才.json"
+        },
+        {
+            "key": "XBPQ_BaiPiao",
+            "name": "白嫖影视",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389",
+            "ext": "./XBPQ/白嫖影视.json"
+        },
+        {
+            "key": "XBPQ_黑狐影院",
+            "name": "黑狐影院",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389",
+            "ext": "./XBPQ/黑狐影院.json"
+        },
+        {
+            "key": "XBPQ_电影先生",
+            "name": "电影先生",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "ext": "./XBPQ/电影先生.json"
+        },
+        {
+            "key": "XBPQ_麻衣影院",
+            "name": "麻衣影院",
+            "type": 3,
+            "api": "csp_XBPQ",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389",
+            "ext": "./XBPQ/麻衣影院.json"
+        },
+        {
+            "key": "相声",
+            "name": "相声",
+            "type": 3,
+            "searchable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 1.597
+            },
+            "quickSearch": 0,
+            "api": "csp_XBPQ",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389",
+            "ext": "./XBPQ/相声.json"
+        },
+        {
+            "key": "评书",
+            "name": "评书",
+            "type": 3,
+            "searchable": 0,
+            "style": {
+                "type": "rect",
+                "ratio": 1.597
+            },
+            "quickSearch": 0,
+            "api": "csp_XBPQ",
+            "jar": "./jar/XBPQ_upgraded.jar;md5;c10ebfca316c4ac51cb00547bfdd2389",
+            "ext": "./XBPQ/评书.json"
+        },
+        {
+            "key": "drpy_js_4KHDR",
+            "name": "4KHDR[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/4khdr.js",
+            "playerType": "1",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_MP4US",
+            "name": "MP4电影[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/mp4us.js",
+            "playerType": "1",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_电影港",
+            "name": "电影港[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/dygang.js",
+            "playerType": "1",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_kuba",
+            "name": "酷吧[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/kuba.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_xb6v",
+            "name": "新版6v[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/xb6v.js",
+            "playerType": "1",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_美剧迷p",
+            "name": "美剧迷[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/meijumi.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_ddys",
+            "name": "低端[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/ddys.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_libvio",
+            "name": "libvio[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/libvio.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_tzfile",
+            "name": "团长[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/tzfile.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_dydhhy",
+            "name": "dydhhy[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/dydhhy.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_97tvs",
+            "name": "97tvs[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/97tvs.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_rrdyw",
+            "name": "rrdyw[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/rrdyw.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_校长影视",
+            "name": "校长[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/xzys.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_yyetsp",
+            "name": "人人搜[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/yyets.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_奇妙搜[夸]",
+            "name": "奇妙搜[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/qimiao.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_愛盤搜",
+            "name": "爱盘搜[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/aipanso.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_趣盤搜",
+            "name": "趣盘搜[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/funletu.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "drpy_js_meow",
+            "name": "meow搜[js]",
+            "type": 3,
+            "api": "./lib/drpy2.min.js",
+            "ext": "./js/meow.js",
+            "quickSearch": 1,
+            "changeable": 1,
+            "timeout": 30
+        },
+        {
+            "key": "量子",
+            "name": "量子",
+            "type": 1,
+            "api": "https://cj.lziapi.com/api.php/provide/vod",
+            "playUrl": "json:http://127.0.0.1:10079/parse/?thread=0&proxy=&url=",
+            "searchable": 1,
+            "changeable": 1
+        },
+        {
+            "key": "非凡",
+            "name": "非凡",
+            "type": 1,
+            "api": "http://cj.ffzyapi.com/api.php/provide/vod",
+            "playUrl": "json:http://127.0.0.1:10079/parse/?thread=0&proxy=&url=",
+            "searchable": 1,
+            "changeable": 1
+        },
+        {
+            "key": "暴風",
+            "name": "暴風",
+            "type": 1,
+            "api": "https://bfzyapi.com/api.php/provide/vod",
+            "playUrl": "json:http://127.0.0.1:10079/parse/?thread=0&proxy=&url=",
+            "searchable": 1,
+            "changeable": 1
+        },
+        {
+            "key": "索尼",
+            "name": "索尼",
+            "type": 1,
+            "api": "https://suoniapi.com/api.php/provide/vod",
+            "playUrl": "json:http://127.0.0.1:10079/parse/?thread=0&proxy=&url=",
+            "searchable": 1,
+            "changeable": 1
+        },
+        {
+            "key": "AList",
+            "name": "网盘",
+            "type": 3,
+            "api": "csp_AList",
+            "searchable": 1,
+            "changeable": 0,
+            "ext": "./json/alist.json"
+        },
+        {
+            "key": "應用商店",
+            "name": "應用商店",
+            "type": 3,
+            "api": "csp_Market",
+            "searchable": 0,
+            "changeable": 0,
+            "ext": "./json/market.json"
         }
     ],
     "parses": [

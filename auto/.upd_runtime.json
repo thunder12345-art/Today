@@ -1,6 +1,6 @@
 {
     "version": 1,
-    "updated": "2026-11-01T14:43:22",
+    "updated": "2026-11-02T10:32:00",
     "sites": [
         {
             "key": "豆瓣",
@@ -16,15 +16,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:22"
+                    "checked_at": "2026-11-02T10:32:00"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:07",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:36",
                         "ok": null,
@@ -69,9 +64,14 @@
                         "at": "2026-11-01T14:43:22",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:00",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -93,15 +93,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:22"
+                    "checked_at": "2026-11-02T10:32:00"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:07",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:36",
                         "ok": null,
@@ -146,9 +141,14 @@
                         "at": "2026-11-01T14:43:22",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:00",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -178,9 +178,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:23",
+                    "checked_at": "2026-11-02T10:32:01",
                     "code": 200,
-                    "latency_ms": 971,
+                    "latency_ms": 890,
                     "url": "https://www.wogg.net",
                     "detail": null,
                     "target_source": "ext",
@@ -189,7 +189,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 971,
+                            "latency_ms": 890,
                             "url": "https://www.wogg.net",
                             "target": "https://www.wogg.net"
                         }
@@ -197,13 +197,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 6,
+                "ok_streak": 7,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:13",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:56",
                         "ok": true,
@@ -248,9 +243,14 @@
                         "at": "2026-11-01T14:43:23",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:01",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -282,9 +282,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:23",
+                    "checked_at": "2026-11-02T10:32:01",
                     "code": 200,
-                    "latency_ms": 667,
+                    "latency_ms": 1109,
                     "url": "https://123.666291.xyz",
                     "detail": null,
                     "target_source": "ext",
@@ -293,7 +293,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 667,
+                            "latency_ms": 1109,
                             "url": "https://123.666291.xyz",
                             "target": "https://123.666291.xyz"
                         }
@@ -301,13 +301,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 27,
+                "ok_streak": 28,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:08",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:37",
                         "ok": true,
@@ -352,9 +347,14 @@
                         "at": "2026-11-01T14:43:23",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:01",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -387,33 +387,45 @@
                     "https://www.xiaocge.fun"
                 ],
                 "last_check": {
-                    "ok": true,
-                    "checked_at": "2026-11-01T14:43:23",
-                    "code": 200,
-                    "latency_ms": 647,
-                    "url": "http://tvpanpan.site",
-                    "detail": null,
+                    "ok": false,
+                    "checked_at": "2026-11-02T10:32:35",
+                    "code": null,
+                    "latency_ms": 8044,
+                    "url": "http://xiaocgege.shop",
+                    "detail": "URLError: <urlopen error [Errno 101] Network is unreachable>",
                     "target_source": "ext",
                     "targets_total": 5,
                     "results": [
                         {
-                            "ok": true,
-                            "code": 200,
-                            "latency_ms": 647,
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8243,
                             "url": "http://tvpanpan.site",
+                            "detail": "TimeoutError: timed out",
                             "target": "http://tvpanpan.site"
+                        },
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 399,
+                            "url": "http://feimo.fun",
+                            "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
+                            "target": "http://feimo.fun"
+                        },
+                        {
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8044,
+                            "url": "http://xiaocgege.shop",
+                            "detail": "URLError: <urlopen error [Errno 101] Network is unreachable>",
+                            "target": "http://xiaocgege.shop"
                         }
                     ]
                 },
                 "synced_at": "2026-10-29T14:40:21",
-                "fail_streak": 0,
-                "ok_streak": 27,
+                "fail_streak": 1,
+                "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:08",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:37",
                         "ok": true,
@@ -458,9 +470,14 @@
                         "at": "2026-11-01T14:43:23",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:35",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno 101] Network is unreachable>"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -490,9 +507,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:28",
+                    "checked_at": "2026-11-02T10:32:06",
                     "code": 200,
-                    "latency_ms": 909,
+                    "latency_ms": 916,
                     "url": "https://www.mihdr.top",
                     "detail": null,
                     "target_source": "ext",
@@ -501,7 +518,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 437,
+                            "latency_ms": 399,
                             "url": "https://mihdr.top",
                             "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
                             "target": "https://mihdr.top"
@@ -509,7 +526,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 1371,
+                            "latency_ms": 1528,
                             "url": "https://www.miqk.cc",
                             "detail": "URLError: <urlopen error [Errno -3] Temporary failure in name resolution>",
                             "target": "https://www.miqk.cc"
@@ -517,7 +534,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 909,
+                            "latency_ms": 916,
                             "url": "https://www.mihdr.top",
                             "target": "https://www.mihdr.top"
                         }
@@ -525,13 +542,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 25,
+                "ok_streak": 26,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:13",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:44",
                         "ok": true,
@@ -576,9 +588,14 @@
                         "at": "2026-11-01T14:43:28",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:06",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -608,9 +625,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:28",
+                    "checked_at": "2026-11-02T10:32:09",
                     "code": 200,
-                    "latency_ms": 5421,
+                    "latency_ms": 8941,
                     "url": "https://tv.yydsys.top",
                     "detail": null,
                     "target_source": "ext",
@@ -619,7 +636,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 5421,
+                            "latency_ms": 8941,
                             "url": "https://tv.yydsys.top",
                             "target": "https://tv.yydsys.top"
                         }
@@ -627,13 +644,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 11,
+                "ok_streak": 12,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:37",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:58:10",
                         "ok": true,
@@ -678,9 +690,14 @@
                         "at": "2026-11-01T14:43:28",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:09",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -711,9 +728,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:30",
+                    "checked_at": "2026-11-02T10:32:14",
                     "code": 200,
-                    "latency_ms": 8347,
+                    "latency_ms": 4621,
                     "url": "https://woog.nxog.eu.org",
                     "detail": null,
                     "target_source": "ext",
@@ -722,7 +739,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 8347,
+                            "latency_ms": 4621,
                             "url": "https://woog.nxog.eu.org",
                             "target": "https://woog.nxog.eu.org"
                         }
@@ -730,13 +747,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 27,
+                "ok_streak": 28,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:09",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:42",
                         "ok": true,
@@ -781,9 +793,14 @@
                         "at": "2026-11-01T14:43:30",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:14",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -817,9 +834,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-11-01T14:43:28",
+                    "checked_at": "2026-11-02T10:32:04",
                     "code": null,
-                    "latency_ms": 455,
+                    "latency_ms": 401,
                     "url": "https://www.erxiaozhan.top",
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "target_source": "ext",
@@ -828,7 +845,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 707,
+                            "latency_ms": 637,
                             "url": "https://www.2xiaopan.top",
                             "detail": "URLError: <urlopen error [SSL: SSLV3_ALERT_HANDSHAKE_FAILURE] ssl/tls alert handshake failure (_ssl.c:1010)>",
                             "target": "https://www.2xiaopan.top"
@@ -836,7 +853,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 1473,
+                            "latency_ms": 445,
                             "url": "https://2xiaopan.top",
                             "detail": "URLError: <urlopen error [Errno -5] No address associated with hostname>",
                             "target": "https://2xiaopan.top"
@@ -844,7 +861,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 455,
+                            "latency_ms": 401,
                             "url": "https://www.erxiaozhan.top",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "https://www.erxiaozhan.top"
@@ -852,14 +869,9 @@
                     ]
                 },
                 "synced_at": "2026-10-29T14:40:21",
-                "fail_streak": 28,
+                "fail_streak": 29,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:12",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
                     {
                         "at": "2026-10-27T10:57:42",
                         "ok": false,
@@ -904,12 +916,17 @@
                         "at": "2026-11-01T14:43:28",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:04",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
                     }
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:03",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -935,9 +952,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:22",
+                    "checked_at": "2026-11-02T10:32:00",
                     "code": 200,
-                    "latency_ms": 216,
+                    "latency_ms": 209,
                     "url": "http://38.76.197.172:16969",
                     "detail": null,
                     "target_source": "ext",
@@ -946,7 +963,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 216,
+                            "latency_ms": 209,
                             "url": "http://38.76.197.172:16969",
                             "target": "http://38.76.197.172:16969"
                         }
@@ -954,13 +971,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 27,
+                "ok_streak": 28,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:07",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:37",
                         "ok": true,
@@ -1005,9 +1017,14 @@
                         "at": "2026-11-01T14:43:22",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:00",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -1033,9 +1050,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:22",
+                    "checked_at": "2026-11-02T10:32:00",
                     "code": 200,
-                    "latency_ms": 185,
+                    "latency_ms": 194,
                     "url": "http://38.76.197.172:12521",
                     "detail": null,
                     "target_source": "ext",
@@ -1044,7 +1061,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 185,
+                            "latency_ms": 194,
                             "url": "http://38.76.197.172:12521",
                             "target": "http://38.76.197.172:12521"
                         }
@@ -1052,13 +1069,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 27,
+                "ok_streak": 28,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:07",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:37",
                         "ok": true,
@@ -1103,9 +1115,14 @@
                         "at": "2026-11-01T14:43:22",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:00",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -1137,9 +1154,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:27",
+                    "checked_at": "2026-11-02T10:32:04",
                     "code": 200,
-                    "latency_ms": 5198,
+                    "latency_ms": 3950,
                     "url": "https://sidhub.cc",
                     "detail": null,
                     "target_source": "ext",
@@ -1148,7 +1165,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 5198,
+                            "latency_ms": 3950,
                             "url": "https://sidhub.cc",
                             "target": "https://sidhub.cc"
                         }
@@ -1156,13 +1173,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 27,
+                "ok_streak": 28,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:13",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:40",
                         "ok": true,
@@ -1207,9 +1219,14 @@
                         "at": "2026-11-01T14:43:27",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:04",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -1239,42 +1256,36 @@
                     "https://pan1.me"
                 ],
                 "last_check": {
-                    "ok": false,
-                    "checked_at": "2026-11-01T14:43:58",
-                    "code": null,
-                    "latency_ms": 8513,
+                    "ok": true,
+                    "checked_at": "2026-11-02T10:32:20",
+                    "code": 200,
+                    "latency_ms": 2751,
                     "url": "https://pan1.me",
-                    "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+                    "detail": null,
                     "target_source": "ext",
                     "targets_total": 2,
                     "results": [
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 8472,
+                            "latency_ms": 8457,
                             "url": "https://123panfx.com",
                             "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
                             "target": "https://123panfx.com"
                         },
                         {
-                            "ok": false,
-                            "code": null,
-                            "latency_ms": 8513,
+                            "ok": true,
+                            "code": 200,
+                            "latency_ms": 2751,
                             "url": "https://pan1.me",
-                            "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
                             "target": "https://pan1.me"
                         }
                     ]
                 },
                 "synced_at": "2026-10-29T14:40:21",
-                "fail_streak": 1,
-                "ok_streak": 0,
+                "fail_streak": 0,
+                "ok_streak": 1,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:10",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:50",
                         "ok": true,
@@ -1319,9 +1330,14 @@
                         "at": "2026-11-01T14:43:58",
                         "ok": false,
                         "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:20",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -1339,9 +1355,9 @@
                 "targets": [],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:24",
+                    "checked_at": "2026-11-02T10:32:01",
                     "code": 200,
-                    "latency_ms": 1848,
+                    "latency_ms": 1565,
                     "url": "https://4kzn.cc",
                     "detail": null,
                     "target_source": "jar",
@@ -1350,7 +1366,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 1848,
+                            "latency_ms": 1565,
                             "url": "https://4kzn.cc",
                             "target": "https://4kzn.cc"
                         }
@@ -1358,13 +1374,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 27,
+                "ok_streak": 28,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:09",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:38",
                         "ok": true,
@@ -1409,9 +1420,14 @@
                         "at": "2026-11-01T14:43:24",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:01",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -1429,33 +1445,28 @@
                 "targets": [],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-11-01T14:43:41",
-                    "code": null,
-                    "latency_ms": 8493,
+                    "checked_at": "2026-11-02T10:32:02",
+                    "code": 403,
+                    "latency_ms": 1488,
                     "url": "https://www.rrdynb.com/plus/search.php?q=",
-                    "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+                    "detail": "HTTP 403",
                     "target_source": "jar",
                     "targets_total": 1,
                     "results": [
                         {
                             "ok": false,
-                            "code": null,
-                            "latency_ms": 8493,
+                            "code": 403,
+                            "latency_ms": 1488,
                             "url": "https://www.rrdynb.com/plus/search.php?q=",
-                            "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
+                            "detail": "HTTP 403",
                             "target": "https://www.rrdynb.com/plus/search.php?q="
                         }
                     ]
                 },
                 "synced_at": "2026-10-29T14:40:21",
-                "fail_streak": 3,
+                "fail_streak": 4,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:12",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:58:01",
                         "ok": false,
@@ -1500,10 +1511,15 @@
                         "at": "2026-11-01T14:43:41",
                         "ok": false,
                         "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:02",
+                        "ok": false,
+                        "detail": "HTTP 403"
                     }
                 ],
                 "blocked": true,
-                "merged_at": "2026-10-27T14:36:42",
+                "merged_at": "2026-11-02T10:31:19",
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-31T14:43:08"
             }
@@ -1527,15 +1543,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:22"
+                    "checked_at": "2026-11-02T10:32:00"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:07",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:37",
                         "ok": null,
@@ -1580,9 +1591,14 @@
                         "at": "2026-11-01T14:43:22",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:00",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -1604,15 +1620,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:22"
+                    "checked_at": "2026-11-02T10:32:00"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:07",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:37",
                         "ok": null,
@@ -1657,9 +1668,14 @@
                         "at": "2026-11-01T14:43:22",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:00",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -1678,15 +1694,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:22"
+                    "checked_at": "2026-11-02T10:32:00"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:07",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:37",
                         "ok": null,
@@ -1731,9 +1742,14 @@
                         "at": "2026-11-01T14:43:22",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:00",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -1752,15 +1768,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:22"
+                    "checked_at": "2026-11-02T10:32:00"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:07",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:37",
                         "ok": null,
@@ -1805,9 +1816,14 @@
                         "at": "2026-11-01T14:43:22",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:00",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -1834,9 +1850,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-11-01T14:43:58",
+                    "checked_at": "2026-11-02T10:32:41",
                     "code": null,
-                    "latency_ms": 8424,
+                    "latency_ms": 8713,
                     "url": "http://www.misoso.shop",
                     "detail": "TimeoutError: timed out",
                     "target_source": "ext",
@@ -1845,7 +1861,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 8900,
+                            "latency_ms": 9044,
                             "url": "https://misoso.shop",
                             "detail": "TimeoutError: The read operation timed out",
                             "target": "https://misoso.shop"
@@ -1853,7 +1869,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 8424,
+                            "latency_ms": 8713,
                             "url": "http://www.misoso.shop",
                             "detail": "TimeoutError: timed out",
                             "target": "http://www.misoso.shop"
@@ -1861,14 +1877,9 @@
                     ]
                 },
                 "synced_at": "2026-10-29T14:40:21",
-                "fail_streak": 27,
+                "fail_streak": 28,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:44",
-                        "ok": false,
-                        "detail": "TimeoutError: timed out"
-                    },
                     {
                         "at": "2026-10-27T10:58:15",
                         "ok": false,
@@ -1913,12 +1924,17 @@
                         "at": "2026-11-01T14:43:58",
                         "ok": false,
                         "detail": "TimeoutError: timed out"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:41",
+                        "ok": false,
+                        "detail": "TimeoutError: timed out"
                     }
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:03",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -1940,9 +1956,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:23",
+                    "checked_at": "2026-11-02T10:32:01",
                     "code": 200,
-                    "latency_ms": 303,
+                    "latency_ms": 333,
                     "url": "http://v.rbotv.cn",
                     "detail": null,
                     "target_source": "ext",
@@ -1951,7 +1967,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 303,
+                            "latency_ms": 333,
                             "url": "http://v.rbotv.cn",
                             "target": "http://v.rbotv.cn"
                         }
@@ -1959,13 +1975,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 27,
+                "ok_streak": 28,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:08",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:38",
                         "ok": true,
@@ -2010,9 +2021,14 @@
                         "at": "2026-11-01T14:43:23",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:01",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -2029,9 +2045,9 @@
                 ],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-11-01T14:43:24",
+                    "checked_at": "2026-11-02T10:32:02",
                     "code": null,
-                    "latency_ms": 454,
+                    "latency_ms": 398,
                     "url": "http://www.小不点.com/api/2026/fishhxq.php",
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "target_source": "ext",
@@ -2040,7 +2056,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 454,
+                            "latency_ms": 398,
                             "url": "http://www.小不点.com/api/2026/fishhxq.php",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "http://www.小不点.com/api/2026/fishhxq.php"
@@ -2048,14 +2064,9 @@
                     ]
                 },
                 "synced_at": "2026-10-29T14:40:21",
-                "fail_streak": 27,
+                "fail_streak": 28,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:10",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
                     {
                         "at": "2026-10-27T10:57:39",
                         "ok": false,
@@ -2100,12 +2111,17 @@
                         "at": "2026-11-01T14:43:24",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:02",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
                     }
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:03",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -2123,15 +2139,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:23"
+                    "checked_at": "2026-11-02T10:32:01"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:08",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:38",
                         "ok": null,
@@ -2176,9 +2187,14 @@
                         "at": "2026-11-01T14:43:23",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:01",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -2195,9 +2211,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:24",
+                    "checked_at": "2026-11-02T10:32:02",
                     "code": 200,
-                    "latency_ms": 645,
+                    "latency_ms": 747,
                     "url": "https://vip.wwgz.cn:5200",
                     "detail": null,
                     "target_source": "ext",
@@ -2206,7 +2222,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 645,
+                            "latency_ms": 747,
                             "url": "https://vip.wwgz.cn:5200",
                             "target": "https://vip.wwgz.cn:5200"
                         }
@@ -2214,13 +2230,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 27,
+                "ok_streak": 28,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:09",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:38",
                         "ok": true,
@@ -2265,9 +2276,14 @@
                         "at": "2026-11-01T14:43:24",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:02",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -2283,33 +2299,29 @@
                 "added_at": "2026-10-19T16:51:42",
                 "targets": [],
                 "last_check": {
-                    "ok": true,
-                    "checked_at": "2026-11-01T14:43:26",
-                    "code": 200,
-                    "latency_ms": 2501,
+                    "ok": false,
+                    "checked_at": "2026-11-02T10:32:22",
+                    "code": null,
+                    "latency_ms": 8514,
                     "url": "https://www1.ikanbot.com",
-                    "detail": null,
+                    "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
                     "target_source": "jar",
                     "targets_total": 1,
                     "results": [
                         {
-                            "ok": true,
-                            "code": 200,
-                            "latency_ms": 2501,
+                            "ok": false,
+                            "code": null,
+                            "latency_ms": 8514,
                             "url": "https://www1.ikanbot.com",
+                            "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>",
                             "target": "https://www1.ikanbot.com"
                         }
                     ]
                 },
                 "synced_at": "2026-10-29T14:40:21",
-                "fail_streak": 0,
-                "ok_streak": 2,
+                "fail_streak": 1,
+                "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:25",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:51",
                         "ok": true,
@@ -2354,9 +2366,14 @@
                         "at": "2026-11-01T14:43:26",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:22",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42",
+                "merged_at": "2026-11-02T10:31:19",
                 "blocked": false
             }
         },
@@ -2371,9 +2388,9 @@
                 "targets": [],
                 "last_check": {
                     "ok": false,
-                    "checked_at": "2026-11-01T14:43:35",
+                    "checked_at": "2026-11-02T10:32:06",
                     "code": null,
-                    "latency_ms": 409,
+                    "latency_ms": 392,
                     "url": "https://w.duboku.io/",
                     "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                     "target_source": "jar",
@@ -2382,7 +2399,7 @@
                         {
                             "ok": false,
                             "code": 400,
-                            "latency_ms": 8839,
+                            "latency_ms": 1763,
                             "url": "https://api.dbokutv.com",
                             "detail": "HTTP 400",
                             "target": "https://api.dbokutv.com"
@@ -2390,7 +2407,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 463,
+                            "latency_ms": 446,
                             "url": "https://w.duboku.io",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "https://w.duboku.io"
@@ -2398,7 +2415,7 @@
                         {
                             "ok": false,
                             "code": null,
-                            "latency_ms": 409,
+                            "latency_ms": 392,
                             "url": "https://w.duboku.io/",
                             "detail": "URLError: <urlopen error [Errno -2] Name or service not known>",
                             "target": "https://w.duboku.io/"
@@ -2406,14 +2423,9 @@
                     ]
                 },
                 "synced_at": "2026-10-29T14:40:21",
-                "fail_streak": 27,
+                "fail_streak": 28,
                 "ok_streak": 0,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:13",
-                        "ok": false,
-                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
-                    },
                     {
                         "at": "2026-10-27T10:57:43",
                         "ok": false,
@@ -2458,12 +2470,17 @@
                         "at": "2026-11-01T14:43:35",
                         "ok": false,
                         "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:06",
+                        "ok": false,
+                        "detail": "URLError: <urlopen error [Errno -2] Name or service not known>"
                     }
                 ],
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:03",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -2483,9 +2500,9 @@
                 ],
                 "last_check": {
                     "ok": true,
-                    "checked_at": "2026-11-01T14:43:25",
+                    "checked_at": "2026-11-02T10:32:03",
                     "code": 200,
-                    "latency_ms": 836,
+                    "latency_ms": 731,
                     "url": "https://cz01.vip",
                     "detail": null,
                     "target_source": "ext",
@@ -2494,7 +2511,7 @@
                         {
                             "ok": true,
                             "code": 200,
-                            "latency_ms": 836,
+                            "latency_ms": 731,
                             "url": "https://cz01.vip",
                             "target": "https://cz01.vip"
                         }
@@ -2502,13 +2519,8 @@
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "fail_streak": 0,
-                "ok_streak": 27,
+                "ok_streak": 28,
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:10",
-                        "ok": true,
-                        "detail": "200"
-                    },
                     {
                         "at": "2026-10-27T10:57:40",
                         "ok": true,
@@ -2553,9 +2565,14 @@
                         "at": "2026-11-01T14:43:25",
                         "ok": true,
                         "detail": "200"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:03",
+                        "ok": true,
+                        "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -2577,15 +2594,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:24"
+                    "checked_at": "2026-11-02T10:32:02"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:10",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:40",
                         "ok": null,
@@ -2630,9 +2642,14 @@
                         "at": "2026-11-01T14:43:24",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:02",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -2654,15 +2671,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:24"
+                    "checked_at": "2026-11-02T10:32:02"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:10",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:40",
                         "ok": null,
@@ -2707,9 +2719,14 @@
                         "at": "2026-11-01T14:43:24",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:02",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -2731,15 +2748,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:24"
+                    "checked_at": "2026-11-02T10:32:02"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:10",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:40",
                         "ok": null,
@@ -2784,9 +2796,14 @@
                         "at": "2026-11-01T14:43:24",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:02",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -2808,15 +2825,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:24"
+                    "checked_at": "2026-11-02T10:32:02"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:10",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:40",
                         "ok": null,
@@ -2861,9 +2873,14 @@
                         "at": "2026-11-01T14:43:24",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:02",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -2878,15 +2895,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:24"
+                    "checked_at": "2026-11-02T10:32:02"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:10",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:40",
                         "ok": null,
@@ -2931,9 +2943,14 @@
                         "at": "2026-11-01T14:43:24",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:02",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -2951,15 +2968,10 @@
                 "last_check": {
                     "ok": null,
                     "detail": "no_target",
-                    "checked_at": "2026-11-01T14:43:24"
+                    "checked_at": "2026-11-02T10:32:02"
                 },
                 "synced_at": "2026-10-29T14:40:21",
                 "recent": [
-                    {
-                        "at": "2026-10-26T11:22:10",
-                        "ok": null,
-                        "detail": "no_target"
-                    },
                     {
                         "at": "2026-10-27T10:57:40",
                         "ok": null,
@@ -3004,9 +3016,14 @@
                         "at": "2026-11-01T14:43:24",
                         "ok": null,
                         "detail": "no_target"
+                    },
+                    {
+                        "at": "2026-11-02T10:32:02",
+                        "ok": null,
+                        "detail": "no_target"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         }
     ],
@@ -3080,7 +3097,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3152,7 +3169,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3224,7 +3241,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3297,7 +3314,7 @@
                 ],
                 "blocked": false,
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3369,7 +3386,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3445,7 +3462,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3521,7 +3538,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3593,7 +3610,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3669,7 +3686,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3745,7 +3762,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3817,7 +3834,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3893,7 +3910,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -3965,7 +3982,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -4037,7 +4054,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -4109,7 +4126,7 @@
                     }
                 ],
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -4185,7 +4202,7 @@
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T14:00:05",
                 "targets": [],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         }
     ],
@@ -4278,7 +4295,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -4369,7 +4386,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -4462,7 +4479,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -4559,7 +4576,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -4652,7 +4669,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -4746,7 +4763,7 @@
                         "detail": "TimeoutError: The read operation timed out"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42",
+                "merged_at": "2026-11-02T10:31:19",
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-23T09:58:51"
@@ -4842,7 +4859,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -4936,7 +4953,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -5030,7 +5047,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -5123,7 +5140,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -5216,7 +5233,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -5310,7 +5327,7 @@
                         "detail": "TimeoutError: The read operation timed out"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -5407,7 +5424,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -5500,7 +5517,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -5593,7 +5610,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -5687,7 +5704,7 @@
                         "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -5780,7 +5797,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -5877,7 +5894,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -5971,7 +5988,7 @@
                         "detail": "URLError: <urlopen error _ssl.c:993: The handshake operation timed out>"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -6068,7 +6085,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -6161,7 +6178,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -6254,7 +6271,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -6348,7 +6365,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -6444,7 +6461,7 @@
                         "detail": "reachable but no CMS markers (1588 bytes)"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -6541,7 +6558,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -6637,7 +6654,7 @@
                         "detail": "reachable but no CMS markers (1588 bytes)"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -6731,7 +6748,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -6825,7 +6842,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -6918,7 +6935,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -7011,7 +7028,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -7108,7 +7125,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -7202,7 +7219,7 @@
                         "detail": "TimeoutError: timed out"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42",
+                "merged_at": "2026-11-02T10:31:19",
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-23T10:12:08"
@@ -7299,7 +7316,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -7392,7 +7409,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -7485,7 +7502,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -7578,7 +7595,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -7671,7 +7688,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -7768,7 +7785,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -7861,7 +7878,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -7955,7 +7972,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -8048,7 +8065,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -8142,7 +8159,7 @@
                     }
                 ],
                 "blocked": false,
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -8235,7 +8252,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -8328,7 +8345,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -8425,7 +8442,7 @@
                 "blocked": true,
                 "blocked_reason": "auto",
                 "blocked_at": "2026-10-20T13:59:48",
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -8518,7 +8535,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         },
         {
@@ -8611,7 +8628,7 @@
                         "detail": "200"
                     }
                 ],
-                "merged_at": "2026-10-27T14:36:42"
+                "merged_at": "2026-11-02T10:31:19"
             }
         }
     ],
@@ -9006,7 +9023,7 @@
         }
     ],
     "blocked_parses": [],
-    "merged_from_runtime_at": "2026-10-27T14:36:42",
+    "merged_from_runtime_at": "2026-11-02T10:31:19",
     "_parses": [
         {
             "ok": true,

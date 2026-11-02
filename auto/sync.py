@@ -1,9 +1,12 @@
 import argparse
 import os
 
-from common import (DB_PATH, ROOT, build_meta, derive_targets, item_key,
-                    load_json, load_whitelist, norm_key, norm_target, now_iso,
-                    save_json, save_whitelist, setup_stdout, strip_meta)
+from check import class_index, retry_passed
+from common import (DB_PATH, ROOT, build_meta, derive_targets, is_removed, item_key,
+                    load_json, load_removed, load_whitelist, norm_key, norm_target,
+                    now_iso, save_json, save_removed, save_whitelist, setup_stdout,
+                    strip_meta)
+from jarscan import load_jarscan
 
 UPSTREAM_ORIGINS = (None, "local", "upstream")
 
@@ -31,7 +34,52 @@ def match_upstream(upstream_item, by_key, by_target, used):
     return None
 
 
-def sync_group(db, group, upstream_items, dry_run, stats):
+def env_int(name, default):
+    try:
+        return int(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return default
+
+
+def env_float(name, default):
+    try:
+        return float(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return default
+
+
+def retry_removed_entries(removed, upstream_sites, upstream_caiji, upstream_repos):
+    pairs = []
+    if removed.get("sites"):
+        pairs.extend(("sites", item) for item in upstream_sites
+                     if is_removed(removed, "sites", item))
+    if removed.get("caiji"):
+        pairs.extend(("caiji", item) for item in upstream_caiji
+                     if is_removed(removed, "caiji", item))
+    if removed.get("repos"):
+        pairs.extend(("repos", item) for item in upstream_repos
+                     if is_removed(removed, "repos", item))
+    if not pairs:
+        return 0
+    scan = load_jarscan()
+    jar_index = class_index(scan)
+    passed = retry_passed(pairs, timeout=env_float("CHECK_TIMEOUT", 8),
+                          workers=env_int("CHECK_WORKERS", 12), jar_index=jar_index)
+    for group in ("sites", "caiji", "repos"):
+        keys = {key for grp, key in passed if grp == group}
+        if keys:
+            removed[group] = [value for value in removed.get(group) or []
+                              if str(value).strip().casefold() not in keys]
+    if passed:
+        save_removed(removed)
+        print("removed re-check: %d tombstoned entries re-tested, restored %d"
+              % (len(pairs), len(passed)))
+    else:
+        print("removed re-check: %d tombstoned entries re-tested, none recovered" % len(pairs))
+    return len(passed)
+
+
+def sync_group(db, group, upstream_items, dry_run, stats, removed=None):
     items = db.get(group, [])
     by_key, by_target = index_items(items)
     used = set()
@@ -39,6 +87,10 @@ def sync_group(db, group, upstream_items, dry_run, stats):
     now = now_iso()
     for upstream in upstream_items:
         if not isinstance(upstream, dict):
+            continue
+        if removed and is_removed(removed, group, upstream):
+            stats.setdefault("skipped_removed", 0)
+            stats["skipped_removed"] += 1
             continue
         content = strip_meta(upstream)
         index = match_upstream(content, by_key, by_target, used)
@@ -72,7 +124,7 @@ def sync_group(db, group, upstream_items, dry_run, stats):
     return result
 
 
-def sync_repos(db, upstream_repos, dry_run, stats):
+def sync_repos(db, upstream_repos, dry_run, stats, removed=None):
     items = db.get("repos", [])
     by_url = {}
     for index, item in enumerate(items):
@@ -85,6 +137,10 @@ def sync_repos(db, upstream_repos, dry_run, stats):
     for upstream in upstream_repos:
         url = (upstream.get("url") or "").strip()
         if not url:
+            continue
+        if removed and is_removed(removed, "repos", {"url": url}):
+            stats.setdefault("skipped_removed", 0)
+            stats["skipped_removed"] += 1
             continue
         index = by_url.get(norm_target(url))
         if index is not None and index not in used:
@@ -159,6 +215,9 @@ def run(dry_run, prune, db_path, root):
             upstream_repos.append({"url": item, "name": ""})
 
     stats = {"updated": 0, "added": 0, "removed": 0, "removed_names": []}
+    removed = load_removed()
+    if removed and not dry_run:
+        retry_removed_entries(removed, upstream_sites, upstream_caiji, upstream_repos)
     template = {key: value for key, value in tvbox.items() if key not in ("sites", "parses")}
     if template and not dry_run:
         db["template"] = template
@@ -168,17 +227,17 @@ def run(dry_run, prune, db_path, root):
         db["parses"] = up_parses
     print("== parses (stored in db): %d ==" % len(up_parses))
     print("== sync sites (upstream=%d, db=%d) ==" % (len(upstream_sites), len(db.get("sites", []))))
-    sync_group(db, "sites", upstream_sites, dry_run, stats)
+    sync_group(db, "sites", upstream_sites, dry_run, stats, removed)
     print("   updated=%d added=%d removed=%d total=%d" % (stats["updated"], stats["added"],
                                                            stats["removed"], stats["total"]))
     stats.update({"updated": 0, "added": 0, "removed": 0})
     print("== sync caiji (upstream=%d, db=%d) ==" % (len(upstream_caiji), len(db.get("caiji", []))))
-    sync_group(db, "caiji", upstream_caiji, dry_run, stats)
+    sync_group(db, "caiji", upstream_caiji, dry_run, stats, removed)
     print("   updated=%d added=%d removed=%d total=%d" % (stats["updated"], stats["added"],
                                                            stats["removed"], stats["total"]))
     stats.update({"updated": 0, "added": 0, "removed": 0})
     print("== sync repos (upstream=%d, db=%d) ==" % (len(upstream_repos), len(db.get("repos", []))))
-    sync_repos(db, upstream_repos, dry_run, stats)
+    sync_repos(db, upstream_repos, dry_run, stats, removed)
     print("   updated=%d added=%d removed=%d total=%d" % (stats["updated"], stats["added"],
                                                            stats["removed"], stats["total"]))
 

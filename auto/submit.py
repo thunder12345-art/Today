@@ -6,8 +6,8 @@ import types
 
 from common import (DB_PATH, INBOX_DIR, check_entry, check_repo, coerce_site,
                     derive_targets, extract_entries, find_duplicate, http_fetch,
-                    item_key, load_json, norm_key, norm_target, now_iso,
-                    save_json, setup_stdout)
+                    item_key, load_json, load_removed, norm_key, norm_target, now_iso,
+                    save_json, save_removed, setup_stdout)
 from jarscan import load_jarscan, short_name
 
 
@@ -133,6 +133,21 @@ def submit_payloads(payloads, caiji=False, allow_dup=False, timeout=8, do_check=
         return {"error": "sources.json not found, run first: python auto/seed.py"}
     added_sites, added_repos, duplicates, errors = process(payloads, db, caiji=caiji,
                                                            allow_dup=allow_dup)
+    if added_sites or added_repos:
+        removed = load_removed()
+        changed = False
+        site_keys = {item_key(item).strip().casefold()
+                     for item, _group in added_sites if item_key(item).strip()}
+        repo_keys = {item_key(repo).strip().casefold()
+                     for repo in added_repos if item_key(repo).strip()}
+        for group, keys in (("sites", site_keys), ("caiji", site_keys), ("repos", repo_keys)):
+            values = removed.get(group) or []
+            kept = [value for value in values if str(value).strip().casefold() not in keys]
+            if len(kept) != len(values):
+                removed[group] = kept
+                changed = True
+        if changed:
+            save_removed(removed)
     added = finalize_added(db, added_sites, added_repos, timeout=timeout, do_check=do_check)
     db["updated"] = now_iso()
     save_json(DB_PATH, db)

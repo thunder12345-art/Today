@@ -11,6 +11,7 @@ BASE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(BASE)
 DB_PATH = os.path.join(BASE, "sources.json")
 WHITELIST_PATH = os.path.join(BASE, "whitelist.json")
+REMOVED_PATH = os.path.join(BASE, "removed.json")
 INBOX_DIR = os.path.join(BASE, "inbox")
 OUT_DIR = os.path.join(BASE, "out")
 REPORT_TXT = os.path.join(BASE, "report.txt")
@@ -343,3 +344,31 @@ def is_whitelisted(whitelist, group, item):
         if isinstance(value, str) and value.strip():
             fields.add(value.strip())
     return bool(fields & set(values))
+
+
+def load_removed():
+    data = load_json(REMOVED_PATH, {}) or {}
+    removed = {}
+    for group in GROUPS:
+        values = data.get(group) or []
+        if not isinstance(values, list):
+            values = []
+        removed[group] = [str(value).strip() for value in values if str(value).strip()]
+    return removed
+
+
+def save_removed(removed):
+    data = {}
+    for group in GROUPS:
+        values = removed.get(group) or []
+        data[group] = sorted({str(value).strip() for value in values if str(value).strip()})
+    save_json(REMOVED_PATH, data)
+
+
+def is_removed(removed, group, item):
+    values = removed.get(group) or []
+    if not values:
+        return False
+    keys = {str(value).strip().casefold() for value in values if str(value).strip()}
+    key = item_key(item).strip().casefold()
+    return bool(key and key in keys)

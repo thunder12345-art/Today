@@ -90,6 +90,7 @@
 
   <div class="toolbar">
     <button class="primary" onclick="runPipeline()">立即重跑流水线</button>
+    <button class="danger" onclick="purgeFailed()">清理失败源</button>
     <button onclick="window.open('/api/report.txt','_blank')">查看完整报告</button>
     <button onclick="loadAll(true)">刷新</button>
     <span class="muted" id="refreshHint"></span>
@@ -103,6 +104,7 @@
       <label class="muted">执行时间（点，0-23）</label>
       <input type="text" id="setRunHour" style="width:50px">
       <label class="muted"><input type="checkbox" id="setAutoSync"> 每轮先自动同步上游</label>
+      <label class="muted"><input type="checkbox" id="setFeedStrict"> 外部源严格筛选（仅收完全通过）</label>
       <button onclick="saveSettings()">保存周期</button>
       <span class="muted" id="setHint"></span>
     </div>
@@ -629,12 +631,28 @@ async function syncFeeds() {
   } catch (err) { toast("启动失败: " + err.message, true); }
 }
 
+async function purgeFailed() {
+  const g = (STATUS && STATUS.groups) || {};
+  const counts = ["sites", "caiji", "repos"].map(k => (g[k] && g[k].fail) || 0);
+  const total = counts.reduce((a, b) => a + b, 0);
+  if (!total) { toast("当前没有失败源"); return; }
+  if (!confirm("删除全部失败源（站点 " + counts[0] + " / 采集 " + counts[1] + " / 仓库 " + counts[2] +
+      "，共 " + total + " 条）？\n删除后记入移除清单：上游/外部源再次推送时也会跳过；手动提交可恢复。")) return;
+  try {
+    const res = await post("/api/action", { action: "purge_failed" });
+    const removed = res.removed || {};
+    toast("已清理 " + ["sites", "caiji", "repos"].map(k => removed[k] || 0).reduce((a, b) => a + b, 0) + " 条");
+    await loadAll(false);
+  } catch (err) { toast("清理失败: " + err.message, true); }
+}
+
 function renderSettings() {
   const cfg = (STATUS && STATUS.settings) || { interval_days: 1, run_hour: 5, auto_sync: true,
     check_groups: { sites: true, caiji: true, repos: true, parses: true } };
   document.getElementById("setIntervalDays").value = cfg.interval_days;
   document.getElementById("setRunHour").value = cfg.run_hour;
   document.getElementById("setAutoSync").checked = !!cfg.auto_sync;
+  document.getElementById("setFeedStrict").checked = !!cfg.feed_strict;
   const g = cfg.check_groups || {};
   document.getElementById("setSites").checked = g.sites !== false;
   document.getElementById("setCaiji").checked = g.caiji !== false;
@@ -668,7 +686,8 @@ async function saveSettings() {
   if (isNaN(run_hour) || run_hour < 0 || run_hour > 23) { toast("执行时间必须是 0-23 的整数（点）", true); return; }
   try {
     await post("/api/settings", { interval_days, run_hour,
-      auto_sync: document.getElementById("setAutoSync").checked });
+      auto_sync: document.getElementById("setAutoSync").checked,
+      feed_strict: document.getElementById("setFeedStrict").checked });
     toast("已保存");
     await loadAll(false);
   } catch (err) { toast("保存失败: " + err.message, true); }

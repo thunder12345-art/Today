@@ -12,8 +12,8 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 from common import (BASE, DB_PATH, REPORT_JSON, REPORT_TXT, ROOT, http_check,
                     is_http, is_whitelisted, item_key, load_json,
-                    load_whitelist, now_iso, save_json, save_whitelist,
-                    setup_stdout)
+                    load_removed, load_whitelist, now_iso, save_json,
+                    save_removed, save_whitelist, setup_stdout)
 from check import apply_policy_to_item, check_item, class_index
 from jarscan import load_jarscan
 from submit import fetch_payload, parse_payload, submit_payloads
@@ -56,6 +56,7 @@ SETTINGS_DEFAULTS = {
     "interval_days": 1.0,
     "run_hour": 5,
     "auto_sync": True,
+    "feed_strict": False,
     "check_groups": {"sites": True, "caiji": True, "repos": True, "parses": True},
 }
 SCHEDULE_STATE_PATH = os.path.join(BASE, "schedule_state.json")
@@ -101,6 +102,7 @@ def load_settings():
     settings = {"interval_days": SETTINGS_DEFAULTS["interval_days"],
                 "run_hour": SETTINGS_DEFAULTS["run_hour"],
                 "auto_sync": SETTINGS_DEFAULTS["auto_sync"],
+                "feed_strict": SETTINGS_DEFAULTS["feed_strict"],
                 "check_groups": dict(SETTINGS_DEFAULTS["check_groups"])}
     raw_days = data.get("interval_days")
     if raw_days is None and "interval_hours" in data:
@@ -121,6 +123,8 @@ def load_settings():
     settings["run_hour"] = min(max(settings["run_hour"], 0), 23)
     if "auto_sync" in data:
         settings["auto_sync"] = bool(data.get("auto_sync"))
+    if "feed_strict" in data:
+        settings["feed_strict"] = bool(data.get("feed_strict"))
     raw_groups = data.get("check_groups")
     if isinstance(raw_groups, dict):
         for key in settings["check_groups"]:
@@ -531,8 +535,45 @@ class Handler(SimpleHTTPRequestHandler):
             return True
         return False
 
+    def handle_purge_failed(self):
+        if not LOCK.acquire(blocking=False):
+            self.send_json({"error": "pipeline running, try later"}, status=409)
+            return
+        try:
+            db = load_json(DB_PATH, {}) or {}
+            removed = load_removed()
+            counts = {}
+            for group in ("sites", "caiji", "repos"):
+                items = db.get(group) or []
+                keep = []
+                values = set(removed.get(group) or [])
+                dropped = 0
+                for item in items:
+                    state = ((item.get("_meta") or {}).get("last_check") or {}).get("ok")
+                    if state is False:
+                        key = item_key(item).strip()
+                        if key:
+                            values.add(key)
+                        dropped += 1
+                    else:
+                        keep.append(item)
+                if dropped:
+                    db[group] = keep
+                    removed[group] = sorted(values)
+                    counts[group] = dropped
+            if counts:
+                db["updated"] = now_iso()
+                save_json(DB_PATH, db)
+                save_removed(removed)
+            self.send_json({"ok": True, "removed": counts})
+        finally:
+            LOCK.release()
+
     def handle_action(self, data):
         action = str(data.get("action") or "")
+        if action == "purge_failed":
+            self.handle_purge_failed()
+            return
         group = str(data.get("group") or "")
         key = str(data.get("key") or "").strip()
         if action not in ("block", "unblock", "whitelist", "unwhitelist", "recheck"):
@@ -805,6 +846,8 @@ class Handler(SimpleHTTPRequestHandler):
                 settings["run_hour"] = hour
             if "auto_sync" in data:
                 settings["auto_sync"] = bool(data.get("auto_sync"))
+            if "feed_strict" in data:
+                settings["feed_strict"] = bool(data.get("feed_strict"))
             incoming_groups = data.get("check_groups")
             if isinstance(incoming_groups, dict):
                 groups = dict(settings["check_groups"])

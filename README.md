@@ -13,6 +13,7 @@
 - **双备份**：每次更新自动推送 GitHub + Gitee
 - **Releases 发布**：每次更新自动发布更新包 / Docker 镜像 / README 到 Releases
 - **源池扩展**：自有条目池（own_sources.json）+ 外部配置源（feeds.json）自动合并，持续补充新源
+- **一键清理失败源**：删除全部 fail 条目并记入移除清单（上游/外部源不会再补回），界面更精简
 - **分类健康统计**：报告按 4K / 搜索 / 影视 / 机器人 / 云盘网盘 / 免费接口 / 采集 分类统计存活率
 
 ## 🚀 快速部署（NAS / Linux + Docker）
@@ -65,6 +66,7 @@ sh /path/to/Tomorrow/auto/nas_update.sh /tmp/update.bundle
 - **上游同步库（GitHub）**：添加/停用/删除上游仓库，立即同步，查看同步日志；上游无变化时自动跳过（ETag 相同）
 - **外部配置源（feeds）**：面板添加/启停/删除配置源（单个 tvbox.json URL），立即抓取并重建；合并条目参与测活/自动屏蔽
 - **条目管理**：搜索、手动屏蔽/解封、加白名单、删除
+- **清理失败源**：顶部按钮一键删除全部 fail 条目；被删条目记入 `auto/removed.json`（上游同步/外部源抓取都会跳过），在"提交新源"重新提交同 key 条目即可恢复
 - **日志**：流水线输出与同步日志
 
 ## 🧩 源池扩展（防止上游停更导致源池老化）
@@ -75,7 +77,7 @@ sh /path/to/Tomorrow/auto/nas_update.sh /tmp/update.bundle
 {"sites": [], "caiji": [], "parses": [{"name": "", "url": ""}], "repos": [{"url": "", "name": ""}]}
 ```
 
-- `auto/feeds.json`：**外部配置源列表**（在面板"外部配置源"中管理：添加/启停/删除/立即抓取）。每轮流水线抓取指定的单个 tvbox.json（支持 gh-proxy），提取 sites/parses/repos 合并（origin=feed，测活/自动屏蔽照常生效）。**新条目入库前先测活，失败的不加入主源**（`feed_sync.py --only-pass` 可切换为严格模式：只收完全通过的可探测条目）。内置示例（默认停用）：
+- `auto/feeds.json`：**外部配置源列表**（在面板"外部配置源"中管理：添加/启停/删除/立即抓取）。每轮流水线抓取指定的单个 tvbox.json（支持 gh-proxy），提取 sites/parses/repos 合并（origin=feed，测活/自动屏蔽照常生效）。**新条目入库前先测活，失败的不加入主源**（面板"调度与范围"的"外部源严格筛选"开关或 `--only-pass` 可切换严格模式：只收完全通过的可探测条目）。内置示例（默认停用）：
 
 ```json
 {"items": [{"name": "qist/tvbox 0825", "url": "https://raw.githubusercontent.com/qist/tvbox/master/0825.json", "ghproxy": true, "enabled": false}]}

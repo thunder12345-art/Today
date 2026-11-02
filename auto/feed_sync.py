@@ -6,12 +6,13 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from check import class_index, run_checks
 from common import (BASE, DB_PATH, build_meta, derive_targets, extract_entries,
-                    http_check, http_fetch, item_key, load_json, now_iso, save_json,
-                    setup_stdout, strip_meta)
+                    http_check, http_fetch, is_removed, item_key, load_json,
+                    load_removed, now_iso, save_json, setup_stdout, strip_meta)
 from jarscan import load_jarscan
 
 FEEDS_PATH = os.path.join(BASE, "feeds.json")
 OWN_PATH = os.path.join(BASE, "own_sources.json")
+SETTINGS_PATH = os.path.join(BASE, "settings.json")
 MAX_FEED_BYTES = 4 * 1048576
 
 
@@ -27,6 +28,11 @@ def env_float(name, default):
         return float(os.environ.get(name, default))
     except (TypeError, ValueError):
         return default
+
+
+def strict_from_settings():
+    data = load_json(SETTINGS_PATH, {})
+    return bool(isinstance(data, dict) and data.get("feed_strict"))
 
 
 def feed_url(item):
@@ -194,8 +200,11 @@ def upsert_parses(db, parses, origin, stats, reject=None):
             stats["added"] += 1
 
 
-def merge_feed_payload(db, payload, origin, stats, precheck=None):
+def merge_feed_payload(db, payload, origin, stats, precheck=None, removed=None):
     sites, repos = extract_entries(payload)
+    if removed:
+        sites = [entry for entry in sites if not is_removed(removed, "sites", entry)]
+        repos = [entry for entry in repos if not is_removed(removed, "repos", entry)]
     reject_sites = precheck_candidates(db, "sites", sites, precheck, stats) if precheck else None
     upsert_items(db, "sites", sites, origin, stats, reject=reject_sites)
     if repos:
@@ -207,13 +216,15 @@ def merge_feed_payload(db, payload, origin, stats, precheck=None):
         upsert_parses(db, parses, origin, stats, reject=reject_parses)
 
 
-def apply_own_sources(db, stats):
+def apply_own_sources(db, stats, removed=None):
     data = load_json(OWN_PATH, {})
     if not isinstance(data, dict):
         return
     for group in ("sites", "caiji", "repos"):
         entries = data.get(group)
         if isinstance(entries, list) and entries:
+            if removed:
+                entries = [entry for entry in entries if not is_removed(removed, group, entry)]
             upsert_items(db, group, entries, "own", stats)
     parses = data.get("parses")
     if isinstance(parses, list) and parses:
@@ -241,9 +252,10 @@ def main():
         scan = load_jarscan()
         precheck = {"workers": max(1, args.precheck_workers),
                     "timeout": max(1.0, args.precheck_timeout),
-                    "strict": args.only_pass,
+                    "strict": args.only_pass or strict_from_settings(),
                     "jar_index": class_index(scan)}
     feeds = load_json(FEEDS_PATH, {})
+    removed = load_removed()
     items = feeds.get("items") if isinstance(feeds, dict) else None
     if isinstance(items, list):
         for item in items:
@@ -258,12 +270,12 @@ def main():
             if payload is None:
                 continue
             before = dict(stats)
-            merge_feed_payload(db, payload, "feed", stats, precheck)
+            merge_feed_payload(db, payload, "feed", stats, precheck, removed)
             print("[feeds] %s: added=%d updated=%d rejected=%d"
                   % (name, stats["added"] - before["added"],
                      stats["updated"] - before["updated"],
                      stats["rejected"] - before["rejected"]))
-    apply_own_sources(db, stats)
+    apply_own_sources(db, stats, removed)
     if stats["added"] or stats["updated"] or stats["rejected"]:
         save_json(DB_PATH, db)
         print("[feeds] saved sources.json (added=%d updated=%d rejected=%d)"

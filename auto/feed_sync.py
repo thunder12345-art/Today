@@ -4,10 +4,11 @@ import os
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from check import class_index, run_checks
+from check import class_index, retry_passed, run_checks
 from common import (BASE, DB_PATH, build_meta, derive_targets, extract_entries,
                     http_check, http_fetch, is_removed, item_key, load_json,
-                    load_removed, now_iso, save_json, setup_stdout, strip_meta)
+                    load_removed, now_iso, save_json, save_removed, setup_stdout,
+                    strip_meta)
 from jarscan import load_jarscan
 
 FEEDS_PATH = os.path.join(BASE, "feeds.json")
@@ -200,6 +201,34 @@ def upsert_parses(db, parses, origin, stats, reject=None):
             stats["added"] += 1
 
 
+def retry_from_payload(payload, removed, precheck):
+    sites, repos = extract_entries(payload)
+    pairs = []
+    if removed.get("sites"):
+        pairs.extend(("sites", entry) for entry in sites
+                     if is_removed(removed, "sites", entry))
+    if removed.get("repos"):
+        pairs.extend(("repos", entry) for entry in repos
+                     if is_removed(removed, "repos", entry))
+    if not pairs:
+        return 0
+    if precheck:
+        jar_index = precheck.get("jar_index")
+        workers = precheck["workers"]
+        timeout = precheck["timeout"]
+    else:
+        jar_index = class_index(load_jarscan())
+        workers = env_int("CHECK_WORKERS", 12)
+        timeout = env_float("CHECK_TIMEOUT", 8)
+    passed = retry_passed(pairs, timeout=timeout, workers=workers, jar_index=jar_index)
+    for group in ("sites", "repos"):
+        keys = {key for grp, key in passed if grp == group}
+        if keys:
+            removed[group] = [value for value in removed.get(group) or []
+                              if str(value).strip().casefold() not in keys]
+    return len(passed)
+
+
 def merge_feed_payload(db, payload, origin, stats, precheck=None, removed=None):
     sites, repos = extract_entries(payload)
     if removed:
@@ -256,6 +285,7 @@ def main():
                     "jar_index": class_index(scan)}
     feeds = load_json(FEEDS_PATH, {})
     removed = load_removed()
+    total_restored = 0
     items = feeds.get("items") if isinstance(feeds, dict) else None
     if isinstance(items, list):
         for item in items:
@@ -269,13 +299,20 @@ def main():
                 continue
             if payload is None:
                 continue
+            restored = 0
+            if removed:
+                restored = retry_from_payload(payload, removed, precheck)
+                total_restored += restored
             before = dict(stats)
             merge_feed_payload(db, payload, "feed", stats, precheck, removed)
-            print("[feeds] %s: added=%d updated=%d rejected=%d"
+            print("[feeds] %s: added=%d updated=%d rejected=%d restored=%d"
                   % (name, stats["added"] - before["added"],
                      stats["updated"] - before["updated"],
-                     stats["rejected"] - before["rejected"]))
+                     stats["rejected"] - before["rejected"], restored))
     apply_own_sources(db, stats, removed)
+    if total_restored:
+        save_removed(removed)
+        print("[feeds] tombstone restored: %d" % total_restored)
     if stats["added"] or stats["updated"] or stats["rejected"]:
         save_json(DB_PATH, db)
         print("[feeds] saved sources.json (added=%d updated=%d rejected=%d)"

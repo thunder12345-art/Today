@@ -1,9 +1,12 @@
 import argparse
 import os
 
+from check import class_index, retry_passed
 from common import (DB_PATH, ROOT, build_meta, derive_targets, is_removed, item_key,
                     load_json, load_removed, load_whitelist, norm_key, norm_target,
-                    now_iso, save_json, save_whitelist, setup_stdout, strip_meta)
+                    now_iso, save_json, save_removed, save_whitelist, setup_stdout,
+                    strip_meta)
+from jarscan import load_jarscan
 
 UPSTREAM_ORIGINS = (None, "local", "upstream")
 
@@ -29,6 +32,51 @@ def match_upstream(upstream_item, by_key, by_target, used):
         if index is not None and index not in used:
             return index
     return None
+
+
+def env_int(name, default):
+    try:
+        return int(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return default
+
+
+def env_float(name, default):
+    try:
+        return float(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return default
+
+
+def retry_removed_entries(removed, upstream_sites, upstream_caiji, upstream_repos):
+    pairs = []
+    if removed.get("sites"):
+        pairs.extend(("sites", item) for item in upstream_sites
+                     if is_removed(removed, "sites", item))
+    if removed.get("caiji"):
+        pairs.extend(("caiji", item) for item in upstream_caiji
+                     if is_removed(removed, "caiji", item))
+    if removed.get("repos"):
+        pairs.extend(("repos", item) for item in upstream_repos
+                     if is_removed(removed, "repos", item))
+    if not pairs:
+        return 0
+    scan = load_jarscan()
+    jar_index = class_index(scan)
+    passed = retry_passed(pairs, timeout=env_float("CHECK_TIMEOUT", 8),
+                          workers=env_int("CHECK_WORKERS", 12), jar_index=jar_index)
+    for group in ("sites", "caiji", "repos"):
+        keys = {key for grp, key in passed if grp == group}
+        if keys:
+            removed[group] = [value for value in removed.get(group) or []
+                              if str(value).strip().casefold() not in keys]
+    if passed:
+        save_removed(removed)
+        print("removed re-check: %d tombstoned entries re-tested, restored %d"
+              % (len(pairs), len(passed)))
+    else:
+        print("removed re-check: %d tombstoned entries re-tested, none recovered" % len(pairs))
+    return len(passed)
 
 
 def sync_group(db, group, upstream_items, dry_run, stats, removed=None):
@@ -168,6 +216,8 @@ def run(dry_run, prune, db_path, root):
 
     stats = {"updated": 0, "added": 0, "removed": 0, "removed_names": []}
     removed = load_removed()
+    if removed and not dry_run:
+        retry_removed_entries(removed, upstream_sites, upstream_caiji, upstream_repos)
     template = {key: value for key, value in tvbox.items() if key not in ("sites", "parses")}
     if template and not dry_run:
         db["template"] = template

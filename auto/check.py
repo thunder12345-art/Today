@@ -138,6 +138,28 @@ def summarize(items):
     return ok, fail, skipped, dead
 
 
+def retry_passed(pairs, timeout=8, workers=12, jar_index=None):
+    """Probe previously-removed entries; return set of (group, key_casefold) that pass now."""
+    by_group = {}
+    for group, entry in pairs:
+        if not isinstance(entry, dict):
+            continue
+        payload = {key: value for key, value in entry.items() if key != "_meta"}
+        payload["_meta"] = {}
+        by_group.setdefault(group, []).append(payload)
+    passed = set()
+    for group, items in by_group.items():
+        jar = jar_index if group in ("sites", "caiji") else None
+        run_checks(items, group, workers, timeout, jar)
+        for item in items:
+            state = (item.get("_meta") or {}).get("last_check") or {}
+            if state.get("ok") is True:
+                key = item_key(item).strip().casefold()
+                if key:
+                    passed.add((group, key))
+    return passed
+
+
 CATEGORY_RULES = (
     ("4K", ("4k", "高码", "原盘", "蓝光")),
     ("搜索", ("搜索", "云搜", "磁力", "search")),

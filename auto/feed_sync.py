@@ -1,14 +1,32 @@
+import argparse
 import json
 import os
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
+from check import class_index, run_checks
 from common import (BASE, DB_PATH, build_meta, derive_targets, extract_entries,
-                    http_fetch, item_key, load_json, now_iso, save_json,
+                    http_check, http_fetch, item_key, load_json, now_iso, save_json,
                     setup_stdout, strip_meta)
+from jarscan import load_jarscan
 
 FEEDS_PATH = os.path.join(BASE, "feeds.json")
 OWN_PATH = os.path.join(BASE, "own_sources.json")
 MAX_FEED_BYTES = 4 * 1048576
+
+
+def env_int(name, default):
+    try:
+        return int(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return default
+
+
+def env_float(name, default):
+    try:
+        return float(os.environ.get(name, default))
+    except (TypeError, ValueError):
+        return default
 
 
 def feed_url(item):
@@ -29,7 +47,78 @@ def fetch_feed_json(item, timeout=20):
     return json.loads(body.decode("utf-8", "replace"))
 
 
-def upsert_items(db, group, entries, origin, stats):
+def existing_keys(db, group):
+    keys = set()
+    for item in db.get(group, []):
+        if isinstance(item, dict):
+            key = item_key(item).strip().casefold()
+            if key:
+                keys.add(key)
+    return keys
+
+
+def precheck_candidates(db, group, entries, precheck, stats):
+    known = existing_keys(db, group)
+    candidates = {}
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        content = strip_meta(entry)
+        key = item_key(content).strip().casefold()
+        if key and key not in known and key not in candidates:
+            candidates[key] = dict(content, _meta={})
+    if not candidates:
+        return set()
+    items = list(candidates.values())
+    jar_index = precheck.get("jar_index") if group in ("sites", "caiji") else None
+    run_checks(items, group, precheck["workers"], precheck["timeout"], jar_index)
+    strict = precheck.get("strict")
+    reject = set()
+    for key, item in candidates.items():
+        state = (item.get("_meta") or {}).get("last_check") or {}
+        ok = state.get("ok")
+        if ok is False or (strict and ok is not True):
+            reject.add(key)
+            stats["rejected"] = int(stats.get("rejected") or 0) + 1
+    return reject
+
+
+def precheck_parses(db, parses, precheck, stats):
+    known = set()
+    for item in db.get("parses", []):
+        if isinstance(item, dict) and item.get("url"):
+            known.add(item["url"].strip().casefold())
+    candidates = {}
+    for entry in parses:
+        if not isinstance(entry, dict) or not entry.get("url"):
+            continue
+        content = strip_meta(entry)
+        url = content["url"].strip()
+        key = url.casefold()
+        if key not in known and key not in candidates:
+            candidates[key] = url
+    if not candidates:
+        return set()
+    urls = list(candidates.values())
+    results = {}
+    with ThreadPoolExecutor(max_workers=precheck["workers"]) as pool:
+        futures = {pool.submit(http_check, url, precheck["timeout"]): url for url in urls}
+        for future in as_completed(futures):
+            url = futures[future]
+            try:
+                result = future.result()
+            except Exception:
+                result = {"ok": False, "code": None}
+            results[url.casefold()] = result.get("code") is not None and result.get("code") < 500
+    reject = set()
+    for key, ok in results.items():
+        if not ok:
+            reject.add(key)
+            stats["rejected"] = int(stats.get("rejected") or 0) + 1
+    return reject
+
+
+def upsert_items(db, group, entries, origin, stats, reject=None):
     existing = db.setdefault(group, [])
     if not isinstance(existing, list):
         existing = []
@@ -50,6 +139,8 @@ def upsert_items(db, group, entries, origin, stats):
         if key:
             ordered[key] = content
     for key, content in ordered.items():
+        if reject and key in reject:
+            continue
         index = by_key.get(key)
         if index is not None:
             old = existing[index]
@@ -70,7 +161,7 @@ def upsert_items(db, group, entries, origin, stats):
             stats["added"] += 1
 
 
-def upsert_parses(db, parses, origin, stats):
+def upsert_parses(db, parses, origin, stats, reject=None):
     existing = db.setdefault("parses", [])
     if not isinstance(existing, list):
         existing = []
@@ -86,6 +177,8 @@ def upsert_parses(db, parses, origin, stats):
         content = strip_meta(entry)
         unique[content["url"].strip().casefold()] = content
     for url, content in unique.items():
+        if reject and url in reject:
+            continue
         index = by_url.get(url)
         if index is not None:
             old = existing[index]
@@ -101,14 +194,17 @@ def upsert_parses(db, parses, origin, stats):
             stats["added"] += 1
 
 
-def merge_feed_payload(db, payload, origin, stats):
+def merge_feed_payload(db, payload, origin, stats, precheck=None):
     sites, repos = extract_entries(payload)
-    upsert_items(db, "sites", sites, origin, stats)
+    reject_sites = precheck_candidates(db, "sites", sites, precheck, stats) if precheck else None
+    upsert_items(db, "sites", sites, origin, stats, reject=reject_sites)
     if repos:
-        upsert_items(db, "repos", repos, origin, stats)
+        reject_repos = precheck_candidates(db, "repos", repos, precheck, stats) if precheck else None
+        upsert_items(db, "repos", repos, origin, stats, reject=reject_repos)
     parses = payload.get("parses") if isinstance(payload, dict) else None
     if isinstance(parses, list):
-        upsert_parses(db, parses, origin, stats)
+        reject_parses = precheck_parses(db, parses, precheck, stats) if precheck else None
+        upsert_parses(db, parses, origin, stats, reject=reject_parses)
 
 
 def apply_own_sources(db, stats):
@@ -125,12 +221,28 @@ def apply_own_sources(db, stats):
 
 
 def main():
+    parser = argparse.ArgumentParser(description="Merge external feed configs + own sources into sources.json")
+    parser.add_argument("--no-precheck", action="store_true",
+                        help="disable pre-filter: add all feed entries without testing")
+    parser.add_argument("--only-pass", action="store_true",
+                        help="strict mode: only add entries that fully pass (unverifiable items skipped)")
+    parser.add_argument("--precheck-workers", type=int, default=env_int("CHECK_WORKERS", 12))
+    parser.add_argument("--precheck-timeout", type=float, default=env_float("CHECK_TIMEOUT", 8))
+    args = parser.parse_args()
     setup_stdout()
+
     db = load_json(DB_PATH)
     if db is None:
         print("sources.json not found")
         return 1
-    stats = {"added": 0, "updated": 0}
+    stats = {"added": 0, "updated": 0, "rejected": 0}
+    precheck = None
+    if not args.no_precheck:
+        scan = load_jarscan()
+        precheck = {"workers": max(1, args.precheck_workers),
+                    "timeout": max(1.0, args.precheck_timeout),
+                    "strict": args.only_pass,
+                    "jar_index": class_index(scan)}
     feeds = load_json(FEEDS_PATH, {})
     items = feeds.get("items") if isinstance(feeds, dict) else None
     if isinstance(items, list):
@@ -146,13 +258,16 @@ def main():
             if payload is None:
                 continue
             before = dict(stats)
-            merge_feed_payload(db, payload, "feed", stats)
-            print("[feeds] %s: added=%d updated=%d"
-                  % (name, stats["added"] - before["added"], stats["updated"] - before["updated"]))
+            merge_feed_payload(db, payload, "feed", stats, precheck)
+            print("[feeds] %s: added=%d updated=%d rejected=%d"
+                  % (name, stats["added"] - before["added"],
+                     stats["updated"] - before["updated"],
+                     stats["rejected"] - before["rejected"]))
     apply_own_sources(db, stats)
-    if stats["added"] or stats["updated"]:
+    if stats["added"] or stats["updated"] or stats["rejected"]:
         save_json(DB_PATH, db)
-        print("[feeds] saved sources.json (added=%d updated=%d)" % (stats["added"], stats["updated"]))
+        print("[feeds] saved sources.json (added=%d updated=%d rejected=%d)"
+              % (stats["added"], stats["updated"], stats["rejected"]))
     else:
         print("[feeds] no changes")
     return 0

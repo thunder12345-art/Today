@@ -592,7 +592,7 @@ function renderFeeds() {
   const enabled = items.filter(i => i.enabled).length;
   document.getElementById("feedHint").textContent =
     "启用 " + enabled + " / " + items.length + " 个配置源 · 每轮流水线自动抓取并合并（参与测活/自动屏蔽）· " +
-    "外部源的相对路径资源（如 ./json/xx.json）本仓库没有时对应条目会被测活淘汰";
+    "新条目入库前先测活：失败的不加入主源 · 外部源的相对路径资源本仓库没有时对应条目会被测活淘汰";
 }
 
 async function feedAct(action, index) {

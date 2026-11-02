@@ -75,7 +75,7 @@ sh /path/to/Tomorrow/auto/nas_update.sh /tmp/update.bundle
 {"sites": [], "caiji": [], "parses": [{"name": "", "url": ""}], "repos": [{"url": "", "name": ""}]}
 ```
 
-- `auto/feeds.json`：**外部配置源列表**（在面板"外部配置源"中管理：添加/启停/删除/立即抓取）。每轮流水线抓取指定的单个 tvbox.json（支持 gh-proxy），提取 sites/parses/repos 合并（origin=feed，测活/自动屏蔽照常生效）。内置示例（默认停用）：
+- `auto/feeds.json`：**外部配置源列表**（在面板"外部配置源"中管理：添加/启停/删除/立即抓取）。每轮流水线抓取指定的单个 tvbox.json（支持 gh-proxy），提取 sites/parses/repos 合并（origin=feed，测活/自动屏蔽照常生效）。**新条目入库前先测活，失败的不加入主源**（`feed_sync.py --only-pass` 可切换为严格模式：只收完全通过的可探测条目）。内置示例（默认停用）：
 
 ```json
 {"items": [{"name": "qist/tvbox 0825", "url": "https://raw.githubusercontent.com/qist/tvbox/master/0825.json", "ghproxy": true, "enabled": false}]}

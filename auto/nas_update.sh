@@ -141,5 +141,5 @@ echo "== [8/8] start container =="
 docker start tomorrow-auto
 
 echo ""
-echo "done. panel:  http://<nas-ip>:8899/panel"
+echo "done. panel:  http://<nas-ip>:8899/"
 echo "      check:  docker logs --tail 30 tomorrow-auto"

@@ -23,8 +23,8 @@ cd Today
 docker compose up -d --build
 ```
 
-- 面板：`http://<IP>:8899/panel`
-- 订阅地址：`http://<IP>:8899/tvbox.json`、`/lmw.json`、`/caiji.json`
+- 面板：`http://<IP>:8899/`
+- 订阅地址：`http://<IP>:8899/tvbox`、`/lmw`、`/caiji`（兼容旧的 `/tvbox.json` 等路径）
 - 端口由 `SERVER_PORT` 环境变量控制（默认 8899，映射容器内 8080）
 
 ## 🔄 更新部署（日常维护）
@@ -58,7 +58,7 @@ sh /path/to/Tomorrow/auto/nas_update.sh /tmp/update.bundle
 
 ## 🖥 面板说明
 
-打开 `http://<IP>:8899/panel`：
+打开 `http://<IP>:8899/`（旧地址 `/panel` 仍可用）：
 
 - **状态总览**：运行中/空闲、上次结果、当前周期、自动屏蔽统计
 - **调度与范围**：运行间隔（天，0=仅手动）+ 执行时间（点，如间隔 1 天、执行时间 10 点 = 每天 10:00 自动同步+重建）；自动周期始终按设定时间执行，手动运行不影响下一次自动执行时间；测活范围勾选（未勾选的组不测活/不自动屏蔽，输出仍全量重建）

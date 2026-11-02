@@ -451,11 +451,19 @@ class Handler(SimpleHTTPRequestHandler):
         if path in ("/status", "/__status"):
             self.send_json({"state": STATE, "report": load_json(REPORT_JSON, {})})
             return
-        if path == "/panel" or path.startswith("/panel/"):
+        if path in ("/", "/index.html", "/panel", "/panel.html") or path.startswith("/panel/"):
             if not self.authorized(parts):
                 self.send_login()
                 return
             self.send_file(PANEL_FILE, "text/html; charset=utf-8")
+            return
+        if path in ("/tvbox", "/lmw", "/caiji"):
+            target = os.path.join(ROOT, {"tvbox": "tvbox.json", "lmw": "lmw.json",
+                                         "caiji": "caiji.json"}[path[1:]])
+            if not os.path.exists(target):
+                self.send_error(404)
+                return
+            self.send_file(target, "application/json; charset=utf-8")
             return
         if path.startswith("/api/"):
             if not self.authorized(parts):
@@ -857,7 +865,7 @@ class Handler(SimpleHTTPRequestHandler):
                 "button{width:100%;padding:10px;border-radius:8px;border:0;background:#3b82f6;"
                 "color:#fff;font-size:15px;cursor:pointer}"
                 "p{margin:0 0 4px;color:#aaa;font-size:13px}</style>"
-                "<form method=\"get\" action=\"/panel\">"
+                "<form method=\"get\" action=\"/\">"
                 "<p>需要访问令牌（PANEL_TOKEN）</p>"
                 "<input name=\"token\" type=\"password\" placeholder=\"输入令牌\" autofocus>"
                 "<button type=\"submit\">进入控制面板</button></form>").encode("utf-8")
@@ -906,10 +914,11 @@ def main():
 
     server = ThreadingHTTPServer(("0.0.0.0", args.port), partial(Handler, directory=ROOT))
     print("[server] serving %s at http://0.0.0.0:%d" % (ROOT, args.port))
-    print("[server] tvbox.json:  http://<host>:%d/tvbox.json" % args.port)
-    print("[server] lmw.json:    http://<host>:%d/lmw.json" % args.port)
-    print("[server] status:      http://<host>:%d/status" % args.port)
-    print("[server] panel:       http://<host>:%d/panel%s" % (args.port, " (token required)" if TOKEN else ""))
+    print("[server] panel:  http://<host>:%d/%s" % (args.port, " (token required)" if TOKEN else ""))
+    print("[server] tvbox:  http://<host>:%d/tvbox" % args.port)
+    print("[server] lmw:    http://<host>:%d/lmw" % args.port)
+    print("[server] caiji:  http://<host>:%d/caiji" % args.port)
+    print("[server] status: http://<host>:%d/status" % args.port)
     settings = load_settings()
     print("[server] schedule: every %sd at %s:00 auto_sync=%s (auto/settings.json, panel editable)"
           " | scope=%s | drop_dead=%s | auto_block=%s after=%d | run_on_start=%s"

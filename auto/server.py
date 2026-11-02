@@ -35,6 +35,8 @@ STATE = {
     "upstream_running": False,
     "upstream_last_at": None,
     "upstream_last_result": None,
+    "feeds_running": False,
+    "feeds_last_result": None,
     "last_run_ts": None,
     "last_cycle_ts": None,
 }
@@ -45,6 +47,8 @@ UPSTREAMS_PATH = os.path.join(BASE, "upstreams.json")
 UPSTREAM_SCRIPT = os.path.join(BASE, "upstream_sync.py")
 UPSTREAM_LOG = os.path.join(BASE, "upstream_sync.log")
 UPSTREAM_STATE = os.path.join(BASE, ".upstream_state.json")
+FEEDS_PATH = os.path.join(BASE, "feeds.json")
+FEED_SCRIPT = os.path.join(BASE, "feed_sync.py")
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
 TOKEN = os.environ.get("PANEL_TOKEN", "").strip()
 
@@ -256,6 +260,47 @@ def build_upstreams():
             "last_at": STATE.get("upstream_last_at"), "log": log_tail}
 
 
+def load_feeds():
+    data = load_json(FEEDS_PATH)
+    if not isinstance(data, dict) or not isinstance(data.get("items"), list):
+        data = {"items": []}
+    return data
+
+
+def build_feeds():
+    data = load_feeds()
+    items = []
+    for index, item in enumerate(data.get("items") or []):
+        if not isinstance(item, dict):
+            continue
+        items.append({"index": index, "name": item.get("name") or "",
+                      "url": item.get("url") or "",
+                      "ghproxy": bool(item.get("ghproxy", True)),
+                      "enabled": bool(item.get("enabled", True))})
+    return {"items": items, "running": bool(STATE.get("feeds_running")),
+            "last_result": STATE.get("feeds_last_result")}
+
+
+def run_feed_sync(then_pipeline=True):
+    if not os.path.exists(FEED_SCRIPT):
+        print("[feeds] script not found: %s" % FEED_SCRIPT)
+        return
+    if not LOCK.acquire(blocking=False):
+        print("[feeds] pipeline running, skip")
+        return
+    try:
+        STATE["feeds_running"] = True
+        print("[feeds] started")
+        result = subprocess.run([sys.executable, FEED_SCRIPT])
+        STATE["feeds_last_result"] = "ok" if result.returncode == 0 else "failed (%d)" % result.returncode
+        print("[feeds] finished: %s" % STATE["feeds_last_result"])
+    finally:
+        STATE["feeds_running"] = False
+        LOCK.release()
+    if then_pipeline and STATE.get("feeds_last_result") == "ok":
+        run_pipeline(STATE["scope"], STATE["drop_dead"], STATE["timeout"], STATE["workers"])
+
+
 def run_upstream_sync(only, then_pipeline=True):
     if not os.path.exists(UPSTREAM_SCRIPT):
         print("[upstream] script not found: %s" % UPSTREAM_SCRIPT)
@@ -422,6 +467,8 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_json(build_sources())
             elif path == "/api/upstreams":
                 self.send_json(build_upstreams())
+            elif path == "/api/feeds":
+                self.send_json(build_feeds())
             elif path == "/api/report.txt":
                 self.send_file(REPORT_TXT, "text/plain; charset=utf-8")
             else:
@@ -453,6 +500,8 @@ class Handler(SimpleHTTPRequestHandler):
             self.handle_submit(data)
         elif parts.path == "/api/upstreams":
             self.handle_upstreams(data)
+        elif parts.path == "/api/feeds":
+            self.handle_feeds(data)
         elif parts.path == "/api/settings":
             self.handle_settings(data)
         elif parts.path == "/api/run":
@@ -658,6 +707,57 @@ class Handler(SimpleHTTPRequestHandler):
                         return
                     item["enabled"] = not item.get("enabled", True)
             save_json(UPSTREAMS_PATH, store)
+            self.send_json({"ok": True})
+        finally:
+            LOCK.release()
+
+    def handle_feeds(self, data):
+        action = str(data.get("action") or "")
+        if action == "sync":
+            if STATE["feeds_running"] or STATE["running"]:
+                self.send_json({"error": "抓取或流水线正在运行"}, status=409)
+                return
+            thread = threading.Thread(target=run_feed_sync, args=(), daemon=True)
+            thread.start()
+            self.send_json({"ok": True, "started": True})
+            return
+        if action not in ("add", "remove", "toggle"):
+            self.send_json({"error": "unknown action"}, status=400)
+            return
+        if not LOCK.acquire(blocking=False):
+            self.send_json({"error": "pipeline running, try later"}, status=409)
+            return
+        try:
+            store = load_feeds()
+            items = store["items"]
+            if action == "add":
+                url = str(data.get("url") or "").strip()
+                if "://" not in url:
+                    self.send_json({"error": "请输入完整的配置 URL（http/https）"}, status=400)
+                    return
+                if any(isinstance(item, dict) and item.get("url") == url for item in items):
+                    self.send_json({"error": "该配置源已在列表中"}, status=400)
+                    return
+                name = str(data.get("name") or "").strip() or url.rstrip("/").rsplit("/", 1)[-1]
+                items.append({"name": name, "url": url,
+                              "ghproxy": bool(data.get("ghproxy", True)), "enabled": True})
+            else:
+                try:
+                    index = int(data.get("index", -1))
+                except (TypeError, ValueError):
+                    index = -1
+                if index < 0 or index >= len(items):
+                    self.send_json({"error": "无效序号"}, status=400)
+                    return
+                if action == "remove":
+                    items.pop(index)
+                else:
+                    item = items[index]
+                    if not isinstance(item, dict):
+                        self.send_json({"error": "无效条目"}, status=400)
+                        return
+                    item["enabled"] = not item.get("enabled", True)
+            save_json(FEEDS_PATH, store)
             self.send_json({"ok": True})
         finally:
             LOCK.release()

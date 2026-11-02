@@ -63,6 +63,7 @@ sh /path/to/Tomorrow/auto/nas_update.sh /tmp/update.bundle
 - **状态总览**：运行中/空闲、上次结果、当前周期、自动屏蔽统计
 - **调度与范围**：运行间隔（天，0=仅手动）+ 执行时间（点，如间隔 1 天、执行时间 10 点 = 每天 10:00 自动同步+重建）；自动周期始终按设定时间执行，手动运行不影响下一次自动执行时间；测活范围勾选（未勾选的组不测活/不自动屏蔽，输出仍全量重建）
 - **上游同步库（GitHub）**：添加/停用/删除上游仓库，立即同步，查看同步日志；上游无变化时自动跳过（ETag 相同）
+- **外部配置源（feeds）**：面板添加/启停/删除配置源（单个 tvbox.json URL），立即抓取并重建；合并条目参与测活/自动屏蔽
 - **条目管理**：搜索、手动屏蔽/解封、加白名单、删除
 - **日志**：流水线输出与同步日志
 
@@ -74,7 +75,7 @@ sh /path/to/Tomorrow/auto/nas_update.sh /tmp/update.bundle
 {"sites": [], "caiji": [], "parses": [{"name": "", "url": ""}], "repos": [{"url": "", "name": ""}]}
 ```
 
-- `auto/feeds.json`：**外部配置源列表**，每轮流水线抓取指定的单个 tvbox.json（支持 gh-proxy），提取 sites/parses/repos 合并（origin=feed，测活/自动屏蔽照常生效）。示例已内置（默认停用），把 `enabled` 改为 `true` 启用：
+- `auto/feeds.json`：**外部配置源列表**（在面板"外部配置源"中管理：添加/启停/删除/立即抓取）。每轮流水线抓取指定的单个 tvbox.json（支持 gh-proxy），提取 sites/parses/repos 合并（origin=feed，测活/自动屏蔽照常生效）。内置示例（默认停用）：
 
 ```json
 {"items": [{"name": "qist/tvbox 0825", "url": "https://raw.githubusercontent.com/qist/tvbox/master/0825.json", "ghproxy": true, "enabled": false}]}

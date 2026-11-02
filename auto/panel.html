@@ -565,11 +565,13 @@ function renderSettings() {
   const st = (STATUS && STATUS.state) || {};
   let hint;
   if (cfg.interval_days > 0) {
-    const last = st.last_cycle_ts || st.last_run_ts;
+    const last = st.last_cycle_ts;
     if (last) {
-      const next = new Date((last + cfg.interval_days * 86400) * 1000);
+      const lastDate = new Date(last * 1000);
+      const next = new Date(lastDate);
+      next.setDate(next.getDate() + Math.ceil(cfg.interval_days));
       next.setHours(cfg.run_hour, 0, 0, 0);
-      hint = "上次 " + new Date(last * 1000).toLocaleString() +
+      hint = "上次自动 " + lastDate.toLocaleString() +
              " · 下次约 " + next.toLocaleString() +
              (next.getTime() <= Date.now() ? "（已到期，即将执行）" : "");
     } else {

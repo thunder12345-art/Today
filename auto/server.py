@@ -54,6 +54,19 @@ SETTINGS_DEFAULTS = {
     "auto_sync": True,
     "check_groups": {"sites": True, "caiji": True, "repos": True, "parses": True},
 }
+SCHEDULE_STATE_PATH = os.path.join(BASE, "schedule_state.json")
+
+
+def load_schedule_state():
+    data = load_json(SCHEDULE_STATE_PATH, {})
+    return data if isinstance(data, dict) else {}
+
+
+def save_schedule_state():
+    save_json(SCHEDULE_STATE_PATH, {"last_cycle_ts": STATE.get("last_cycle_ts")})
+
+
+STATE["last_cycle_ts"] = load_schedule_state().get("last_cycle_ts")
 
 
 def env_float(name, default):
@@ -119,9 +132,17 @@ def cycle_due(settings, last_ts, now=None):
     if days <= 0:
         return False
     current = now or datetime.datetime.now()
-    if last_ts is not None and (current.timestamp() - last_ts) < days * 86400:
+    run_hour = int(settings.get("run_hour") or 0)
+    if current.hour < run_hour:
         return False
-    return current.hour >= int(settings.get("run_hour") or 0)
+    if last_ts is None:
+        return True
+    if days == int(days):
+        last_date = datetime.datetime.fromtimestamp(last_ts).date()
+        return (current.date() - last_date).days >= int(days)
+    if (current.timestamp() - last_ts) < days * 86400:
+        return False
+    return True
 
 
 def ensure_seed():
@@ -174,14 +195,14 @@ def schedule_loop(scope, drop_dead, timeout, workers, run_on_start):
     if run_on_start:
         run_pipeline(scope, drop_dead, timeout, workers)
         STATE["last_cycle_ts"] = time.time()
+        save_schedule_state()
     while True:
         time.sleep(30)
         try:
             settings = load_settings()
             if float(settings.get("interval_days") or 0) <= 0:
                 continue
-            last = STATE.get("last_cycle_ts") or STATE.get("last_run_ts")
-            if not cycle_due(settings, last):
+            if not cycle_due(settings, STATE.get("last_cycle_ts")):
                 continue
             if STATE["running"] or STATE["upstream_running"]:
                 continue
@@ -191,6 +212,7 @@ def schedule_loop(scope, drop_dead, timeout, workers, run_on_start):
                 run_upstream_sync("", then_pipeline=False)
             if run_pipeline(scope, drop_dead, timeout, workers):
                 STATE["last_cycle_ts"] = time.time()
+                save_schedule_state()
         except Exception as error:
             print("[schedule] error: %s" % error)
 

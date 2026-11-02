@@ -12,6 +12,8 @@
 - **上游自动同步**：按配置从上游 GitHub 仓库拉取最新内容（tarball 方式，容器内无需 git），ETag 去重跳过
 - **双备份**：每次更新自动推送 GitHub + Gitee
 - **Releases 发布**：每次更新自动发布更新包 / Docker 镜像 / README 到 Releases
+- **源池扩展**：自有条目池（own_sources.json）+ 外部配置源（feeds.json）自动合并，持续补充新源
+- **分类健康统计**：报告按 4K / 搜索 / 影视 / 机器人 / 云盘网盘 / 免费接口 / 采集 分类统计存活率
 
 ## 🚀 快速部署（NAS / Linux + Docker）
 
@@ -64,6 +66,27 @@ sh /path/to/Tomorrow/auto/nas_update.sh /tmp/update.bundle
 - **条目管理**：搜索、手动屏蔽/解封、加白名单、删除
 - **日志**：流水线输出与同步日志
 
+## 🧩 源池扩展（防止上游停更导致源池老化）
+
+- `auto/own_sources.json`（随仓库提交）：**自有条目池**，每轮流水线自动合并进 sources.json（origin=own），不会被上游同步删除，参与测活与构建。格式：
+
+```json
+{"sites": [], "caiji": [], "parses": [{"name": "", "url": ""}], "repos": [{"url": "", "name": ""}]}
+```
+
+- `auto/feeds.json`：**外部配置源列表**，每轮流水线抓取指定的单个 tvbox.json（支持 gh-proxy），提取 sites/parses/repos 合并（origin=feed，测活/自动屏蔽照常生效）。示例已内置（默认停用），把 `enabled` 改为 `true` 启用：
+
+```json
+{"items": [{"name": "qist/tvbox 0825", "url": "https://raw.githubusercontent.com/qist/tvbox/master/0825.json", "ghproxy": true, "enabled": false}]}
+```
+
+- `auto/upstreams.json` 每条上游支持 `"jar": false`：同步该上游时**保留我方 tvbox.jar**（默认 true 即跟随上游 jar 并自动重打补丁）。
+- 说明：外部配置里的相对路径（如 `./json/xxx.json`）在本仓库不存在，这类条目会走测活/自动屏蔽流程自愈。
+
+## 📊 分类健康统计
+
+`report.txt` / `report.json` 新增 `categories` 段：按 4K / 搜索 / 影视 / 机器人 / 云盘网盘 / 免费接口 / 采集 / 其他 统计 ok / fail / skip / 屏蔽数，便于判断哪类需要补源。
+
 ## ⚙️ 环境变量（docker-compose.yml）
 
 | 变量 | 默认 | 说明 |
@@ -86,8 +109,9 @@ auto/
   check.py             健康检测：ok/fail/skip + 自动屏蔽策略
   build.py             由 sources.json 生成 tvbox.json / lmw.json / caiji.json
   submit.py            投稿入库
-  upstream_sync.py     上游多库同步编排（ETag 去重）
+  upstream_sync.py     上游多库同步编排（ETag 去重，支持 jar=false 保留我方 jar）
   fetch_upstream.py    tarball 下载（免 git，支持 gh-proxy）
+  feed_sync.py         源池扩展：外部配置源(feeds.json) + 自有条目池(own_sources.json)合并
   patch_jar.py         tvbox.jar 等长补丁（幂等）
   nas_update.sh        NAS 更新部署脚本（8 步全自动）
   publish_release.py   Releases 发布（GitHub + Gitee API）

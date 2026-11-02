@@ -14,7 +14,7 @@ TREE_DIR = os.path.join(BASE, ".sync_tmp", "upstream")
 DEFAULT_UPSTREAMS = {
     "items": [
         {"name": "tushen6/Tomorrow", "url": "https://github.com/tushen6/Tomorrow",
-         "branch": "master", "ghproxy": True, "enabled": True},
+         "branch": "master", "ghproxy": True, "jar": True, "enabled": True},
     ]
 }
 
@@ -44,7 +44,8 @@ def sync_one(item, state, force):
         return "skipped"
     shutil.rmtree(TREE_DIR, ignore_errors=True)
     fetch_upstream.download_tree(url, TREE_DIR)
-    namespace = argparse.Namespace(apply=True, skip_patch=False, skip_sync=False)
+    namespace = argparse.Namespace(apply=True, skip_patch=False, skip_sync=False,
+                                   jar=bool(item.get("jar", True)))
     rc = pull_upstream.run_tree(TREE_DIR, namespace)
     if rc != 0:
         raise RuntimeError("pull_upstream exited with %d" % rc)

@@ -138,6 +138,51 @@ def summarize(items):
     return ok, fail, skipped, dead
 
 
+CATEGORY_RULES = (
+    ("4K", ("4k", "高码", "原盘", "蓝光")),
+    ("搜索", ("搜索", "云搜", "磁力", "search")),
+    ("影视", ("影视", "电影", "剧场", "动漫", "番剧", "短剧")),
+    ("机器人", ("机器人", "bot", "🤖")),
+    ("云盘网盘", ("网盘", "云盘", "阿里", "夸克", "115", "天翼", "百度", "123盘", "迅雷", "uc")),
+    ("免费接口", ("免费", "接口", "配置中心", "配置")),
+)
+
+
+def category_of(item, group):
+    if group == "caiji":
+        return "采集"
+    text = ("%s %s" % (item.get("name") or "", item.get("key") or "")).lower()
+    for name, words in CATEGORY_RULES:
+        for word in words:
+            if word in text:
+                return name
+    return "其他"
+
+
+def category_stats(db, groups):
+    stats = {}
+    for group, _title, _jar in groups:
+        if group not in ("sites", "caiji"):
+            continue
+        for item in db.get(group, []):
+            if not isinstance(item, dict):
+                continue
+            row = stats.setdefault(category_of(item, group),
+                                   {"ok": 0, "fail": 0, "skip": 0, "blocked": 0, "total": 0})
+            meta = item.get("_meta") or {}
+            state = (meta.get("last_check") or {}).get("ok")
+            row["total"] += 1
+            if state is True:
+                row["ok"] += 1
+            elif state is False:
+                row["fail"] += 1
+            else:
+                row["skip"] += 1
+            if meta.get("blocked"):
+                row["blocked"] += 1
+    return stats
+
+
 def label(item):
     return str(item.get("name") or item.get("url") or item.get("key") or "?")
 
@@ -292,6 +337,17 @@ def main():
                 report["parses"]["dead"].append({"name": item.get("name"), "url": item.get("url"),
                                                  "detail": item.get("detail", "")})
         report["parses"]["blocked"] = len(blocked_parses)
+
+    cat_stats = category_stats(db, groups)
+    if cat_stats:
+        text_lines.append("")
+        text_lines.append("categories:")
+        for name in sorted(cat_stats, key=lambda key: -cat_stats[key]["total"]):
+            row = cat_stats[name]
+            text_lines.append("  %-6s: ok=%-4d fail=%-4d skip=%-4d blocked=%-3d total=%-4d"
+                              % (name, row["ok"], row["fail"], row["skip"],
+                                 row["blocked"], row["total"]))
+        report["categories"] = cat_stats
 
     text_lines.append("")
     text_lines.append("policy: auto_block=%s after=%d | blocked=%d" % (

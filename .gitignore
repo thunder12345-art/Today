@@ -12,5 +12,4 @@ auto/.upstream_state.json
 auto/upstream_sync.log
 auto/settings.json
 auto/schedule_state.json
-auto/removed.json
 auto/.jar_cache/

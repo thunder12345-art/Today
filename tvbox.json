@@ -660,15 +660,6 @@
             "changeable": 1
         },
         {
-            "key": "csp_YGP",
-            "name": "预告片",
-            "type": 3,
-            "api": "csp_YGP",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 0
-        },
-        {
             "key": "csp_Bili",
             "name": "哔哩",
             "type": 3,

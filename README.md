@@ -77,7 +77,7 @@ sh /path/to/Tomorrow/auto/nas_update.sh /tmp/update.bundle
 {"sites": [], "caiji": [], "parses": [{"name": "", "url": ""}], "repos": [{"url": "", "name": ""}]}
 ```
 
-- `auto/feeds.json`：**外部配置源列表**（在面板"外部配置源"中管理：添加/启停/删除/立即抓取）。每轮流水线抓取指定的单个 tvbox.json（支持 gh-proxy），提取 sites/parses/repos 合并（origin=feed，测活/自动屏蔽照常生效）。**新条目入库前先测活，失败的不加入主源**（面板"调度与范围"的"外部源严格筛选"开关或 `--only-pass` 可切换严格模式：只收完全通过的可探测条目）。内置示例（默认停用）：
+- `auto/feeds.json`：**外部配置源列表**（在面板"外部配置源"中管理：添加/启停/删除/立即抓取）。每轮流水线抓取指定的单个 tvbox.json（支持 gh-proxy），提取 sites/parses/repos 合并（origin=feed，测活/自动屏蔽照常生效）。**新条目入库前先测活，失败的不加入主源**（面板"调度与范围"的"外部源严格筛选"开关或 `--only-pass` 可切换严格模式：只收完全通过的可探测条目）。自动适配 qist 等"多文件"配置：`./lib/...`、`./jar/...` 等相对路径按配置 URL 展开为绝对地址（ghproxy 开启时自动加代理前缀，`$$$` 组合字段逐段处理），`csp_` 站点自动附加配置里的 spider 作为本条目的 `jar`（去掉 md5 后缀），预筛选/健康检查会按该 jar 扫描类名。内置示例（默认停用）：
 
 ```json
 {"items": [{"name": "qist/tvbox 0825", "url": "https://raw.githubusercontent.com/qist/tvbox/master/0825.json", "ghproxy": true, "enabled": false}]}

@@ -120,10 +120,13 @@ def derive_targets(site):
     found = []
 
     def add(value):
-        if is_http(value):
-            normalized = value.strip()
-            if normalized not in found:
-                found.append(normalized)
+        if not isinstance(value, str):
+            return
+        for part in value.split("$$$"):
+            if is_http(part):
+                normalized = part.strip()
+                if normalized not in found:
+                    found.append(normalized)
 
     add(site.get("api"))
     ext = site.get("ext")

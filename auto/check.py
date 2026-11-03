@@ -6,7 +6,7 @@ from common import (DB_PATH, REPORT_JSON, REPORT_TXT, ROOT, check_entry,
                     check_repo, derive_targets, http_check, is_http,
                     is_whitelisted, item_key, load_json, load_whitelist, now_iso,
                     save_json, setup_stdout)
-from jarscan import load_jarscan, short_name
+from jarscan import load_jarscan, load_remote_jarscan, short_name
 
 
 def env_int(name, default):
@@ -34,17 +34,24 @@ def class_index(scan):
 
 
 def check_item(item, group, jar_index=None, timeout=8):
-    by_name, urls_by_name = jar_index or ({}, {})
     if group == "repos":
         return check_repo(item, timeout=timeout)
     api = item.get("api")
-    if by_name and isinstance(api, str) and api.startswith("csp_"):
-        target_name = api[4:].lower()
-        if target_name not in by_name:
-            return {"ok": False, "static": True, "checked_at": now_iso(),
-                    "detail": "class %s missing in tvbox.jar" % api}
-        if not derive_targets(item) and urls_by_name.get(target_name):
-            return check_entry(item, timeout, 3, urls_by_name[target_name])
+    if isinstance(api, str) and api.startswith("csp_"):
+        index = jar_index
+        jar_url = item.get("jar")
+        if isinstance(jar_url, str) and jar_url.strip():
+            remote = load_remote_jarscan(jar_url.strip())
+            if remote:
+                index = class_index(remote)
+        by_name, urls_by_name = index or ({}, {})
+        if by_name:
+            target_name = api[4:].lower()
+            if target_name not in by_name:
+                return {"ok": False, "static": True, "checked_at": now_iso(),
+                        "detail": "class %s missing in jar" % api}
+            if not derive_targets(item) and urls_by_name.get(target_name):
+                return check_entry(item, timeout, 3, urls_by_name[target_name])
     return check_entry(item, timeout=timeout)
 
 

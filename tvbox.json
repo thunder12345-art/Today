@@ -498,16 +498,6 @@
             "timeout": 60
         },
         {
-            "key": "人人",
-            "name": "🔰人人丨4K",
-            "type": 3,
-            "api": "csp_RenRen",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "timeout": 60
-        },
-        {
             "key": "即刻",
             "name": "🔰即刻丨4K",
             "type": 3,
@@ -578,15 +568,6 @@
             "type": 3,
             "api": "csp_Wwys",
             "ext": "https://vip.wwgz.cn:5200"
-        },
-        {
-            "key": "爱看机器人",
-            "name": "🤖爱看丨机器人",
-            "type": 3,
-            "api": "csp_Ikanbot",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1
         },
         {
             "key": "厂长影视",
@@ -1171,15 +1152,6 @@
             "name": "暴風",
             "type": 1,
             "api": "https://bfzyapi.com/api.php/provide/vod",
-            "playUrl": "json:http://127.0.0.1:10079/parse/?thread=0&proxy=&url=",
-            "searchable": 1,
-            "changeable": 1
-        },
-        {
-            "key": "索尼",
-            "name": "索尼",
-            "type": 1,
-            "api": "https://suoniapi.com/api.php/provide/vod",
             "playUrl": "json:http://127.0.0.1:10079/parse/?thread=0&proxy=&url=",
             "searchable": 1,
             "changeable": 1

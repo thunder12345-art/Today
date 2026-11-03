@@ -3,6 +3,7 @@ import json
 import os
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
+from urllib.parse import urljoin
 
 from check import class_index, retry_passed, run_checks
 from common import (BASE, DB_PATH, build_meta, derive_targets, extract_entries,
@@ -201,8 +202,65 @@ def upsert_parses(db, parses, origin, stats, reject=None):
             stats["added"] += 1
 
 
-def retry_from_payload(payload, removed, precheck):
+def feed_bases(item):
+    raw = (item.get("url") or "").strip()
+    prefixed = feed_url(item)
+    proxy = prefixed[: -len(raw)] if raw and prefixed != raw and prefixed.endswith(raw) else ""
+    return raw, proxy
+
+
+def resolve_text(value, base, proxy=""):
+    if not isinstance(value, str) or not value or not base:
+        return value
+    if "$$$" in value:
+        return "$$$".join(resolve_text(part, base, proxy) for part in value.split("$$$"))
+    text = value.strip()
+    if text.startswith(("./", "../")):
+        return proxy + urljoin(base, text)
+    if text.startswith("//"):
+        return "https:" + text
+    return value
+
+
+def prepare_feed_entries(payload, base_url, proxy_prefix=""):
     sites, repos = extract_entries(payload)
+    spider = payload.get("spider") if isinstance(payload, dict) else None
+    jar = ""
+    if isinstance(spider, str) and spider.strip():
+        jar = resolve_text(spider.split(";md5;")[0].strip(), base_url, proxy_prefix)
+    prepared_sites = []
+    for site in sites:
+        entry = dict(site)
+        for field in ("api", "ext", "jar", "logo"):
+            if entry.get(field):
+                entry[field] = resolve_text(entry[field], base_url, proxy_prefix)
+        api = entry.get("api")
+        if jar and not entry.get("jar") and isinstance(api, str) and api.startswith("csp_"):
+            entry["jar"] = jar
+        prepared_sites.append(entry)
+    prepared_repos = []
+    for repo in repos:
+        entry = dict(repo)
+        if entry.get("url"):
+            entry["url"] = resolve_text(entry["url"], base_url, proxy_prefix)
+        prepared_repos.append(entry)
+    parses = payload.get("parses") if isinstance(payload, dict) else None
+    prepared_parses = None
+    if isinstance(parses, list):
+        prepared_parses = []
+        for entry in parses:
+            if not isinstance(entry, dict):
+                continue
+            item = dict(entry)
+            for field in ("url", "ext"):
+                if item.get(field):
+                    item[field] = resolve_text(item[field], base_url, proxy_prefix)
+            prepared_parses.append(item)
+    return prepared_sites, prepared_repos, prepared_parses
+
+
+def retry_from_payload(payload, removed, precheck, base_url="", proxy_prefix=""):
+    sites, repos, _ = prepare_feed_entries(payload, base_url, proxy_prefix)
     pairs = []
     if removed.get("sites"):
         pairs.extend(("sites", entry) for entry in sites
@@ -229,8 +287,9 @@ def retry_from_payload(payload, removed, precheck):
     return len(passed)
 
 
-def merge_feed_payload(db, payload, origin, stats, precheck=None, removed=None):
-    sites, repos = extract_entries(payload)
+def merge_feed_payload(db, payload, origin, stats, precheck=None, removed=None,
+                       base_url="", proxy_prefix=""):
+    sites, repos, parses = prepare_feed_entries(payload, base_url, proxy_prefix)
     if removed:
         sites = [entry for entry in sites if not is_removed(removed, "sites", entry)]
         repos = [entry for entry in repos if not is_removed(removed, "repos", entry)]
@@ -239,7 +298,6 @@ def merge_feed_payload(db, payload, origin, stats, precheck=None, removed=None):
     if repos:
         reject_repos = precheck_candidates(db, "repos", repos, precheck, stats) if precheck else None
         upsert_items(db, "repos", repos, origin, stats, reject=reject_repos)
-    parses = payload.get("parses") if isinstance(payload, dict) else None
     if isinstance(parses, list):
         reject_parses = precheck_parses(db, parses, precheck, stats) if precheck else None
         upsert_parses(db, parses, origin, stats, reject=reject_parses)
@@ -299,12 +357,13 @@ def main():
                 continue
             if payload is None:
                 continue
+            base, proxy = feed_bases(item)
             restored = 0
             if removed:
-                restored = retry_from_payload(payload, removed, precheck)
+                restored = retry_from_payload(payload, removed, precheck, base, proxy)
                 total_restored += restored
             before = dict(stats)
-            merge_feed_payload(db, payload, "feed", stats, precheck, removed)
+            merge_feed_payload(db, payload, "feed", stats, precheck, removed, base, proxy)
             print("[feeds] %s: added=%d updated=%d rejected=%d restored=%d"
                   % (name, stats["added"] - before["added"],
                      stats["updated"] - before["updated"],

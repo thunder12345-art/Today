@@ -1,12 +1,18 @@
+import hashlib
 import os
 import struct
+import threading
 import time
 import zipfile
 
-from common import BASE, ROOT, load_json, now_iso, save_json, setup_stdout
+from common import (BASE, ROOT, http_fetch, load_json, now_iso, save_json,
+                    setup_stdout)
 
 JAR_PATH = os.path.join(ROOT, "tvbox.jar")
 CACHE_PATH = os.path.join(BASE, "jarscan.json")
+REMOTE_DIR = os.path.join(BASE, ".jar_cache")
+REMOTE_MAX_BYTES = 64 * 1048576
+_REMOTE_LOCK = threading.Lock()
 
 VALUE_STRING = 0x17
 VALUE_NESTED_INDEX = (0x16, 0x18, 0x19, 0x1A, 0x1B)
@@ -202,6 +208,43 @@ def load_jarscan(force=False, path=None):
     scan["source"] = os.path.basename(path)
     scan["scanned_at"] = now_iso()
     save_json(CACHE_PATH, scan)
+    return scan
+
+
+def load_remote_jarscan(url, max_bytes=REMOTE_MAX_BYTES):
+    url = str(url).strip()
+    if not url:
+        return None
+    key = hashlib.sha1(url.encode("utf-8")).hexdigest()
+    scan_path = os.path.join(REMOTE_DIR, key + ".scan.json")
+    cached = load_json(scan_path)
+    if isinstance(cached, dict) and cached.get("url") == url and cached.get("classes"):
+        return cached
+    with _REMOTE_LOCK:
+        cached = load_json(scan_path)
+        if isinstance(cached, dict) and cached.get("url") == url and cached.get("classes"):
+            return cached
+        jar_path = os.path.join(REMOTE_DIR, key + ".jar")
+        try:
+            if not os.path.exists(jar_path) or os.path.getsize(jar_path) < 1024:
+                os.makedirs(REMOTE_DIR, exist_ok=True)
+                code, body = http_fetch(url, timeout=30, max_bytes=max_bytes)
+                if code != 200 or len(body) < 1024:
+                    return None
+                with open(jar_path, "wb") as handle:
+                    handle.write(body)
+            scan = scan_jar(jar_path)
+        except Exception:
+            try:
+                if os.path.exists(jar_path):
+                    os.remove(jar_path)
+            except OSError:
+                pass
+            return None
+    scan["url"] = url
+    scan["source"] = url.rsplit("/", 1)[-1][:80]
+    scan["scanned_at"] = now_iso()
+    save_json(scan_path, scan)
     return scan
 
 

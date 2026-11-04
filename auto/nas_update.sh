@@ -64,6 +64,18 @@ echo "== [5/8] merge runtime metadata into sources.json =="
 run_py auto/merge_runtime.py --runtime auto/.upd_runtime.json \
     --whitelist auto/.upd_whitelist.json
 
+echo "== [5.5/8] ensure image has git (auto-publish) =="
+if docker run --rm "$IMAGE" git --version >/dev/null 2>&1; then
+    echo "   git present in $IMAGE"
+else
+    echo "   git missing in $IMAGE, rebuilding image (one-time) ..."
+    if docker build -t "$IMAGE" . >/dev/null 2>&1; then
+        echo "   image rebuilt: $IMAGE"
+    else
+        echo "   !! image rebuild failed; panel auto-publish stays off"
+    fi
+fi
+
 echo "== [6/8] commit + push =="
 git add -A
 if git diff --cached --quiet; then
@@ -138,7 +150,14 @@ else
 fi
 
 echo "== [8/8] start container =="
-docker start tomorrow-auto
+if command -v docker >/dev/null 2>&1 && docker compose version >/dev/null 2>&1 && docker compose up -d --no-build; then
+    echo "   started via docker compose"
+elif command -v docker-compose >/dev/null 2>&1 && docker-compose up -d --no-build; then
+    echo "   started via docker-compose"
+else
+    echo "   (compose unavailable/failed, fallback: docker start)"
+    docker start tomorrow-auto
+fi
 
 echo ""
 echo "done. panel:  http://<nas-ip>:8899/"

@@ -10,6 +10,7 @@
 - **Web 面板**：状态总览、条目管理（屏蔽/白名单/删除）、调度与范围、上游同步库、日志
 - **上游自动同步**：按配置从上游 GitHub 仓库拉取最新内容（tarball 方式，容器内无需 git），ETag 去重跳过
 - **双备份**：每次更新自动推送 GitHub + Gitee
+- **配置自动发布**：面板/定时的每轮流水线结束后自动提交并推送 GitHub + Gitee（失败不阻塞）；用 Gitee raw 链接做订阅时配置随流水线自动更新
 - **Releases 发布**：每次更新自动发布更新包 / Docker 镜像 / README 到 Releases
 - **源池扩展**：自有条目池（own_sources.json）+ 外部配置源（feeds.json）自动合并，持续补充新源
 - **一键清理失败源**：删除全部 fail 条目并记入移除清单（上游/外部源不会再补回），界面更精简
@@ -50,7 +51,7 @@ https://github.catvod.com/https://raw.githubusercontent.com/tushen6/Tomorrow/mas
 sh /path/to/Tomorrow/auto/nas_update.sh /path/to/update.bundle
 ```
 
-脚本自动完成 8 步：快照运行数据 → 合并更新 → 重打 jar → 恢复运行数据 → 推送 GitHub + Gitee → **发布 Release** → 重启容器。
+脚本自动完成 8 步：快照运行数据 → 合并更新 → 重打 jar → 恢复运行数据 →（按需一次性重建镜像，使容器带 git）→ 推送 GitHub + Gitee → **发布 Release** → 重启容器（有 compose 时用 `docker compose up -d --no-build` 应用新镜像）。`RELEASE_PUBLISH=0` 可跳过发布环节。
 `RELEASE_PUBLISH=0` 可跳过发布环节。
 
 也可以直接从 Releases 下载最新更新包（无需开发机）：
@@ -141,6 +142,7 @@ auto/
 - **健康检测 skip**：该条没有可探测的 HTTP 目标（纯 jar 内部源，只有 APP 能验证），不算失败、不会被屏蔽
 - **上游同步 skip**：上游仓库没有新提交（文件指纹未变），跳过下载，属正常
 - **推送凭据**：在部署机上一次性配置——GitHub 用 PAT（`ghp_...`）、Gitee 用私人令牌（当密码用），随后 `git config credential.helper store` 保存；`nas_update.sh` 会自动读取 `/root/.git-credentials` 用于 Releases 发布
+- **面板/定时自动发布**：流水线跑完后容器内自动 `git add -A && commit && push`（origin + gitee，失败只打印不阻塞）。容器需要 git：`nas_update.sh` 会检测并在缺失时一次性重建镜像；compose 已挂载 `/root:/hostroot:ro` 读取推送凭据（与 Releases 发布一致）
 - **面板设置存放**：`auto/settings.json`（运行时文件，不随更新覆盖）
 
 ## 🫶 免责声明

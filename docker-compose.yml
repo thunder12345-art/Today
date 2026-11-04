@@ -10,6 +10,7 @@ services:
       - "${SERVER_PORT:-8899}:8080"
     volumes:
       - ./:/app
+      - /root:/hostroot:ro
     environment:
       PORT: "8080"
       TZ: "Asia/Shanghai"

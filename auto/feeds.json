@@ -4,7 +4,7 @@
             "name": "qist/tvbox 0825",
             "url": "https://raw.githubusercontent.com/qist/tvbox/master/0825.json",
             "ghproxy": true,
-            "enabled": false
+            "enabled": true
         }
     ]
 }

@@ -42,6 +42,10 @@ STATE = {
 }
 LOCK = threading.Lock()
 
+PUBLISH_TIMEOUT = 120
+PUBLISH_REMOTES = ("origin", "gitee")
+PUBLISH_CREDS = "/hostroot/.git-credentials"
+
 PANEL_FILE = os.path.join(BASE, "panel.html")
 UPSTREAMS_PATH = os.path.join(BASE, "upstreams.json")
 UPSTREAM_SCRIPT = os.path.join(BASE, "upstream_sync.py")
@@ -159,6 +163,54 @@ def ensure_seed():
         subprocess.run([sys.executable, os.path.join(BASE, "seed.py")])
 
 
+def git_publish():
+    if not os.path.isdir(os.path.join(ROOT, ".git")):
+        return
+    env = dict(os.environ, GIT_TERMINAL_PROMPT="0")
+
+    def run(args, timeout=60):
+        return subprocess.run(args, cwd=ROOT, env=env, timeout=timeout,
+                              stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+                              text=True)
+
+    try:
+        run(["git", "--version"], timeout=10)
+    except (OSError, subprocess.SubprocessError):
+        print("[publish] git not available, auto publish skipped")
+        return
+    try:
+        if run(["git", "config", "user.email"], timeout=10).returncode != 0:
+            run(["git", "config", "user.email", "nas@local"], timeout=10)
+        if run(["git", "config", "user.name"], timeout=10).returncode != 0:
+            run(["git", "config", "user.name", "iStoreOS NAS"], timeout=10)
+        run(["git", "add", "-A"], timeout=180)
+        if run(["git", "diff", "--cached", "--quiet"], timeout=30).returncode != 0:
+            result = run(["git", "commit", "-m", "auto sync %s"
+                          % datetime.datetime.now().strftime("%Y%m%d-%H%M%S")], timeout=180)
+            if result.returncode != 0:
+                print("[publish] commit failed: %s" % (result.stdout or "").strip()[:200])
+                return
+        pushed = []
+        for remote in PUBLISH_REMOTES:
+            if run(["git", "remote", "get-url", remote], timeout=10).returncode != 0:
+                continue
+            try:
+                result = run(["git", "-c",
+                              "credential.helper=store --file=%s" % PUBLISH_CREDS,
+                              "push", remote, "main"], timeout=PUBLISH_TIMEOUT)
+            except subprocess.TimeoutExpired:
+                print("[publish] %s push timed out after %ss" % (remote, PUBLISH_TIMEOUT))
+                continue
+            if result.returncode == 0:
+                pushed.append(remote)
+            else:
+                print("[publish] %s push failed (commits stay local)" % remote)
+        if pushed:
+            print("[publish] pushed: %s" % ", ".join(pushed))
+    except Exception as error:
+        print("[publish] error: %s" % error)
+
+
 def run_pipeline(scope, drop_dead, timeout, workers):
     if not LOCK.acquire(blocking=False):
         print("[pipeline] previous run still active, skip")
@@ -174,6 +226,8 @@ def run_pipeline(scope, drop_dead, timeout, workers):
         STATE["last_duration"] = round(time.time() - started, 1)
         STATE["last_result"] = "ok" if result.returncode == 0 else "failed (%d)" % result.returncode
         print("[pipeline] finished: %s in %.1fs" % (STATE["last_result"], STATE["last_duration"]))
+        if result.returncode == 0:
+            git_publish()
     finally:
         STATE["running"] = False
         LOCK.release()

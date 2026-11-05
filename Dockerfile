@@ -4,7 +4,11 @@ ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     TZ=Asia/Shanghai
 
-RUN apt-get update \
+RUN sed -i \
+        -e 's|deb.debian.org|mirrors.aliyun.com|g' \
+        -e 's|security.debian.org|mirrors.aliyun.com|g' \
+        /etc/apt/sources.list /etc/apt/sources.list.d/*.sources 2>/dev/null || true \
+    && apt-get -o Acquire::Retries=2 update \
     && apt-get install -y --no-install-recommends ca-certificates git tzdata \
     && rm -rf /var/lib/apt/lists/*
 

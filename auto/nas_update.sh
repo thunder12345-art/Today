@@ -68,11 +68,16 @@ echo "== [5.5/8] ensure image has git (auto-publish) =="
 if docker run --rm "$IMAGE" git --version >/dev/null 2>&1; then
     echo "   git present in $IMAGE"
 else
-    echo "   git missing in $IMAGE, rebuilding image (one-time) ..."
-    if docker build -t "$IMAGE" . >/dev/null 2>&1; then
+    echo "   git missing in $IMAGE, rebuilding image (up to 10 min) ..."
+    if command -v timeout >/dev/null 2>&1; then
+        if timeout 600 docker build -t "$IMAGE" . >/dev/null 2>&1; then BUILD_RC=0; else BUILD_RC=$?; fi
+    else
+        if docker build -t "$IMAGE" . >/dev/null 2>&1; then BUILD_RC=0; else BUILD_RC=$?; fi
+    fi
+    if [ "$BUILD_RC" = "0" ]; then
         echo "   image rebuilt: $IMAGE"
     else
-        echo "   !! image rebuild failed; panel auto-publish stays off"
+        echo "   !! image rebuild failed (rc=$BUILD_RC); panel auto-publish stays off"
     fi
 fi
 

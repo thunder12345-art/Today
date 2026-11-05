@@ -56,11 +56,17 @@ FEED_SCRIPT = os.path.join(BASE, "feed_sync.py")
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
 TOKEN = os.environ.get("PANEL_TOKEN", "").strip()
 
+DEFAULT_CENTER_TOKEN_URL = (
+    "https://gh-proxy.com/https://raw.githubusercontent.com/"
+    "thunder12345-art/Today/main/center/token.json")
+
 SETTINGS_DEFAULTS = {
     "interval_days": 1.0,
     "run_hour": 5,
     "auto_sync": True,
     "feed_strict": False,
+    "feed_allow_external_jar": True,
+    "center_token_url": DEFAULT_CENTER_TOKEN_URL,
     "check_groups": {"sites": True, "caiji": True, "repos": True, "parses": True},
 }
 SCHEDULE_STATE_PATH = os.path.join(BASE, "schedule_state.json")
@@ -107,6 +113,8 @@ def load_settings():
                 "run_hour": SETTINGS_DEFAULTS["run_hour"],
                 "auto_sync": SETTINGS_DEFAULTS["auto_sync"],
                 "feed_strict": SETTINGS_DEFAULTS["feed_strict"],
+                "feed_allow_external_jar": SETTINGS_DEFAULTS["feed_allow_external_jar"],
+                "center_token_url": SETTINGS_DEFAULTS["center_token_url"],
                 "check_groups": dict(SETTINGS_DEFAULTS["check_groups"])}
     raw_days = data.get("interval_days")
     if raw_days is None and "interval_hours" in data:
@@ -129,6 +137,10 @@ def load_settings():
         settings["auto_sync"] = bool(data.get("auto_sync"))
     if "feed_strict" in data:
         settings["feed_strict"] = bool(data.get("feed_strict"))
+    if "feed_allow_external_jar" in data:
+        settings["feed_allow_external_jar"] = bool(data.get("feed_allow_external_jar"))
+    if "center_token_url" in data:
+        settings["center_token_url"] = str(data.get("center_token_url") or "").strip()
     raw_groups = data.get("check_groups")
     if isinstance(raw_groups, dict):
         for key in settings["check_groups"]:
@@ -902,6 +914,10 @@ class Handler(SimpleHTTPRequestHandler):
                 settings["auto_sync"] = bool(data.get("auto_sync"))
             if "feed_strict" in data:
                 settings["feed_strict"] = bool(data.get("feed_strict"))
+            if "feed_allow_external_jar" in data:
+                settings["feed_allow_external_jar"] = bool(data.get("feed_allow_external_jar"))
+            if "center_token_url" in data:
+                settings["center_token_url"] = str(data.get("center_token_url") or "").strip()
             incoming_groups = data.get("check_groups")
             if isinstance(incoming_groups, dict):
                 groups = dict(settings["check_groups"])

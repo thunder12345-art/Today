@@ -108,6 +108,13 @@
       <button onclick="saveSettings()">保存周期</button>
       <span class="muted" id="setHint"></span>
     </div>
+    <div class="toolbar">
+      <label class="muted"><input type="checkbox" id="setAllowExtJar"> 外部源允许扩展 jar（Qist 网盘类）</label>
+      <label class="muted">主配置中心 token 地址</label>
+      <input type="text" id="setCenterToken" style="min-width:320px" placeholder="留空则拒绝依赖 token.json 的外部源">
+      <button onclick="saveFeedPolicy()">保存外部源策略</button>
+      <span class="muted">（主库优先合并：外部源不覆盖已有条目；token/代理只从该地址取得）</span>
+    </div>
     <div class="toolbar" style="margin-bottom:0">
       <label class="muted">测活范围：</label>
       <label class="muted"><input type="checkbox" id="setSites"> 站点</label>
@@ -653,6 +660,8 @@ function renderSettings() {
   document.getElementById("setRunHour").value = cfg.run_hour;
   document.getElementById("setAutoSync").checked = !!cfg.auto_sync;
   document.getElementById("setFeedStrict").checked = !!cfg.feed_strict;
+  document.getElementById("setAllowExtJar").checked = cfg.feed_allow_external_jar !== false;
+  document.getElementById("setCenterToken").value = cfg.center_token_url || "";
   const g = cfg.check_groups || {};
   document.getElementById("setSites").checked = g.sites !== false;
   document.getElementById("setCaiji").checked = g.caiji !== false;
@@ -688,6 +697,17 @@ async function saveSettings() {
     await post("/api/settings", { interval_days, run_hour,
       auto_sync: document.getElementById("setAutoSync").checked,
       feed_strict: document.getElementById("setFeedStrict").checked });
+    toast("已保存");
+    await loadAll(false);
+  } catch (err) { toast("保存失败: " + err.message, true); }
+}
+
+async function saveFeedPolicy() {
+  try {
+    await post("/api/settings", {
+      feed_allow_external_jar: document.getElementById("setAllowExtJar").checked,
+      center_token_url: document.getElementById("setCenterToken").value.trim()
+    });
     toast("已保存");
     await loadAll(false);
   } catch (err) { toast("保存失败: " + err.message, true); }

@@ -1,10 +1,10 @@
 {
-    "items": [
-        {
-            "name": "qist/tvbox 0825",
-            "url": "https://raw.githubusercontent.com/qist/tvbox/master/0825.json",
-            "ghproxy": true,
-            "enabled": true
-        }
-    ]
+  "items": [
+    {
+      "name": "qist/tvbox js",
+      "url": "https://raw.githubusercontent.com/qist/tvbox/master/js.json",
+      "ghproxy": true,
+      "enabled": true
+    }
+  ]
 }

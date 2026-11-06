@@ -289,8 +289,11 @@ def upsert_items(db, group, entries, origin, stats, reject=None, overwrite=True)
         index = by_key.get(key)
         if index is not None:
             if not overwrite:
-                bump(stats, "conflict")
-                continue
+                old = existing[index]
+                old_origin = (old.get("_meta") or {}).get("origin")
+                if not (origin == "feed" and old_origin == "feed"):
+                    bump(stats, "conflict")
+                    continue
             old = existing[index]
             meta = dict(old.get("_meta") or {})
             meta["origin"] = meta.get("origin") or origin
@@ -431,13 +434,23 @@ def retry_from_payload(payload, removed, precheck, base_url="", proxy_prefix="",
 
 
 def merge_feed_payload(db, payload, origin, stats, precheck=None, removed=None,
-                       base_url="", proxy_prefix="", policy=None, by_name=None):
+                       base_url="", proxy_prefix="", policy=None, by_name=None,
+                       seen_keys=None):
     sites, repos, parses = prepare_feed_entries(payload, base_url, proxy_prefix)
     if removed:
         sites = [entry for entry in sites if not is_removed(removed, "sites", entry)]
         repos = [entry for entry in repos if not is_removed(removed, "repos", entry)]
     if policy is not None and by_name is not None:
         sites = gate_entries(sites, by_name, policy, stats)
+    if seen_keys is not None:
+        for entry in sites:
+            key = item_key(entry).strip().casefold()
+            if key:
+                seen_keys.add(key)
+        for entry in repos:
+            key = item_key(entry).strip().casefold()
+            if key:
+                seen_keys.add(key)
     reject_sites = precheck_candidates(db, "sites", sites, precheck, stats) if precheck else None
     upsert_items(db, "sites", sites, origin, stats, reject=reject_sites, overwrite=False)
     if repos:
@@ -461,6 +474,27 @@ def apply_own_sources(db, stats, removed=None):
     parses = data.get("parses")
     if isinstance(parses, list) and parses:
         upsert_parses(db, parses, "own", stats)
+
+
+def prune_stale_feed_entries(db, seen_keys, stats):
+    dropped = 0
+    for group in ("sites", "caiji", "repos"):
+        items = db.get(group)
+        if not isinstance(items, list):
+            continue
+        kept = []
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            meta = item.get("_meta") or {}
+            key = item_key(item).strip().casefold()
+            if meta.get("origin") == "feed" and key and key not in seen_keys:
+                dropped += 1
+                bump(stats, "stale")
+                continue
+            kept.append(item)
+        db[group] = kept
+    return dropped
 
 
 def main():
@@ -495,6 +529,8 @@ def main():
     feeds = load_json(FEEDS_PATH, {})
     removed = load_removed()
     total_restored = 0
+    seen_keys = set()
+    feeds_ok = True
     items = feeds.get("items") if isinstance(feeds, dict) else None
     if isinstance(items, list):
         for item in items:
@@ -505,8 +541,10 @@ def main():
                 payload = fetch_feed_json(item)
             except Exception as error:
                 print("[feeds] %s failed: %s" % (name, error))
+                feeds_ok = False
                 continue
             if payload is None:
+                feeds_ok = False
                 continue
             base, proxy = feed_bases(item)
             restored = 0
@@ -516,26 +554,31 @@ def main():
                 total_restored += restored
             before = dict(stats)
             merge_feed_payload(db, payload, "feed", stats, precheck, removed, base, proxy,
-                               policy=policy, by_name=by_name)
+                               policy=policy, by_name=by_name, seen_keys=seen_keys)
             print("[feeds] %s: added=%d updated=%d conflict=%d gated=%d rejected=%d restored=%d"
                   % (name, stats["added"] - before["added"],
                      stats["updated"] - before["updated"],
                      stats["conflict"] - before.get("conflict", 0),
                      stats.get("gate_rejected", 0) - before.get("gate_rejected", 0),
                      stats["rejected"] - before["rejected"], restored))
+    if seen_keys and feeds_ok:
+        dropped = prune_stale_feed_entries(db, seen_keys, stats)
+        if dropped:
+            print("[feeds] stale dropped: %d (no longer in feed)" % dropped)
     apply_own_sources(db, stats, removed)
     migrate_feed_entries(db, by_name, policy, stats)
     if total_restored:
         save_removed(removed)
         print("[feeds] tombstone restored: %d" % total_restored)
     changed = (stats["added"] or stats["updated"] or stats["rejected"]
-               or stats.get("pruned") or stats.get("gate_rewritten"))
+               or stats.get("pruned") or stats.get("gate_rewritten") or stats.get("stale"))
     if changed:
         save_json(DB_PATH, db)
         print("[feeds] saved sources.json (added=%d updated=%d conflict=%d gated=%d "
-              "pruned=%d rewritten=%d rejected=%d)"
+              "pruned=%d stale=%d rewritten=%d rejected=%d)"
               % (stats["added"], stats["updated"], stats["conflict"],
                  stats.get("gate_rejected", 0), stats.get("pruned", 0),
+                 stats.get("stale", 0),
                  stats.get("gate_rewritten", 0), stats["rejected"]))
     else:
         print("[feeds] no changes")

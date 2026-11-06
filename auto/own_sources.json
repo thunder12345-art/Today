@@ -1,5 +1,46 @@
 {
-  "sites": [],
+  "sites": [
+    {
+      "key": "豆瓣",
+      "name": "🍎免费丨接口",
+      "type": 3,
+      "api": "csp_Douban",
+      "indexs": 1,
+      "searchable": 0
+    },
+    {
+      "key": "配置中心",
+      "name": "📥配置丨中心",
+      "type": 3,
+      "api": "csp_Config",
+      "searchable": 0,
+      "changeable": 0,
+      "indexs": 0,
+      "style": {
+        "type": "rect",
+        "ratio": 1.618
+      }
+    },
+    {
+      "key": "盘搜",
+      "name": "🔍盘搜丨搜索",
+      "type": 3,
+      "api": "csp_PanSou",
+      "searchable": 1,
+      "quickSearch": 0,
+      "filterable": 0,
+      "timeout": 60
+    },
+    {
+      "key": "push_agent",
+      "name": "🔗云盘 | 推送",
+      "type": 3,
+      "api": "csp_Push",
+      "searchable": 0,
+      "filterable": 0,
+      "changeable": 0
+    }
+  ],
   "caiji": [],
   "parses": [],
   "repos": []

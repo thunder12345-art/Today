@@ -16,6 +16,10 @@ FEEDS_PATH = os.path.join(BASE, "feeds.json")
 OWN_PATH = os.path.join(BASE, "own_sources.json")
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
 MAX_FEED_BYTES = 4 * 1048576
+DEFAULT_CENTER_TOKEN_URL = (
+    "https://gh-proxy.com/https://raw.githubusercontent.com/"
+    "thunder12345-art/Today/main/center/token.json")
+CLIENT_PROXY_HINTS = ("socks5://", "socks4://", "socks5h://")
 
 
 def env_int(name, default):
@@ -35,6 +39,139 @@ def env_float(name, default):
 def strict_from_settings():
     data = load_json(SETTINGS_PATH, {})
     return bool(isinstance(data, dict) and data.get("feed_strict"))
+
+
+def merge_policy():
+    data = load_json(SETTINGS_PATH, {})
+    if not isinstance(data, dict):
+        data = {}
+    allow_external = bool(data.get("feed_allow_external_jar", True))
+    center_token = str(data.get("center_token_url") or "").strip()
+    if "center_token_url" not in data:
+        center_token = DEFAULT_CENTER_TOKEN_URL
+    return {"allow_external_jar": allow_external, "center_token_url": center_token}
+
+
+def bump(stats, key, amount=1):
+    stats[key] = int(stats.get(key) or 0) + amount
+
+
+def rewrite_token_refs(ext, center_token):
+    if not isinstance(ext, str) or not center_token or "token.json" not in ext.lower():
+        return ext
+    parts = []
+    for part in ext.split("$$$"):
+        head = part.strip().split("?", 1)[0].lower()
+        parts.append(center_token if head.endswith("token.json") else part)
+    return "$$$".join(parts)
+
+
+def gate_entry(entry, by_name, policy, stats=None):
+    """Apply main-body-first policy to a feed site entry.
+
+    Returns (ok, reason, entry). When ok and a token reference was rewritten,
+    the returned entry is a copy with the rewritten ext.
+    """
+    if not isinstance(entry, dict):
+        return False, "invalid", entry
+    api = entry.get("api")
+    if not isinstance(api, str) or not api.strip():
+        return False, "no-api", entry
+    api = api.strip()
+    ext = entry.get("ext")
+    ext_text = ""
+    if isinstance(ext, str):
+        ext_text = ext.lower()
+    elif ext is not None:
+        ext_text = json.dumps(ext, ensure_ascii=False).lower()
+    if any(hint in ext_text for hint in CLIENT_PROXY_HINTS):
+        return False, "client-proxy", entry
+    if isinstance(ext, dict) and any(k in ext for k in ("cookie", "token", "account")):
+        return False, "embedded-credential", entry
+    has_external_jar = isinstance(entry.get("jar"), str) and entry["jar"].strip() != ""
+    needs_token = "token.json" in ext_text
+    if needs_token:
+        center = policy.get("center_token_url") or ""
+        if not center:
+            return False, "needs-center-token", entry
+        if isinstance(ext, str):
+            rewritten = rewrite_token_refs(ext, center)
+            if rewritten != ext:
+                entry = dict(entry)
+                entry["ext"] = rewritten
+                if stats is not None:
+                    bump(stats, "gate_rewritten")
+        else:
+            return False, "needs-center-token", entry
+    allow_external = bool(policy.get("allow_external_jar"))
+    if api.startswith("csp_"):
+        cls = api[4:].strip().lower()
+        if cls not in by_name:
+            if not (has_external_jar and allow_external):
+                return False, "class-missing", entry
+            if stats is not None:
+                bump(stats, "gate_external_jar")
+        elif has_external_jar and not allow_external:
+            return False, "external-jar", entry
+    elif api.lower().endswith(".js") or api.startswith(("./", "../")):
+        if not allow_external:
+            return False, "external-js", entry
+        if stats is not None:
+            bump(stats, "gate_external_js")
+    elif api.startswith(("http://", "https://")):
+        pass
+    else:
+        return False, "unknown-api", entry
+    return True, "", entry
+
+
+def gate_entries(entries, by_name, policy, stats=None):
+    kept = []
+    for entry in entries:
+        ok, reason, fixed = gate_entry(entry, by_name, policy, stats)
+        if ok:
+            kept.append(fixed)
+        elif stats is not None:
+            bump(stats, "gate_rejected")
+            bump(stats, "gate_%s" % reason)
+    return kept
+
+
+def migrate_feed_entries(db, by_name, policy, stats):
+    """Rewrite/prune already-merged feed entries under the current policy."""
+    removed = 0
+    fixed = 0
+    for group in ("sites", "caiji"):
+        items = db.get(group)
+        if not isinstance(items, list):
+            continue
+        kept = []
+        for item in items:
+            if not isinstance(item, dict):
+                continue
+            meta = item.get("_meta") or {}
+            if meta.get("origin") != "feed":
+                kept.append(item)
+                continue
+            content = strip_meta(item)
+            ok, reason, new_content = gate_entry(content, by_name, policy)
+            if not ok:
+                removed += 1
+                bump(stats, "pruned")
+                bump(stats, "pruned_%s" % reason)
+                continue
+            if new_content != content:
+                new_meta = dict(meta)
+                if group in ("sites", "caiji"):
+                    new_meta["targets"] = derive_targets(new_content)
+                kept.append(dict(new_content, _meta=new_meta))
+                fixed += 1
+                bump(stats, "gate_rewritten")
+            else:
+                kept.append(item)
+        db[group] = kept
+    if removed or fixed:
+        print("[feeds] migrate: pruned=%d fixed=%d" % (removed, fixed))
 
 
 def feed_url(item):
@@ -126,7 +263,7 @@ def precheck_parses(db, parses, precheck, stats):
     return reject
 
 
-def upsert_items(db, group, entries, origin, stats, reject=None):
+def upsert_items(db, group, entries, origin, stats, reject=None, overwrite=True):
     existing = db.setdefault(group, [])
     if not isinstance(existing, list):
         existing = []
@@ -151,6 +288,9 @@ def upsert_items(db, group, entries, origin, stats, reject=None):
             continue
         index = by_key.get(key)
         if index is not None:
+            if not overwrite:
+                bump(stats, "conflict")
+                continue
             old = existing[index]
             meta = dict(old.get("_meta") or {})
             meta["origin"] = meta.get("origin") or origin
@@ -259,8 +399,11 @@ def prepare_feed_entries(payload, base_url, proxy_prefix=""):
     return prepared_sites, prepared_repos, prepared_parses
 
 
-def retry_from_payload(payload, removed, precheck, base_url="", proxy_prefix=""):
+def retry_from_payload(payload, removed, precheck, base_url="", proxy_prefix="",
+                       policy=None, by_name=None):
     sites, repos, _ = prepare_feed_entries(payload, base_url, proxy_prefix)
+    if policy is not None and by_name is not None:
+        sites = gate_entries(sites, by_name, policy)
     pairs = []
     if removed.get("sites"):
         pairs.extend(("sites", entry) for entry in sites
@@ -288,16 +431,18 @@ def retry_from_payload(payload, removed, precheck, base_url="", proxy_prefix="")
 
 
 def merge_feed_payload(db, payload, origin, stats, precheck=None, removed=None,
-                       base_url="", proxy_prefix=""):
+                       base_url="", proxy_prefix="", policy=None, by_name=None):
     sites, repos, parses = prepare_feed_entries(payload, base_url, proxy_prefix)
     if removed:
         sites = [entry for entry in sites if not is_removed(removed, "sites", entry)]
         repos = [entry for entry in repos if not is_removed(removed, "repos", entry)]
+    if policy is not None and by_name is not None:
+        sites = gate_entries(sites, by_name, policy, stats)
     reject_sites = precheck_candidates(db, "sites", sites, precheck, stats) if precheck else None
-    upsert_items(db, "sites", sites, origin, stats, reject=reject_sites)
+    upsert_items(db, "sites", sites, origin, stats, reject=reject_sites, overwrite=False)
     if repos:
         reject_repos = precheck_candidates(db, "repos", repos, precheck, stats) if precheck else None
-        upsert_items(db, "repos", repos, origin, stats, reject=reject_repos)
+        upsert_items(db, "repos", repos, origin, stats, reject=reject_repos, overwrite=False)
     if isinstance(parses, list):
         reject_parses = precheck_parses(db, parses, precheck, stats) if precheck else None
         upsert_parses(db, parses, origin, stats, reject=reject_parses)
@@ -333,14 +478,20 @@ def main():
     if db is None:
         print("sources.json not found")
         return 1
-    stats = {"added": 0, "updated": 0, "rejected": 0}
+    stats = {"added": 0, "updated": 0, "rejected": 0, "conflict": 0}
+    policy = merge_policy()
+    scan = load_jarscan()
+    jar_index = class_index(scan)
+    by_name = jar_index[0]
+    print("[feeds] policy: main-first | external_jar=%s | center_token=%s"
+          % ("on" if policy["allow_external_jar"] else "off",
+             "set" if policy["center_token_url"] else "off"))
     precheck = None
     if not args.no_precheck:
-        scan = load_jarscan()
         precheck = {"workers": max(1, args.precheck_workers),
                     "timeout": max(1.0, args.precheck_timeout),
                     "strict": args.only_pass or strict_from_settings(),
-                    "jar_index": class_index(scan)}
+                    "jar_index": jar_index}
     feeds = load_json(FEEDS_PATH, {})
     removed = load_removed()
     total_restored = 0
@@ -360,22 +511,32 @@ def main():
             base, proxy = feed_bases(item)
             restored = 0
             if removed:
-                restored = retry_from_payload(payload, removed, precheck, base, proxy)
+                restored = retry_from_payload(payload, removed, precheck, base, proxy,
+                                              policy=policy, by_name=by_name)
                 total_restored += restored
             before = dict(stats)
-            merge_feed_payload(db, payload, "feed", stats, precheck, removed, base, proxy)
-            print("[feeds] %s: added=%d updated=%d rejected=%d restored=%d"
+            merge_feed_payload(db, payload, "feed", stats, precheck, removed, base, proxy,
+                               policy=policy, by_name=by_name)
+            print("[feeds] %s: added=%d updated=%d conflict=%d gated=%d rejected=%d restored=%d"
                   % (name, stats["added"] - before["added"],
                      stats["updated"] - before["updated"],
+                     stats["conflict"] - before.get("conflict", 0),
+                     stats.get("gate_rejected", 0) - before.get("gate_rejected", 0),
                      stats["rejected"] - before["rejected"], restored))
     apply_own_sources(db, stats, removed)
+    migrate_feed_entries(db, by_name, policy, stats)
     if total_restored:
         save_removed(removed)
         print("[feeds] tombstone restored: %d" % total_restored)
-    if stats["added"] or stats["updated"] or stats["rejected"]:
+    changed = (stats["added"] or stats["updated"] or stats["rejected"]
+               or stats.get("pruned") or stats.get("gate_rewritten"))
+    if changed:
         save_json(DB_PATH, db)
-        print("[feeds] saved sources.json (added=%d updated=%d rejected=%d)"
-              % (stats["added"], stats["updated"], stats["rejected"]))
+        print("[feeds] saved sources.json (added=%d updated=%d conflict=%d gated=%d "
+              "pruned=%d rewritten=%d rejected=%d)"
+              % (stats["added"], stats["updated"], stats["conflict"],
+                 stats.get("gate_rejected", 0), stats.get("pruned", 0),
+                 stats.get("gate_rewritten", 0), stats["rejected"]))
     else:
         print("[feeds] no changes")
     return 0

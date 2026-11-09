@@ -5,8 +5,8 @@ import threading
 import time
 import zipfile
 
-from common import (BASE, ROOT, http_fetch, load_json, now_iso, save_json,
-                    setup_stdout)
+from common import (BASE, ROOT, http_fetch, load_json, load_json_safe, now_iso,
+                    save_json, setup_stdout)
 
 JAR_PATH = os.path.join(ROOT, "tvbox.jar")
 CACHE_PATH = os.path.join(BASE, "jarscan.json")
@@ -259,7 +259,7 @@ def main():
              len(classes), len(urls_by_class), sum(len(v) for v in urls_by_class.values())))
 
     by_name = {short_name(descriptor).lower(): descriptor for descriptor in classes}
-    tvbox = load_json(os.path.join(ROOT, "tvbox.json"), {})
+    tvbox = load_json_safe(os.path.join(ROOT, "tvbox.json"), {}) or {}
     referenced = []
     for site in tvbox.get("sites", []):
         api = site.get("api")

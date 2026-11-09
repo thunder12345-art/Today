@@ -2,7 +2,7 @@ import argparse
 import os
 
 from common import (DB_PATH, ROOT, build_meta, derive_targets, load_json,
-                    norm_key, now_iso, save_json, setup_stdout)
+                    load_json_safe, norm_key, now_iso, save_json, setup_stdout)
 
 
 def main():
@@ -15,9 +15,9 @@ def main():
         print("sources.json already exists, use --force to rebuild it (manual entries will be dropped)")
         return
 
-    tvbox = load_json(os.path.join(ROOT, "tvbox.json"), {})
-    lmw = load_json(os.path.join(ROOT, "lmw.json"), {})
-    caiji = load_json(os.path.join(ROOT, "caiji.json"), {})
+    tvbox = load_json_safe(os.path.join(ROOT, "tvbox.json"), {}) or {}
+    lmw = load_json_safe(os.path.join(ROOT, "lmw.json"), {}) or {}
+    caiji = load_json_safe(os.path.join(ROOT, "caiji.json"), {}) or {}
     old = load_json(DB_PATH, {}) or {}
 
     old_meta = {}

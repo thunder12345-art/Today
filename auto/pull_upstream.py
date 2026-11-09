@@ -3,10 +3,13 @@ import os
 import subprocess
 import sys
 
-from common import BASE, ROOT, setup_stdout
+from common import (BASE, ROOT, decode_config_bytes, save_json, setup_stdout)
 
 OWN_PREFIXES = ("auto/",)
-OWN_FILES = {".gitattributes", ".gitignore", ".dockerignore", "Dockerfile", "docker-compose.yml"}
+OWN_FILES = {".gitattributes", ".gitignore", ".dockerignore", "Dockerfile", "docker-compose.yml",
+             "tvbox.json", "caiji.json", "lmw.json"}
+GENERATED_FILES = ("tvbox.json", "caiji.json", "lmw.json")
+UPSTREAM_CONFIG_DIR = os.path.join(BASE, "upstream")
 MANAGED_EXCLUDES = ["--", ".", ":(exclude)auto", ":(exclude).gitignore", ":(exclude).dockerignore",
                     ":(exclude)Dockerfile", ":(exclude)docker-compose.yml", ":(exclude).gitattributes"]
 
@@ -81,6 +84,42 @@ def is_own(path):
 
 def fold_map(paths):
     return {path.casefold(): path for path in paths}
+
+
+def generated_bytes_tree(tree_dir):
+    found = {}
+    for path in scan_tree(tree_dir):
+        if "/" in path or path not in GENERATED_FILES:
+            continue
+        found[path] = read_file_bytes(os.path.join(tree_dir, path.replace("/", os.sep)))
+    return found
+
+
+def generated_bytes_git(upstream):
+    found = {}
+    for path in lines(git("ls-tree", "-r", "--name-only", upstream)):
+        if "/" in path or path not in GENERATED_FILES:
+            continue
+        found[path] = git("cat-file", "-p", "%s:%s" % (upstream, path), binary=True)
+    return found
+
+
+def export_upstream_configs(files):
+    written = []
+    for name, data in sorted(files.items()):
+        try:
+            parsed = decode_config_bytes(data)
+        except (OSError, ValueError) as error:
+            print("   upstream %s decode failed: %s (skipped)" % (name, error))
+            continue
+        if not isinstance(parsed, dict):
+            print("   upstream %s is not an object (skipped)" % name)
+            continue
+        save_json(os.path.join(UPSTREAM_CONFIG_DIR, name), parsed)
+        written.append(name)
+    if written:
+        print("upstream config snapshot: %s -> auto/upstream/" % ", ".join(written))
+    return written
 
 
 def scan_tree(tree_dir):
@@ -204,6 +243,8 @@ def run_tree(tree_dir, args):
         removed.append(own_path)
     print("updated %d file(s) | removed %d stale file(s)" % (written, len(removed)))
 
+    export_upstream_configs(generated_bytes_tree(tree_dir))
+
     if not args.skip_patch:
         print("")
         print("== re-patching tvbox.jar ==")
@@ -211,7 +252,8 @@ def run_tree(tree_dir, args):
     if not args.skip_sync:
         print("")
         print("== reconciling auto/sources.json ==")
-        subprocess.run([sys.executable, os.path.join(BASE, "sync.py"), "--prune-whitelist"])
+        subprocess.run([sys.executable, os.path.join(BASE, "sync.py"), "--prune-whitelist",
+                        "--config-dir", UPSTREAM_CONFIG_DIR, "--additive"])
     print("")
     print("== refreshing jarscan cache ==")
     subprocess.run([sys.executable, os.path.join(BASE, "jarscan.py")])
@@ -368,6 +410,8 @@ def main():
     for path in removed[:30]:
         print("   - %s" % path)
 
+    export_upstream_configs(generated_bytes_git(upstream))
+
     if not args.skip_patch:
         print("")
         print("== re-patching tvbox.jar ==")
@@ -375,7 +419,8 @@ def main():
     if not args.skip_sync:
         print("")
         print("== reconciling auto/sources.json ==")
-        subprocess.run([sys.executable, os.path.join(BASE, "sync.py"), "--prune-whitelist"])
+        subprocess.run([sys.executable, os.path.join(BASE, "sync.py"), "--prune-whitelist",
+                        "--config-dir", UPSTREAM_CONFIG_DIR, "--additive"])
     print("")
     print("== refreshing jarscan cache ==")
     subprocess.run([sys.executable, os.path.join(BASE, "jarscan.py")])

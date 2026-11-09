@@ -4,8 +4,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from common import (DB_PATH, REPORT_JSON, REPORT_TXT, ROOT, check_entry,
                     check_repo, derive_targets, http_check, is_http,
-                    is_whitelisted, item_key, load_json, load_whitelist, now_iso,
-                    save_json, setup_stdout)
+                    is_whitelisted, item_key, load_json, load_json_safe,
+                    load_whitelist, now_iso, save_json, setup_stdout)
 from jarscan import load_jarscan, load_remote_jarscan, short_name
 
 
@@ -113,7 +113,7 @@ def apply_policy_to_item(item, group, whitelist, threshold, auto_enabled):
 def probe_parses(db, timeout, workers):
     parses = db.get("parses")
     if parses is None:
-        tvbox = load_json(os.path.join(ROOT, "tvbox.json"), {})
+        tvbox = load_json_safe(os.path.join(ROOT, "tvbox.json"), {}) or {}
         parses = tvbox.get("parses", [])
     parses = [item for item in parses
               if isinstance(item, dict) and is_http(item.get("url"))]
@@ -261,7 +261,7 @@ def main():
                      "referenced": len(referenced),
                      "missing": missing_classes}
 
-    config = load_json(os.path.join(ROOT, "tvbox.json"), {}) or {}
+    config = load_json_safe(os.path.join(ROOT, "tvbox.json"), {}) or {}
     config_missing = [key for key in ("spider", "sites", "parses", "lives")
                       if key not in config]
     if config_missing:

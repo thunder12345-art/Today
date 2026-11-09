@@ -3,7 +3,8 @@ import os
 
 from check import class_index, retry_passed
 from common import (DB_PATH, ROOT, build_meta, derive_targets, is_removed, item_key,
-                    load_json, load_removed, load_whitelist, norm_key, norm_target,
+                    load_json, load_json_safe, load_removed, load_whitelist, norm_key,
+                    norm_target,
                     now_iso, save_json, save_removed, save_whitelist, setup_stdout,
                     strip_meta)
 from jarscan import load_jarscan
@@ -79,7 +80,7 @@ def retry_removed_entries(removed, upstream_sites, upstream_caiji, upstream_repo
     return len(passed)
 
 
-def sync_group(db, group, upstream_items, dry_run, stats, removed=None):
+def sync_group(db, group, upstream_items, dry_run, stats, removed=None, no_remove=False):
     items = db.get(group, [])
     by_key, by_target = index_items(items)
     used = set()
@@ -97,6 +98,10 @@ def sync_group(db, group, upstream_items, dry_run, stats, removed=None):
         if index is not None:
             used.add(index)
             old = items[index]
+            old_origin = (old.get("_meta") or {}).get("origin")
+            if no_remove and old_origin in ("feed", "own"):
+                result.append(old)
+                continue
             meta = dict(old.get("_meta") or {})
             meta["targets"] = derive_targets(content)
             meta.setdefault("origin", "local")
@@ -113,7 +118,7 @@ def sync_group(db, group, upstream_items, dry_run, stats, removed=None):
         if index in used:
             continue
         origin = (item.get("_meta") or {}).get("origin")
-        if origin in UPSTREAM_ORIGINS:
+        if origin in UPSTREAM_ORIGINS and not no_remove:
             stats["removed"] += 1
             stats["removed_names"].append("%s:%s" % (group, item_key(item)))
             continue
@@ -124,7 +129,7 @@ def sync_group(db, group, upstream_items, dry_run, stats, removed=None):
     return result
 
 
-def sync_repos(db, upstream_repos, dry_run, stats, removed=None):
+def sync_repos(db, upstream_repos, dry_run, stats, removed=None, no_remove=False):
     items = db.get("repos", [])
     by_url = {}
     for index, item in enumerate(items):
@@ -146,6 +151,10 @@ def sync_repos(db, upstream_repos, dry_run, stats, removed=None):
         if index is not None and index not in used:
             used.add(index)
             old = items[index]
+            old_origin = (old.get("_meta") or {}).get("origin")
+            if no_remove and old_origin in ("feed", "own"):
+                result.append(old)
+                continue
             meta = dict(old.get("_meta") or {})
             meta.setdefault("origin", "local")
             meta["synced_at"] = now
@@ -162,7 +171,7 @@ def sync_repos(db, upstream_repos, dry_run, stats, removed=None):
         if index in used:
             continue
         origin = (item.get("_meta") or {}).get("origin")
-        if origin in UPSTREAM_ORIGINS:
+        if origin in UPSTREAM_ORIGINS and not no_remove:
             stats["removed"] += 1
             stats["removed_names"].append("repos:%s" % item_key(item))
             continue
@@ -196,14 +205,22 @@ def prune_whitelist(db):
     return removed
 
 
-def run(dry_run, prune, db_path, root):
+def run(dry_run, prune, db_path, root, config_dir="", additive=False):
     db = load_json(db_path)
     if db is None:
         print("sources.json not found, run first: python auto/seed.py")
         return 1
-    tvbox = load_json(os.path.join(root, "tvbox.json"), {})
-    caiji = load_json(os.path.join(root, "caiji.json"), {})
-    lmw = load_json(os.path.join(root, "lmw.json"), {})
+
+    def config_file(name):
+        if config_dir:
+            candidate = os.path.join(config_dir, name)
+            if os.path.exists(candidate):
+                return candidate
+        return os.path.join(root, name)
+
+    tvbox = load_json_safe(config_file("tvbox.json"), {}) or {}
+    caiji = load_json_safe(config_file("caiji.json"), {}) or {}
+    lmw = load_json_safe(config_file("lmw.json"), {}) or {}
 
     upstream_sites = [item for item in tvbox.get("sites", []) if isinstance(item, dict)]
     upstream_caiji = [item for item in caiji.get("sites", []) if isinstance(item, dict)]
@@ -219,25 +236,28 @@ def run(dry_run, prune, db_path, root):
     if removed and not dry_run:
         retry_removed_entries(removed, upstream_sites, upstream_caiji, upstream_repos)
     template = {key: value for key, value in tvbox.items() if key not in ("sites", "parses")}
-    if template and not dry_run:
-        db["template"] = template
-    print("== template keys: %s ==" % ", ".join(sorted(template)))
     up_parses = [strip_meta(item) for item in tvbox.get("parses", []) if isinstance(item, dict)]
-    if not dry_run:
-        db["parses"] = up_parses
-    print("== parses (stored in db): %d ==" % len(up_parses))
+    if additive:
+        print("== additive mode: keep existing template/parses ==")
+    else:
+        if template and not dry_run:
+            db["template"] = template
+        print("== template keys: %s ==" % ", ".join(sorted(template)))
+        if not dry_run:
+            db["parses"] = up_parses
+        print("== parses (stored in db): %d ==" % len(up_parses))
     print("== sync sites (upstream=%d, db=%d) ==" % (len(upstream_sites), len(db.get("sites", []))))
-    sync_group(db, "sites", upstream_sites, dry_run, stats, removed)
+    sync_group(db, "sites", upstream_sites, dry_run, stats, removed, no_remove=additive)
     print("   updated=%d added=%d removed=%d total=%d" % (stats["updated"], stats["added"],
                                                            stats["removed"], stats["total"]))
     stats.update({"updated": 0, "added": 0, "removed": 0})
     print("== sync caiji (upstream=%d, db=%d) ==" % (len(upstream_caiji), len(db.get("caiji", []))))
-    sync_group(db, "caiji", upstream_caiji, dry_run, stats, removed)
+    sync_group(db, "caiji", upstream_caiji, dry_run, stats, removed, no_remove=additive)
     print("   updated=%d added=%d removed=%d total=%d" % (stats["updated"], stats["added"],
                                                            stats["removed"], stats["total"]))
     stats.update({"updated": 0, "added": 0, "removed": 0})
     print("== sync repos (upstream=%d, db=%d) ==" % (len(upstream_repos), len(db.get("repos", []))))
-    sync_repos(db, upstream_repos, dry_run, stats, removed)
+    sync_repos(db, upstream_repos, dry_run, stats, removed, no_remove=additive)
     print("   updated=%d added=%d removed=%d total=%d" % (stats["updated"], stats["added"],
                                                            stats["removed"], stats["total"]))
 
@@ -269,11 +289,16 @@ def main():
     parser = argparse.ArgumentParser(description="Reconcile upstream config files into auto/sources.json")
     parser.add_argument("--db", default=DB_PATH)
     parser.add_argument("--root", default=ROOT)
+    parser.add_argument("--config-dir", default="",
+                        help="read upstream config snapshot from this directory (fallback: --root)")
+    parser.add_argument("--additive", action="store_true",
+                        help="only add/update entries; keep unmatched entries and existing template/parses")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--prune-whitelist", action="store_true")
     args = parser.parse_args()
     setup_stdout()
-    raise SystemExit(run(args.dry_run, args.prune_whitelist, args.db, args.root))
+    raise SystemExit(run(args.dry_run, args.prune_whitelist, args.db, args.root,
+                         args.config_dir, args.additive))
 
 
 if __name__ == "__main__":

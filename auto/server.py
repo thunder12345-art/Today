@@ -12,7 +12,7 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 from common import (BASE, DB_PATH, REPORT_JSON, REPORT_TXT, ROOT, http_check,
                     is_http, is_whitelisted, item_key, load_json,
-                    load_removed, load_whitelist, now_iso, save_json,
+                    load_json_safe, load_removed, load_whitelist, now_iso, save_json,
                     save_removed, save_whitelist, setup_stdout)
 from check import apply_policy_to_item, check_item, class_index
 from jarscan import load_jarscan
@@ -421,7 +421,7 @@ def parse_items(db):
         return results
     parses = db.get("parses")
     if parses is None:
-        tvbox = load_json(os.path.join(ROOT, "tvbox.json"), {}) or {}
+        tvbox = load_json_safe(os.path.join(ROOT, "tvbox.json"), {}) or {}
         parses = tvbox.get("parses", [])
     return [{"url": item.get("url"), "name": item.get("name", ""), "ok": None}
             for item in parses

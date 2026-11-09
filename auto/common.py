@@ -46,6 +46,13 @@ def load_json(path, default=None):
         return json.load(handle)
 
 
+def load_json_safe(path, default=None):
+    try:
+        return load_json(path, default)
+    except (OSError, ValueError):
+        return default
+
+
 def save_json(path, data):
     parent = os.path.dirname(path)
     if parent:

@@ -6,7 +6,8 @@ import sys
 from common import BASE, ROOT, setup_stdout
 
 OWN_PREFIXES = ("auto/",)
-OWN_FILES = {".gitattributes", ".gitignore", ".dockerignore", "Dockerfile", "docker-compose.yml"}
+OWN_FILES = {".gitattributes", ".gitignore", ".dockerignore", "Dockerfile", "docker-compose.yml",
+             "tvbox.json", "caiji.json", "lmw.json"}
 MANAGED_EXCLUDES = ["--", ".", ":(exclude)auto", ":(exclude).gitignore", ":(exclude).dockerignore",
                     ":(exclude)Dockerfile", ":(exclude)docker-compose.yml", ":(exclude).gitattributes"]
 

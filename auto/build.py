@@ -2,7 +2,8 @@ import argparse
 import os
 
 from common import (DB_PATH, OUT_DIR, ROOT, is_whitelisted, load_json,
-                    load_whitelist, save_json, setup_stdout, strip_meta)
+                    load_json_safe, load_whitelist, save_json, setup_stdout,
+                    strip_meta)
 
 
 def is_local_origin(origin):
@@ -47,8 +48,8 @@ def main():
 
     whitelist = load_whitelist()
 
-    tvbox_file = load_json(os.path.join(ROOT, "tvbox.json"), {})
-    caiji = load_json(os.path.join(ROOT, "caiji.json"), {})
+    tvbox_file = load_json_safe(os.path.join(ROOT, "tvbox.json"), {}) or {}
+    caiji = load_json_safe(os.path.join(ROOT, "caiji.json"), {}) or {}
     template = db.get("template")
     if isinstance(template, dict) and template:
         tvbox = dict(template)

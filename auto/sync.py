@@ -3,7 +3,8 @@ import os
 
 from check import class_index, retry_passed
 from common import (DB_PATH, ROOT, build_meta, derive_targets, is_removed, item_key,
-                    load_json, load_removed, load_whitelist, norm_key, norm_target,
+                    load_json, load_json_safe, load_removed, load_whitelist, norm_key,
+                    norm_target,
                     now_iso, save_json, save_removed, save_whitelist, setup_stdout,
                     strip_meta)
 from jarscan import load_jarscan
@@ -201,9 +202,9 @@ def run(dry_run, prune, db_path, root):
     if db is None:
         print("sources.json not found, run first: python auto/seed.py")
         return 1
-    tvbox = load_json(os.path.join(root, "tvbox.json"), {})
-    caiji = load_json(os.path.join(root, "caiji.json"), {})
-    lmw = load_json(os.path.join(root, "lmw.json"), {})
+    tvbox = load_json_safe(os.path.join(root, "tvbox.json"), {}) or {}
+    caiji = load_json_safe(os.path.join(root, "caiji.json"), {}) or {}
+    lmw = load_json_safe(os.path.join(root, "lmw.json"), {}) or {}
 
     upstream_sites = [item for item in tvbox.get("sites", []) if isinstance(item, dict)]
     upstream_caiji = [item for item in caiji.get("sites", []) if isinstance(item, dict)]

@@ -1,3 +1,4 @@
+import base64
 import json
 import os
 import ssl
@@ -51,6 +52,23 @@ def load_json_safe(path, default=None):
         return load_json(path, default)
     except (OSError, ValueError):
         return default
+
+
+def decode_config_bytes(data):
+    """Decode a TVBox config, including the 'YmFzZTY0**<base64 json>' form."""
+    text = data.decode("utf-8-sig", "replace") if isinstance(data, (bytes, bytearray)) else str(data)
+    text = text.strip()
+    if "**" in text:
+        head, payload = text.split("**", 1)
+        if head.strip() in ("YmFzZTY0", "base64"):
+            payload = "".join(payload.split())
+            payload += "=" * (-len(payload) % 4)
+            try:
+                decoded = base64.b64decode(payload)
+            except ValueError:
+                decoded = base64.urlsafe_b64decode(payload)
+            text = decoded.decode("utf-8-sig", "replace").strip()
+    return json.loads(text)
 
 
 def save_json(path, data):

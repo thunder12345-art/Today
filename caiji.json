@@ -97,6 +97,17 @@
             "timeout": 10
         },
         {
+            "key": "丨虎牙资源",
+            "name": "虎牙资源",
+            "type": 1,
+            "api": "https://www.huyaapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10
+        },
+        {
             "key": "丨豆瓣资源2",
             "name": "豆瓣资源2",
             "type": 1,
@@ -119,10 +130,32 @@
             "timeout": 10
         },
         {
+            "key": "丨豪华资源",
+            "name": "豪华资源",
+            "type": 1,
+            "api": "https://hhzyapi.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10
+        },
+        {
             "key": "丨CK资源",
             "name": "CK资源",
             "type": 1,
             "api": "https://ckzy.me/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10
+        },
+        {
+            "key": "丨U酷资源2",
+            "name": "U酷资源2",
+            "type": 1,
+            "api": "https://api.ukuapi88.com/api.php/provide/vod",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,

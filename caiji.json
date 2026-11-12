@@ -42,6 +42,17 @@
             "timeout": 10
         },
         {
+            "key": "天涯资源",
+            "name": "天涯资源",
+            "type": 1,
+            "api": "https://tyyszy.com/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10
+        },
+        {
             "key": "暴风资源",
             "name": "暴风资源",
             "type": 1,
@@ -255,6 +266,17 @@
             "name": "无尽资源3",
             "type": 1,
             "api": "https://api.wujinapi.net/api.php/provide/vod",
+            "searchable": 1,
+            "quickSearch": 1,
+            "changeable": 1,
+            "filterable": 1,
+            "timeout": 10
+        },
+        {
+            "key": "丨最大点播",
+            "name": "最大点播",
+            "type": 1,
+            "api": "http://zuidazy.me/api.php/provide/vod",
             "searchable": 1,
             "quickSearch": 1,
             "changeable": 1,

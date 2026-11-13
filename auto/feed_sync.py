@@ -20,6 +20,16 @@ DEFAULT_CENTER_TOKEN_URL = (
     "https://gh-proxy.com/https://raw.githubusercontent.com/"
     "thunder12345-art/Today/main/center/token.json")
 CLIENT_PROXY_HINTS = ("socks5://", "socks4://", "socks5h://")
+RELATIVE_ALIASES = {
+    "wogg.json": "json/wogg.json",
+    "lib/wog.json": "json/wogg.json",
+    "lib/wogg.json": "json/wogg.json",
+}
+BROKEN_REF_REWRITES = (
+    ("/qist/tvbox/master/wogg.json", "/qist/tvbox/master/json/wogg.json"),
+    ("/qist/tvbox/master/lib/wog.json", "/qist/tvbox/master/json/wogg.json"),
+    ("/qist/tvbox/master/lib/wogg.json", "/qist/tvbox/master/json/wogg.json"),
+)
 
 
 def env_int(name, default):
@@ -137,6 +147,14 @@ def gate_entries(entries, by_name, policy, stats=None):
     return kept
 
 
+def repair_refs(ext):
+    if not isinstance(ext, str):
+        return ext
+    for bad, good in BROKEN_REF_REWRITES:
+        ext = ext.replace(bad, good)
+    return ext
+
+
 def migrate_feed_entries(db, by_name, policy, stats):
     """Rewrite/prune already-merged feed entries under the current policy."""
     removed = 0
@@ -154,6 +172,10 @@ def migrate_feed_entries(db, by_name, policy, stats):
                 kept.append(item)
                 continue
             content = strip_meta(item)
+            fixed_ext = repair_refs(content.get("ext"))
+            if isinstance(fixed_ext, str) and fixed_ext != content.get("ext"):
+                content = dict(content)
+                content["ext"] = fixed_ext
             ok, reason, new_content = gate_entry(content, by_name, policy)
             if not ok:
                 removed += 1
@@ -359,6 +381,10 @@ def resolve_text(value, base, proxy=""):
         return "$$$".join(resolve_text(part, base, proxy) for part in value.split("$$$"))
     text = value.strip()
     if text.startswith(("./", "../")):
+        key = text[2:] if text.startswith("./") else text
+        alias = RELATIVE_ALIASES.get(key.split("?", 1)[0])
+        if alias:
+            text = "./" + alias
         return proxy + urljoin(base, text)
     if text.startswith("//"):
         return "https:" + text

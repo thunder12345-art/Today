@@ -544,6 +544,14 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             self.send_file(target, "application/json; charset=utf-8")
             return
+        if path in ("/token.json", "/center/token.json"):
+            private = os.path.join(ROOT, "center", "token.local.json")
+            target = private if os.path.exists(private) else os.path.join(ROOT, "center", "token.json")
+            if not os.path.exists(target):
+                self.send_error(404)
+                return
+            self.send_file(target, "application/json; charset=utf-8")
+            return
         if path.startswith("/api/"):
             if not self.authorized(parts):
                 self.send_json({"error": "unauthorized"}, status=401)
@@ -561,7 +569,7 @@ class Handler(SimpleHTTPRequestHandler):
             else:
                 self.send_json({"error": "not found"}, status=404)
             return
-        if path.startswith("/auto") or path.startswith("/.git"):
+        if path.startswith("/auto") or path.startswith("/.git") or path.startswith("/center/"):
             self.send_error(404)
             return
         super().do_GET()

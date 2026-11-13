@@ -88,9 +88,9 @@ if git diff --cached --quiet; then
 else
     git commit -m "sync upstream $TS"
 fi
-git push origin main || echo "   !! github push FAILED (stops here; commits auto-sync on next update), local commit is safe"
+timeout 180 git push origin main || echo "   !! github push FAILED/timeout (commits auto-sync on next update), local commit is safe"
 if git remote get-url gitee >/dev/null 2>&1; then
-    git push gitee main || echo "   !! gitee push FAILED (stops here; commits auto-sync on next update), local commit is safe"
+    timeout 180 git push gitee main || echo "   !! gitee push FAILED/timeout (commits auto-sync on next update), local commit is safe"
 else
     echo "   (gitee remote not set; enable once: git remote add gitee https://gitee.com/<user>/<repo>.git)"
 fi

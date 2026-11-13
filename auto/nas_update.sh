@@ -88,9 +88,9 @@ if git diff --cached --quiet; then
 else
     git commit -m "sync upstream $TS"
 fi
-timeout 180 git push origin main || echo "   !! github push FAILED/timeout (commits auto-sync on next update), local commit is safe"
+git -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=180 push origin main || echo "   !! github push FAILED/timeout (commits auto-sync on next update), local commit is safe"
 if git remote get-url gitee >/dev/null 2>&1; then
-    timeout 180 git push gitee main || echo "   !! gitee push FAILED/timeout (commits auto-sync on next update), local commit is safe"
+    git -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=180 push gitee main || echo "   !! gitee push FAILED/timeout (commits auto-sync on next update), local commit is safe"
 else
     echo "   (gitee remote not set; enable once: git remote add gitee https://gitee.com/<user>/<repo>.git)"
 fi
@@ -167,3 +167,4 @@ fi
 echo ""
 echo "done. panel:  http://<nas-ip>:8899/"
 echo "      check:  docker logs --tail 30 tomorrow-auto"
+

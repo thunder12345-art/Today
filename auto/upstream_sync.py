@@ -39,7 +39,8 @@ def sync_one(item, state, force):
     url = fetch_upstream.archive_url(item.get("url"), item.get("branch"), item.get("ghproxy", True))
     info = state.setdefault(state_key(item), {})
     etag = fetch_upstream.head_etag(url)
-    if etag and not force and etag == info.get("etag"):
+    snapshot = os.path.join(pull_upstream.UPSTREAM_CONFIG_DIR, "tvbox.json")
+    if etag and not force and etag == info.get("etag") and os.path.exists(snapshot):
         print("   up to date (etag %s)" % etag)
         return "skipped"
     shutil.rmtree(TREE_DIR, ignore_errors=True)

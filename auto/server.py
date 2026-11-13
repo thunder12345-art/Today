@@ -206,17 +206,20 @@ def git_publish():
         for remote in PUBLISH_REMOTES:
             if run(["git", "remote", "get-url", remote], timeout=10).returncode != 0:
                 continue
-            try:
-                result = run(["git", "-c",
-                              "credential.helper=store --file=%s" % PUBLISH_CREDS,
-                              "push", remote, "main"], timeout=PUBLISH_TIMEOUT)
-            except subprocess.TimeoutExpired:
-                print("[publish] %s push timed out after %ss" % (remote, PUBLISH_TIMEOUT))
-                continue
-            if result.returncode == 0:
-                pushed.append(remote)
-            else:
-                print("[publish] %s push failed (commits stay local)" % remote)
+            for attempt in (1, 2):
+                try:
+                    result = run(["git", "-c",
+                                  "credential.helper=store --file=%s" % PUBLISH_CREDS,
+                                  "push", remote, "main"], timeout=PUBLISH_TIMEOUT)
+                except subprocess.TimeoutExpired:
+                    print("[publish] %s push timed out after %ss (attempt %d)"
+                          % (remote, PUBLISH_TIMEOUT, attempt))
+                    continue
+                if result.returncode == 0:
+                    pushed.append(remote)
+                    break
+                print("[publish] %s push failed (attempt %d, commits stay local): %s"
+                      % (remote, attempt, (result.stdout or "").strip()[:160]))
         if pushed:
             print("[publish] pushed: %s" % ", ".join(pushed))
     except Exception as error:
@@ -514,6 +517,12 @@ def build_sources():
 
 class Handler(SimpleHTTPRequestHandler):
     server_version = "tomorrow-auto"
+
+    def log_message(self, format, *args):
+        path = (self.path or "").split("?", 1)[0]
+        if path in ("/status", "/favicon.ico"):
+            return
+        super().log_message(format, *args)
 
     def do_GET(self):
         parts = urllib.parse.urlsplit(self.path)

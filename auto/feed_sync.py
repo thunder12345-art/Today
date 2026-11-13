@@ -168,14 +168,17 @@ def migrate_feed_entries(db, by_name, policy, stats):
             if not isinstance(item, dict):
                 continue
             meta = item.get("_meta") or {}
-            if meta.get("origin") != "feed":
-                kept.append(item)
-                continue
             content = strip_meta(item)
             fixed_ext = repair_refs(content.get("ext"))
             if isinstance(fixed_ext, str) and fixed_ext != content.get("ext"):
                 content = dict(content)
                 content["ext"] = fixed_ext
+                item = dict(content, _meta=meta)
+                fixed += 1
+                bump(stats, "gate_rewritten")
+            if meta.get("origin") != "feed":
+                kept.append(item)
+                continue
             ok, reason, new_content = gate_entry(content, by_name, policy)
             if not ok:
                 removed += 1

@@ -173,6 +173,13 @@ def migrate_feed_entries(db, by_name, policy, stats):
             if isinstance(fixed_ext, str) and fixed_ext != content.get("ext"):
                 content = dict(content)
                 content["ext"] = fixed_ext
+            center = policy.get("center_token_url") or ""
+            if center:
+                token_ext = rewrite_token_refs(content.get("ext"), center)
+                if token_ext != content.get("ext"):
+                    content = dict(content)
+                    content["ext"] = token_ext
+            if content is not item and strip_meta(item) != content:
                 item = dict(content, _meta=meta)
                 fixed += 1
                 bump(stats, "gate_rewritten")

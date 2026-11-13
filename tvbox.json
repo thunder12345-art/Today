@@ -436,6 +436,23 @@
             "timeout": 60
         },
         {
+            "key": "花卷",
+            "name": "花卷·4K",
+            "type": 3,
+            "api": "csp_PanWebShareHJ",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "changeable": 1,
+            "ext": {
+                "site": [
+                    "https://www.hjzhencai.top"
+                ]
+            },
+            "timeout": 60,
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
+        },
+        {
             "key": "夸父",
             "name": "夸父·4K",
             "type": 3,

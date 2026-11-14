@@ -863,8 +863,13 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://192.168.1.254:8899/token.json$$$https://www.wogg.net/$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
-            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
+            "ext": {
+                "site": [
+                    "https://www.wogg.net",
+                    "https://wogg.xxooo.cf",
+                    "https://woggpan.xxooo.cf"
+                ]
+            }
         },
         {
             "key": "美剧迷",

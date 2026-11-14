@@ -88,9 +88,23 @@ if git diff --cached --quiet; then
 else
     git commit -m "sync upstream $TS"
 fi
-git -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=180 push origin main || echo "   !! github push FAILED/timeout (commits auto-sync on next update), local commit is safe"
+push_remote() {
+    remote="$1"
+    n=1
+    while [ "$n" -le 3 ]; do
+        if git -c http.version=HTTP/1.1 -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=180 push "$remote" main; then
+            return 0
+        fi
+        echo "   !! $remote push attempt $n failed"
+        n=$((n + 1))
+        sleep $((n * 2))
+    done
+    return 1
+}
+
+push_remote origin || echo "   !! github push FAILED/timeout (commits auto-sync on next update), local commit is safe"
 if git remote get-url gitee >/dev/null 2>&1; then
-    git -c http.lowSpeedLimit=1000 -c http.lowSpeedTime=180 push gitee main || echo "   !! gitee push FAILED/timeout (commits auto-sync on next update), local commit is safe"
+    push_remote gitee || echo "   !! gitee push FAILED/timeout (commits auto-sync on next update), local commit is safe"
 else
     echo "   (gitee remote not set; enable once: git remote add gitee https://gitee.com/<user>/<repo>.git)"
 fi

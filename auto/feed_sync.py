@@ -9,8 +9,8 @@ from urllib.parse import urljoin
 from check import class_index, retry_passed, run_checks
 from common import (BASE, DB_PATH, build_meta, derive_targets, extract_entries,
                     http_check, http_fetch, is_removed, item_key, load_json,
-                    load_removed, local_jar_url, now_iso, save_json, save_removed,
-                    setup_stdout, strip_meta)
+                    load_removed, local_jar_url, now_iso, rewrite_token_parts,
+                    save_json, save_removed, setup_stdout, strip_meta)
 from jarscan import load_jarscan
 
 FEEDS_PATH = os.path.join(BASE, "feeds.json")
@@ -75,13 +75,7 @@ def bump(stats, key, amount=1):
 
 
 def rewrite_token_refs(ext, center_token):
-    if not isinstance(ext, str) or not center_token or "token.json" not in ext.lower():
-        return ext
-    parts = []
-    for part in ext.split("$$$"):
-        head = part.strip().split("?", 1)[0].lower()
-        parts.append(center_token if head.endswith("token.json") else part)
-    return "$$$".join(parts)
+    return rewrite_token_parts(ext, center_token)
 
 
 def gate_entry(entry, by_name, policy, stats=None):

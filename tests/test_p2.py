@@ -8,6 +8,7 @@ BASE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "auto")
 sys.path.insert(0, BASE)
 
 import common
+import build
 import feed_sync
 import server
 
@@ -71,6 +72,30 @@ class JarRewriteTests(unittest.TestCase):
                   "site_overrides": {}, "local_jar_base": "http://192.168.1.254:8899"}
         feed_sync.migrate_feed_entries(db, {"panwebsharehj": "Lx;"}, policy, {})
         self.assertEqual(db["sites"][0]["jar"], "http://192.168.1.254:8899/jar/spider.jar")
+
+
+class RemoteBaseTests(unittest.TestCase):
+    def test_rewrites_token_and_jar(self):
+        config = {"sites": [
+            {"key": "Wogg", "ext": "http://192.168.1.254:8899/token.json$$$https://www.wogg.net/"},
+            {"key": "花卷", "jar": "http://192.168.1.254:8899/jar/spider.jar",
+             "ext": {"site": ["https://x"]}},
+            {"key": "keep", "jar": "https://example.com/other.jar", "ext": "plain"},
+        ]}
+        out = build.apply_remote_base(config, "http://100.64.0.5:8899")
+        by_key = {site["key"]: site for site in out["sites"]}
+        self.assertTrue(by_key["Wogg"]["ext"].startswith("http://100.64.0.5:8899/token.json$$$"))
+        self.assertEqual(by_key["花卷"]["jar"], "http://100.64.0.5:8899/jar/spider.jar")
+        self.assertEqual(by_key["keep"], config["sites"][2])
+
+    def test_empty_base_is_noop(self):
+        config = {"sites": [{"key": "a", "jar": "http://192.168.1.254:8899/jar/spider.jar"}]}
+        self.assertIs(build.apply_remote_base(config, ""), config)
+
+    def test_token_parts_helper(self):
+        ext = "https://a/token.json$$$https://site/$$$null"
+        self.assertEqual(common.rewrite_token_parts(ext, "http://100.64.0.5:8899/token.json"),
+                         "http://100.64.0.5:8899/token.json$$$https://site/$$$null")
 
 
 if __name__ == "__main__":

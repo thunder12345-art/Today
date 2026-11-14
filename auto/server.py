@@ -84,6 +84,7 @@ SETTINGS_DEFAULTS = {
     "feed_allow_external_jar": True,
     "center_token_url": DEFAULT_CENTER_TOKEN_URL,
     "local_jar_base": "",
+    "remote_base_url": "",
     "check_groups": {"sites": True, "caiji": True, "repos": True, "parses": True},
 }
 SCHEDULE_STATE_PATH = os.path.join(BASE, "schedule_state.json")
@@ -616,6 +617,13 @@ class Handler(SimpleHTTPRequestHandler):
         if path in ("/tvbox", "/lmw", "/caiji"):
             target = os.path.join(ROOT, {"tvbox": "tvbox.json", "lmw": "lmw.json",
                                          "caiji": "caiji.json"}[path[1:]])
+            if not os.path.exists(target):
+                self.send_error(404)
+                return
+            self.send_file(target, "application/json; charset=utf-8")
+            return
+        if path in ("/tvbox.remote", "/tvbox-remote"):
+            target = os.path.join(ROOT, "tvbox.remote.json")
             if not os.path.exists(target):
                 self.send_error(404)
                 return

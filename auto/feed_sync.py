@@ -59,7 +59,11 @@ def merge_policy():
     center_token = str(data.get("center_token_url") or "").strip()
     if "center_token_url" not in data:
         center_token = DEFAULT_CENTER_TOKEN_URL
-    return {"allow_external_jar": allow_external, "center_token_url": center_token}
+    overrides = data.get("site_overrides")
+    if not isinstance(overrides, dict):
+        overrides = {}
+    return {"allow_external_jar": allow_external, "center_token_url": center_token,
+            "site_overrides": overrides}
 
 
 def bump(stats, key, amount=1):
@@ -179,6 +183,14 @@ def migrate_feed_entries(db, by_name, policy, stats):
                 if token_ext != content.get("ext"):
                     content = dict(content)
                     content["ext"] = token_ext
+            override = (policy.get("site_overrides") or {}).get(item.get("key"))
+            if isinstance(override, dict):
+                content = dict(content)
+                for field, value in override.items():
+                    if value is None:
+                        content.pop(field, None)
+                    else:
+                        content[field] = value
             if content is not item and strip_meta(item) != content:
                 item = dict(content, _meta=meta)
                 fixed += 1

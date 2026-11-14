@@ -185,12 +185,15 @@ def migrate_feed_entries(db, by_name, policy, stats):
                     content["ext"] = token_ext
             override = (policy.get("site_overrides") or {}).get(item.get("key"))
             if isinstance(override, dict):
-                content = dict(content)
+                merged = dict(content)
                 for field, value in override.items():
                     if value is None:
-                        content.pop(field, None)
+                        merged.pop(field, None)
                     else:
-                        content[field] = value
+                        merged[field] = value
+                if merged != content:
+                    content = merged
+                    bump(stats, "gate_rewritten")
             if content is not item and strip_meta(item) != content:
                 item = dict(content, _meta=meta)
                 fixed += 1

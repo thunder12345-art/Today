@@ -86,6 +86,20 @@ def publish_allowed(epoch, state):
     return incoming >= last
 
 
+LOCAL_JAR_ALLOWLIST = ("spider.jar", "pg_upgraded.jar")
+
+
+def local_jar_url(jar, base):
+    if not isinstance(jar, str) or not base:
+        return jar
+    core = jar.strip().split(";md5;", 1)[0].split("?", 1)[0]
+    name = core.rsplit("/", 1)[-1]
+    if name not in LOCAL_JAR_ALLOWLIST:
+        return jar
+    return base.rstrip("/") + "/jar/" + name
+
+
+
 
 def load_json(path, default=None):
     if not os.path.exists(path):

@@ -9,8 +9,8 @@ from urllib.parse import urljoin
 from check import class_index, retry_passed, run_checks
 from common import (BASE, DB_PATH, build_meta, derive_targets, extract_entries,
                     http_check, http_fetch, is_removed, item_key, load_json,
-                    load_removed, now_iso, save_json, save_removed, setup_stdout,
-                    strip_meta)
+                    load_removed, local_jar_url, now_iso, save_json, save_removed,
+                    setup_stdout, strip_meta)
 from jarscan import load_jarscan
 
 FEEDS_PATH = os.path.join(BASE, "feeds.json")
@@ -65,8 +65,9 @@ def merge_policy():
     overrides = data.get("site_overrides")
     if not isinstance(overrides, dict):
         overrides = {}
+    local_jar_base = str(data.get("local_jar_base") or "").strip()
     return {"allow_external_jar": allow_external, "center_token_url": center_token,
-            "site_overrides": overrides}
+            "site_overrides": overrides, "local_jar_base": local_jar_base}
 
 
 def bump(stats, key, amount=1):
@@ -196,6 +197,13 @@ def migrate_feed_entries(db, by_name, policy, stats):
                         merged[field] = value
                 if merged != content:
                     content = merged
+                    bump(stats, "gate_rewritten")
+            jar_base = policy.get("local_jar_base") or ""
+            if jar_base and isinstance(content.get("jar"), str):
+                local_jar = local_jar_url(content["jar"], jar_base)
+                if local_jar != content["jar"]:
+                    content = dict(content)
+                    content["jar"] = local_jar
                     bump(stats, "gate_rewritten")
             if content is not item and strip_meta(item) != content:
                 item = dict(content, _meta=meta)

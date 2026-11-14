@@ -12,10 +12,10 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 from common import (BASE, DB_PATH, REPORT_JSON, REPORT_TXT, ROOT, http_check,
-                    is_http, is_whitelisted, item_key, load_json,
-                    load_json_safe, load_removed, load_whitelist, mask_text, now_iso,
-                    publish_allowed, save_json, save_removed, save_whitelist,
-                    setup_stdout)
+                    http_fetch, is_http, is_whitelisted, item_key, load_json,
+                    load_json_safe, load_removed, load_whitelist, local_jar_url,
+                    mask_text, now_iso, publish_allowed, save_json, save_removed,
+                    save_whitelist, setup_stdout)
 from check import apply_policy_to_item, check_item, class_index
 from jarscan import load_jarscan
 from submit import fetch_payload, parse_payload, submit_payloads
@@ -60,6 +60,16 @@ FEED_SCRIPT = os.path.join(BASE, "feed_sync.py")
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
 PUBLISH_STATE_PATH = os.path.join(BASE, "publish_state.json")
 FEED_STATUS_PATH = os.path.join(BASE, "feed_status.json")
+JAR_CACHE_DIR = os.path.join(BASE, ".jar_cache", "local")
+JAR_CACHE_TTL = 7 * 86400
+JAR_MAX_BYTES = 16 * 1048576
+JAR_LOCK = threading.Lock()
+LOCAL_JAR_SOURCES = {
+    "spider.jar": ("https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar",
+                   "https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"),
+    "pg_upgraded.jar": ("https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar",
+                        "https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"),
+}
 TOKEN = os.environ.get("PANEL_TOKEN", "").strip()
 
 DEFAULT_CENTER_TOKEN_URL = (
@@ -73,6 +83,7 @@ SETTINGS_DEFAULTS = {
     "feed_strict": False,
     "feed_allow_external_jar": True,
     "center_token_url": DEFAULT_CENTER_TOKEN_URL,
+    "local_jar_base": "",
     "check_groups": {"sites": True, "caiji": True, "repos": True, "parses": True},
 }
 SCHEDULE_STATE_PATH = os.path.join(BASE, "schedule_state.json")
@@ -217,20 +228,22 @@ def git_publish(run_id=None, epoch=None):
         for remote in PUBLISH_REMOTES:
             if run(["git", "remote", "get-url", remote], timeout=10).returncode != 0:
                 continue
-            for attempt in (1, 2):
+            for attempt in (1, 2, 3):
                 try:
-                    result = run(["git", "-c",
+                    result = run(["git", "-c", "http.version=HTTP/1.1", "-c",
                                   "credential.helper=store --file=%s" % PUBLISH_CREDS,
                                   "push", remote, "main"], timeout=PUBLISH_TIMEOUT)
                 except subprocess.TimeoutExpired:
                     print("[publish] %s push timed out after %ss (attempt %d)"
                           % (remote, PUBLISH_TIMEOUT, attempt))
+                    time.sleep(min(8, attempt * 2))
                     continue
                 if result.returncode == 0:
                     pushed.append(remote)
                     break
                 print("[publish] %s push failed (attempt %d, commits stay local): %s"
                       % (remote, attempt, (result.stdout or "").strip()[:160]))
+                time.sleep(min(8, attempt * 2))
         if pushed:
             print("[publish] pushed: %s" % ", ".join(pushed))
         save_json(PUBLISH_STATE_PATH, {
@@ -539,6 +552,46 @@ def build_sources():
     return out
 
 
+def jar_is_fresh(path):
+    try:
+        return time.time() - os.path.getmtime(path) < JAR_CACHE_TTL
+    except OSError:
+        return False
+
+
+def ensure_local_jar(name):
+    sources = LOCAL_JAR_SOURCES.get(name)
+    if not sources:
+        return None
+    path = os.path.join(JAR_CACHE_DIR, name)
+    if jar_is_fresh(path):
+        return path
+    with JAR_LOCK:
+        if jar_is_fresh(path):
+            return path
+        os.makedirs(JAR_CACHE_DIR, exist_ok=True)
+        for url in sources:
+            try:
+                code, body = http_fetch(url, timeout=90, max_bytes=JAR_MAX_BYTES)
+            except Exception as error:
+                print("[jar] %s fetch failed: %s" % (name, error))
+                continue
+            if code != 200 or not body or not body.startswith(b"PK") or len(body) < 50000:
+                print("[jar] %s invalid response code=%s size=%d"
+                      % (name, code, len(body or b"")))
+                continue
+            temp = path + ".tmp"
+            with open(temp, "wb") as handle:
+                handle.write(body)
+            os.replace(temp, path)
+            print("[jar] cached %s (%d bytes)" % (name, len(body)))
+            return path
+        if os.path.exists(path):
+            print("[jar] %s refresh failed, serving stale" % name)
+            return path
+    return None
+
+
 class Handler(SimpleHTTPRequestHandler):
     server_version = "tomorrow-auto"
 
@@ -575,6 +628,17 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_error(404)
                 return
             self.send_file(target, "application/json; charset=utf-8")
+            return
+        if path.startswith("/jar/"):
+            name = urllib.parse.unquote(path[len("/jar/"):])
+            if "/" in name or "\\" in name or name not in LOCAL_JAR_SOURCES:
+                self.send_error(404)
+                return
+            target = ensure_local_jar(name)
+            if not target:
+                self.send_json({"error": "jar unavailable"}, status=503)
+                return
+            self.send_file(target, "application/java-archive")
             return
         if path.startswith("/api/"):
             if not self.authorized(parts):

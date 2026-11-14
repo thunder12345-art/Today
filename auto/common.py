@@ -87,6 +87,13 @@ def publish_allowed(epoch, state):
 
 
 LOCAL_JAR_ALLOWLIST = ("spider.jar", "pg_upgraded.jar")
+PUBLIC_JAR_URLS = {
+    "spider.jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar",
+    "pg_upgraded.jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar",
+}
+PUBLIC_SPIDER_URL = (
+    "https://gh-proxy.com/https://raw.githubusercontent.com/"
+    "thunder12345-art/Today/main/tvbox.jar")
 
 
 def local_jar_url(jar, base):

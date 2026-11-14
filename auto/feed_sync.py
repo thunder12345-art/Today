@@ -1,4 +1,5 @@
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -15,6 +16,8 @@ from jarscan import load_jarscan
 FEEDS_PATH = os.path.join(BASE, "feeds.json")
 OWN_PATH = os.path.join(BASE, "own_sources.json")
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
+FEED_SNAPSHOT_DIR = os.path.join(BASE, "feeds_snapshot")
+FEED_STATUS_PATH = os.path.join(BASE, "feed_status.json")
 MAX_FEED_BYTES = 4 * 1048576
 DEFAULT_CENTER_TOKEN_URL = (
     "https://gh-proxy.com/https://raw.githubusercontent.com/"
@@ -237,6 +240,55 @@ def fetch_feed_json(item, timeout=20):
         return None
     code, body = http_fetch(url, timeout=timeout, max_bytes=MAX_FEED_BYTES)
     return json.loads(body.decode("utf-8", "replace"))
+
+
+def feed_snapshot_path(item):
+    raw = (item.get("url") or item.get("name") or "").strip()
+    return os.path.join(FEED_SNAPSHOT_DIR, hashlib.sha1(raw.encode("utf-8")).hexdigest()[:16] + ".json")
+
+
+def load_feed_snapshot(item):
+    data = load_json(feed_snapshot_path(item), None)
+    if not isinstance(data, dict):
+        return None
+    payload = data.get("payload")
+    if not isinstance(payload, (dict, list)):
+        return None
+    return data
+
+
+def save_feed_snapshot(item, payload):
+    data = {"version": 1, "name": item.get("name") or "", "url": feed_url(item),
+            "fetched_at": now_iso(), "payload": payload}
+    save_json(feed_snapshot_path(item), data)
+
+
+def feed_sites(payload):
+    if isinstance(payload, dict):
+        sites = payload.get("sites")
+        if isinstance(sites, list):
+            return len(sites)
+    return 0
+
+
+def fetch_feed_with_fallback(item, timeout=20):
+    name = (item.get("name") or item.get("url") or "?").strip()
+    url = feed_url(item)
+    try:
+        payload = fetch_feed_json(item, timeout=timeout)
+        if not isinstance(payload, (dict, list)):
+            raise ValueError("invalid feed payload")
+        save_feed_snapshot(item, payload)
+        return payload, {"name": name, "url": url, "ok": True, "restored": False,
+                         "fetched_at": now_iso(), "sites": feed_sites(payload)}
+    except Exception as error:
+        snapshot = load_feed_snapshot(item)
+        if snapshot is None:
+            raise
+        return snapshot["payload"], {"name": name, "url": url, "ok": True, "restored": True,
+                                     "snapshot_at": snapshot.get("fetched_at") or "",
+                                     "sites": feed_sites(snapshot["payload"]),
+                                     "error": str(error)[:200]}
 
 
 def existing_keys(db, group):
@@ -582,6 +634,7 @@ def main():
     total_restored = 0
     seen_keys = set()
     feeds_ok = True
+    feed_status = []
     items = feeds.get("items") if isinstance(feeds, dict) else None
     if isinstance(items, list):
         for item in items:
@@ -589,14 +642,19 @@ def main():
                 continue
             name = (item.get("name") or item.get("url") or "?").strip()
             try:
-                payload = fetch_feed_json(item)
+                payload, info = fetch_feed_with_fallback(item)
             except Exception as error:
                 print("[feeds] %s failed: %s" % (name, error))
+                feed_status.append({"name": name, "url": feed_url(item), "ok": False,
+                                    "restored": False, "error": str(error)[:200]})
                 feeds_ok = False
                 continue
-            if payload is None:
+            feed_status.append(info)
+            if info.get("restored"):
                 feeds_ok = False
-                continue
+                stats["feed_restored"] = int(stats.get("feed_restored") or 0) + 1
+                print("[feeds] %s using snapshot from %s: %s"
+                      % (name, info.get("snapshot_at"), info.get("error")))
             base, proxy = feed_bases(item)
             restored = 0
             if removed:
@@ -612,6 +670,7 @@ def main():
                      stats["conflict"] - before.get("conflict", 0),
                      stats.get("gate_rejected", 0) - before.get("gate_rejected", 0),
                      stats["rejected"] - before["rejected"], restored))
+    save_json(FEED_STATUS_PATH, {"checked_at": now_iso(), "feeds": feed_status})
     if seen_keys and feeds_ok:
         dropped = prune_stale_feed_entries(db, seen_keys, stats)
         if dropped:

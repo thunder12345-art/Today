@@ -1,6 +1,7 @@
 import base64
 import json
 import os
+import re
 import ssl
 import sys
 import time
@@ -38,6 +39,52 @@ def setup_stdout():
 
 def now_iso():
     return time.strftime("%Y-%m-%dT%H:%M:%S")
+
+
+SECRET_KEY_HINTS = ("cookie", "token", "secret", "passwd", "password", "authorization")
+SECRET_TEXT_PATTERNS = (
+    re.compile(r"(?i)\b(BDUSS|STOKEN|SESSDATA|bili_jct|DedeUserID__ckMd5|__pus|__puus)=([^;\s\"']+)"),
+    re.compile(r"(?i)(\"[a-z0-9_]*(?:cookie|token)\"\s*:\s*\")([^\"]{4,})(\")"),
+)
+
+
+def mask_text(text):
+    if not isinstance(text, str) or not text:
+        return text
+    text = SECRET_TEXT_PATTERNS[0].sub(lambda m: "%s=***" % m.group(1), text)
+    return SECRET_TEXT_PATTERNS[1].sub(lambda m: "%s***%s" % (m.group(1), m.group(3)), text)
+
+
+def mask_secrets(value):
+    if isinstance(value, dict):
+        out = {}
+        for key, item in value.items():
+            if isinstance(key, str) and any(hint in key.lower() for hint in SECRET_KEY_HINTS) \
+                    and isinstance(item, str) and item.strip():
+                out[key] = "***"
+            else:
+                out[key] = mask_secrets(item)
+        return out
+    if isinstance(value, list):
+        return [mask_secrets(item) for item in value]
+    if isinstance(value, str):
+        return mask_text(value)
+    return value
+
+
+def publish_allowed(epoch, state):
+    try:
+        incoming = int(epoch)
+    except (TypeError, ValueError):
+        return True
+    if not isinstance(state, dict):
+        return True
+    try:
+        last = int(state.get("epoch"))
+    except (TypeError, ValueError):
+        return True
+    return incoming >= last
+
 
 
 def load_json(path, default=None):

@@ -1,9 +1,36 @@
 import argparse
 import os
 
-from common import (DB_PATH, OUT_DIR, ROOT, is_whitelisted, load_json,
-                    load_json_safe, load_whitelist, now_iso, save_json,
-                    setup_stdout, strip_meta)
+from common import (BASE, DB_PATH, OUT_DIR, ROOT, is_whitelisted, load_json,
+                    load_json_safe, load_whitelist, local_jar_url, now_iso,
+                    rewrite_token_parts, save_json, setup_stdout, strip_meta)
+
+SETTINGS_PATH = os.path.join(BASE, "settings.json")
+
+
+def apply_remote_base(config, base):
+    base = (base or "").strip()
+    if not base:
+        return config
+    token_url = base.rstrip("/") + "/token.json"
+    sites = []
+    for item in config.get("sites") or []:
+        entry = item
+        ext = entry.get("ext")
+        new_ext = rewrite_token_parts(ext, token_url)
+        if new_ext != ext:
+            entry = dict(entry)
+            entry["ext"] = new_ext
+        jar = entry.get("jar")
+        if isinstance(jar, str):
+            new_jar = local_jar_url(jar, base)
+            if new_jar != jar:
+                entry = dict(entry)
+                entry["jar"] = new_jar
+        sites.append(entry)
+    result = dict(config)
+    result["sites"] = sites
+    return result
 
 
 def apply_run_meta(config, run_id=None, epoch=None):
@@ -115,6 +142,12 @@ def main():
     os.makedirs(out_dir, exist_ok=True)
     tvbox = apply_run_meta(tvbox)
     save_json(os.path.join(out_dir, "tvbox.json"), tvbox)
+    settings = load_json(SETTINGS_PATH, {}) or {}
+    remote_base = str(settings.get("remote_base_url") or "").strip() if isinstance(settings, dict) else ""
+    if remote_base:
+        save_json(os.path.join(out_dir, "tvbox.remote.json"),
+                  apply_remote_base(tvbox, remote_base))
+        print("remote -> %s (base %s)" % (os.path.join(out_dir, "tvbox.remote.json"), remote_base))
     save_json(os.path.join(out_dir, "caiji.json"), caiji)
     save_json(os.path.join(out_dir, "lmw.json"), lmw)
 

@@ -99,6 +99,17 @@ def local_jar_url(jar, base):
     return base.rstrip("/") + "/jar/" + name
 
 
+def rewrite_token_parts(ext, token_url):
+    if not isinstance(ext, str) or not token_url:
+        return ext
+    parts = []
+    for part in ext.split("$$$"):
+        head = part.strip().split("?", 1)[0].lower()
+        parts.append(token_url if head.endswith("token.json") else part)
+    return "$$$".join(parts)
+
+
+
 
 
 def load_json(path, default=None):

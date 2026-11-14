@@ -140,7 +140,7 @@ def main():
 
     out_dir = ROOT if args.inplace else args.out
     os.makedirs(out_dir, exist_ok=True)
-    tvbox = apply_run_meta(tvbox)
+    tvbox.pop("_meta", None)
     save_json(os.path.join(out_dir, "tvbox.json"), tvbox)
     settings = load_json(SETTINGS_PATH, {}) or {}
     remote_base = str(settings.get("remote_base_url") or "").strip() if isinstance(settings, dict) else ""

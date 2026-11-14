@@ -614,20 +614,28 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             self.send_file(PANEL_FILE, "text/html; charset=utf-8")
             return
-        if path in ("/tvbox", "/lmw", "/caiji"):
-            target = os.path.join(ROOT, {"tvbox": "tvbox.json", "lmw": "lmw.json",
-                                         "caiji": "caiji.json"}[path[1:]])
+        if path in ("/tvbox", "/lmw", "/caiji", "/tvbox.json", "/config.json"):
+            name = {"/tvbox": "tvbox.json", "/lmw": "lmw.json", "/caiji": "caiji.json",
+                    "/tvbox.json": "tvbox.json", "/config.json": "tvbox.json"}[path]
+            target = os.path.join(ROOT, name)
             if not os.path.exists(target):
                 self.send_error(404)
                 return
             self.send_file(target, "application/json; charset=utf-8")
             return
-        if path in ("/tvbox.remote", "/tvbox-remote"):
+        if path in ("/tvbox.remote", "/tvbox-remote", "/tvbox.remote.json", "/remote.json"):
             target = os.path.join(ROOT, "tvbox.remote.json")
             if not os.path.exists(target):
                 self.send_error(404)
                 return
             self.send_file(target, "application/json; charset=utf-8")
+            return
+        if path in ("/tvbox.jar", "/jar/tvbox.jar"):
+            target = os.path.join(ROOT, "tvbox.jar")
+            if not os.path.exists(target):
+                self.send_error(404)
+                return
+            self.send_file(target, "application/java-archive")
             return
         if path in ("/token.json", "/center/token.json"):
             private = os.path.join(ROOT, "center", "token.local.json")

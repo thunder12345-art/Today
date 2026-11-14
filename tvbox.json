@@ -577,14 +577,6 @@
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
         },
         {
-            "key": "趣盘",
-            "name": "趣盘·搜索",
-            "type": 3,
-            "timeout": 60,
-            "api": "csp_QuPanSo",
-            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
-        },
-        {
             "key": "夸克网盘",
             "name": "夸克·网盘",
             "type": 3,

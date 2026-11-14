@@ -1,5 +1,5 @@
 {
-    "spider": "./tvbox.jar",
+    "spider": "https://gh-proxy.com/https://raw.githubusercontent.com/thunder12345-art/Today/main/tvbox.jar",
     "logo": "https://img.meituan.net/portalweb/2d4b59b4fe3ab8c5fbe1150a68f52448586638.gif",
     "notice": "资源来自网络，无任何盈利纯学习技术！[所有内容仅供学习使用，请勿用于违法及商业用途，请勿付费购买]",
     "warningText": "资源来自网络，无任何盈利纯学习技术！[所有内容仅供学习使用，请勿用于违法及商业用途，请勿付费购买]",
@@ -450,7 +450,7 @@
                 ]
             },
             "timeout": 60,
-            "jar": "http://100.83.103.103:8899/jar/spider.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
         },
         {
             "key": "夸父",
@@ -504,7 +504,7 @@
                 "type": "list"
             },
             "timeout": 60,
-            "jar": "http://100.83.103.103:8899/jar/spider.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
         },
         {
             "key": "即刻",
@@ -563,7 +563,7 @@
             "quickSearch": 1,
             "filterable": 1,
             "timeout": 60,
-            "jar": "http://100.83.103.103:8899/jar/spider.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
         },
         {
             "key": "觅盘",
@@ -574,7 +574,7 @@
             "quickSearch": 0,
             "filterable": 0,
             "timeout": 60,
-            "jar": "http://100.83.103.103:8899/jar/spider.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
         },
         {
             "key": "夸克网盘",
@@ -627,7 +627,7 @@
                 "type": "list",
                 "ratio": 1.433
             },
-            "jar": "http://100.83.103.103:8899/jar/spider.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
         },
         {
             "key": "光鸭云盘",
@@ -641,7 +641,7 @@
                 "type": "list",
                 "ratio": 1.433
             },
-            "jar": "http://100.83.103.103:8899/jar/spider.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
         },
         {
             "key": "天翼云盘",
@@ -655,7 +655,7 @@
                 "type": "list",
                 "ratio": 1.433
             },
-            "jar": "http://100.83.103.103:8899/jar/spider.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
         },
         {
             "key": "123云盘",
@@ -669,7 +669,7 @@
                 "type": "list",
                 "ratio": 1.433
             },
-            "jar": "http://100.83.103.103:8899/jar/spider.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
         },
         {
             "key": "阿里云盘",
@@ -817,7 +817,7 @@
                 "type": "rect",
                 "ratio": 3.8
             },
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "lf_js_lf_live",
@@ -852,7 +852,7 @@
             "api": "csp_Kugou",
             "searchable": 1,
             "changeable": 0,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Wogg",
@@ -881,7 +881,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json$$$https://www.meijumi.xyz/$$$null$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "drpy_js_4KHDR",
@@ -1059,7 +1059,7 @@
             "searchable": 0,
             "changeable": 0,
             "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/market.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "PushShare",
@@ -1075,7 +1075,7 @@
             "style": {
                 "type": "list"
             },
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "PikPakShare",
@@ -1088,7 +1088,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/pikpakclass.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/pikpakclass.json.db.gz",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "AliShare",
@@ -1101,7 +1101,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/alishare.txt$$$db$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "AliShareEBook",
@@ -1117,7 +1117,7 @@
             "style": {
                 "type": "list"
             },
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "ThunderShare",
@@ -1130,7 +1130,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/thundershare.txt",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "QuarkShare",
@@ -1143,7 +1143,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/quarkshare.txt",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "115Share",
@@ -1160,7 +1160,7 @@
                 "type": "list",
                 "ratio": 1.1
             },
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "UCShare",
@@ -1177,7 +1177,7 @@
                 "type": "list",
                 "ratio": 1.1
             },
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "SambaShare",
@@ -1190,7 +1190,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/sambashare.txt",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Bdys_spider",
@@ -1202,7 +1202,7 @@
             "searchable": 1,
             "ext": "http://100.83.103.103:8899/token.json$$$https://www.bdys03.com/$$$null$$$1",
             "timeout": 30,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "荐片弹幕版",
@@ -1214,7 +1214,7 @@
             "filterable": 1,
             "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/jianpian.json$$$1",
             "timeout": 60,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Bt0",
@@ -1226,7 +1226,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$null$$$null$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Wobg",
@@ -1238,7 +1238,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://wobge.run.goorm.io$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "yydsys",
@@ -1250,7 +1250,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://tv.yydsys.top/$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "蜡笔网盘",
@@ -1262,7 +1262,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://duopan.fun/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$LABI",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Mogg",
@@ -1274,7 +1274,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$http://mogg.top/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$MOGG",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "土豆",
@@ -1286,7 +1286,7 @@
             "changeable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://tudou.lvdoui.top/$$$proxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$TUDOU",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "小米网盘",
@@ -1298,7 +1298,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://mihdr.top/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$XIAOMI",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Moli",
@@ -1310,7 +1310,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://www.hdmoli.pro/$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/moli.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Xinshijue",
@@ -1322,7 +1322,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://www.80yy3.com/$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Gaoqing",
@@ -1334,7 +1334,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://gaoqing.la/$$$proxy$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "音范丝",
@@ -1346,7 +1346,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://www.yinfans.me/$$$proxy$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "ddys",
@@ -1358,7 +1358,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://ddys.pro/$$$proxy$$$1$$$",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Ppxzy",
@@ -1370,7 +1370,7 @@
             "filterable": 1,
             "ext": "http://100.83.103.103:8899/token.json$$$https://ppxzy.net/$$$null",
             "timeout": 30,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Panta",
@@ -1382,7 +1382,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json$$$https://www.91panta.cn/$$$null$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Hdhive",
@@ -1394,7 +1394,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://hdhive.online$$$noproxy$$$1$$$http://127.0.0.1:9978/file/TV/hdhive.txt",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "新6V",
@@ -1405,7 +1405,7 @@
             "changeable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://www.66ss.org$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "4KHDR",
@@ -1416,7 +1416,7 @@
             "quickSearch": 1,
             "changeable": 1,
             "timeout": 60,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "校长影视",
@@ -1427,7 +1427,7 @@
             "quickSearch": 1,
             "changeable": 1,
             "timeout": 30,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "团长资源",
@@ -1438,7 +1438,7 @@
             "quickSearch": 1,
             "changeable": 1,
             "timeout": 30,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "YunPan",
@@ -1447,7 +1447,7 @@
             "api": "csp_YunPan",
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$null$$$proxy$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Wo4k",
@@ -1459,7 +1459,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://www.wo4k.com/$$$proxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Xpanpan",
@@ -1471,7 +1471,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$https://xpanpan.site$$$null$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "YingSo",
@@ -1480,7 +1480,7 @@
             "api": "csp_YingSo",
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "盘友圈",
@@ -1489,7 +1489,7 @@
             "api": "csp_Panyq",
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "88Pan",
@@ -1498,7 +1498,7 @@
             "api": "csp_EightEight",
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json$$$https://662688.xyz",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "PikaSo",
@@ -1510,7 +1510,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json$$$https://www.pikaso.top/$$$null",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "csp_HunHePan",
@@ -1523,7 +1523,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$null$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "秒搜",
@@ -1532,7 +1532,7 @@
             "api": "csp_MiaoSou",
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Libvio",
@@ -1544,7 +1544,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json$$$https://www.libvio.fun$$$null",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "DaPanSo",
@@ -1556,7 +1556,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json$$$https://dapanso.com$$$null",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Qianfan",
@@ -1568,7 +1568,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json$$$https://pan.qianfan.app$$$null$$$QianFanID=",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "YunSo",
@@ -1580,7 +1580,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "YunPanOne",
@@ -1592,7 +1592,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "小紙條",
@@ -1604,7 +1604,7 @@
             "filterable": 0,
             "ext": "http://100.83.103.103:8899/token.json",
             "timeout": 30,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "盤搜索",
@@ -1615,7 +1615,7 @@
             "changeable": 0,
             "ext": "http://100.83.103.103:8899/token.json",
             "timeout": 30,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "找資源",
@@ -1626,7 +1626,7 @@
             "changeable": 0,
             "ext": "http://100.83.103.103:8899/token.json",
             "timeout": 30,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "易搜",
@@ -1635,7 +1635,7 @@
             "api": "csp_YiSo",
             "ext": "http://100.83.103.103:8899/token.json",
             "timeout": 30,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "UP云搜",
@@ -1644,7 +1644,7 @@
             "api": "csp_UpYun",
             "ext": "http://100.83.103.103:8899/token.json",
             "timeout": 30,
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "Funletu",
@@ -1656,7 +1656,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "QuarkPanso",
@@ -1668,7 +1668,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://100.83.103.103:8899/token.json",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "TGYunPan",
@@ -1677,7 +1677,7 @@
             "api": "csp_TGYunPan",
             "timeout": 60,
             "ext": "http://100.83.103.103:8899/token.json$$$http://144.126.217.226:8000/$$$hao115,Aliyundrive_Share_Channel,kuakeyun$$$noproxy$$$1",
-            "jar": "http://100.83.103.103:8899/jar/pg_upgraded.jar"
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
             "key": "drpy_js_豆瓣",

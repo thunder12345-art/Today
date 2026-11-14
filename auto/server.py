@@ -7,13 +7,15 @@ import sys
 import threading
 import time
 import urllib.parse
+import uuid
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 from common import (BASE, DB_PATH, REPORT_JSON, REPORT_TXT, ROOT, http_check,
                     is_http, is_whitelisted, item_key, load_json,
-                    load_json_safe, load_removed, load_whitelist, now_iso, save_json,
-                    save_removed, save_whitelist, setup_stdout)
+                    load_json_safe, load_removed, load_whitelist, mask_text, now_iso,
+                    publish_allowed, save_json, save_removed, save_whitelist,
+                    setup_stdout)
 from check import apply_policy_to_item, check_item, class_index
 from jarscan import load_jarscan
 from submit import fetch_payload, parse_payload, submit_payloads
@@ -39,6 +41,8 @@ STATE = {
     "feeds_last_result": None,
     "last_run_ts": None,
     "last_cycle_ts": None,
+    "run_id": None,
+    "run_epoch": None,
 }
 LOCK = threading.Lock()
 
@@ -54,6 +58,8 @@ UPSTREAM_STATE = os.path.join(BASE, ".upstream_state.json")
 FEEDS_PATH = os.path.join(BASE, "feeds.json")
 FEED_SCRIPT = os.path.join(BASE, "feed_sync.py")
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
+PUBLISH_STATE_PATH = os.path.join(BASE, "publish_state.json")
+FEED_STATUS_PATH = os.path.join(BASE, "feed_status.json")
 TOKEN = os.environ.get("PANEL_TOKEN", "").strip()
 
 DEFAULT_CENTER_TOKEN_URL = (
@@ -175,7 +181,12 @@ def ensure_seed():
         subprocess.run([sys.executable, os.path.join(BASE, "seed.py")])
 
 
-def git_publish():
+def git_publish(run_id=None, epoch=None):
+    state = load_json(PUBLISH_STATE_PATH, {})
+    if not publish_allowed(epoch, state):
+        print("[publish] stale run %s (epoch %s < %s), skipped"
+              % (run_id, epoch, (state or {}).get("epoch")))
+        return False
     if not os.path.isdir(os.path.join(ROOT, ".git")):
         return
     env = dict(os.environ, GIT_TERMINAL_PROMPT="0")
@@ -222,6 +233,12 @@ def git_publish():
                       % (remote, attempt, (result.stdout or "").strip()[:160]))
         if pushed:
             print("[publish] pushed: %s" % ", ".join(pushed))
+        save_json(PUBLISH_STATE_PATH, {
+            "run_id": run_id or "",
+            "epoch": epoch if epoch is not None else int(time.time_ns()),
+            "published_at": now_iso(),
+            "remotes": pushed,
+        })
     except Exception as error:
         print("[publish] error: %s" % error)
 
@@ -233,16 +250,21 @@ def run_pipeline(scope, drop_dead, timeout, workers):
     try:
         STATE["running"] = True
         started = time.time()
+        run_id = datetime.datetime.now().strftime("%Y%m%dT%H%M%S") + "-" + uuid.uuid4().hex[:6]
+        epoch = time.time_ns()
+        STATE["run_id"] = run_id
+        STATE["run_epoch"] = epoch
         command = build_pipeline_command(scope, drop_dead, timeout, workers, load_settings())
         print("[pipeline] started: %s" % " ".join(command))
-        result = subprocess.run(command)
+        child_env = dict(os.environ, PIPELINE_RUN_ID=run_id, PIPELINE_EPOCH=str(epoch))
+        result = subprocess.run(command, env=child_env)
         STATE["last_run"] = now_iso()
         STATE["last_run_ts"] = time.time()
         STATE["last_duration"] = round(time.time() - started, 1)
         STATE["last_result"] = "ok" if result.returncode == 0 else "failed (%d)" % result.returncode
         print("[pipeline] finished: %s in %.1fs" % (STATE["last_result"], STATE["last_duration"]))
         if result.returncode == 0:
-            git_publish()
+            git_publish(run_id, epoch)
     finally:
         STATE["running"] = False
         LOCK.release()
@@ -464,6 +486,8 @@ def build_status():
             "parses": parses_info, "whitelist": whitelist,
             "db_updated": db.get("updated") or "",
             "settings": load_settings(),
+            "feeds": load_json(FEED_STATUS_PATH, {}),
+            "publish": load_json(PUBLISH_STATE_PATH, {}),
             "report": load_json(REPORT_JSON, {})}
 
 
@@ -522,7 +546,7 @@ class Handler(SimpleHTTPRequestHandler):
         path = (self.path or "").split("?", 1)[0]
         if path in ("/status", "/favicon.ico"):
             return
-        super().log_message(format, *args)
+        super().log_message("%s", mask_text(format % args))
 
     def do_GET(self):
         parts = urllib.parse.urlsplit(self.path)

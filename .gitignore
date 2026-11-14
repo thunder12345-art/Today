@@ -13,4 +13,7 @@ auto/upstream_sync.log
 auto/settings.json
 auto/schedule_state.json
 auto/.jar_cache/
+auto/feeds_snapshot/
+auto/feed_status.json
+auto/publish_state.json
 center/token.local.json

@@ -2,8 +2,30 @@ import argparse
 import os
 
 from common import (DB_PATH, OUT_DIR, ROOT, is_whitelisted, load_json,
-                    load_json_safe, load_whitelist, save_json, setup_stdout,
-                    strip_meta)
+                    load_json_safe, load_whitelist, now_iso, save_json,
+                    setup_stdout, strip_meta)
+
+
+def apply_run_meta(config, run_id=None, epoch=None):
+    run_id = (run_id if run_id is not None else os.environ.get("PIPELINE_RUN_ID") or "").strip()
+    if not run_id:
+        return config
+    epoch_value = epoch
+    if epoch_value is None:
+        epoch_value = os.environ.get("PIPELINE_EPOCH") or ""
+    meta = config.get("_meta")
+    if not isinstance(meta, dict):
+        meta = {}
+    meta = dict(meta)
+    meta["run_id"] = run_id
+    meta["generated_at"] = now_iso()
+    try:
+        meta["epoch"] = int(epoch_value)
+    except (TypeError, ValueError):
+        pass
+    result = dict(config)
+    result["_meta"] = meta
+    return result
 
 
 def is_local_origin(origin):
@@ -91,6 +113,7 @@ def main():
 
     out_dir = ROOT if args.inplace else args.out
     os.makedirs(out_dir, exist_ok=True)
+    tvbox = apply_run_meta(tvbox)
     save_json(os.path.join(out_dir, "tvbox.json"), tvbox)
     save_json(os.path.join(out_dir, "caiji.json"), caiji)
     save_json(os.path.join(out_dir, "lmw.json"), lmw)

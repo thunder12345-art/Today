@@ -493,6 +493,20 @@
             "timeout": 60
         },
         {
+            "key": "卡卡",
+            "name": "卡卡·4K",
+            "type": 3,
+            "api": "csp_KKPan",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "style": {
+                "type": "list"
+            },
+            "timeout": 60,
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
+        },
+        {
             "key": "即刻",
             "name": "即刻·4K",
             "type": 3,
@@ -541,6 +555,36 @@
             "timeout": 60
         },
         {
+            "key": "爱盼",
+            "name": "爱盼·4K",
+            "type": 3,
+            "api": "csp_AiPan",
+            "searchable": 1,
+            "quickSearch": 1,
+            "filterable": 1,
+            "timeout": 60,
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
+        },
+        {
+            "key": "觅盘",
+            "name": "觅盘·搜索",
+            "type": 3,
+            "api": "csp_MiPan",
+            "searchable": 1,
+            "quickSearch": 0,
+            "filterable": 0,
+            "timeout": 60,
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
+        },
+        {
+            "key": "趣盘",
+            "name": "趣盘·搜索",
+            "type": 3,
+            "timeout": 60,
+            "api": "csp_QuPanSo",
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
+        },
+        {
             "key": "夸克网盘",
             "name": "夸克·网盘",
             "type": 3,
@@ -578,6 +622,62 @@
                 "type": "list",
                 "ratio": 1.433
             }
+        },
+        {
+            "key": "迅雷云盘",
+            "name": "迅雷·云盘",
+            "type": 3,
+            "api": "csp_PanXunlei",
+            "searchable": 0,
+            "filterable": 0,
+            "changeable": 0,
+            "style": {
+                "type": "list",
+                "ratio": 1.433
+            },
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
+        },
+        {
+            "key": "光鸭云盘",
+            "name": "光鸭·云盘",
+            "type": 3,
+            "api": "csp_PanGuangya",
+            "searchable": 0,
+            "filterable": 0,
+            "changeable": 0,
+            "style": {
+                "type": "list",
+                "ratio": 1.433
+            },
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
+        },
+        {
+            "key": "天翼云盘",
+            "name": "天翼·云盘",
+            "type": 3,
+            "api": "csp_PanTianyi",
+            "searchable": 0,
+            "filterable": 0,
+            "changeable": 0,
+            "style": {
+                "type": "list",
+                "ratio": 1.433
+            },
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
+        },
+        {
+            "key": "123云盘",
+            "name": "123·云盘",
+            "type": 3,
+            "api": "csp_Pan123",
+            "searchable": 0,
+            "filterable": 0,
+            "changeable": 0,
+            "style": {
+                "type": "list",
+                "ratio": 1.433
+            },
+            "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"
         },
         {
             "key": "阿里云盘",

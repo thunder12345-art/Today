@@ -1,9 +1,10 @@
 import argparse
 import os
 
-from common import (BASE, DB_PATH, OUT_DIR, ROOT, is_whitelisted, load_json,
-                    load_json_safe, load_whitelist, local_jar_url, now_iso,
-                    rewrite_token_parts, save_json, setup_stdout, strip_meta)
+from common import (BASE, DB_PATH, OUT_DIR, ROOT, PUBLIC_JAR_URLS,
+                    PUBLIC_SPIDER_URL, is_whitelisted, load_json, load_json_safe,
+                    load_whitelist, now_iso, rewrite_token_parts, save_json,
+                    setup_stdout, strip_meta)
 
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
 
@@ -23,13 +24,18 @@ def apply_remote_base(config, base):
             entry["ext"] = new_ext
         jar = entry.get("jar")
         if isinstance(jar, str):
-            new_jar = local_jar_url(jar, base)
-            if new_jar != jar:
+            core = jar.strip().split(";md5;", 1)[0].split("?", 1)[0]
+            name = core.rsplit("/", 1)[-1]
+            public_jar = PUBLIC_JAR_URLS.get(name)
+            if public_jar and public_jar != jar:
                 entry = dict(entry)
-                entry["jar"] = new_jar
+                entry["jar"] = public_jar
         sites.append(entry)
     result = dict(config)
     result["sites"] = sites
+    spider = result.get("spider")
+    if isinstance(spider, str) and spider.strip().endswith("tvbox.jar"):
+        result["spider"] = PUBLIC_SPIDER_URL
     return result
 
 

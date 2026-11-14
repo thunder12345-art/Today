@@ -76,7 +76,7 @@ class JarRewriteTests(unittest.TestCase):
 
 class RemoteBaseTests(unittest.TestCase):
     def test_rewrites_token_and_jar(self):
-        config = {"sites": [
+        config = {"spider": "./tvbox.jar", "sites": [
             {"key": "Wogg", "ext": "http://192.168.1.254:8899/token.json$$$https://www.wogg.net/"},
             {"key": "花卷", "jar": "http://192.168.1.254:8899/jar/spider.jar",
              "ext": {"site": ["https://x"]}},
@@ -85,8 +85,9 @@ class RemoteBaseTests(unittest.TestCase):
         out = build.apply_remote_base(config, "http://100.64.0.5:8899")
         by_key = {site["key"]: site for site in out["sites"]}
         self.assertTrue(by_key["Wogg"]["ext"].startswith("http://100.64.0.5:8899/token.json$$$"))
-        self.assertEqual(by_key["花卷"]["jar"], "http://100.64.0.5:8899/jar/spider.jar")
+        self.assertEqual(by_key["花卷"]["jar"], common.PUBLIC_JAR_URLS["spider.jar"])
         self.assertEqual(by_key["keep"], config["sites"][2])
+        self.assertEqual(out["spider"], common.PUBLIC_SPIDER_URL)
 
     def test_empty_base_is_noop(self):
         config = {"sites": [{"key": "a", "jar": "http://192.168.1.254:8899/jar/spider.jar"}]}

@@ -50,6 +50,23 @@ def apply_remote_base(config, base, hashes=None):
     return apply_public_jars(result, PUBLIC_JAR_URLS, PUBLIC_SPIDER_URL, hashes)
 
 
+def apply_token_url(config, token_url):
+    if not token_url:
+        return config
+    sites = []
+    for item in config.get("sites") or []:
+        entry = item
+        ext = entry.get("ext")
+        new_ext = rewrite_token_parts(ext, token_url)
+        if new_ext != ext:
+            entry = dict(entry)
+            entry["ext"] = new_ext
+        sites.append(entry)
+    result = dict(config)
+    result["sites"] = sites
+    return result
+
+
 def apply_jar_md5(config, hashes=None):
     sites = []
     for item in config.get("sites") or []:
@@ -197,9 +214,12 @@ def main():
     tvbox.pop("_meta", None)
     hashes = {name: jar_md5(name) for name in ("spider.jar", "pg_upgraded.jar",
                                                "tvbox.jar")}
+    settings = load_json(SETTINGS_PATH, {}) or {}
+    center_token = str(settings.get("center_token_url") or "").strip() \
+        if isinstance(settings, dict) else ""
+    tvbox = apply_token_url(tvbox, center_token)
     tvbox = apply_jar_md5(tvbox, hashes)
     save_json(os.path.join(out_dir, "tvbox.json"), tvbox)
-    settings = load_json(SETTINGS_PATH, {}) or {}
     remote_base = str(settings.get("remote_base_url") or "").strip() if isinstance(settings, dict) else ""
     if remote_base:
         save_json(os.path.join(out_dir, "tvbox.remote.json"),

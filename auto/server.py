@@ -635,14 +635,41 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         parts = urllib.parse.urlsplit(self.path)
         path = parts.path
+        config_only = getattr(self.server, "config_only", False)
+        if config_only and (path in ("/status", "/__status")
+                            or path.startswith("/api/")
+                            or path in ("/panel", "/panel.html")
+                            or path.startswith("/panel/")):
+            self.send_error(404)
+            return
         if path in ("/status", "/__status"):
             self.send_json({"state": STATE, "report": load_json(REPORT_JSON, {})})
             return
-        if path in ("/", "/index.html", "/panel", "/panel.html") or path.startswith("/panel/"):
+        if path in ("/", "/index.html"):
+            if config_only:
+                target = os.path.join(ROOT, "tvbox.phone.json")
+                if not os.path.exists(target):
+                    self.send_error(404)
+                    return
+                self.send_file(target, "application/json; charset=utf-8")
+                return
             if not self.authorized(parts):
                 self.send_login()
                 return
             self.send_file(PANEL_FILE, "text/html; charset=utf-8")
+            return
+        if path in ("/panel", "/panel.html") or path.startswith("/panel/"):
+            if not self.authorized(parts):
+                self.send_login()
+                return
+            self.send_file(PANEL_FILE, "text/html; charset=utf-8")
+            return
+        if path in ("/lan", "/tvbox.lan", "/tvbox.lan.json"):
+            target = os.path.join(ROOT, "tvbox.json")
+            if not os.path.exists(target):
+                self.send_error(404)
+                return
+            self.send_file(target, "application/json; charset=utf-8")
             return
         if path in ("/tvbox", "/lmw", "/caiji", "/tvbox.json", "/config.json"):
             name = {"/tvbox": "tvbox.json", "/lmw": "lmw.json", "/caiji": "caiji.json",
@@ -676,6 +703,9 @@ class Handler(SimpleHTTPRequestHandler):
                            "public, max-age=3600")
             return
         if path in ("/token.json", "/center/token.json"):
+            if config_only:
+                self.send_error(404)
+                return
             private = os.path.join(ROOT, "center", "token.local.json")
             target = private if os.path.exists(private) else os.path.join(ROOT, "center", "token.json")
             if not os.path.exists(target):
@@ -721,6 +751,9 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
         parts = urllib.parse.urlsplit(self.path)
+        if getattr(self.server, "config_only", False):
+            self.send_error(404)
+            return
         if not parts.path.startswith("/api/"):
             self.send_error(404)
             return
@@ -1161,6 +1194,7 @@ class Handler(SimpleHTTPRequestHandler):
 def main():
     parser = argparse.ArgumentParser(description="Self-hosted subscription server with scheduled refresh and panel")
     parser.add_argument("--port", type=int, default=env_int("PORT", 8080))
+    parser.add_argument("--tvbox-port", type=int, default=env_int("TVBOX_PORT", 8081))
     parser.add_argument("--interval-hours", type=float, default=env_float("REFRESH_INTERVAL_HOURS", 12))
     parser.add_argument("--scope", choices=["local", "all"], default=os.environ.get("BUILD_SCOPE", "all"))
     parser.add_argument("--drop-dead", action="store_true", default=env_bool("DROP_DEAD", False))
@@ -1191,12 +1225,19 @@ def main():
     worker.start()
 
     server = ThreadingHTTPServer(("0.0.0.0", args.port), partial(Handler, directory=ROOT))
-    print("[server] serving %s at http://0.0.0.0:%d" % (ROOT, args.port))
+    server.config_only = False
     print("[server] panel:  http://<host>:%d/%s" % (args.port, " (token required)" if TOKEN else ""))
     print("[server] tvbox:  http://<host>:%d/tvbox" % args.port)
-    print("[server] lmw:    http://<host>:%d/lmw" % args.port)
-    print("[server] caiji:  http://<host>:%d/caiji" % args.port)
     print("[server] status: http://<host>:%d/status" % args.port)
+    if args.tvbox_port and args.tvbox_port != args.port:
+        tvbox_server = ThreadingHTTPServer(("0.0.0.0", args.tvbox_port),
+                                           partial(Handler, directory=ROOT))
+        tvbox_server.config_only = True
+        threading.Thread(target=tvbox_server.serve_forever, daemon=True).start()
+        print("[server] tvbox api: http://<host>:%d/ (root=phone config, no panel/token)"
+              % args.tvbox_port)
+        print("[server] tvbox lan: http://<host>:%d/tvbox (token served on panel port)"
+              % args.tvbox_port)
     settings = load_settings()
     print("[server] schedule: every %sd at %s:00 auto_sync=%s (auto/settings.json, panel editable)"
           " | scope=%s | drop_dead=%s | auto_block=%s after=%d | run_on_start=%s"

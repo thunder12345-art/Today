@@ -880,7 +880,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://www.meijumi.xyz/$$$null$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://www.meijumi.xyz/$$$null$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1071,7 +1071,7 @@
             "changeable": 1,
             "filterable": 0,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/pushshare.txt$$$db$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/pushshare.txt$$$db$$$1",
             "style": {
                 "type": "list"
             },
@@ -1087,7 +1087,7 @@
             "changeable": 1,
             "filterable": 0,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/pikpakclass.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/pikpakclass.json.db.gz",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/pikpakclass.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/pikpakclass.json.db.gz",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1100,7 +1100,7 @@
             "changeable": 1,
             "filterable": 0,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/alishare.txt$$$db$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/alishare.txt$$$db$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1113,7 +1113,7 @@
             "changeable": 0,
             "filterable": 0,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/alishare.ebook.txt$$$db$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/alishare.ebook.txt$$$db$$$1",
             "style": {
                 "type": "list"
             },
@@ -1129,7 +1129,7 @@
             "changeable": 1,
             "filterable": 0,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/thundershare.txt",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/thundershare.txt",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1142,7 +1142,7 @@
             "changeable": 1,
             "filterable": 0,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/quarkshare.txt",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/quarkshare.txt",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1155,7 +1155,7 @@
             "changeable": 0,
             "filterable": 0,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/115share.txt$$$db$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/115share.txt$$$db$$$1",
             "style": {
                 "type": "list",
                 "ratio": 1.1
@@ -1172,7 +1172,7 @@
             "changeable": 0,
             "filterable": 0,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/ucshare.txt$$$db$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/ucshare.txt$$$db$$$1",
             "style": {
                 "type": "list",
                 "ratio": 1.1
@@ -1189,7 +1189,7 @@
             "changeable": 0,
             "filterable": 0,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/sambashare.txt",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/sambashare.txt",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1200,7 +1200,7 @@
             "filterable": 1,
             "quickSearch": 1,
             "searchable": 1,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://www.bdys03.com/$$$null$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://www.bdys03.com/$$$null$$$1",
             "timeout": 30,
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
@@ -1225,7 +1225,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$null$$$null$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$null$$$null$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1237,7 +1237,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://wobge.run.goorm.io$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://wobge.run.goorm.io$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1249,7 +1249,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://tv.yydsys.top/$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://tv.yydsys.top/$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1261,7 +1261,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://duopan.fun/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$LABI",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://duopan.fun/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$LABI",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1273,7 +1273,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$http://mogg.top/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$MOGG",
+            "ext": "http://192.168.1.254:8899/token.json$$$http://mogg.top/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$MOGG",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1285,7 +1285,7 @@
             "filterable": 0,
             "changeable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://tudou.lvdoui.top/$$$proxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$TUDOU",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://tudou.lvdoui.top/$$$proxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$TUDOU",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1297,7 +1297,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://mihdr.top/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$XIAOMI",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://mihdr.top/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$XIAOMI",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1309,7 +1309,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://www.hdmoli.pro/$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/moli.json",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://www.hdmoli.pro/$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/moli.json",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1321,7 +1321,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://www.80yy3.com/$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://www.80yy3.com/$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1333,7 +1333,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://gaoqing.la/$$$proxy$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://gaoqing.la/$$$proxy$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1345,7 +1345,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://www.yinfans.me/$$$proxy$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://www.yinfans.me/$$$proxy$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1357,7 +1357,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://ddys.pro/$$$proxy$$$1$$$",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://ddys.pro/$$$proxy$$$1$$$",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1368,7 +1368,7 @@
             "quickSearch": 1,
             "changeable": 1,
             "filterable": 1,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://ppxzy.net/$$$null",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://ppxzy.net/$$$null",
             "timeout": 30,
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
@@ -1381,7 +1381,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://www.91panta.cn/$$$null$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://www.91panta.cn/$$$null$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1393,7 +1393,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://hdhive.online$$$noproxy$$$1$$$http://127.0.0.1:9978/file/TV/hdhive.txt",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://hdhive.online$$$noproxy$$$1$$$http://127.0.0.1:9978/file/TV/hdhive.txt",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1404,7 +1404,7 @@
             "searchable": 1,
             "changeable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://www.66ss.org$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://www.66ss.org$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1412,7 +1412,7 @@
             "name": "弹幕 | 4KHDR[jar]",
             "type": 3,
             "api": "csp_FourKHDR",
-            "ext": "http://100.83.103.103:8899/token.json$$$http://127.0.0.1:9978/file/TV/4khdr.txt",
+            "ext": "http://192.168.1.254:8899/token.json$$$http://127.0.0.1:9978/file/TV/4khdr.txt",
             "quickSearch": 1,
             "changeable": 1,
             "timeout": 60,
@@ -1423,7 +1423,7 @@
             "name": "弹幕 | 校长[jar]",
             "type": 3,
             "api": "csp_XiaoZhang",
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "quickSearch": 1,
             "changeable": 1,
             "timeout": 30,
@@ -1434,7 +1434,7 @@
             "name": "弹幕 | 团长[jar]",
             "type": 3,
             "api": "csp_TZFile",
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "quickSearch": 1,
             "changeable": 1,
             "timeout": 30,
@@ -1446,7 +1446,7 @@
             "type": 3,
             "api": "csp_YunPan",
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$null$$$proxy$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$null$$$proxy$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1458,7 +1458,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://www.wo4k.com/$$$proxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://www.wo4k.com/$$$proxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1470,7 +1470,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://xpanpan.site$$$null$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://xpanpan.site$$$null$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1479,7 +1479,7 @@
             "type": 3,
             "api": "csp_YingSo",
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1488,7 +1488,7 @@
             "type": 3,
             "api": "csp_Panyq",
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1497,7 +1497,7 @@
             "type": 3,
             "api": "csp_EightEight",
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://662688.xyz",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://662688.xyz",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1509,7 +1509,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://www.pikaso.top/$$$null",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://www.pikaso.top/$$$null",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1522,7 +1522,7 @@
             "changeable": 1,
             "filterable": 0,
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$null$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$null$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1531,7 +1531,7 @@
             "type": 3,
             "api": "csp_MiaoSou",
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1543,7 +1543,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://www.libvio.fun$$$null",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://www.libvio.fun$$$null",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1555,7 +1555,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://dapanso.com$$$null",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://dapanso.com$$$null",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1567,7 +1567,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json$$$https://pan.qianfan.app$$$null$$$QianFanID=",
+            "ext": "http://192.168.1.254:8899/token.json$$$https://pan.qianfan.app$$$null$$$QianFanID=",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1579,7 +1579,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1591,7 +1591,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1602,7 +1602,7 @@
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 0,
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "timeout": 30,
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
@@ -1613,7 +1613,7 @@
             "api": "csp_PanSearch",
             "searchable": 1,
             "changeable": 0,
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "timeout": 30,
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
@@ -1624,7 +1624,7 @@
             "api": "csp_Zhaozy",
             "searchable": 1,
             "changeable": 0,
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "timeout": 30,
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
@@ -1633,7 +1633,7 @@
             "name": "阿里 | 易搜[jar]",
             "type": 3,
             "api": "csp_YiSo",
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "timeout": 30,
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
@@ -1642,7 +1642,7 @@
             "name": "阿里 | up云搜[jar]",
             "type": 3,
             "api": "csp_UpYun",
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "timeout": 30,
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
@@ -1655,7 +1655,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1667,7 +1667,7 @@
             "changeable": 1,
             "filterable": 1,
             "timeout": 30,
-            "ext": "http://100.83.103.103:8899/token.json",
+            "ext": "http://192.168.1.254:8899/token.json",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {
@@ -1676,7 +1676,7 @@
             "type": 3,
             "api": "csp_TGYunPan",
             "timeout": 60,
-            "ext": "http://100.83.103.103:8899/token.json$$$http://144.126.217.226:8000/$$$hao115,Aliyundrive_Share_Channel,kuakeyun$$$noproxy$$$1",
+            "ext": "http://192.168.1.254:8899/token.json$$$http://144.126.217.226:8000/$$$hao115,Aliyundrive_Share_Channel,kuakeyun$$$noproxy$$$1",
             "jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"
         },
         {

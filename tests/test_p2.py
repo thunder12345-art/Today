@@ -85,9 +85,9 @@ class RemoteBaseTests(unittest.TestCase):
         out = build.apply_remote_base(config, "http://100.64.0.5:8899")
         by_key = {site["key"]: site for site in out["sites"]}
         self.assertTrue(by_key["Wogg"]["ext"].startswith("http://100.64.0.5:8899/token.json$$$"))
-        self.assertEqual(by_key["花卷"]["jar"], common.PUBLIC_JAR_URLS["spider.jar"])
+        self.assertTrue(by_key["花卷"]["jar"].startswith(common.PUBLIC_JAR_URLS["spider.jar"]))
         self.assertEqual(by_key["keep"], config["sites"][2])
-        self.assertEqual(out["spider"], common.PUBLIC_SPIDER_URL)
+        self.assertTrue(out["spider"].startswith(common.PUBLIC_SPIDER_URL))
 
     def test_empty_base_is_noop(self):
         config = {"sites": [{"key": "a", "jar": "http://192.168.1.254:8899/jar/spider.jar"}]}
@@ -97,6 +97,29 @@ class RemoteBaseTests(unittest.TestCase):
         ext = "https://a/token.json$$$https://site/$$$null"
         self.assertEqual(common.rewrite_token_parts(ext, "http://100.64.0.5:8899/token.json"),
                          "http://100.64.0.5:8899/token.json$$$https://site/$$$null")
+
+
+class PhoneModeTests(unittest.TestCase):
+    def test_phone_uses_cdn_and_fast_fail_token(self):
+        config = {"spider": "./tvbox.jar", "sites": [
+            {"key": "Wogg", "ext": "http://192.168.1.254:8899/token.json$$$https://www.wogg.net/"},
+            {"key": "花卷", "jar": "http://192.168.1.254:8899/jar/spider.jar"},
+        ]}
+        out = build.apply_phone_mode(config)
+        by_key = {site["key"]: site for site in out["sites"]}
+        self.assertIn(common.PHONE_TOKEN_URL, by_key["Wogg"]["ext"])
+        self.assertNotIn("192.168.1.254", by_key["Wogg"]["ext"])
+        self.assertTrue(by_key["花卷"]["jar"].startswith(
+            common.PUBLIC_JAR_URLS_CDN["spider.jar"]))
+        self.assertTrue(out["spider"].startswith(common.PUBLIC_SPIDER_URL_CDN))
+
+    def test_jar_md5_added_once(self):
+        hashes = {"spider.jar": "abc123"}
+        config = {"sites": [{"key": "a", "jar": "http://nas:8899/jar/spider.jar"}]}
+        out = build.apply_jar_md5(config, hashes)
+        self.assertEqual(out["sites"][0]["jar"], "http://nas:8899/jar/spider.jar;md5;abc123")
+        again = build.apply_jar_md5(out, hashes)
+        self.assertEqual(again["sites"][0]["jar"], "http://nas:8899/jar/spider.jar;md5;abc123")
 
 
 if __name__ == "__main__":

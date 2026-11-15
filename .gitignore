@@ -17,3 +17,5 @@ auto/feeds_snapshot/
 auto/feed_status.json
 auto/publish_state.json
 center/token.local.json
+.env
+

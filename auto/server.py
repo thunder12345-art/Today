@@ -7,6 +7,7 @@ import sys
 import threading
 import time
 import urllib.parse
+import urllib.request
 import uuid
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
@@ -257,7 +258,22 @@ def git_publish(run_id=None, epoch=None):
         print("[publish] error: %s" % error)
 
 
-def run_pipeline(scope, drop_dead, timeout, workers):
+def notify(title, message, priority="default"):
+    url = os.environ.get("NOTIFY_URL", "").strip()
+    if not url:
+        return
+    try:
+        request = urllib.request.Request(
+            url, data=message.encode("utf-8"),
+            headers={"Title": title, "Priority": priority,
+                     "Content-Type": "text/plain; charset=utf-8"})
+        urllib.request.urlopen(request, timeout=6).read(256)
+        print("[notify] sent: %s" % title)
+    except Exception as error:
+        print("[notify] failed: %s" % error)
+
+
+def run_pipeline(scope, drop_dead, timeout, workers, groups=None):
     if not LOCK.acquire(blocking=False):
         print("[pipeline] previous run still active, skip")
         return False
@@ -268,7 +284,8 @@ def run_pipeline(scope, drop_dead, timeout, workers):
         epoch = time.time_ns()
         STATE["run_id"] = run_id
         STATE["run_epoch"] = epoch
-        command = build_pipeline_command(scope, drop_dead, timeout, workers, load_settings())
+        command = build_pipeline_command(scope, drop_dead, timeout, workers,
+                                         load_settings(), groups)
         print("[pipeline] started: %s" % " ".join(command))
         child_env = dict(os.environ, PIPELINE_RUN_ID=run_id, PIPELINE_EPOCH=str(epoch))
         result = subprocess.run(command, env=child_env)
@@ -277,7 +294,17 @@ def run_pipeline(scope, drop_dead, timeout, workers):
         STATE["last_duration"] = round(time.time() - started, 1)
         STATE["last_result"] = "ok" if result.returncode == 0 else "failed (%d)" % result.returncode
         print("[pipeline] finished: %s in %.1fs" % (STATE["last_result"], STATE["last_duration"]))
-        if result.returncode == 0:
+        ok = result.returncode == 0
+        previous = STATE.get("last_ok")
+        if not ok:
+            notify("Tomorrow pipeline failed",
+                   "run=%s result=%s duration=%ss" % (run_id, STATE["last_result"],
+                                                      STATE["last_duration"]), "high")
+        elif previous is False:
+            notify("Tomorrow pipeline recovered",
+                   "run=%s ok in %ss" % (run_id, STATE["last_duration"]))
+        STATE["last_ok"] = ok
+        if ok:
             git_publish(run_id, epoch)
     finally:
         STATE["running"] = False
@@ -285,7 +312,7 @@ def run_pipeline(scope, drop_dead, timeout, workers):
     return True
 
 
-def build_pipeline_command(scope, drop_dead, timeout, workers, settings):
+def build_pipeline_command(scope, drop_dead, timeout, workers, settings, groups=None):
     command = [sys.executable, os.path.join(BASE, "run.py"),
                "--scope", scope, "--timeout", str(timeout),
                "--workers", str(workers), "--inplace"]
@@ -295,7 +322,10 @@ def build_pipeline_command(scope, drop_dead, timeout, workers, settings):
         command.append("--no-auto-block")
     else:
         command.extend(["--auto-block-after", str(STATE["auto_block_after"])])
-    groups = settings.get("check_groups") or {}
+    if groups == "all":
+        groups = {"sites": True, "caiji": True, "repos": True, "parses": True}
+    if not isinstance(groups, dict):
+        groups = settings.get("check_groups") or {}
     enabled = [name for name in ("sites", "caiji", "repos") if groups.get(name, True)]
     if len(enabled) != 3 and enabled:
         command.extend(["--only-groups", ",".join(enabled)])
@@ -630,12 +660,20 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             self.send_file(target, "application/json; charset=utf-8")
             return
+        if path in ("/tvbox.phone", "/tvbox-phone", "/tvbox.phone.json", "/phone.json"):
+            target = os.path.join(ROOT, "tvbox.phone.json")
+            if not os.path.exists(target):
+                self.send_error(404)
+                return
+            self.send_file(target, "application/json; charset=utf-8")
+            return
         if path in ("/tvbox.jar", "/jar/tvbox.jar"):
             target = os.path.join(ROOT, "tvbox.jar")
             if not os.path.exists(target):
                 self.send_error(404)
                 return
-            self.send_file(target, "application/java-archive")
+            self.send_file(target, "application/java-archive",
+                           "public, max-age=3600")
             return
         if path in ("/token.json", "/center/token.json"):
             private = os.path.join(ROOT, "center", "token.local.json")
@@ -643,10 +681,11 @@ class Handler(SimpleHTTPRequestHandler):
             if not os.path.exists(target):
                 self.send_error(404)
                 return
-            self.send_file(target, "application/json; charset=utf-8")
+            self.send_file(target, "application/json; charset=utf-8", "no-store")
             return
         if path.startswith("/jar/"):
-            name = urllib.parse.unquote(path[len("/jar/"):])
+            raw_name = urllib.parse.unquote(path[len("/jar/"):])
+            name = raw_name.split(";md5;", 1)[0].split("?", 1)[0]
             if "/" in name or "\\" in name or name not in LOCAL_JAR_SOURCES:
                 self.send_error(404)
                 return
@@ -654,7 +693,9 @@ class Handler(SimpleHTTPRequestHandler):
             if not target:
                 self.send_json({"error": "jar unavailable"}, status=503)
                 return
-            self.send_file(target, "application/java-archive")
+            cache = ("public, max-age=604800, immutable"
+                     if ";md5;" in raw_name else "public, max-age=3600")
+            self.send_file(target, "application/java-archive", cache)
             return
         if path.startswith("/api/"):
             if not self.authorized(parts):
@@ -704,7 +745,7 @@ class Handler(SimpleHTTPRequestHandler):
         elif parts.path == "/api/settings":
             self.handle_settings(data)
         elif parts.path == "/api/run":
-            self.handle_run()
+            self.handle_run(data)
         else:
             self.send_json({"error": "not found"}, status=404)
 
@@ -1054,13 +1095,14 @@ class Handler(SimpleHTTPRequestHandler):
         finally:
             LOCK.release()
 
-    def handle_run(self):
+    def handle_run(self, data=None):
         if STATE["running"]:
             self.send_json({"error": "pipeline already running"}, status=409)
             return
+        groups = (data or {}).get("groups") or None
         thread = threading.Thread(target=run_pipeline,
                                   args=(STATE["scope"], STATE["drop_dead"],
-                                        STATE["timeout"], STATE["workers"]),
+                                        STATE["timeout"], STATE["workers"], groups),
                                   daemon=True)
         thread.start()
         self.send_json({"ok": True, "started": True})
@@ -1069,13 +1111,14 @@ class Handler(SimpleHTTPRequestHandler):
         body = json.dumps(data, ensure_ascii=False, indent=2).encode("utf-8")
         self.send_response(status)
         self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Cache-Control", "no-store")
         self.send_header("Content-Length", str(len(body)))
         if getattr(self, "_set_panel_cookie", False):
             self.send_header("Set-Cookie", "panel_token=%s; Path=/; SameSite=Lax; Max-Age=2592000" % TOKEN)
         self.end_headers()
         self.wfile.write(body)
 
-    def send_file(self, path, content_type):
+    def send_file(self, path, content_type, cache="no-cache"):
         if not os.path.exists(path):
             self.send_error(404)
             return
@@ -1083,6 +1126,7 @@ class Handler(SimpleHTTPRequestHandler):
             body = handle.read()
         self.send_response(200)
         self.send_header("Content-Type", content_type)
+        self.send_header("Cache-Control", cache)
         self.send_header("Content-Length", str(len(body)))
         if getattr(self, "_set_panel_cookie", False):
             self.send_header("Set-Cookie", "panel_token=%s; Path=/; SameSite=Lax; Max-Age=2592000" % TOKEN)

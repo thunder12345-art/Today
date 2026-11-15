@@ -1,4 +1,5 @@
 import base64
+import hashlib
 import json
 import os
 import re
@@ -94,16 +95,56 @@ PUBLIC_JAR_URLS = {
 PUBLIC_SPIDER_URL = (
     "https://gh-proxy.com/https://raw.githubusercontent.com/"
     "thunder12345-art/Today/main/tvbox.jar")
+PUBLIC_JAR_URLS_CDN = {
+    "spider.jar": "https://cdn.jsdelivr.net/gh/qist/tvbox@master/jar/spider.jar",
+    "pg_upgraded.jar": "https://cdn.jsdelivr.net/gh/qist/tvbox@master/jar/pg_upgraded.jar",
+}
+PUBLIC_SPIDER_URL_CDN = (
+    "https://cdn.jsdelivr.net/gh/thunder12345-art/Today@main/tvbox.jar")
+PHONE_TOKEN_URL = "http://127.0.0.1:9/token.json"
+JAR_CACHE_DIR = os.path.join(BASE, ".jar_cache", "local")
 
 
-def local_jar_url(jar, base):
+def file_md5(path):
+    if not path or not os.path.exists(path):
+        return ""
+    digest = hashlib.md5()
+    try:
+        with open(path, "rb") as handle:
+            for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                digest.update(chunk)
+        return digest.hexdigest()
+    except OSError:
+        return ""
+
+
+def jar_md5(name):
+    for path in (os.path.join(JAR_CACHE_DIR, name),
+                 os.path.join(ROOT, name),
+                 os.path.join(ROOT, "jar", name)):
+        value = file_md5(path)
+        if value:
+            return value
+    return ""
+
+
+def with_jar_md5(url, name, hashes=None):
+    if not isinstance(url, str) or not url or ";md5;" in url:
+        return url
+    digest = (hashes or {}).get(name) or jar_md5(name)
+    if not digest:
+        return url
+    return url + ";md5;" + digest
+
+
+def local_jar_url(jar, base, hashes=None):
     if not isinstance(jar, str) or not base:
         return jar
     core = jar.strip().split(";md5;", 1)[0].split("?", 1)[0]
     name = core.rsplit("/", 1)[-1]
     if name not in LOCAL_JAR_ALLOWLIST:
         return jar
-    return base.rstrip("/") + "/jar/" + name
+    return with_jar_md5(base.rstrip("/") + "/jar/" + name, name, hashes)
 
 
 def rewrite_token_parts(ext, token_url):

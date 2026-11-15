@@ -7,12 +7,14 @@ services:
     container_name: tomorrow-auto
     restart: unless-stopped
     ports:
-      - "${SERVER_PORT:-8899}:8080"
+      - "${PANEL_PORT:-8898}:8080"
+      - "${TVBOX_HOST_PORT:-8899}:8081"
     volumes:
       - ./:/app
       - /root:/hostroot:ro
     environment:
       PORT: "8080"
+      TVBOX_PORT: "8081"
       TZ: "Asia/Shanghai"
       REFRESH_INTERVAL_HOURS: "12"
       BUILD_SCOPE: "all"

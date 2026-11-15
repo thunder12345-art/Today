@@ -112,6 +112,18 @@ class PhoneModeTests(unittest.TestCase):
         self.assertTrue(by_key["花卷"]["jar"].startswith("./jar/spider.jar"))
         self.assertTrue(out["spider"].startswith("./tvbox.jar"))
 
+    def test_github_uses_absolute_proxy_and_fast_fail_token(self):
+        config = {"spider": "./tvbox.jar", "sites": [
+            {"key": "Wogg", "ext": "http://192.168.1.254:8896/token.json$$$https://www.wogg.net/"},
+            {"key": "花卷", "jar": "./jar/spider.jar"},
+        ]}
+        out = build.apply_github_mode(config)
+        by_key = {site["key"]: site for site in out["sites"]}
+        self.assertIn(common.PHONE_TOKEN_URL, by_key["Wogg"]["ext"])
+        self.assertNotIn("192.168.1.254", by_key["Wogg"]["ext"])
+        self.assertTrue(by_key["花卷"]["jar"].startswith(common.PUBLIC_JAR_URLS["spider.jar"]))
+        self.assertTrue(out["spider"].startswith(common.PUBLIC_SPIDER_URL))
+
     def test_jar_md5_added_once(self):
         hashes = {"spider.jar": "abc123"}
         config = {"sites": [{"key": "a", "jar": "http://nas:8899/jar/spider.jar"}]}

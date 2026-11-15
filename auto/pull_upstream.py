@@ -8,9 +8,9 @@ from common import (BASE, ROOT, decode_config_bytes, save_json, setup_stdout)
 OWN_PREFIXES = ("auto/",)
 OWN_FILES = {".gitattributes", ".gitignore", ".dockerignore", "Dockerfile", "docker-compose.yml",
              "tvbox.json", "caiji.json", "lmw.json", "tvbox.remote.json",
-             "tvbox.phone.json"}
+             "tvbox.phone.json", "tvbox.github.json"}
 GENERATED_FILES = ("tvbox.json", "caiji.json", "lmw.json", "tvbox.remote.json",
-                   "tvbox.phone.json")
+                   "tvbox.phone.json", "tvbox.github.json")
 UPSTREAM_CONFIG_DIR = os.path.join(BASE, "upstream")
 MANAGED_EXCLUDES = ["--", ".", ":(exclude)auto", ":(exclude).gitignore", ":(exclude).dockerignore",
                     ":(exclude)Dockerfile", ":(exclude)docker-compose.yml", ":(exclude).gitattributes"]

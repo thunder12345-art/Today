@@ -2,10 +2,9 @@ import argparse
 import os
 
 from common import (BASE, DB_PATH, OUT_DIR, PHONE_TOKEN_URL, PUBLIC_JAR_URLS,
-                    PUBLIC_JAR_URLS_CDN, PUBLIC_SPIDER_URL, PUBLIC_SPIDER_URL_CDN,
-                    ROOT, is_whitelisted, jar_md5, load_json, load_json_safe,
-                    load_whitelist, now_iso, rewrite_token_parts, save_json,
-                    setup_stdout, strip_meta, with_jar_md5)
+                    PUBLIC_SPIDER_URL, ROOT, is_whitelisted, jar_md5, load_json,
+                    load_json_safe, load_whitelist, now_iso, rewrite_token_parts,
+                    save_json, setup_stdout, strip_meta, with_jar_md5)
 
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
 
@@ -124,6 +123,11 @@ def apply_phone_mode(config, hashes=None):
     result = dict(config)
     result["sites"] = sites
     return apply_local_jars(result, hashes)
+
+
+def apply_github_mode(config, hashes=None):
+    return apply_public_jars(apply_phone_mode(config, hashes),
+                             PUBLIC_JAR_URLS, PUBLIC_SPIDER_URL, hashes)
 
 
 def apply_run_meta(config, run_id=None, epoch=None):
@@ -249,7 +253,10 @@ def main():
         print("remote -> %s (base %s)" % (os.path.join(out_dir, "tvbox.remote.json"), remote_base))
     save_json(os.path.join(out_dir, "tvbox.phone.json"),
               apply_phone_mode(tvbox, hashes))
-    print("phone  -> %s (CDN jars, no LAN token)" % os.path.join(out_dir, "tvbox.phone.json"))
+    print("phone  -> %s (local jars, no LAN token)" % os.path.join(out_dir, "tvbox.phone.json"))
+    save_json(os.path.join(out_dir, "tvbox.github.json"),
+              apply_github_mode(tvbox, hashes))
+    print("github -> %s (gh-proxy jars, no LAN token)" % os.path.join(out_dir, "tvbox.github.json"))
     save_json(os.path.join(out_dir, "caiji.json"), caiji)
     save_json(os.path.join(out_dir, "lmw.json"), lmw)
 

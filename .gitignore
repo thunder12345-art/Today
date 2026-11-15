@@ -18,4 +18,6 @@ auto/feed_status.json
 auto/publish_state.json
 center/token.local.json
 .env
+auto/backup.log
+auto/monthly_check.log
 

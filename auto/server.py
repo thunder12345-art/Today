@@ -635,8 +635,10 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         parts = urllib.parse.urlsplit(self.path)
         path = parts.path
-        if path in ("/tvbox/", "/tvbox.phone/", "/tvbox.remote/", "/lan/"):
+        if path in ("/tvbox/", "/tvbox.phone/", "/tvbox.remote/",
+                    "/tvbox.github/", "/lan/"):
             path = path.rstrip("/")
+        self._cache_control_sent = False
         config_only = getattr(self.server, "config_only", False)
         if config_only and (path in ("/status", "/__status")
                             or path.startswith("/api/")
@@ -696,6 +698,13 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             self.send_file(target, "application/json; charset=utf-8")
             return
+        if path in ("/tvbox.github", "/tvbox-github", "/tvbox.github.json", "/github.json"):
+            target = os.path.join(ROOT, "tvbox.github.json")
+            if not os.path.exists(target):
+                self.send_error(404)
+                return
+            self.send_file(target, "application/json; charset=utf-8")
+            return
         if path in ("/tvbox.jar", "/jar/tvbox.jar"):
             target = os.path.join(ROOT, "tvbox.jar")
             if not os.path.exists(target):
@@ -750,6 +759,13 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_error(404)
             return
         super().do_GET()
+
+    def do_HEAD(self):
+        self._head_only = True
+        try:
+            self.do_GET()
+        finally:
+            self._head_only = False
 
     def do_POST(self):
         parts = urllib.parse.urlsplit(self.path)
@@ -1151,22 +1167,29 @@ class Handler(SimpleHTTPRequestHandler):
         if getattr(self, "_set_panel_cookie", False):
             self.send_header("Set-Cookie", "panel_token=%s; Path=/; SameSite=Lax; Max-Age=2592000" % TOKEN)
         self.end_headers()
-        self.wfile.write(body)
+        if not getattr(self, "_head_only", False):
+            self.wfile.write(body)
 
     def send_file(self, path, content_type, cache="no-cache"):
         if not os.path.exists(path):
             self.send_error(404)
             return
-        with open(path, "rb") as handle:
-            body = handle.read()
+        size = os.path.getsize(path)
         self.send_response(200)
         self.send_header("Content-Type", content_type)
         self.send_header("Cache-Control", cache)
-        self.send_header("Content-Length", str(len(body)))
+        self.send_header("Content-Length", str(size))
         if getattr(self, "_set_panel_cookie", False):
             self.send_header("Set-Cookie", "panel_token=%s; Path=/; SameSite=Lax; Max-Age=2592000" % TOKEN)
         self.end_headers()
-        self.wfile.write(body)
+        if getattr(self, "_head_only", False):
+            return
+        with open(path, "rb") as handle:
+            while True:
+                chunk = handle.read(1024 * 1024)
+                if not chunk:
+                    break
+                self.wfile.write(chunk)
 
     def send_login(self):
         body = ("<!doctype html><meta charset=\"utf-8\"><title>控制面板</title>"
@@ -1188,8 +1211,14 @@ class Handler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
+    def send_header(self, keyword, value):
+        if keyword.lower() == "cache-control":
+            self._cache_control_sent = True
+        super().send_header(keyword, value)
+
     def end_headers(self):
-        self.send_header("Cache-Control", "no-cache")
+        if not getattr(self, "_cache_control_sent", False):
+            self.send_header("Cache-Control", "no-cache")
         super().end_headers()
 
 

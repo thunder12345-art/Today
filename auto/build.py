@@ -88,6 +88,29 @@ def apply_jar_md5(config, hashes=None):
     return result
 
 
+def apply_local_jars(config, hashes=None):
+    sites = []
+    for item in config.get("sites") or []:
+        entry = item
+        jar = entry.get("jar")
+        if isinstance(jar, str):
+            core = jar.strip().split(";md5;", 1)[0].split("?", 1)[0]
+            name = core.rsplit("/", 1)[-1]
+            if name == "tvbox.jar":
+                entry = dict(entry)
+                entry["jar"] = with_jar_md5("./tvbox.jar", name, hashes)
+            elif name in ("spider.jar", "pg_upgraded.jar"):
+                entry = dict(entry)
+                entry["jar"] = with_jar_md5("./jar/" + name, name, hashes)
+        sites.append(entry)
+    result = dict(config)
+    result["sites"] = sites
+    spider = result.get("spider")
+    if isinstance(spider, str) and spider.strip().split(";md5;", 1)[0].endswith("tvbox.jar"):
+        result["spider"] = with_jar_md5("./tvbox.jar", "tvbox.jar", hashes)
+    return result
+
+
 def apply_phone_mode(config, hashes=None):
     sites = []
     for item in config.get("sites") or []:
@@ -100,8 +123,7 @@ def apply_phone_mode(config, hashes=None):
         sites.append(entry)
     result = dict(config)
     result["sites"] = sites
-    return apply_public_jars(result, PUBLIC_JAR_URLS_CDN,
-                             PUBLIC_SPIDER_URL_CDN, hashes)
+    return apply_local_jars(result, hashes)
 
 
 def apply_run_meta(config, run_id=None, epoch=None):

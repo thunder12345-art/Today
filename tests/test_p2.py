@@ -100,7 +100,7 @@ class RemoteBaseTests(unittest.TestCase):
 
 
 class PhoneModeTests(unittest.TestCase):
-    def test_phone_uses_cdn_and_fast_fail_token(self):
+    def test_phone_uses_local_jars_and_fast_fail_token(self):
         config = {"spider": "./tvbox.jar", "sites": [
             {"key": "Wogg", "ext": "http://192.168.1.254:8899/token.json$$$https://www.wogg.net/"},
             {"key": "花卷", "jar": "http://192.168.1.254:8899/jar/spider.jar"},
@@ -109,9 +109,8 @@ class PhoneModeTests(unittest.TestCase):
         by_key = {site["key"]: site for site in out["sites"]}
         self.assertIn(common.PHONE_TOKEN_URL, by_key["Wogg"]["ext"])
         self.assertNotIn("192.168.1.254", by_key["Wogg"]["ext"])
-        self.assertTrue(by_key["花卷"]["jar"].startswith(
-            common.PUBLIC_JAR_URLS_CDN["spider.jar"]))
-        self.assertTrue(out["spider"].startswith(common.PUBLIC_SPIDER_URL_CDN))
+        self.assertTrue(by_key["花卷"]["jar"].startswith("./jar/spider.jar"))
+        self.assertTrue(out["spider"].startswith("./tvbox.jar"))
 
     def test_jar_md5_added_once(self):
         hashes = {"spider.jar": "abc123"}

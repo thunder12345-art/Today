@@ -635,6 +635,8 @@ class Handler(SimpleHTTPRequestHandler):
     def do_GET(self):
         parts = urllib.parse.urlsplit(self.path)
         path = parts.path
+        if path in ("/tvbox/", "/tvbox.phone/", "/tvbox.remote/", "/lan/"):
+            path = path.rstrip("/")
         config_only = getattr(self.server, "config_only", False)
         if config_only and (path in ("/status", "/__status")
                             or path.startswith("/api/")
@@ -647,7 +649,7 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if path in ("/", "/index.html"):
             if config_only:
-                target = os.path.join(ROOT, "tvbox.phone.json")
+                target = os.path.join(ROOT, "tvbox.json")
                 if not os.path.exists(target):
                     self.send_error(404)
                     return
@@ -1234,7 +1236,7 @@ def main():
                                            partial(Handler, directory=ROOT))
         tvbox_server.config_only = True
         threading.Thread(target=tvbox_server.serve_forever, daemon=True).start()
-        print("[server] tvbox api: http://<host>:%d/ (root=phone config, no panel/token)"
+        print("[server] tvbox api: http://<host>:%d/ (root=lan config, local jars, no panel/token)"
               % args.tvbox_port)
         print("[server] tvbox lan: http://<host>:%d/tvbox (token served on panel port)"
               % args.tvbox_port)

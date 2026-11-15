@@ -3261,40 +3261,6 @@
             "type": 3,
             "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/lib/drpy2.min.js",
             "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/js/drpy.js"
-        },
-        {
-            "key": "drpy_js_磁力熊搜索",
-            "name": "搜索 | 磁力熊[js]",
-            "type": 3,
-            "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/lib/drpy2.min.js",
-            "indexs": 1,
-            "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/js/cilixiong.js",
-            "searchable": 0,
-            "quickSearch": 0,
-            "changeable": 1
-        },
-        {
-            "key": "drpy_js_磁力熊[磁]",
-            "name": "磁力 | 磁力熊[js]",
-            "type": 3,
-            "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/lib/drpy2.min.js",
-            "searchable": 1,
-            "quickSearch": 1,
-            "changeable": 0,
-            "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/js/磁力熊[磁].js",
-            "timeout": 30
-        },
-        {
-            "key": "drpy_js_310直播",
-            "name": "体育 | 310直播[js]",
-            "type": 3,
-            "api": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/lib/drpy2.min.js",
-            "changeable": 0,
-            "style": {
-                "type": "rect",
-                "ratio": 1
-            },
-            "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/js/310直播.js"
         }
     ],
     "parses": [

@@ -1,15 +1,37 @@
 import argparse
 import os
 
-from common import (BASE, DB_PATH, OUT_DIR, ROOT, PUBLIC_JAR_URLS,
-                    PUBLIC_SPIDER_URL, is_whitelisted, load_json, load_json_safe,
+from common import (BASE, DB_PATH, OUT_DIR, PHONE_TOKEN_URL, PUBLIC_JAR_URLS,
+                    PUBLIC_JAR_URLS_CDN, PUBLIC_SPIDER_URL, PUBLIC_SPIDER_URL_CDN,
+                    ROOT, is_whitelisted, jar_md5, load_json, load_json_safe,
                     load_whitelist, now_iso, rewrite_token_parts, save_json,
-                    setup_stdout, strip_meta)
+                    setup_stdout, strip_meta, with_jar_md5)
 
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
 
 
-def apply_remote_base(config, base):
+def apply_public_jars(config, jar_urls, spider_url, hashes=None):
+    sites = []
+    for item in config.get("sites") or []:
+        entry = item
+        jar = entry.get("jar")
+        if isinstance(jar, str):
+            core = jar.strip().split(";md5;", 1)[0].split("?", 1)[0]
+            name = core.rsplit("/", 1)[-1]
+            public_jar = jar_urls.get(name)
+            if public_jar:
+                entry = dict(entry)
+                entry["jar"] = with_jar_md5(public_jar, name, hashes)
+        sites.append(entry)
+    result = dict(config)
+    result["sites"] = sites
+    spider = result.get("spider")
+    if isinstance(spider, str) and spider.strip().split(";md5;", 1)[0].endswith("tvbox.jar"):
+        result["spider"] = with_jar_md5(spider_url, "tvbox.jar", hashes)
+    return result
+
+
+def apply_remote_base(config, base, hashes=None):
     base = (base or "").strip()
     if not base:
         return config
@@ -22,21 +44,47 @@ def apply_remote_base(config, base):
         if new_ext != ext:
             entry = dict(entry)
             entry["ext"] = new_ext
+        sites.append(entry)
+    result = dict(config)
+    result["sites"] = sites
+    return apply_public_jars(result, PUBLIC_JAR_URLS, PUBLIC_SPIDER_URL, hashes)
+
+
+def apply_jar_md5(config, hashes=None):
+    sites = []
+    for item in config.get("sites") or []:
+        entry = item
         jar = entry.get("jar")
-        if isinstance(jar, str):
-            core = jar.strip().split(";md5;", 1)[0].split("?", 1)[0]
+        if isinstance(jar, str) and ";md5;" not in jar:
+            core = jar.strip().split("?", 1)[0]
             name = core.rsplit("/", 1)[-1]
-            public_jar = PUBLIC_JAR_URLS.get(name)
-            if public_jar and public_jar != jar:
+            if name in ("spider.jar", "pg_upgraded.jar"):
                 entry = dict(entry)
-                entry["jar"] = public_jar
+                entry["jar"] = with_jar_md5(jar, name, hashes)
         sites.append(entry)
     result = dict(config)
     result["sites"] = sites
     spider = result.get("spider")
-    if isinstance(spider, str) and spider.strip().endswith("tvbox.jar"):
-        result["spider"] = PUBLIC_SPIDER_URL
+    if isinstance(spider, str) and ";md5;" not in spider \
+            and spider.strip().endswith("tvbox.jar"):
+        result["spider"] = with_jar_md5(spider, "tvbox.jar", hashes)
     return result
+
+
+def apply_phone_mode(config, hashes=None):
+    sites = []
+    for item in config.get("sites") or []:
+        entry = item
+        ext = entry.get("ext")
+        new_ext = rewrite_token_parts(ext, PHONE_TOKEN_URL)
+        if new_ext != ext:
+            entry = dict(entry)
+            entry["ext"] = new_ext
+        sites.append(entry)
+    result = dict(config)
+    result["sites"] = sites
+    return apply_public_jars(result, PUBLIC_JAR_URLS_CDN,
+                             PUBLIC_SPIDER_URL_CDN, hashes)
 
 
 def apply_run_meta(config, run_id=None, epoch=None):
@@ -147,13 +195,19 @@ def main():
     out_dir = ROOT if args.inplace else args.out
     os.makedirs(out_dir, exist_ok=True)
     tvbox.pop("_meta", None)
+    hashes = {name: jar_md5(name) for name in ("spider.jar", "pg_upgraded.jar",
+                                               "tvbox.jar")}
+    tvbox = apply_jar_md5(tvbox, hashes)
     save_json(os.path.join(out_dir, "tvbox.json"), tvbox)
     settings = load_json(SETTINGS_PATH, {}) or {}
     remote_base = str(settings.get("remote_base_url") or "").strip() if isinstance(settings, dict) else ""
     if remote_base:
         save_json(os.path.join(out_dir, "tvbox.remote.json"),
-                  apply_remote_base(tvbox, remote_base))
+                  apply_remote_base(tvbox, remote_base, hashes))
         print("remote -> %s (base %s)" % (os.path.join(out_dir, "tvbox.remote.json"), remote_base))
+    save_json(os.path.join(out_dir, "tvbox.phone.json"),
+              apply_phone_mode(tvbox, hashes))
+    print("phone  -> %s (CDN jars, no LAN token)" % os.path.join(out_dir, "tvbox.phone.json"))
     save_json(os.path.join(out_dir, "caiji.json"), caiji)
     save_json(os.path.join(out_dir, "lmw.json"), lmw)
 

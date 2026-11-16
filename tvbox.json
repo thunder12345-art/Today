@@ -449,8 +449,7 @@
                     "https://www.hjzhencai.top"
                 ]
             },
-            "timeout": 60,
-            "jar": "http://192.168.1.254:8899/jar/spider.jar;md5;d2c9caaaeba20f00baac53295dbed29e"
+            "timeout": 60
         },
         {
             "key": "夸父",
@@ -503,8 +502,7 @@
             "style": {
                 "type": "list"
             },
-            "timeout": 60,
-            "jar": "http://192.168.1.254:8899/jar/spider.jar;md5;d2c9caaaeba20f00baac53295dbed29e"
+            "timeout": 60
         },
         {
             "key": "即刻",
@@ -562,8 +560,7 @@
             "searchable": 1,
             "quickSearch": 1,
             "filterable": 1,
-            "timeout": 60,
-            "jar": "http://192.168.1.254:8899/jar/spider.jar;md5;d2c9caaaeba20f00baac53295dbed29e"
+            "timeout": 60
         },
         {
             "key": "觅盘",
@@ -573,8 +570,7 @@
             "searchable": 1,
             "quickSearch": 0,
             "filterable": 0,
-            "timeout": 60,
-            "jar": "http://192.168.1.254:8899/jar/spider.jar;md5;d2c9caaaeba20f00baac53295dbed29e"
+            "timeout": 60
         },
         {
             "key": "夸克网盘",
@@ -626,8 +622,7 @@
             "style": {
                 "type": "list",
                 "ratio": 1.433
-            },
-            "jar": "http://192.168.1.254:8899/jar/spider.jar;md5;d2c9caaaeba20f00baac53295dbed29e"
+            }
         },
         {
             "key": "光鸭云盘",
@@ -640,8 +635,7 @@
             "style": {
                 "type": "list",
                 "ratio": 1.433
-            },
-            "jar": "http://192.168.1.254:8899/jar/spider.jar;md5;d2c9caaaeba20f00baac53295dbed29e"
+            }
         },
         {
             "key": "天翼云盘",
@@ -654,8 +648,7 @@
             "style": {
                 "type": "list",
                 "ratio": 1.433
-            },
-            "jar": "http://192.168.1.254:8899/jar/spider.jar;md5;d2c9caaaeba20f00baac53295dbed29e"
+            }
         },
         {
             "key": "123云盘",
@@ -668,8 +661,7 @@
             "style": {
                 "type": "list",
                 "ratio": 1.433
-            },
-            "jar": "http://192.168.1.254:8899/jar/spider.jar;md5;d2c9caaaeba20f00baac53295dbed29e"
+            }
         },
         {
             "key": "阿里云盘",

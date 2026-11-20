@@ -24,7 +24,6 @@ services:
       CHECK_TIMEOUT: "8"
       AUTO_BLOCK: "1"
       AUTO_BLOCK_AFTER: "2"
-      PANEL_TOKEN: "${PANEL_TOKEN:-}"
       NOTIFY_URL: "${NOTIFY_URL:-}"
     mem_limit: 256m
     logging:

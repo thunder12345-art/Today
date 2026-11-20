@@ -34,7 +34,6 @@ STATE = {
     "auto_block_after": 2,
     "timeout": 8,
     "workers": 12,
-    "panel_token_required": False,
     "upstream_running": False,
     "upstream_last_at": None,
     "upstream_last_result": None,
@@ -71,8 +70,6 @@ LOCAL_JAR_SOURCES = {
     "pg_upgraded.jar": ("https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar",
                         "https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"),
 }
-TOKEN = os.environ.get("PANEL_TOKEN", "").strip()
-
 DEFAULT_CENTER_TOKEN_URL = (
     "https://gh-proxy.com/https://raw.githubusercontent.com/"
     "thunder12345-art/Today/main/center/token.json")
@@ -657,15 +654,9 @@ class Handler(SimpleHTTPRequestHandler):
                     return
                 self.send_file(target, "application/json; charset=utf-8")
                 return
-            if not self.authorized(parts):
-                self.send_login()
-                return
             self.send_file(PANEL_FILE, "text/html; charset=utf-8")
             return
         if path in ("/panel", "/panel.html") or path.startswith("/panel/"):
-            if not self.authorized(parts):
-                self.send_login()
-                return
             self.send_file(PANEL_FILE, "text/html; charset=utf-8")
             return
         if path in ("/lan", "/tvbox.lan", "/tvbox.lan.json"):
@@ -739,9 +730,6 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_file(target, "application/java-archive", cache)
             return
         if path.startswith("/api/"):
-            if not self.authorized(parts):
-                self.send_json({"error": "unauthorized"}, status=401)
-                return
             if path == "/api/status":
                 self.send_json(build_status())
             elif path == "/api/sources":
@@ -775,9 +763,6 @@ class Handler(SimpleHTTPRequestHandler):
         if not parts.path.startswith("/api/"):
             self.send_error(404)
             return
-        if not self.authorized(parts):
-            self.send_json({"error": "unauthorized"}, status=401)
-            return
         try:
             length = int(self.headers.get("Content-Length") or 0)
             body = self.rfile.read(length) if length else b"{}"
@@ -799,20 +784,6 @@ class Handler(SimpleHTTPRequestHandler):
             self.handle_run(data)
         else:
             self.send_json({"error": "not found"}, status=404)
-
-    def authorized(self, parts):
-        if not TOKEN:
-            return True
-        if self.headers.get("X-Panel-Token") == TOKEN:
-            return True
-        for chunk in (self.headers.get("Cookie") or "").split(";"):
-            if chunk.strip() == "panel_token=" + TOKEN:
-                return True
-        query = urllib.parse.parse_qs(parts.query)
-        if (query.get("token") or [""])[0] == TOKEN:
-            self._set_panel_cookie = True
-            return True
-        return False
 
     def handle_purge_failed(self):
         if not LOCK.acquire(blocking=False):
@@ -1164,8 +1135,6 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_header("Content-Type", "application/json; charset=utf-8")
         self.send_header("Cache-Control", "no-store")
         self.send_header("Content-Length", str(len(body)))
-        if getattr(self, "_set_panel_cookie", False):
-            self.send_header("Set-Cookie", "panel_token=%s; Path=/; SameSite=Lax; Max-Age=2592000" % TOKEN)
         self.end_headers()
         if not getattr(self, "_head_only", False):
             self.wfile.write(body)
@@ -1179,8 +1148,6 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_header("Content-Type", content_type)
         self.send_header("Cache-Control", cache)
         self.send_header("Content-Length", str(size))
-        if getattr(self, "_set_panel_cookie", False):
-            self.send_header("Set-Cookie", "panel_token=%s; Path=/; SameSite=Lax; Max-Age=2592000" % TOKEN)
         self.end_headers()
         if getattr(self, "_head_only", False):
             return
@@ -1190,26 +1157,6 @@ class Handler(SimpleHTTPRequestHandler):
                 if not chunk:
                     break
                 self.wfile.write(chunk)
-
-    def send_login(self):
-        body = ("<!doctype html><meta charset=\"utf-8\"><title>控制面板</title>"
-                "<style>body{font-family:system-ui,sans-serif;background:#111;color:#eee;"
-                "display:flex;align-items:center;justify-content:center;height:100vh;margin:0}"
-                "form{background:#1c1c1e;padding:32px;border-radius:12px;min-width:280px}"
-                "input{width:100%;padding:10px;margin:12px 0;border-radius:8px;border:1px solid #444;"
-                "background:#2a2a2c;color:#eee;box-sizing:border-box}"
-                "button{width:100%;padding:10px;border-radius:8px;border:0;background:#3b82f6;"
-                "color:#fff;font-size:15px;cursor:pointer}"
-                "p{margin:0 0 4px;color:#aaa;font-size:13px}</style>"
-                "<form method=\"get\" action=\"/\">"
-                "<p>需要访问令牌（PANEL_TOKEN）</p>"
-                "<input name=\"token\" type=\"password\" placeholder=\"输入令牌\" autofocus>"
-                "<button type=\"submit\">进入控制面板</button></form>").encode("utf-8")
-        self.send_response(200)
-        self.send_header("Content-Type", "text/html; charset=utf-8")
-        self.send_header("Content-Length", str(len(body)))
-        self.end_headers()
-        self.wfile.write(body)
 
     def send_header(self, keyword, value):
         if keyword.lower() == "cache-control":
@@ -1246,8 +1193,6 @@ def main():
     STATE["auto_block_after"] = args.auto_block_after
     STATE["timeout"] = args.timeout
     STATE["workers"] = args.workers
-    STATE["panel_token_required"] = bool(TOKEN)
-
     run_on_start = env_bool("RUN_ON_START", True) and not args.no_run_on_start
     worker = threading.Thread(
         target=schedule_loop,
@@ -1257,7 +1202,7 @@ def main():
 
     server = ThreadingHTTPServer(("0.0.0.0", args.port), partial(Handler, directory=ROOT))
     server.config_only = False
-    print("[server] panel:  http://<host>:%d/%s" % (args.port, " (token required)" if TOKEN else ""))
+    print("[server] panel:  http://<host>:%d/" % args.port)
     print("[server] tvbox:  http://<host>:%d/tvbox" % args.port)
     print("[server] status: http://<host>:%d/status" % args.port)
     if args.tvbox_port and args.tvbox_port != args.port:

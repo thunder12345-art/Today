@@ -245,20 +245,10 @@ function toast(msg, bad) {
   setTimeout(() => el.remove(), 4000);
 }
 
-function token() { return localStorage.getItem("panelToken") || ""; }
-
 async function api(path, opts) {
   opts = opts || {};
-  opts.headers = Object.assign({ "X-Panel-Token": token() }, opts.headers || {});
   const res = await fetch(path, opts);
-  if (res.status === 401) {
-    const value = prompt("请输入面板访问令牌（PANEL_TOKEN）：", token());
-    if (value) {
-      localStorage.setItem("panelToken", value.trim());
-      return api(path, opts);
-    }
-    throw new Error("unauthorized");
-  }
+  if (res.status === 401) throw new Error("unauthorized");
   const data = await res.json().catch(() => ({ error: "invalid json" }));
   if (!res.ok && data.error) throw new Error(data.error);
   return data;
@@ -299,7 +289,6 @@ function renderStatus() {
     "</b></span>");
   if (st.upstream_running) chips.push('<span class="chip warn">上游同步 <b>进行中…</b></span>');
   if (st.feeds_running) chips.push('<span class="chip warn">外部源抓取 <b>进行中…</b></span>');
-  if (st.panel_token_required) chips.push('<span class="chip ok">面板令牌 <b>已启用</b></span>');
   document.getElementById("chips").innerHTML = chips.join("");
 
   const card = (title, d, extra) =>

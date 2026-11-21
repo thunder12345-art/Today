@@ -67,6 +67,7 @@ HG_SITE = "https://hongguoduanju.com"
 HG_UA = ("Mozilla/5.0 (Linux; Android 12) AppleWebKit/537.36 "
          "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
 HG_TEST_ITEM = "7706514587142589465"
+HG_LOGIN_FILE = os.path.join(BASE, "hongguo_login.html")
 JAR_CACHE_DIR = os.path.join(BASE, ".jar_cache", "local")
 JAR_CACHE_TTL = 7 * 86400
 JAR_MAX_BYTES = 16 * 1048576
@@ -788,7 +789,7 @@ class Handler(SimpleHTTPRequestHandler):
         self._cache_control_sent = False
         config_only = getattr(self.server, "config_only", False)
         if config_only and (path in ("/status", "/__status")
-                            or path.startswith("/api/")
+                            or (path.startswith("/api/") and path != "/api/hongguo")
                             or path in ("/panel", "/panel.html")
                             or path.startswith("/panel/")):
             self.send_error(404)
@@ -819,6 +820,9 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if path in ("/panel", "/panel.html") or path.startswith("/panel/"):
             self.send_file(PANEL_FILE, "text/html; charset=utf-8")
+            return
+        if path in ("/hongguo", "/hongguo/", "/center", "/center/"):
+            self.send_file(HG_LOGIN_FILE, "text/html; charset=utf-8")
             return
         if path in ("/lan", "/tvbox.lan", "/tvbox.lan.json"):
             target = os.path.join(ROOT, "tvbox.json")
@@ -936,7 +940,8 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
         parts = urllib.parse.urlsplit(self.path)
-        if getattr(self.server, "config_only", False):
+        if getattr(self.server, "config_only", False) \
+                and parts.path != "/api/hongguo":
             self.send_error(404)
             return
         if not parts.path.startswith("/api/"):

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>红果短剧登录 · Tomorrow</title>
+<style>
+  :root { color-scheme: dark; --bg:#0b1020; --box:#151c31; --line:#2b3655;
+          --text:#e8edf8; --muted:#96a1b8; --ok:#4ade80; --bad:#f87171; --accent:#60a5fa; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text);
+         font:15px/1.6 system-ui,"Microsoft YaHei",sans-serif; }
+  .wrap { max-width:860px; margin:0 auto; padding:28px 20px 50px; }
+  h1 { font-size:22px; margin:0 0 8px; }
+  h2 { font-size:17px; margin:26px 0 10px; }
+  .muted { color:var(--muted); }
+  .box { background:var(--box); border:1px solid var(--line);
+         border-radius:12px; padding:16px; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin:8px 0; }
+  input { background:#0e1528; color:var(--text); border:1px solid var(--line);
+          border-radius:8px; padding:9px 11px; }
+  input#cookie { flex:1; min-width:280px; }
+  input#base { flex:1; min-width:240px; }
+  button { border:1px solid var(--line); border-radius:8px; padding:9px 14px;
+           background:#1b2540; color:var(--text); cursor:pointer; }
+  button.primary { background:#1d4ed8; border-color:#2563eb; }
+  button.danger { background:#3a1d28; border-color:#7f1d1d; }
+  a { color:var(--accent); }
+  .hint { margin-top:10px; }
+  .ok { color:var(--ok); } .bad { color:var(--bad); }
+  code { background:#0e1528; padding:1px 5px; border-radius:4px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>红果短剧登录</h1>
+  <div class="muted">登录态只保存在 NAS，不写入公开配置。8899 独立入口。</div>
+
+  <h2>Cookie 登录</h2>
+  <div class="box">
+    <div class="row">
+      <input id="cookie" type="text" autocomplete="off"
+             placeholder="粘贴浏览器请求头里的完整 Cookie（含 sessionid/ttwid 等）">
+    </div>
+    <div class="row">
+      <label class="muted" for="base">代理地址</label>
+      <input id="base" type="text" placeholder="http://192.168.1.254:8899">
+      <button class="primary" id="save">保存并测试</button>
+      <button class="danger" id="clear">退出登录</button>
+    </div>
+    <div class="hint" id="hint">读取状态中…</div>
+    <div class="muted" style="margin-top:8px">
+      打开红果网页登录：<a href="https://hongguoduanju.com/" target="_blank" rel="noreferrer">hongguoduanju.com</a>
+      · 从开发者工具 Network 的请求头复制整个 Cookie，不要只复制 <code>document.cookie</code>。
+    </div>
+  </div>
+
+  <h2>说明</h2>
+  <div class="box muted">
+    未登录时可播放官方免费集。保存有效 Cookie 后，TVBox 通过
+    <code>/hg/play</code> 代理解锁账号可看内容；如果测试显示无权限，
+    说明 Cookie 已失效或账号本身没有该集权限。
+  </div>
+
+  <p class="muted"><a href="/tvbox">返回 TVBox 配置</a></p>
+</div>
+<script>
+let status = {};
+const $ = id => document.getElementById(id);
+
+function defaultBase() {
+  const port = location.port || (location.protocol === "https:" ? "443" : "80");
+  if (port === "8899") return location.origin;
+  return location.protocol + "//" + location.hostname + ":8899";
+}
+
+function render() {
+  const base = status.base || defaultBase();
+  if (!$("base").value) $("base").value = base;
+  const hint = $("hint");
+  if (!status.has_cookie) {
+    hint.className = "hint bad";
+    hint.textContent = "未登录：当前只能播放免费集。";
+    return;
+  }
+  const test = status.last_test || {};
+  hint.className = "hint " + (test.ok ? "ok" : "bad");
+  hint.textContent = "已保存 Cookie" +
+    (status.updated_at ? "（" + status.updated_at + "）" : "") +
+    "；测试：" + (test.detail || "未测试");
+}
+
+async function load() {
+  try {
+    const res = await fetch("/api/hongguo", { cache: "no-store" });
+    status = await res.json();
+    render();
+  } catch (err) {
+    $("hint").className = "hint bad";
+    $("hint").textContent = "读取失败：" + err.message;
+  }
+}
+
+async function save() {
+  const cookie = $("cookie").value.trim();
+  const base = $("base").value.trim();
+  if (!cookie && !base) { alert("请粘贴 Cookie 或填写代理地址"); return; }
+  $("save").disabled = true;
+  $("hint").className = "hint";
+  $("hint").textContent = "正在保存并测试，请稍候…";
+  try {
+    const res = await fetch("/api/hongguo", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ cookie, base })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "保存失败");
+    status = data;
+    $("cookie").value = "";
+    render();
+  } catch (err) {
+    $("hint").className = "hint bad";
+    $("hint").textContent = "保存失败：" + err.message;
+  } finally {
+    $("save").disabled = false;
+  }
+}
+
+async function clearLogin() {
+  if (!confirm("确定删除 NAS 上保存的红果 Cookie？")) return;
+  try {
+    const res = await fetch("/api/hongguo", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ clear: true })
+    });
+    status = await res.json();
+    render();
+  } catch (err) { alert("退出失败：" + err.message); }
+}
+
+$("save").addEventListener("click", save);
+$("clear").addEventListener("click", clearLogin);
+load();
+</script>
+</body>
+</html>

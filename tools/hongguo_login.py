@@ -96,8 +96,8 @@ def cookie_header(cookies):
                      for name, value in seen.items()), selected
 
 
-def upload(server, cookie):
-    body = json.dumps({"cookie": cookie, "base": server},
+def upload(server, proxy_base, cookie):
+    body = json.dumps({"cookie": cookie, "base": proxy_base},
                       ensure_ascii=False).encode("utf-8")
     request = urllib.request.Request(
         server.rstrip("/") + "/api/hongguo", data=body,
@@ -108,8 +108,10 @@ def upload(server, cookie):
 
 def main():
     parser = argparse.ArgumentParser(description="红果扫码登录并保存 Cookie")
-    parser.add_argument("--server", default="http://192.168.1.254:8899",
-                        help="Tomorrow 8899 地址（用于自动上传登录态）")
+    parser.add_argument("--server", default="http://192.168.1.254:8896",
+                        help="Tomorrow 面板地址（用于自动上传登录态）")
+    parser.add_argument("--proxy-base", default="http://192.168.1.254:8899",
+                        help="TVBox 播放代理地址")
     parser.add_argument("--profile",
                         default=os.path.join(os.environ.get("LOCALAPPDATA", ""),
                                              "Tomorrow", "EdgeProfile"),
@@ -123,7 +125,7 @@ def main():
                         "hongguo_cookie.txt"),
                         help="Cookie 保存路径")
     parser.add_argument("--no-upload", action="store_true",
-                        help="只保存本地 txt，不上传 8899")
+                        help="只保存本地 txt，不上传面板")
     parser.add_argument("--keep-open", action="store_true",
                         help="登录成功后不关闭 Edge")
     args = parser.parse_args()
@@ -175,8 +177,8 @@ def main():
 
         if not args.no_upload:
             try:
-                code, data = upload(args.server, header)
-                print("[hongguo] 上传 8899：HTTP %s" % code)
+                code, data = upload(args.server, args.proxy_base, header)
+                print("[hongguo] 上传面板：HTTP %s" % code)
                 test = data.get("last_test") or {}
                 print("[hongguo] 登录测试：%s" % (test.get("detail") or "未测试"))
             except Exception as error:

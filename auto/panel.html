@@ -138,12 +138,20 @@
       <button class="primary" onclick="saveHgLogin()">保存并测试</button>
       <button class="danger" onclick="clearHgLogin()">退出登录</button>
     </div>
+    <div class="toolbar" style="display:block">
+      <div class="muted" style="margin-bottom:6px">
+        更简单：开发者工具 Network 里右键任意红果请求 → Copy → Copy as cURL，
+        粘贴到下面。
+      </div>
+      <textarea id="hgCurl" placeholder="粘贴 Copy as cURL 的完整内容"></textarea>
+      <button class="primary" onclick="saveHgCurl()">从 cURL 提取 Cookie 并测试</button>
+    </div>
     <div class="muted" id="hgHint">
-      登录红果网页后，从浏览器开发者工具 Network 的请求头复制完整 Cookie
-      （含 sessionid/ttwid 等）；不要只复制 document.cookie。
+      登录红果网页后，也可以手动粘贴完整 Cookie（含 sessionid/ttwid 等）。
     </div>
     <div class="muted">
       <a href="https://hongguoduanju.com/" target="_blank" rel="noreferrer">打开红果登录页</a>
+      · <a href="/hongguo" target="_blank" rel="noreferrer">打开独立登录页</a>
       · 代理地址变更后请点“立即重跑流水线”重建配置。
     </div>
   </div>
@@ -732,6 +740,21 @@ async function saveHgLogin() {
       (test.detail || "已保存，请检查 Cookie 或稍后重试"), !test.ok);
     if (!res.has_cookie) toast("未保存登录 Cookie", true);
   } catch (err) { toast("保存失败: " + err.message, true); }
+}
+
+async function saveHgCurl() {
+  const curl = document.getElementById("hgCurl").value.trim();
+  const base = document.getElementById("hgBase").value.trim();
+  if (!curl) { toast("请先粘贴 Copy as cURL 的内容", true); return; }
+  try {
+    const res = await post("/api/hongguo", { curl, base });
+    HG = res;
+    document.getElementById("hgCurl").value = "";
+    renderHg();
+    const test = res.last_test || {};
+    toast(test.paid ? "登录成功，付费集已解锁" :
+      (test.detail || "已保存，请检查 Cookie"), !test.ok);
+  } catch (err) { toast("提取失败: " + err.message, true); }
 }
 
 async function clearHgLogin() {

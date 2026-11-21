@@ -817,7 +817,7 @@ class Handler(SimpleHTTPRequestHandler):
         self._cache_control_sent = False
         config_only = getattr(self.server, "config_only", False)
         if config_only and (path in ("/status", "/__status")
-                            or (path.startswith("/api/") and path != "/api/hongguo")
+                            or path.startswith("/api/")
                             or path in ("/panel", "/panel.html")
                             or path.startswith("/panel/")):
             self.send_error(404)
@@ -850,6 +850,9 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_file(PANEL_FILE, "text/html; charset=utf-8")
             return
         if path in ("/hongguo", "/hongguo/", "/center", "/center/"):
+            if config_only:
+                self.send_error(404)
+                return
             self.send_file(HG_LOGIN_FILE, "text/html; charset=utf-8")
             return
         if path in ("/lan", "/tvbox.lan", "/tvbox.lan.json"):
@@ -968,8 +971,7 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_POST(self):
         parts = urllib.parse.urlsplit(self.path)
-        if getattr(self.server, "config_only", False) \
-                and parts.path != "/api/hongguo":
+        if getattr(self.server, "config_only", False):
             self.send_error(404)
             return
         if not parts.path.startswith("/api/"):

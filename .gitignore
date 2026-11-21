@@ -17,6 +17,7 @@ auto/feeds_snapshot/
 auto/feed_status.json
 auto/publish_state.json
 auto/hongguo_auth.json
+tools/hongguo_cookie.txt
 center/token.local.json
 .env
 auto/backup.log

@@ -728,7 +728,7 @@ async function saveHgLogin() {
     document.getElementById("hgCookie").value = "";
     renderHg();
     const test = res.last_test || {};
-    toast(test.ok ? "登录态有效，已解锁付费集" :
+    toast(test.paid ? "登录成功，付费集已解锁" :
       (test.detail || "已保存，请检查 Cookie 或稍后重试"), !test.ok);
     if (!res.has_cookie) toast("未保存登录 Cookie", true);
   } catch (err) { toast("保存失败: " + err.message, true); }

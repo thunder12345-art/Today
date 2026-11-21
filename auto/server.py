@@ -67,6 +67,7 @@ HG_AUTH_PATH = os.path.join(BASE, "hongguo_auth.json")
 HG_SITE = "https://hongguoduanju.com"
 HG_UA = ("Mozilla/5.0 (Linux; Android 12) AppleWebKit/537.36 "
          "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
+HG_TEST_FREE_ITEM = "7706514645208534041"
 HG_TEST_ITEM = "7706514587142589465"
 HG_LOGIN_FILE = os.path.join(BASE, "hongguo_login.html")
 JAR_CACHE_DIR = os.path.join(BASE, ".jar_cache", "local")
@@ -297,15 +298,23 @@ def hg_play(item_id):
 
 
 def hg_test(cookie):
-    code, data = hg_fallback(HG_TEST_ITEM, cookie)
-    if code == 200:
-        return {"ok": True, "item_id": HG_TEST_ITEM, "detail": "登录态可解锁付费集",
-                "checked_at": now_iso()}
-    if code == 403:
-        return {"ok": False, "item_id": HG_TEST_ITEM,
-                "detail": "Cookie 无付费集权限或登录态已失效", "checked_at": now_iso()}
-    return {"ok": False, "item_id": HG_TEST_ITEM,
-            "detail": "测试失败（HTTP %s）" % code, "checked_at": now_iso()}
+    free_code, _free_data = hg_fallback(HG_TEST_FREE_ITEM, cookie)
+    paid_code, _paid_data = hg_fallback(HG_TEST_ITEM, cookie)
+    if free_code == 200:
+        paid = paid_code == 200
+        return {
+            "ok": True, "paid": paid, "free_ok": True,
+            "item_id": HG_TEST_ITEM,
+            "detail": ("登录成功；免费集已可播，付费集也已解锁"
+                       if paid else "登录成功；免费集已可播，付费集未解锁（账号无该集权限）"),
+            "checked_at": now_iso(),
+        }
+    return {
+        "ok": False, "paid": False, "free_ok": False,
+        "item_id": HG_TEST_FREE_ITEM,
+        "detail": "Cookie 未通过免费集测试（HTTP %s），登录态可能已失效" % free_code,
+        "checked_at": now_iso(),
+    }
 
 
 def cycle_due(settings, last_ts, now=None):

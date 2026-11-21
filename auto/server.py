@@ -1268,7 +1268,9 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_json({"error": "代理地址必须以 http:// 或 https:// 开头"},
                                status=400)
                 return
-            settings = load_settings()
+            settings = load_json(SETTINGS_PATH, {}) or {}
+            if not isinstance(settings, dict):
+                settings = {}
             settings["hg_proxy_base"] = base
             save_json(SETTINGS_PATH, settings)
         self.send_json(dict(hg_status(), ok=True))

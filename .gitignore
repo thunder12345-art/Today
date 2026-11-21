@@ -16,6 +16,7 @@ auto/.jar_cache/
 auto/feeds_snapshot/
 auto/feed_status.json
 auto/publish_state.json
+auto/hongguo_auth.json
 center/token.local.json
 .env
 auto/backup.log

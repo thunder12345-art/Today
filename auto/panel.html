@@ -126,6 +126,27 @@
     </div>
   </div>
 
+  <h2>红果短剧登录</h2>
+  <div class="box">
+    <div class="toolbar">
+      <label class="muted">Cookie</label>
+      <input type="text" id="hgCookie" style="min-width:420px"
+             placeholder="已保存则留空；粘贴浏览器请求头里的完整 Cookie">
+      <label class="muted">代理地址</label>
+      <input type="text" id="hgBase" style="min-width:260px"
+             placeholder="如 http://192.168.1.254:8899">
+      <button class="primary" onclick="saveHgLogin()">保存并测试</button>
+      <button class="danger" onclick="clearHgLogin()">退出登录</button>
+    </div>
+    <div class="muted" id="hgHint">
+      登录红果网页后，从浏览器开发者工具 Network 的请求头复制完整 Cookie
+      （含 sessionid/ttwid 等）；不要只复制 document.cookie。
+    </div>
+    <div class="muted">
+      <a href="https://hongguoduanju.com/" target="_blank" rel="noreferrer">打开红果登录页</a>
+    </div>
+  </div>
+
   <h2>源管理 · 人工复核</h2>
   <div class="toolbar">
     <div class="tabs" id="tabs"></div>
@@ -228,6 +249,7 @@ const GROUPS = { sites: "站点", caiji: "采集", repos: "仓库", parses: "解
 let STATUS = null, SOURCES = null, UPSTREAMS = null, FEEDS = null;
 let curGroup = "sites", curFilter = "all";
 let timer = null;
+let HG = {};
 
 function esc(s) {
   return String(s == null ? "" : s).replace(/[&<>"']/g,
@@ -261,11 +283,12 @@ async function post(path, data) {
 
 async function loadAll(showToast) {
   try {
-    const [status, sources, upstreams, feeds] = await Promise.all([
-      api("/api/status"), api("/api/sources"), api("/api/upstreams"), api("/api/feeds")]);
-    STATUS = status; SOURCES = sources; UPSTREAMS = upstreams; FEEDS = feeds;
+    const [status, sources, upstreams, feeds, hg] = await Promise.all([
+      api("/api/status"), api("/api/sources"), api("/api/upstreams"), api("/api/feeds"),
+      api("/api/hongguo").catch(() => ({}))]);
+    STATUS = status; SOURCES = sources; UPSTREAMS = upstreams; FEEDS = feeds; HG = hg;
     renderStatus(); renderTabs(); renderTable(); renderWhitelist(); renderEvents();
-    renderSettings(); renderUpstreams(); renderFeeds();
+    renderSettings(); renderUpstreams(); renderFeeds(); renderHg();
     if (showToast) toast("已刷新");
   } catch (err) { toast("加载失败: " + err.message, true); }
 }
@@ -675,6 +698,48 @@ function renderSettings() {
     hint = "0 = 仅手动（可用上方按钮或面板同步）";
   }
   document.getElementById("setHint").textContent = hint;
+}
+
+function renderHg() {
+  const base = HG.base || (location.protocol + "//" + location.hostname + ":8899");
+  const baseInput = document.getElementById("hgBase");
+  if (baseInput && !baseInput.value) baseInput.value = base;
+  const hint = document.getElementById("hgHint");
+  if (!hint) return;
+  if (!HG.has_cookie) {
+    hint.textContent = "未登录：当前只能播放红果官方免费集（通常前 3 集）。" +
+      "登录后由本机代理解锁账号可看内容。";
+    return;
+  }
+  const test = HG.last_test || {};
+  hint.textContent = "已保存 Cookie" + (HG.updated_at ? "（" + HG.updated_at + "）" : "") +
+    "；测试：" + (test.detail || "未测试") +
+    (test.ok ? "。代理地址：" + (HG.base || base) : "");
+}
+
+async function saveHgLogin() {
+  const cookie = document.getElementById("hgCookie").value.trim();
+  const base = document.getElementById("hgBase").value.trim();
+  if (!cookie && !base) { toast("请粘贴 Cookie 或填写代理地址", true); return; }
+  try {
+    const res = await post("/api/hongguo", { cookie, base });
+    HG = res;
+    document.getElementById("hgCookie").value = "";
+    renderHg();
+    const test = res.last_test || {};
+    toast(test.ok ? "登录态有效，已解锁付费集" :
+      (test.detail || "已保存，请检查 Cookie 或稍后重试"), !test.ok);
+    if (!res.has_cookie) toast("未保存登录 Cookie", true);
+  } catch (err) { toast("保存失败: " + err.message, true); }
+}
+
+async function clearHgLogin() {
+  if (!confirm("确定退出红果登录并删除服务器保存的 Cookie？")) return;
+  try {
+    HG = await post("/api/hongguo", { clear: true });
+    renderHg();
+    toast("已退出红果登录");
+  } catch (err) { toast("退出失败: " + err.message, true); }
 }
 
 async function saveSettings() {

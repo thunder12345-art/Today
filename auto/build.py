@@ -146,6 +146,28 @@ def apply_legacy_mode(config, hashes=None):
     return result
 
 
+def apply_hongguo_proxy(config, base):
+    base = (base or "").strip().rstrip("/")
+    if not base:
+        return config
+    sites = []
+    for item in config.get("sites") or []:
+        entry = item
+        if item.get("key") == "hongguo":
+            entry = dict(item)
+            ext = entry.get("ext")
+            if isinstance(ext, dict):
+                ext = dict(ext)
+            else:
+                ext = {}
+            ext["hg_base"] = base
+            entry["ext"] = ext
+        sites.append(entry)
+    result = dict(config)
+    result["sites"] = sites
+    return result
+
+
 def _jar_meta(name):
     candidates = (os.path.join(ROOT, name), os.path.join(ROOT, "jar", name))
     path = next((item for item in candidates if os.path.exists(item)), "")
@@ -319,12 +341,16 @@ def main():
     tvbox = apply_jar_md5(tvbox, hashes)
     remote_base = str(settings.get("remote_base_url") or "").strip() if isinstance(settings, dict) else ""
 
+    hg_base = str(settings.get("hg_proxy_base") or settings.get("local_jar_base")
+                  or "").strip() if isinstance(settings, dict) else ""
     configs = {
         "lan": tvbox,
         "phone": apply_phone_mode(tvbox, hashes),
         "github": apply_github_mode(tvbox, hashes),
         "legacy": apply_legacy_mode(tvbox, hashes),
     }
+    for name in ("lan", "phone", "legacy"):
+        configs[name] = apply_hongguo_proxy(configs[name], hg_base)
     outputs = {
         "tvbox.json": configs["lan"],
         "tvbox.phone.json": configs["phone"],

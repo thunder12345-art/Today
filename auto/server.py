@@ -1,22 +1,24 @@
 import argparse
 import datetime
+import http.cookiejar
 import json
 import os
 import subprocess
 import sys
 import threading
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 import uuid
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
-from common import (BASE, DB_PATH, REPORT_JSON, REPORT_TXT, ROOT, http_check,
-                    http_fetch, is_http, is_whitelisted, item_key, load_json,
-                    load_json_safe, load_removed, load_whitelist, local_jar_url,
-                    mask_text, now_iso, publish_allowed, save_json, save_removed,
-                    save_whitelist, setup_stdout)
+from common import (BASE, DB_PATH, REPORT_JSON, REPORT_TXT, ROOT, SSL_CTX,
+                    http_check, http_fetch, is_http, is_whitelisted, item_key,
+                    load_json, load_json_safe, load_removed, load_whitelist,
+                    local_jar_url, mask_text, now_iso, publish_allowed, save_json,
+                    save_removed, save_whitelist, setup_stdout)
 from check import apply_policy_to_item, check_item, class_index
 from jarscan import load_jarscan
 from submit import fetch_payload, parse_payload, submit_payloads
@@ -60,6 +62,11 @@ FEED_SCRIPT = os.path.join(BASE, "feed_sync.py")
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
 PUBLISH_STATE_PATH = os.path.join(BASE, "publish_state.json")
 FEED_STATUS_PATH = os.path.join(BASE, "feed_status.json")
+HG_AUTH_PATH = os.path.join(BASE, "hongguo_auth.json")
+HG_SITE = "https://hongguoduanju.com"
+HG_UA = ("Mozilla/5.0 (Linux; Android 12) AppleWebKit/537.36 "
+         "(KHTML, like Gecko) Chrome/126.0 Safari/537.36")
+HG_TEST_ITEM = "7706514587142589465"
 JAR_CACHE_DIR = os.path.join(BASE, ".jar_cache", "local")
 JAR_CACHE_TTL = 7 * 86400
 JAR_MAX_BYTES = 16 * 1048576
@@ -83,6 +90,7 @@ SETTINGS_DEFAULTS = {
     "center_token_url": DEFAULT_CENTER_TOKEN_URL,
     "local_jar_base": "",
     "remote_base_url": "",
+    "hg_proxy_base": "",
     "check_groups": {"sites": True, "caiji": True, "repos": True, "parses": True},
 }
 SCHEDULE_STATE_PATH = os.path.join(BASE, "schedule_state.json")
@@ -131,6 +139,9 @@ def load_settings():
                 "feed_strict": SETTINGS_DEFAULTS["feed_strict"],
                 "feed_allow_external_jar": SETTINGS_DEFAULTS["feed_allow_external_jar"],
                 "center_token_url": SETTINGS_DEFAULTS["center_token_url"],
+                "local_jar_base": SETTINGS_DEFAULTS["local_jar_base"],
+                "remote_base_url": SETTINGS_DEFAULTS["remote_base_url"],
+                "hg_proxy_base": SETTINGS_DEFAULTS["hg_proxy_base"],
                 "check_groups": dict(SETTINGS_DEFAULTS["check_groups"])}
     raw_days = data.get("interval_days")
     if raw_days is None and "interval_hours" in data:
@@ -157,6 +168,9 @@ def load_settings():
         settings["feed_allow_external_jar"] = bool(data.get("feed_allow_external_jar"))
     if "center_token_url" in data:
         settings["center_token_url"] = str(data.get("center_token_url") or "").strip()
+    for key in ("local_jar_base", "remote_base_url", "hg_proxy_base"):
+        if key in data:
+            settings[key] = str(data.get(key) or "").strip()
     raw_groups = data.get("check_groups")
     if isinstance(raw_groups, dict):
         for key in settings["check_groups"]:
@@ -165,6 +179,113 @@ def load_settings():
     if not any(settings["check_groups"][name] for name in ("sites", "caiji", "repos")):
         settings["check_groups"] = dict(SETTINGS_DEFAULTS["check_groups"])
     return settings
+
+
+def load_hg_auth():
+    data = load_json(HG_AUTH_PATH, {})
+    return data if isinstance(data, dict) else {}
+
+
+def save_hg_auth(data):
+    save_json(HG_AUTH_PATH, data)
+
+
+def hg_proxy_base():
+    settings = load_settings()
+    return str(settings.get("hg_proxy_base") or settings.get("local_jar_base")
+               or "").strip().rstrip("/")
+
+
+def hg_status():
+    auth = load_hg_auth()
+    return {
+        "has_cookie": bool(str(auth.get("cookie") or "").strip()),
+        "updated_at": auth.get("updated_at") or "",
+        "last_test": auth.get("last_test") or {},
+        "base": hg_proxy_base(),
+        "login_url": HG_SITE + "/",
+    }
+
+
+def _hg_open(cookie=""):
+    jar = http.cookiejar.CookieJar()
+    handlers = [urllib.request.HTTPCookieProcessor(jar),
+                urllib.request.HTTPSHandler(context=SSL_CTX)]
+    opener = urllib.request.build_opener(*handlers)
+    headers = {
+        "User-Agent": HG_UA,
+        "Accept": "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+        "Origin": HG_SITE,
+        "Referer": HG_SITE + "/",
+    }
+    cookie = str(cookie or "").strip()
+    if cookie.lower().startswith("cookie:"):
+        cookie = cookie.split(":", 1)[1].strip()
+    if cookie:
+        headers["Cookie"] = cookie.replace("\r", "").replace("\n", "")
+    if not cookie:
+        try:
+            request = urllib.request.Request(HG_SITE + "/",
+                                             headers={"User-Agent": HG_UA})
+            opener.open(request, timeout=15).read(4096)
+        except Exception:
+            pass
+    return opener, headers
+
+
+def _hg_post(path, payload, cookie="", timeout=20):
+    opener, headers = _hg_open(cookie)
+    body = json.dumps(payload, ensure_ascii=False,
+                      separators=(",", ":")).encode("utf-8")
+    request = urllib.request.Request(HG_SITE + path, data=body,
+                                     headers=headers, method="POST")
+    try:
+        with opener.open(request, timeout=timeout) as response:
+            raw = response.read(4 * 1024 * 1024)
+            code = response.getcode()
+    except urllib.error.HTTPError as error:
+        return error.code, {}
+    except Exception:
+        return 0, {}
+    try:
+        data = json.loads(raw.decode("utf-8", "replace") or "{}")
+    except ValueError:
+        data = {}
+    return code, data if isinstance(data, dict) else {}
+
+
+def hg_fallback(item_id, cookie=""):
+    code, data = _hg_post("/api/video/protected/fallback-play-info",
+                          {"item_id": str(item_id)}, cookie)
+    url = str(data.get("main_url") or "").strip() if isinstance(data, dict) else ""
+    if code == 200 and url.startswith(("http://", "https://")):
+        return 200, {"url": url, "expires": data.get("url_expire")}
+    return code, {"error": str((data or {}).get("error") or
+                               (data or {}).get("base_resp", {}).get("StatusMessage")
+                               or "playback unavailable")[:120]}
+
+
+def hg_play(item_id):
+    cookie = str(load_hg_auth().get("cookie") or "").strip()
+    code, data = hg_fallback(item_id, cookie)
+    if code == 200:
+        return {"ok": True, "url": data["url"], "expires": data.get("expires"),
+                "logged_in": bool(cookie)}
+    return {"ok": False, "error": "第 %s 集无播放权限（HTTP %s）" % (item_id, code),
+            "logged_in": bool(cookie)}
+
+
+def hg_test(cookie):
+    code, data = hg_fallback(HG_TEST_ITEM, cookie)
+    if code == 200:
+        return {"ok": True, "item_id": HG_TEST_ITEM, "detail": "登录态可解锁付费集",
+                "checked_at": now_iso()}
+    if code == 403:
+        return {"ok": False, "item_id": HG_TEST_ITEM,
+                "detail": "Cookie 无付费集权限或登录态已失效", "checked_at": now_iso()}
+    return {"ok": False, "item_id": HG_TEST_ITEM,
+            "detail": "测试失败（HTTP %s）" % code, "checked_at": now_iso()}
 
 
 def cycle_due(settings, last_ts, now=None):
@@ -762,6 +883,15 @@ class Handler(SimpleHTTPRequestHandler):
                 return
             self.send_file(target, "application/json; charset=utf-8", "no-store")
             return
+        if path == "/hg/play":
+            query = urllib.parse.parse_qs(parts.query or "")
+            item_id = str((query.get("item_id") or [""])[0]).strip()
+            if not item_id.isdigit():
+                self.send_json({"ok": False, "error": "missing item_id"}, status=400)
+                return
+            result = hg_play(item_id)
+            self.send_json(result, status=200 if result.get("ok") else 403)
+            return
         if path.startswith("/jar/"):
             raw_name = urllib.parse.unquote(path[len("/jar/"):])
             name = raw_name.split(";md5;", 1)[0].split("?", 1)[0]
@@ -785,6 +915,8 @@ class Handler(SimpleHTTPRequestHandler):
                 self.send_json(build_upstreams())
             elif path == "/api/feeds":
                 self.send_json(build_feeds())
+            elif path == "/api/hongguo":
+                self.send_json(hg_status())
             elif path == "/api/report.txt":
                 self.send_file(REPORT_TXT, "text/plain; charset=utf-8")
             else:
@@ -825,6 +957,8 @@ class Handler(SimpleHTTPRequestHandler):
             self.handle_upstreams(data)
         elif parts.path == "/api/feeds":
             self.handle_feeds(data)
+        elif parts.path == "/api/hongguo":
+            self.handle_hongguo(data)
         elif parts.path == "/api/settings":
             self.handle_settings(data)
         elif parts.path == "/api/run":
@@ -1107,6 +1241,37 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_json({"ok": True})
         finally:
             LOCK.release()
+
+    def handle_hongguo(self, data):
+        if not isinstance(data, dict):
+            self.send_json({"error": "bad payload"}, status=400)
+            return
+        auth = load_hg_auth()
+        if data.get("clear"):
+            try:
+                if os.path.exists(HG_AUTH_PATH):
+                    os.remove(HG_AUTH_PATH)
+            except OSError:
+                pass
+            auth = {}
+        cookie = str(data.get("cookie") or "").strip()
+        if cookie.lower().startswith("cookie:"):
+            cookie = cookie.split(":", 1)[1].strip()
+        if cookie:
+            auth["cookie"] = cookie.replace("\r", "").replace("\n", "")
+            auth["updated_at"] = now_iso()
+            auth["last_test"] = hg_test(auth["cookie"])
+            save_hg_auth(auth)
+        base = str(data.get("base") or "").strip().rstrip("/")
+        if base:
+            if not base.startswith(("http://", "https://")):
+                self.send_json({"error": "代理地址必须以 http:// 或 https:// 开头"},
+                               status=400)
+                return
+            settings = load_settings()
+            settings["hg_proxy_base"] = base
+            save_json(SETTINGS_PATH, settings)
+        self.send_json(dict(hg_status(), ok=True))
 
     def handle_settings(self, data):
         if not isinstance(data, dict):

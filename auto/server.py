@@ -3,6 +3,7 @@ import datetime
 import http.cookiejar
 import json
 import os
+import re
 import subprocess
 import sys
 import threading
@@ -180,6 +181,24 @@ def load_settings():
     if not any(settings["check_groups"][name] for name in ("sites", "caiji", "repos")):
         settings["check_groups"] = dict(SETTINGS_DEFAULTS["check_groups"])
     return settings
+
+
+def cookie_from_curl(curl):
+    text = str(curl or "")
+    patterns = (
+        r"(?:-H|--header)\s+(['\"])\s*(?:cookie)\s*:\s*(.*?)\1",
+        r"(?:-b|--cookie)\s+(['\"])(.*?)\1",
+        r"(?im)^\s*cookie\s*:\s*(.+?)\s*$",
+    )
+    for pattern in patterns:
+        match = re.search(pattern, text, re.I | re.S)
+        if match:
+            value = (match.group(2) if match.lastindex and match.lastindex >= 2
+                     else match.group(1)).strip()
+            value = value.replace("\\r", "").replace("\\n", "")
+            if value and not value.lower().startswith("cookie:"):
+                return value
+    return ""
 
 
 def load_hg_auth():
@@ -1260,6 +1279,11 @@ class Handler(SimpleHTTPRequestHandler):
                 pass
             auth = {}
         cookie = str(data.get("cookie") or "").strip()
+        if data.get("curl"):
+            cookie = cookie_from_curl(data.get("curl"))
+            if not cookie:
+                self.send_json({"error": "cURL 里没有找到 Cookie，请确认复制的是请求头"}, status=400)
+                return
         if cookie.lower().startswith("cookie:"):
             cookie = cookie.split(":", 1)[1].strip()
         if cookie:

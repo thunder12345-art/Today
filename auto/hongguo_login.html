@@ -21,6 +21,9 @@
           border-radius:8px; padding:9px 11px; }
   input#cookie { flex:1; min-width:280px; }
   input#base { flex:1; min-width:240px; }
+  textarea { width:100%; min-height:96px; resize:vertical; background:#0e1528;
+             color:var(--text); border:1px solid var(--line); border-radius:8px;
+             padding:9px 11px; font:12px/1.5 Consolas,monospace; }
   button { border:1px solid var(--line); border-radius:8px; padding:9px 14px;
            background:#1b2540; color:var(--text); cursor:pointer; }
   button.primary { background:#1d4ed8; border-color:#2563eb; }
@@ -47,6 +50,17 @@
       <input id="base" type="text" placeholder="http://192.168.1.254:8899">
       <button class="primary" id="save">保存并测试</button>
       <button class="danger" id="clear">退出登录</button>
+    </div>
+
+    <div class="row" style="display:block">
+      <div class="muted" style="margin-bottom:6px">
+        更简单：在开发者工具 Network 里右键任意红果请求 →
+        Copy → Copy as cURL，然后把整段粘贴到这里。
+      </div>
+      <textarea id="curl" placeholder="把 Copy as cURL 的内容粘贴到这里"></textarea>
+    </div>
+    <div class="row">
+      <button class="primary" id="curlSave">从 cURL 提取 Cookie 并测试</button>
     </div>
     <div class="hint" id="hint">读取状态中…</div>
     <div class="muted" style="margin-top:8px">
@@ -126,6 +140,31 @@ async function save() {
   }
 }
 
+async function saveCurl() {
+  const curl = $("curl").value.trim();
+  const base = $("base").value.trim();
+  if (!curl) { alert("请先粘贴 Copy as cURL 的内容"); return; }
+  $("curlSave").disabled = true;
+  $("hint").className = "hint";
+  $("hint").textContent = "正在从 cURL 提取 Cookie 并测试，请稍候…";
+  try {
+    const res = await fetch("/api/hongguo", {
+      method: "POST", headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({ curl, base })
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "提取失败");
+    status = data;
+    $("curl").value = "";
+    render();
+  } catch (err) {
+    $("hint").className = "hint bad";
+    $("hint").textContent = "提取失败：" + err.message;
+  } finally {
+    $("curlSave").disabled = false;
+  }
+}
+
 async function clearLogin() {
   if (!confirm("确定删除 NAS 上保存的红果 Cookie？")) return;
   try {
@@ -139,6 +178,7 @@ async function clearLogin() {
 }
 
 $("save").addEventListener("click", save);
+$("curlSave").addEventListener("click", saveCurl);
 $("clear").addEventListener("click", clearLogin);
 load();
 </script>

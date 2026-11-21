@@ -65,10 +65,10 @@ JAR_CACHE_TTL = 7 * 86400
 JAR_MAX_BYTES = 16 * 1048576
 JAR_LOCK = threading.Lock()
 LOCAL_JAR_SOURCES = {
-    "spider.jar": ("https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar",
-                   "https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar"),
-    "pg_upgraded.jar": ("https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar",
-                        "https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar"),
+    "spider.jar": ("https://gh-proxy.com/https://raw.githubusercontent.com/thunder12345-art/Today/main/jar/spider.jar",
+                   "https://raw.githubusercontent.com/thunder12345-art/Today/main/jar/spider.jar"),
+    "pg_upgraded.jar": ("https://gh-proxy.com/https://raw.githubusercontent.com/thunder12345-art/Today/main/jar/pg_upgraded.jar",
+                        "https://raw.githubusercontent.com/thunder12345-art/Today/main/jar/pg_upgraded.jar"),
 }
 DEFAULT_CENTER_TOKEN_URL = (
     "https://gh-proxy.com/https://raw.githubusercontent.com/"
@@ -532,6 +532,31 @@ def build_status():
             "report": load_json(REPORT_JSON, {})}
 
 
+def build_health():
+    compat = load_json_safe(os.path.join(ROOT, "compat.json"), {}) or {}
+    errors = []
+    profiles = compat.get("profiles") if isinstance(compat, dict) else None
+    if not isinstance(profiles, dict):
+        errors.append("compat.json missing profiles")
+        profiles = {}
+    for name in ("lan", "phone", "github", "legacy"):
+        item = profiles.get(name)
+        if not isinstance(item, dict):
+            errors.append("profile missing: %s" % name)
+            continue
+        target = os.path.join(ROOT, str(item.get("file") or ""))
+        if not os.path.exists(target):
+            errors.append("config missing: %s" % item.get("file"))
+        if not str(item.get("spider") or "").strip():
+            errors.append("spider missing: %s" % name)
+    for name in ("spider.jar", "pg_upgraded.jar", "tvbox.jar"):
+        if not os.path.exists(os.path.join(ROOT, "jar", name)) \
+                and not os.path.exists(os.path.join(ROOT, name)):
+            errors.append("jar missing: %s" % name)
+    return {"ok": not errors, "errors": errors, "compat": compat,
+            "server_time": now_iso()}
+
+
 def build_sources():
     db = load_json(DB_PATH, {}) or {}
     whitelist = load_whitelist()
@@ -636,7 +661,8 @@ class Handler(SimpleHTTPRequestHandler):
         parts = urllib.parse.urlsplit(self.path)
         path = parts.path
         if path in ("/tvbox/", "/tvbox.phone/", "/tvbox.remote/",
-                    "/tvbox.github/", "/lan/"):
+                    "/tvbox.github/", "/tvbox.legacy/", "/lan/",
+                    "/compat.json/"):
             path = path.rstrip("/")
         self._cache_control_sent = False
         config_only = getattr(self.server, "config_only", False)
@@ -648,6 +674,17 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if path in ("/status", "/__status"):
             self.send_json({"state": STATE, "report": load_json(REPORT_JSON, {})})
+            return
+        if path in ("/healthz", "/api/health"):
+            health = build_health()
+            self.send_json(health, status=200 if health.get("ok") else 503)
+            return
+        if path in ("/compat.json", "/api/compat"):
+            compat = load_json_safe(os.path.join(ROOT, "compat.json"), {}) or {}
+            if not compat:
+                self.send_json({"error": "compat unavailable"}, status=503)
+                return
+            self.send_json(compat)
             return
         if path in ("/", "/index.html"):
             if config_only:
@@ -694,6 +731,13 @@ class Handler(SimpleHTTPRequestHandler):
             return
         if path in ("/tvbox.github", "/tvbox-github", "/tvbox.github.json", "/github.json"):
             target = os.path.join(ROOT, "tvbox.github.json")
+            if not os.path.exists(target):
+                self.send_error(404)
+                return
+            self.send_file(target, "application/json; charset=utf-8")
+            return
+        if path in ("/tvbox.legacy", "/tvbox-legacy", "/tvbox.legacy.json", "/legacy.json"):
+            target = os.path.join(ROOT, "tvbox.legacy.json")
             if not os.path.exists(target):
                 self.send_error(404)
                 return

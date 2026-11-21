@@ -77,6 +77,34 @@ class JarRewriteTests(unittest.TestCase):
         self.assertEqual(db["sites"][0]["jar"], "http://192.168.1.254:8899/jar/spider.jar")
 
 
+class LegacyModeTests(unittest.TestCase):
+    def test_legacy_keeps_old_root_but_uses_local_site_jars(self):
+        config = {"spider": "./tvbox.jar", "sites": [
+            {"key": "花卷", "jar": "http://192.168.1.254:8899/jar/spider.jar"},
+        ]}
+        hashes = {"spider.jar": "16e7a6d79af111b1a67a04769e877fb7",
+                  "tvbox.jar": "05dbd787ba7fccde38ff8e0d169d8009"}
+        out = build.apply_legacy_mode(config, hashes)
+        self.assertEqual(out["spider"],
+                         "./tvbox.jar;md5;05dbd787ba7fccde38ff8e0d169d8009")
+        self.assertTrue(out["sites"][0]["jar"].startswith("./jar/spider.jar"))
+
+
+class CompatTests(unittest.TestCase):
+    def test_compat_lists_all_profiles(self):
+        configs = {
+            "lan": {"spider": "./jar/spider.jar"},
+            "phone": {"spider": "./jar/spider.jar"},
+            "github": {"spider": "https://example.com/jar/spider.jar"},
+            "legacy": {"spider": "./tvbox.jar"},
+        }
+        compat = build.build_compat(configs, {"spider.jar": "abc"})
+        self.assertEqual(compat["product"], "Tomorrow")
+        self.assertEqual(set(compat["profiles"]),
+                         {"lan", "phone", "github", "legacy"})
+        self.assertIn("pg_upgraded.jar", compat["jars"])
+
+
 class RemoteBaseTests(unittest.TestCase):
     def test_rewrites_token_and_jar(self):
         config = {"spider": "./tvbox.jar", "sites": [

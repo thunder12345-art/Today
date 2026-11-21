@@ -1,0 +1,60 @@
+{
+    "schema": 1,
+    "product": "Tomorrow",
+    "generated_at": "2026-11-21T16:33:12",
+    "profiles": {
+        "lan": {
+            "path": "/tvbox",
+            "file": "tvbox.json",
+            "clients": "FongMi/TVBox 5.8.9+，局域网",
+            "spider": "./jar/spider.jar;md5;16e7a6d79af111b1a67a04769e877fb7",
+            "jar": "jar/spider.jar"
+        },
+        "phone": {
+            "path": "/tvbox.phone",
+            "file": "tvbox.phone.json",
+            "clients": "手机/外网，NAS 域名可用",
+            "spider": "./jar/spider.jar;md5;16e7a6d79af111b1a67a04769e877fb7",
+            "jar": "jar/spider.jar"
+        },
+        "github": {
+            "path": "/tvbox.github",
+            "file": "tvbox.github.json",
+            "clients": "NAS/域名不可用时的 GitHub 兜底",
+            "spider": "https://gh-proxy.com/https://raw.githubusercontent.com/thunder12345-art/Today/main/jar/spider.jar;md5;16e7a6d79af111b1a67a04769e877fb7",
+            "jar": "jar/spider.jar"
+        },
+        "legacy": {
+            "path": "/tvbox.legacy",
+            "file": "tvbox.legacy.json",
+            "clients": "旧版 TVBox/FongMi 5.8.5 及以下，仅局域网",
+            "spider": "./tvbox.jar;md5;05dbd787ba7fccde38ff8e0d169d8009",
+            "jar": "tvbox.jar"
+        }
+    },
+    "jars": {
+        "spider.jar": {
+            "name": "spider.jar",
+            "path": "jar/spider.jar",
+            "md5": "16e7a6d79af111b1a67a04769e877fb7",
+            "size": 1704212
+        },
+        "pg_upgraded.jar": {
+            "name": "pg_upgraded.jar",
+            "path": "jar/pg_upgraded.jar",
+            "md5": "e58c3a2975d24db4978065ab895cf297",
+            "size": 2912031
+        },
+        "tvbox.jar": {
+            "name": "tvbox.jar",
+            "path": "tvbox.jar",
+            "md5": "05dbd787ba7fccde38ff8e0d169d8009",
+            "size": 1993920
+        }
+    },
+    "hashes": {
+        "spider.jar": "16e7a6d79af111b1a67a04769e877fb7",
+        "pg_upgraded.jar": "e58c3a2975d24db4978065ab895cf297",
+        "tvbox.jar": "05dbd787ba7fccde38ff8e0d169d8009"
+    }
+}

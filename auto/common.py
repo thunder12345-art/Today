@@ -90,17 +90,17 @@ def publish_allowed(epoch, state):
 LOCAL_JAR_ALLOWLIST = ("spider.jar", "pg_upgraded.jar")
 PUBLIC_JAR_URLS = {
     "spider.jar": "https://gh-proxy.com/https://raw.githubusercontent.com/thunder12345-art/Today/main/jar/spider.jar",
-    "pg_upgraded.jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar",
+    "pg_upgraded.jar": "https://gh-proxy.com/https://raw.githubusercontent.com/thunder12345-art/Today/main/jar/pg_upgraded.jar",
 }
 PUBLIC_SPIDER_URL = (
     "https://gh-proxy.com/https://raw.githubusercontent.com/"
     "thunder12345-art/Today/main/jar/spider.jar")
 PUBLIC_JAR_URLS_CDN = {
-    "spider.jar": "https://cdn.jsdelivr.net/gh/qist/tvbox@master/jar/spider.jar",
-    "pg_upgraded.jar": "https://cdn.jsdelivr.net/gh/qist/tvbox@master/jar/pg_upgraded.jar",
+    "spider.jar": "https://cdn.jsdelivr.net/gh/thunder12345-art/Today@main/jar/spider.jar",
+    "pg_upgraded.jar": "https://cdn.jsdelivr.net/gh/thunder12345-art/Today@main/jar/pg_upgraded.jar",
 }
 PUBLIC_SPIDER_URL_CDN = (
-    "https://cdn.jsdelivr.net/gh/thunder12345-art/Today@main/tvbox.jar")
+    "https://cdn.jsdelivr.net/gh/thunder12345-art/Today@main/jar/spider.jar")
 PHONE_TOKEN_URL = "http://127.0.0.1:9/token.json"
 JAR_CACHE_DIR = os.path.join(BASE, ".jar_cache", "local")
 
@@ -119,8 +119,8 @@ def file_md5(path):
 
 
 def jar_md5(name):
-    for path in (os.path.join(ROOT, "jar", name),
-                 os.path.join(ROOT, name),
+    for path in (os.path.join(ROOT, name),
+                 os.path.join(ROOT, "jar", name),
                  os.path.join(JAR_CACHE_DIR, name)):
         value = file_md5(path)
         if value:

@@ -1,10 +1,15 @@
 import argparse
 import os
+import shutil
+import sys
+import tempfile
 
+import validate
 from common import (BASE, DB_PATH, OUT_DIR, PHONE_TOKEN_URL, PUBLIC_JAR_URLS,
-                    PUBLIC_SPIDER_URL, ROOT, is_whitelisted, jar_md5, load_json,
-                    load_json_safe, load_whitelist, now_iso, rewrite_token_parts,
-                    save_json, setup_stdout, strip_meta, with_jar_md5)
+                    PUBLIC_SPIDER_URL, ROOT, file_md5, is_whitelisted, jar_md5,
+                    load_json, load_json_safe, load_whitelist, now_iso,
+                    rewrite_token_parts, save_json, setup_stdout, strip_meta,
+                    with_jar_md5)
 
 SETTINGS_PATH = os.path.join(BASE, "settings.json")
 
@@ -134,6 +139,68 @@ def apply_github_mode(config, hashes=None):
                              PUBLIC_JAR_URLS, PUBLIC_SPIDER_URL, hashes)
 
 
+def apply_legacy_mode(config, hashes=None):
+    result = apply_local_jars(config, hashes)
+    result["spider"] = with_jar_md5("./tvbox.jar", "tvbox.jar", hashes,
+                                    replace=True)
+    return result
+
+
+def _jar_meta(name):
+    candidates = (os.path.join(ROOT, name), os.path.join(ROOT, "jar", name))
+    path = next((item for item in candidates if os.path.exists(item)), "")
+    return {
+        "name": name,
+        "path": os.path.relpath(path, ROOT).replace("\\", "/") if path else "",
+        "md5": file_md5(path) if path else "",
+        "size": os.path.getsize(path) if path else 0,
+    }
+
+
+def build_compat(configs, hashes):
+    return {
+        "schema": 1,
+        "product": "Tomorrow",
+        "generated_at": now_iso(),
+        "profiles": {
+            "lan": {
+                "path": "/tvbox",
+                "file": "tvbox.json",
+                "clients": "FongMi/TVBox 5.8.9+，局域网",
+                "spider": configs["lan"].get("spider", ""),
+                "jar": "jar/spider.jar",
+            },
+            "phone": {
+                "path": "/tvbox.phone",
+                "file": "tvbox.phone.json",
+                "clients": "手机/外网，NAS 域名可用",
+                "spider": configs["phone"].get("spider", ""),
+                "jar": "jar/spider.jar",
+            },
+            "github": {
+                "path": "/tvbox.github",
+                "file": "tvbox.github.json",
+                "clients": "NAS/域名不可用时的 GitHub 兜底",
+                "spider": configs["github"].get("spider", ""),
+                "jar": "jar/spider.jar",
+            },
+            "legacy": {
+                "path": "/tvbox.legacy",
+                "file": "tvbox.legacy.json",
+                "clients": "旧版 TVBox/FongMi 5.8.5 及以下，仅局域网",
+                "spider": configs["legacy"].get("spider", ""),
+                "jar": "tvbox.jar",
+            },
+        },
+        "jars": {
+            "spider.jar": _jar_meta("spider.jar"),
+            "pg_upgraded.jar": _jar_meta("pg_upgraded.jar"),
+            "tvbox.jar": _jar_meta("tvbox.jar"),
+        },
+        "hashes": dict(hashes or {}),
+    }
+
+
 def apply_run_meta(config, run_id=None, epoch=None):
     run_id = (run_id if run_id is not None else os.environ.get("PIPELINE_RUN_ID") or "").strip()
     if not run_id:
@@ -239,8 +306,9 @@ def main():
         repos.append({"url": item.get("url", ""), "name": item.get("name", "")})
     lmw = {"urls": repos}
 
-    out_dir = ROOT if args.inplace else args.out
-    os.makedirs(out_dir, exist_ok=True)
+    inplace = bool(args.inplace)
+    work_dir = tempfile.mkdtemp(prefix=".build-", dir=BASE) if inplace else args.out
+    os.makedirs(work_dir, exist_ok=True)
     tvbox.pop("_meta", None)
     hashes = {name: jar_md5(name) for name in ("spider.jar", "pg_upgraded.jar",
                                                "tvbox.jar")}
@@ -249,28 +317,57 @@ def main():
         if isinstance(settings, dict) else ""
     tvbox = apply_token_url(tvbox, center_token)
     tvbox = apply_jar_md5(tvbox, hashes)
-    save_json(os.path.join(out_dir, "tvbox.json"), tvbox)
     remote_base = str(settings.get("remote_base_url") or "").strip() if isinstance(settings, dict) else ""
+
+    configs = {
+        "lan": tvbox,
+        "phone": apply_phone_mode(tvbox, hashes),
+        "github": apply_github_mode(tvbox, hashes),
+        "legacy": apply_legacy_mode(tvbox, hashes),
+    }
+    outputs = {
+        "tvbox.json": configs["lan"],
+        "tvbox.phone.json": configs["phone"],
+        "tvbox.github.json": configs["github"],
+        "tvbox.legacy.json": configs["legacy"],
+        "caiji.json": caiji,
+        "lmw.json": lmw,
+        "compat.json": build_compat(configs, hashes),
+    }
     if remote_base:
-        save_json(os.path.join(out_dir, "tvbox.remote.json"),
-                  apply_remote_base(tvbox, remote_base, hashes))
-        print("remote -> %s (base %s)" % (os.path.join(out_dir, "tvbox.remote.json"), remote_base))
-    save_json(os.path.join(out_dir, "tvbox.phone.json"),
-              apply_phone_mode(tvbox, hashes))
-    print("phone  -> %s (local jars, no LAN token)" % os.path.join(out_dir, "tvbox.phone.json"))
-    save_json(os.path.join(out_dir, "tvbox.github.json"),
-              apply_github_mode(tvbox, hashes))
-    print("github -> %s (gh-proxy jars, no LAN token)" % os.path.join(out_dir, "tvbox.github.json"))
-    save_json(os.path.join(out_dir, "caiji.json"), caiji)
-    save_json(os.path.join(out_dir, "lmw.json"), lmw)
+        outputs["tvbox.remote.json"] = apply_remote_base(tvbox, remote_base, hashes)
+
+    for name, data in outputs.items():
+        save_json(os.path.join(work_dir, name), data)
+
+    errors, warnings = validate.validate_outputs(work_dir)
+    for warning in warnings:
+        print("[compat warning] %s" % warning)
+    if errors:
+        for error in errors:
+            print("[compat error] %s" % error)
+        print("[build rejected] 配置未通过兼容性校验，旧文件保持不变")
+        if inplace:
+            shutil.rmtree(work_dir, ignore_errors=True)
+        return 1
+
+    if inplace:
+        for name in outputs:
+            os.replace(os.path.join(work_dir, name), os.path.join(ROOT, name))
+        shutil.rmtree(work_dir, ignore_errors=True)
+        out_dir = ROOT
+    else:
+        out_dir = work_dir
 
     print("built -> %s" % out_dir)
     print("tvbox.json sites=%d | caiji.json sites=%d | lmw.json urls=%d"
           % (len(tvbox["sites"]), len(caiji["sites"]), len(repos)))
+    print("profiles: lan phone github legacy | compat.json")
     if blocked_sites or blocked_caiji or blocked_repos or parses_excluded:
         print("excluded: sites=%d caiji=%d repos=%d parses=%d (blocked / drop-dead)"
               % (blocked_sites, blocked_caiji, blocked_repos, parses_excluded))
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

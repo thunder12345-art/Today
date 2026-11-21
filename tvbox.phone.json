@@ -436,23 +436,6 @@
             "timeout": 60
         },
         {
-            "key": "花卷",
-            "name": "花卷·4K",
-            "type": 3,
-            "api": "csp_PanWebShareHJ",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 1,
-            "ext": {
-                "site": [
-                    "https://www.hjzhencai.top"
-                ]
-            },
-            "timeout": 60,
-            "jar": "./jar/spider.jar;md5;16e7a6d79af111b1a67a04769e877fb7"
-        },
-        {
             "key": "夸父",
             "name": "夸父·4K",
             "type": 3,
@@ -491,20 +474,6 @@
                 ]
             },
             "timeout": 60
-        },
-        {
-            "key": "卡卡",
-            "name": "卡卡·4K",
-            "type": 3,
-            "api": "csp_KKPan",
-            "searchable": 1,
-            "quickSearch": 0,
-            "filterable": 0,
-            "style": {
-                "type": "list"
-            },
-            "timeout": 60,
-            "jar": "./jar/spider.jar;md5;16e7a6d79af111b1a67a04769e877fb7"
         },
         {
             "key": "即刻",
@@ -555,28 +524,6 @@
             "timeout": 60
         },
         {
-            "key": "爱盼",
-            "name": "爱盼·4K",
-            "type": 3,
-            "api": "csp_AiPan",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "timeout": 60,
-            "jar": "./jar/spider.jar;md5;16e7a6d79af111b1a67a04769e877fb7"
-        },
-        {
-            "key": "觅盘",
-            "name": "觅盘·搜索",
-            "type": 3,
-            "api": "csp_MiPan",
-            "searchable": 1,
-            "quickSearch": 0,
-            "filterable": 0,
-            "timeout": 60,
-            "jar": "./jar/spider.jar;md5;16e7a6d79af111b1a67a04769e877fb7"
-        },
-        {
             "key": "夸克网盘",
             "name": "夸克·网盘",
             "type": 3,
@@ -616,62 +563,6 @@
             }
         },
         {
-            "key": "迅雷云盘",
-            "name": "迅雷·云盘",
-            "type": 3,
-            "api": "csp_PanXunlei",
-            "searchable": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "style": {
-                "type": "list",
-                "ratio": 1.433
-            },
-            "jar": "./jar/spider.jar;md5;16e7a6d79af111b1a67a04769e877fb7"
-        },
-        {
-            "key": "光鸭云盘",
-            "name": "光鸭·云盘",
-            "type": 3,
-            "api": "csp_PanGuangya",
-            "searchable": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "style": {
-                "type": "list",
-                "ratio": 1.433
-            },
-            "jar": "./jar/spider.jar;md5;16e7a6d79af111b1a67a04769e877fb7"
-        },
-        {
-            "key": "天翼云盘",
-            "name": "天翼·云盘",
-            "type": 3,
-            "api": "csp_PanTianyi",
-            "searchable": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "style": {
-                "type": "list",
-                "ratio": 1.433
-            },
-            "jar": "./jar/spider.jar;md5;16e7a6d79af111b1a67a04769e877fb7"
-        },
-        {
-            "key": "123云盘",
-            "name": "123·云盘",
-            "type": 3,
-            "api": "csp_Pan123",
-            "searchable": 0,
-            "filterable": 0,
-            "changeable": 0,
-            "style": {
-                "type": "list",
-                "ratio": 1.433
-            },
-            "jar": "./jar/spider.jar;md5;16e7a6d79af111b1a67a04769e877fb7"
-        },
-        {
             "key": "阿里云盘",
             "name": "阿里·云盘",
             "type": 3,
@@ -698,43 +589,6 @@
             "searchable": 0,
             "filterable": 0,
             "changeable": 0
-        },
-        {
-            "key": "至臻",
-            "name": "🤪至臻丨4K",
-            "type": 3,
-            "api": "csp_PanWebShare",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 1,
-            "ext": {
-                "site": [
-                    "https://mihdr.top",
-                    "https://www.miqk.cc",
-                    "https://www.mihdr.top"
-                ]
-            },
-            "timeout": 60
-        },
-        {
-            "key": "种子",
-            "name": "🍃SeedHub丨4K",
-            "type": 3,
-            "api": "csp_SeedHub",
-            "searchable": 1,
-            "quickSearch": 1,
-            "filterable": 1,
-            "changeable": 1,
-            "ext": {
-                "site": [
-                    "https://sidhub.cc",
-                    "https://seeduck.cc",
-                    "https://hubdog.cc",
-                    "http://104.243.25.80"
-                ]
-            },
-            "timeout": 60
         },
         {
             "key": "聚合",
@@ -806,7 +660,7 @@
                 "type": "rect",
                 "ratio": 3.8
             },
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "lf_js_lf_live",
@@ -829,7 +683,7 @@
             "api": "csp_Kugou",
             "searchable": 1,
             "changeable": 0,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Wogg",
@@ -858,7 +712,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json$$$https://www.meijumi.xyz/$$$null$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "drpy_js_4KHDR",
@@ -1036,7 +890,7 @@
             "searchable": 0,
             "changeable": 0,
             "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/market.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "PushShare",
@@ -1052,7 +906,7 @@
             "style": {
                 "type": "list"
             },
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "PikPakShare",
@@ -1065,7 +919,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/pikpakclass.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/pikpakclass.json.db.gz",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "AliShare",
@@ -1078,7 +932,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/alishare.txt$$$db$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "AliShareEBook",
@@ -1094,7 +948,7 @@
             "style": {
                 "type": "list"
             },
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "ThunderShare",
@@ -1107,7 +961,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/thundershare.txt",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "QuarkShare",
@@ -1120,7 +974,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/quarkshare.txt",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "115Share",
@@ -1137,7 +991,7 @@
                 "type": "list",
                 "ratio": 1.1
             },
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "UCShare",
@@ -1154,7 +1008,7 @@
                 "type": "list",
                 "ratio": 1.1
             },
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "SambaShare",
@@ -1167,7 +1021,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/sambashare.txt",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Bdys_spider",
@@ -1179,7 +1033,7 @@
             "searchable": 1,
             "ext": "http://127.0.0.1:9/token.json$$$https://www.bdys03.com/$$$null$$$1",
             "timeout": 30,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "荐片弹幕版",
@@ -1191,7 +1045,7 @@
             "filterable": 1,
             "ext": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/jianpian.json$$$1",
             "timeout": 60,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Bt0",
@@ -1203,7 +1057,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$null$$$null$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Wobg",
@@ -1215,7 +1069,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://wobge.run.goorm.io$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "yydsys",
@@ -1227,7 +1081,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://tv.yydsys.top/$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "蜡笔网盘",
@@ -1239,7 +1093,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://duopan.fun/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$LABI",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Mogg",
@@ -1251,7 +1105,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$http://mogg.top/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$MOGG",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "土豆",
@@ -1263,7 +1117,7 @@
             "changeable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://tudou.lvdoui.top/$$$proxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$TUDOU",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "小米网盘",
@@ -1275,7 +1129,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://mihdr.top/$$$noproxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json$$$XIAOMI",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Moli",
@@ -1287,7 +1141,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://www.hdmoli.pro/$$$null$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/moli.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Xinshijue",
@@ -1299,7 +1153,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://www.80yy3.com/$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Gaoqing",
@@ -1311,7 +1165,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://gaoqing.la/$$$proxy$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "音范丝",
@@ -1323,7 +1177,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://www.yinfans.me/$$$proxy$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "ddys",
@@ -1335,7 +1189,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://ddys.pro/$$$proxy$$$1$$$",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Ppxzy",
@@ -1347,7 +1201,7 @@
             "filterable": 1,
             "ext": "http://127.0.0.1:9/token.json$$$https://ppxzy.net/$$$null",
             "timeout": 30,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Panta",
@@ -1359,7 +1213,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json$$$https://www.91panta.cn/$$$null$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Hdhive",
@@ -1371,7 +1225,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://hdhive.online$$$noproxy$$$1$$$http://127.0.0.1:9978/file/TV/hdhive.txt",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "新6V",
@@ -1382,7 +1236,7 @@
             "changeable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://www.66ss.org$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "4KHDR",
@@ -1393,7 +1247,7 @@
             "quickSearch": 1,
             "changeable": 1,
             "timeout": 60,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "校长影视",
@@ -1404,7 +1258,7 @@
             "quickSearch": 1,
             "changeable": 1,
             "timeout": 30,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "团长资源",
@@ -1415,7 +1269,7 @@
             "quickSearch": 1,
             "changeable": 1,
             "timeout": 30,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "YunPan",
@@ -1424,7 +1278,7 @@
             "api": "csp_YunPan",
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$null$$$proxy$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Wo4k",
@@ -1436,7 +1290,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://www.wo4k.com/$$$proxy$$$1$$$https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/json/wogg.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Xpanpan",
@@ -1448,7 +1302,7 @@
             "filterable": 1,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$https://xpanpan.site$$$null$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "YingSo",
@@ -1457,7 +1311,7 @@
             "api": "csp_YingSo",
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "盘友圈",
@@ -1466,7 +1320,7 @@
             "api": "csp_Panyq",
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "88Pan",
@@ -1475,7 +1329,7 @@
             "api": "csp_EightEight",
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json$$$https://662688.xyz",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "PikaSo",
@@ -1487,7 +1341,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json$$$https://www.pikaso.top/$$$null",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "csp_HunHePan",
@@ -1500,7 +1354,7 @@
             "filterable": 0,
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$null$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "秒搜",
@@ -1509,7 +1363,7 @@
             "api": "csp_MiaoSou",
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Libvio",
@@ -1521,7 +1375,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json$$$https://www.libvio.fun$$$null",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "DaPanSo",
@@ -1533,7 +1387,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json$$$https://dapanso.com$$$null",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Qianfan",
@@ -1545,7 +1399,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json$$$https://pan.qianfan.app$$$null$$$QianFanID=",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "YunSo",
@@ -1557,7 +1411,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "YunPanOne",
@@ -1569,7 +1423,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "小紙條",
@@ -1581,7 +1435,7 @@
             "filterable": 0,
             "ext": "http://127.0.0.1:9/token.json",
             "timeout": 30,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "盤搜索",
@@ -1592,7 +1446,7 @@
             "changeable": 0,
             "ext": "http://127.0.0.1:9/token.json",
             "timeout": 30,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "找資源",
@@ -1603,7 +1457,7 @@
             "changeable": 0,
             "ext": "http://127.0.0.1:9/token.json",
             "timeout": 30,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "易搜",
@@ -1612,7 +1466,7 @@
             "api": "csp_YiSo",
             "ext": "http://127.0.0.1:9/token.json",
             "timeout": 30,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "UP云搜",
@@ -1621,7 +1475,7 @@
             "api": "csp_UpYun",
             "ext": "http://127.0.0.1:9/token.json",
             "timeout": 30,
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "Funletu",
@@ -1633,7 +1487,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "QuarkPanso",
@@ -1645,7 +1499,7 @@
             "filterable": 1,
             "timeout": 30,
             "ext": "http://127.0.0.1:9/token.json",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "TGYunPan",
@@ -1654,7 +1508,7 @@
             "api": "csp_TGYunPan",
             "timeout": 60,
             "ext": "http://127.0.0.1:9/token.json$$$http://144.126.217.226:8000/$$$hao115,Aliyundrive_Share_Channel,kuakeyun$$$noproxy$$$1",
-            "jar": "./jar/pg_upgraded.jar"
+            "jar": "./jar/pg_upgraded.jar;md5;e58c3a2975d24db4978065ab895cf297"
         },
         {
             "key": "drpy_js_豆瓣",

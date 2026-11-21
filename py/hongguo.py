@@ -3740,6 +3740,62 @@ def _video_model(video_id: str, config: Mapping[str, Any]) -> dict[str, Any]:
         raise HongguoPluginError("video_model 为空")
     return dict(raw_model)
 
+_WEB_SESSION: Any = None
+_WEB_SESSION_AT = 0.0
+_WEB_SESSION_LOCK = threading.Lock()
+_WEB_SESSION_TTL = 6 * 3600
+
+
+def _web_session() -> Any:
+    global _WEB_SESSION, _WEB_SESSION_AT
+    with _WEB_SESSION_LOCK:
+        if _WEB_SESSION is not None and time.time() - _WEB_SESSION_AT < _WEB_SESSION_TTL:
+            return _WEB_SESSION
+        sess = requests.Session()
+        sess.trust_env = False
+        sess.headers.update({
+            "User-Agent": UA,
+            "Accept": "application/json, text/plain, */*",
+            "Content-Type": "application/json",
+            "Origin": SITE,
+            "Referer": SITE + "/",
+        })
+        try:
+            sess.get(SITE + "/", timeout=15)
+        except Exception:
+            pass
+        _WEB_SESSION = sess
+        _WEB_SESSION_AT = time.time()
+        return sess
+
+
+def _web_fallback_play_url(video_id: str) -> str:
+    """官方 Web 兜底：免费集可直接拿到未加密 MP4，不依赖 App 取流签名。"""
+    body = json.dumps({"item_id": str(video_id)}, separators=(",", ":"))
+    for attempt in range(2):
+        try:
+            sess = _web_session()
+            resp = sess.post(
+                SITE + "/api/video/protected/fallback-play-info",
+                data=body,
+                timeout=20,
+            )
+            if resp.status_code != 200:
+                continue
+            data = resp.json()
+            url = _text(data.get("main_url"))
+            expire = data.get("url_expire")
+            if url.startswith(("http://", "https://")):
+                if expire is None or int(expire) * 1000 > time.time() * 1000 + 5000:
+                    return url
+        except Exception:
+            pass
+        with _WEB_SESSION_LOCK:
+            globals()["_WEB_SESSION"] = None
+            globals()["_WEB_SESSION_AT"] = 0.0
+    return ""
+
+
 def _video_list_from_model(model: Mapping[str, Any]) -> Any:
     for key in ("video_list", "dynamic_video_list"):
         if model.get(key) is not None:
@@ -5100,6 +5156,18 @@ class Spider(_BaseSpider):
                 "playUrl": "",
                 "url": SITE + "/",
                 "header": {"User-Agent": UA},
+            }
+        try:
+            web_url = _web_fallback_play_url(vid)
+        except Exception:
+            web_url = ""
+        if web_url:
+            return {
+                "parse": 0,
+                "jx": 0,
+                "playUrl": "",
+                "url": web_url,
+                "header": {"User-Agent": UA, "Referer": SITE + "/"},
             }
         # 取流优先级：本机 Range 流服务 > 壳代理。
         # 壳代理（fongmi / OK影视 的 /proxy?do=py）实测会忽略 Range：对 bytes=0-1023

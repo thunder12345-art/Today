@@ -32,10 +32,13 @@ class JarCacheTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.mkdtemp()
         self.old_dir = server.JAR_CACHE_DIR
+        self.old_root = server.ROOT
         server.JAR_CACHE_DIR = self.tmp
+        server.ROOT = self.tmp
 
     def tearDown(self):
         server.JAR_CACHE_DIR = self.old_dir
+        server.ROOT = self.old_root
 
     def test_downloads_once(self):
         with mock.patch.object(server, "http_fetch", return_value=(200, ZIP)) as fetch:
@@ -110,7 +113,7 @@ class PhoneModeTests(unittest.TestCase):
         self.assertIn(common.PHONE_TOKEN_URL, by_key["Wogg"]["ext"])
         self.assertNotIn("192.168.1.254", by_key["Wogg"]["ext"])
         self.assertTrue(by_key["花卷"]["jar"].startswith("./jar/spider.jar"))
-        self.assertTrue(out["spider"].startswith("./tvbox.jar"))
+        self.assertTrue(out["spider"].startswith("./jar/spider.jar"))
 
     def test_github_uses_absolute_proxy_and_fast_fail_token(self):
         config = {"spider": "./tvbox.jar", "sites": [

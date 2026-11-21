@@ -591,6 +591,9 @@ def ensure_local_jar(name):
     sources = LOCAL_JAR_SOURCES.get(name)
     if not sources:
         return None
+    local = os.path.join(ROOT, "jar", name)
+    if os.path.exists(local) and os.path.getsize(local) >= 50000:
+        return local
     path = os.path.join(JAR_CACHE_DIR, name)
     if jar_is_fresh(path):
         return path

@@ -20,13 +20,15 @@ def apply_public_jars(config, jar_urls, spider_url, hashes=None):
             public_jar = jar_urls.get(name)
             if public_jar:
                 entry = dict(entry)
-                entry["jar"] = with_jar_md5(public_jar, name, hashes)
+                entry["jar"] = with_jar_md5(public_jar, name, hashes, replace=True)
         sites.append(entry)
     result = dict(config)
     result["sites"] = sites
     spider = result.get("spider")
-    if isinstance(spider, str) and spider.strip().split(";md5;", 1)[0].endswith("tvbox.jar"):
-        result["spider"] = with_jar_md5(spider_url, "tvbox.jar", hashes)
+    if isinstance(spider, str) and spider.strip().split(";md5;", 1)[0].rsplit("/", 1)[-1] \
+            in ("tvbox.jar", "spider.jar"):
+        result["spider"] = with_jar_md5(jar_urls.get("spider.jar", spider_url),
+                                        "spider.jar", hashes, replace=True)
     return result
 
 
@@ -71,19 +73,19 @@ def apply_jar_md5(config, hashes=None):
     for item in config.get("sites") or []:
         entry = item
         jar = entry.get("jar")
-        if isinstance(jar, str) and ";md5;" not in jar:
-            core = jar.strip().split("?", 1)[0]
+        if isinstance(jar, str):
+            core = jar.strip().split(";md5;", 1)[0].split("?", 1)[0]
             name = core.rsplit("/", 1)[-1]
             if name in ("spider.jar", "pg_upgraded.jar"):
                 entry = dict(entry)
-                entry["jar"] = with_jar_md5(jar, name, hashes)
+                entry["jar"] = with_jar_md5(jar, name, hashes, replace=True)
         sites.append(entry)
     result = dict(config)
     result["sites"] = sites
     spider = result.get("spider")
-    if isinstance(spider, str) and ";md5;" not in spider \
-            and spider.strip().endswith("tvbox.jar"):
-        result["spider"] = with_jar_md5(spider, "tvbox.jar", hashes)
+    if isinstance(spider, str) and spider.strip().split(";md5;", 1)[0].endswith("tvbox.jar"):
+        result["spider"] = with_jar_md5("./jar/spider.jar", "spider.jar", hashes,
+                                        replace=True)
     return result
 
 
@@ -97,16 +99,18 @@ def apply_local_jars(config, hashes=None):
             name = core.rsplit("/", 1)[-1]
             if name == "tvbox.jar":
                 entry = dict(entry)
-                entry["jar"] = with_jar_md5("./tvbox.jar", name, hashes)
+                entry["jar"] = with_jar_md5("./tvbox.jar", name, hashes, replace=True)
             elif name in ("spider.jar", "pg_upgraded.jar"):
                 entry = dict(entry)
-                entry["jar"] = with_jar_md5("./jar/" + name, name, hashes)
+                entry["jar"] = with_jar_md5("./jar/" + name, name, hashes,
+                                            replace=True)
         sites.append(entry)
     result = dict(config)
     result["sites"] = sites
     spider = result.get("spider")
     if isinstance(spider, str) and spider.strip().split(";md5;", 1)[0].endswith("tvbox.jar"):
-        result["spider"] = with_jar_md5("./tvbox.jar", "tvbox.jar", hashes)
+        result["spider"] = with_jar_md5("./jar/spider.jar", "spider.jar", hashes,
+                                        replace=True)
     return result
 
 

@@ -89,12 +89,12 @@ def publish_allowed(epoch, state):
 
 LOCAL_JAR_ALLOWLIST = ("spider.jar", "pg_upgraded.jar")
 PUBLIC_JAR_URLS = {
-    "spider.jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/spider.jar",
+    "spider.jar": "https://gh-proxy.com/https://raw.githubusercontent.com/thunder12345-art/Today/main/jar/spider.jar",
     "pg_upgraded.jar": "https://gh-proxy.com/https://raw.githubusercontent.com/qist/tvbox/master/jar/pg_upgraded.jar",
 }
 PUBLIC_SPIDER_URL = (
     "https://gh-proxy.com/https://raw.githubusercontent.com/"
-    "thunder12345-art/Today/main/tvbox.jar")
+    "thunder12345-art/Today/main/jar/spider.jar")
 PUBLIC_JAR_URLS_CDN = {
     "spider.jar": "https://cdn.jsdelivr.net/gh/qist/tvbox@master/jar/spider.jar",
     "pg_upgraded.jar": "https://cdn.jsdelivr.net/gh/qist/tvbox@master/jar/pg_upgraded.jar",
@@ -119,22 +119,25 @@ def file_md5(path):
 
 
 def jar_md5(name):
-    for path in (os.path.join(JAR_CACHE_DIR, name),
+    for path in (os.path.join(ROOT, "jar", name),
                  os.path.join(ROOT, name),
-                 os.path.join(ROOT, "jar", name)):
+                 os.path.join(JAR_CACHE_DIR, name)):
         value = file_md5(path)
         if value:
             return value
     return ""
 
 
-def with_jar_md5(url, name, hashes=None):
-    if not isinstance(url, str) or not url or ";md5;" in url:
+def with_jar_md5(url, name, hashes=None, replace=False):
+    if not isinstance(url, str) or not url:
         return url
+    if ";md5;" in url and not replace:
+        return url
+    core = url.split(";md5;", 1)[0]
     digest = (hashes or {}).get(name) or jar_md5(name)
     if not digest:
         return url
-    return url + ";md5;" + digest
+    return core + ";md5;" + digest
 
 
 def local_jar_url(jar, base, hashes=None):
@@ -144,7 +147,8 @@ def local_jar_url(jar, base, hashes=None):
     name = core.rsplit("/", 1)[-1]
     if name not in LOCAL_JAR_ALLOWLIST:
         return jar
-    return with_jar_md5(base.rstrip("/") + "/jar/" + name, name, hashes)
+    url = base.rstrip("/") + "/jar/" + name
+    return with_jar_md5(url, name, hashes) if hashes else url
 
 
 def rewrite_token_parts(ext, token_url):

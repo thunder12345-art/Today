@@ -3740,6 +3740,24 @@ def _video_model(video_id: str, config: Mapping[str, Any]) -> dict[str, Any]:
         raise HongguoPluginError("video_model 为空")
     return dict(raw_model)
 
+def _extend_base(extend: Any) -> str:
+    value = extend
+    if isinstance(value, str):
+        text = value.strip()
+        if not text:
+            return ""
+        try:
+            parsed = json.loads(text)
+        except ValueError:
+            return text.rstrip("/") if text.startswith(("http://", "https://")) else ""
+        value = parsed
+    if isinstance(value, Mapping):
+        base = _text(value.get("hg_base") or value.get("base") or "")
+        if base.startswith(("http://", "https://")):
+            return base.rstrip("/")
+    return ""
+
+
 _WEB_SESSION: Any = None
 _WEB_SESSION_AT = 0.0
 _WEB_SESSION_LOCK = threading.Lock()
@@ -4931,6 +4949,25 @@ class Spider(_BaseSpider):
     def __init__(self):
         self.device_id = str(random.randint(10**17, 10**18 - 1))
         self.install_id = str(random.randint(10**17, 10**18 - 1))
+        self.hg_base = ""
+
+    def _server_play_url(self, video_id: str) -> str:
+        base = str(getattr(self, "hg_base", "") or "").strip().rstrip("/")
+        if not base or not str(video_id).isdigit():
+            return ""
+        try:
+            resp = requests.get(base + "/hg/play",
+                                params={"item_id": str(video_id)},
+                                timeout=4)
+            if resp.status_code != 200:
+                return ""
+            data = resp.json()
+            url = _text(data.get("url"))
+            if url.startswith(("http://", "https://")):
+                return url
+        except Exception:
+            pass
+        return ""
 
     def _adopt_working_pair(self):
         pair = _working_device_pair()
@@ -4964,6 +5001,7 @@ class Spider(_BaseSpider):
         return ""
 
     def init(self, extend=""):
+        self.hg_base = _extend_base(extend)
         # 每次源实例使用随机合法设备标识；不依赖用户私有配置。
         try:
             _hg_cache_cleanup(False)
@@ -5156,6 +5194,18 @@ class Spider(_BaseSpider):
                 "playUrl": "",
                 "url": SITE + "/",
                 "header": {"User-Agent": UA},
+            }
+        try:
+            server_url = self._server_play_url(vid)
+        except Exception:
+            server_url = ""
+        if server_url:
+            return {
+                "parse": 0,
+                "jx": 0,
+                "playUrl": "",
+                "url": server_url,
+                "header": {"User-Agent": UA, "Referer": SITE + "/"},
             }
         try:
             web_url = _web_fallback_play_url(vid)

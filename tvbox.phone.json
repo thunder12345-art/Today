@@ -327,7 +327,10 @@
             "name": "红果·短剧",
             "type": 3,
             "api": "./py/hongguo.py",
-            "genre": "shortdrama"
+            "genre": "shortdrama",
+            "ext": {
+                "hg_base": "http://192.168.1.254:8899"
+            }
         },
         {
             "key": "玩偶",
